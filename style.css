@@ -748,3 +748,132 @@ button {
 .theme-grid {
   align-items: stretch;
 }
+
+
+/* V1.2 — editorias com subcards e palavras-chave clicáveis */
+
+.editoria-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(310px, 1fr));
+  gap: 22px;
+}
+
+.editoria-card {
+  background: var(--surface);
+  border: 1px solid rgba(91, 46, 145, 0.14);
+  border-radius: var(--radius-lg);
+  padding: 22px;
+  box-shadow: var(--shadow-soft);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  min-height: 100%;
+}
+
+.editoria-head h3 {
+  margin: 10px 0 8px;
+  color: var(--primary);
+  font-family: var(--font-title);
+  font-size: clamp(1.5rem, 2vw, 2rem);
+}
+
+.editoria-head p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+.mini-list {
+  display: grid;
+  gap: 12px;
+}
+
+.mini-card {
+  display: grid;
+  gap: 5px;
+  padding: 14px;
+  border-radius: 16px;
+  background: color-mix(in srgb, var(--background) 76%, white);
+  border-left: 5px solid var(--secondary);
+  text-decoration: none;
+  color: var(--text);
+  transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+}
+
+.mini-card:hover,
+.mini-card:focus {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-soft);
+  border-left-color: var(--accent);
+}
+
+.mini-card strong {
+  color: var(--primary);
+  font-size: 0.98rem;
+}
+
+.mini-card span {
+  color: var(--text);
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
+
+.mini-card small {
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+.button.small {
+  align-self: flex-start;
+  padding: 9px 13px;
+  font-size: 0.9rem;
+}
+
+.card-subtitle,
+.feature-subtitle,
+.detail-subtitle {
+  color: var(--muted);
+  font-weight: 600;
+  margin-top: -4px;
+}
+
+.keywords {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 14px;
+}
+
+.keyword {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: color-mix(in srgb, var(--marker) 35%, white);
+  color: var(--text);
+  border: 1px solid rgba(31,31,31,0.08);
+  border-radius: 999px;
+  padding: 6px 10px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.keyword:hover,
+.keyword:focus {
+  background: var(--marker);
+}
+
+.detail-subtitle {
+  font-size: clamp(1.05rem, 2vw, 1.3rem);
+  max-width: 800px;
+}
+
+@media (max-width: 760px) {
+  .editoria-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .editoria-card {
+    padding: 18px;
+  }
+}

@@ -1,67 +1,32 @@
-# Sociosofia — GitHub Pages
+# Sociosofia — V1.2 Editorias e Subcards
 
-Site estático do Sociosofia, uma revista digital de repertórios de Sociologia e Filosofia para estudantes do ensino médio.
+Esta versão testa a arquitetura sugerida por Luiz: **tema/editoria grande** com **subcards de repertórios** dentro dele.
 
-## Arquivos principais
+## O que mudou
 
-- `index.html`: página inicial com busca, temas, curadoria e cards.
-- `repertorio.html`: página individual de cada repertório.
-- `sobre.html`: apresentação do projeto e política de curadoria.
-- `style.css`: identidade visual do site.
-- `app.js`: busca, filtros e renderização dos cards.
-- `repertorio.js`: renderização da página individual.
-- `data/repertorios.json`: banco editável de repertórios.
+- A home agora renderiza automaticamente editorias a partir do campo `editoria`.
+- Dentro de cada editoria aparecem subcards de repertórios.
+- Cada repertório tem `titulo` + `subtitulo`.
+- O resumo aparece em um parágrafo único.
+- As palavras-chave (`tags`) são clicáveis e filtram o site.
+- A página individual mostra: resumo, dado central, questão para pensar, conexões possíveis, fonte completa e tags.
 
-## Como alimentar o site
+## Alimentação do site
 
-Edite `data/repertorios.json`. Cada repertório é um bloco entre chaves `{ ... }`.
+Edite `data/repertorios.json`. Cada item segue o modelo em `data/modelo-repertorio.json`.
 
-Modelo:
+Campos principais:
 
-```json
-{
-  "id": "SOC-0010",
-  "titulo": "Título curto do repertório",
-  "tipo": "Pesquisa/dado",
-  "categoria": "Trabalho e desigualdade",
-  "tema": "Tema específico",
-  "resumo": "Resumo curto para estudantes.",
-  "ideia": "Dado ou ideia central.",
-  "importancia": "Por que isso importa?",
-  "questao": "Pergunta que o repertório ajuda a abrir.",
-  "conexoes": "Relações possíveis com temas, conceitos, autores ou problemas sociais.",
-  "conceitos": ["Conceito 1", "Conceito 2"],
-  "autores": ["Autor 1", "Autora 2"],
-  "fonte_nome": "Nome da fonte",
-  "fonte_url": "https://link-da-fonte-original.com",
-  "ano_data": "2026",
-  "confiabilidade": "Alta",
-  "tempo_leitura": "3 min",
-  "status": "aguardando revisão",
-  "destaque": false,
-  "tags": ["tag1", "tag2"]
-}
-```
+- `editoria`: grande tema do site, como Educação e juventudes.
+- `subtema`: recorte menor dentro do tema.
+- `titulo`: título curto, com palavras-chave.
+- `subtitulo`: frase explicativa mais longa.
+- `resumo`: um parágrafo com fonte, achado principal e problema social.
+- `fonte_url`: link para a fonte completa.
+- `tags`: palavras-chave clicáveis.
+- `fonte_status`: conferida, parcial ou aguardando link direto.
+- `status`: aguardando fonte, aguardando revisão, revisado ou publicado.
 
-## Publicação segura
+## Segurança editorial
 
-No arquivo `app.js`, há esta configuração:
-
-```js
-const CONFIG = {
-  mostrarRascunhos: true,
-  statusPublicaveis: ["revisado", "publicado"]
-};
-```
-
-Durante a montagem, `mostrarRascunhos: true` permite visualizar fichas em revisão. Antes de divulgar para estudantes, recomenda-se mudar para `false` e deixar visíveis apenas itens com status `revisado` ou `publicado`.
-
-## Diretriz editorial
-
-O Sociosofia deve organizar o conteúdo por temas e problemas, não por separação entre Filosofia e Sociologia. Cada card deve responder rapidamente:
-
-- O que é?
-- Por que importa?
-- Que questão abre?
-- Com quais conceitos conversa?
-- Qual é a fonte original?
+Nem todo item de Instagram deve virar fonte. A legenda pode servir como pista, mas a publicação final deve apontar para fonte original: relatório, pesquisa, órgão público, universidade, periódico, observatório ou reportagem confiável.

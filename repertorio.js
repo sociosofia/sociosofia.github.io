@@ -35,37 +35,39 @@ async function iniciarDetalhe() {
 function renderizarItem(item) {
   const conceitos = normalizarLista(item.conceitos);
   const autores = normalizarLista(item.autores);
+  const tags = normalizarLista(item.tags);
 
   detalhe.innerHTML = `
     <header class="detail-hero">
       <div>
         <span class="tag ${item.status !== "publicado" ? "review" : ""}">${escapar(item.tipo || "Repertório")}</span>
         <h1>${escapar(item.titulo)}</h1>
+        ${item.subtitulo ? `<p class="detail-subtitle">${escapar(item.subtitulo)}</p>` : ""}
         <p>${escapar(item.resumo)}</p>
         <div class="detail-meta">
-          <span>${escapar(item.categoria)}</span>
+          <span>${escapar(item.editoria || item.categoria)}</span>
           <span>•</span>
-          <span>${escapar(item.tema)}</span>
+          <span>${escapar(item.subtema || item.tema || "")}</span>
           <span>•</span>
           <span>${escapar(item.status || "rascunho")}</span>
         </div>
+        ${tags.length ? `<div class="keywords">${tags.map((tag) => `<a class="keyword" href="index.html?tag=${encodeURIComponent(tag)}#repertorios">${escapar(tag)}</a>`).join("")}</div>` : ""}
       </div>
       <aside class="detail-sidebar" aria-label="Metadados do repertório">
         <dl>
-          <dt>Fonte original</dt>
+          <dt>Fonte completa</dt>
           <dd>${item.fonte_url ? `<a href="${escaparAtributo(item.fonte_url)}" target="_blank" rel="noopener noreferrer">${escapar(item.fonte_nome || "Acessar fonte")}</a>` : escapar(item.fonte_nome || "A definir")}</dd>
           <dt>Ano ou data</dt>
           <dd>${escapar(item.ano_data || "A definir")}</dd>
           <dt>Confiabilidade</dt>
           <dd>${escapar(item.confiabilidade || "A avaliar")}</dd>
-          <dt>Tempo de leitura</dt>
-          <dd>${escapar(item.tempo_leitura || "Leitura rápida")}</dd>
+          <dt>Conferência da fonte</dt>
+          <dd>${escapar(item.fonte_status || "A confirmar")}</dd>
         </dl>
       </aside>
     </header>
 
-    ${secao("Dado ou ideia central", item.ideia)}
-    ${secao("Por que isso importa?", item.importancia)}
+    ${secao("Dado ou ideia central", item.dado || item.ideia)}
     ${secao("Questão para pensar", item.questao)}
     ${secao("Conexões possíveis", item.conexoes)}
 
@@ -78,8 +80,6 @@ function renderizarItem(item) {
       <h2>Autores que ajudam a pensar</h2>
       ${autores.length ? `<p>${autores.map(escapar).join("; ")}.</p>` : `<p>A definir.</p>`}
     </section>
-
-    ${item.midia_relacionada && item.midia_relacionada !== "A definir" ? secao("Repertório cultural relacionado", item.midia_relacionada) : ""}
 
     <p><a class="button" href="index.html#repertorios">Voltar aos repertórios</a></p>
   `;
