@@ -1,53 +1,137 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sociosofia</title>
-
-     <link rel="stylesheet" href="style.css">
-
-    </head>
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Sociosofia: revista digital de repertórios de Sociologia e Filosofia para estudantes do ensino médio." />
+  <title>Sociosofia | Repertórios para pensar o mundo</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700;9..144,800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css" />
+</head>
 <body>
-  <header>
-    <h1>Sociosofia</h1>
-    <p>Revista digital de repertórios de Sociologia e Filosofia para estudantes do ensino médio.</p>
+  <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
+  <header class="site-header">
+    <nav class="nav container" aria-label="Menu principal">
+      <a class="brand" href="index.html" aria-label="Página inicial do Sociosofia">
+        <span class="brand-mark" aria-hidden="true">S</span>
+        <span>Sociosofia</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="menu-principal">Menu</button>
+      <ul id="menu-principal" class="nav-list">
+        <li><a href="index.html">Início</a></li>
+        <li><a href="#temas">Temas</a></li>
+        <li><a href="#repertorios">Repertórios</a></li>
+        <li><a href="guia.html">Como usar</a></li>
+        <li><a href="sobre.html">Sobre</a></li>
+      </ul>
+    </nav>
+
+    <section class="hero container" aria-labelledby="titulo-site">
+      <p class="eyebrow">Revista digital de repertórios</p>
+      <h1 id="titulo-site">Repertórios para pensar o mundo</h1>
+      <p class="hero-text">
+        Dados, conceitos, filmes, séries, pesquisas e problemas contemporâneos para usar em redações, debates, seminários e aulas.
+      </p>
+
+      <form class="search-box" role="search" aria-label="Busca de repertórios">
+        <label for="busca" class="sr-only">Buscar repertórios</label>
+        <input id="busca" type="search" placeholder="Busque por tema, conceito, autor, filme ou atualidade..." autocomplete="off" />
+        <button type="submit">Buscar</button>
+      </form>
+
+      <div class="quick-links" aria-label="Caminhos rápidos">
+        <button class="chip" data-chip="trabalho">Trabalho</button>
+        <button class="chip" data-chip="tecnologia">Tecnologia</button>
+        <button class="chip" data-chip="racismo">Racismo</button>
+        <button class="chip" data-chip="gênero">Gênero</button>
+        <button class="chip" data-chip="educação">Educação</button>
+      </div>
+    </section>
   </header>
 
-  <main>
-    <section class="intro">
-      <h2>O que é o Sociosofia?</h2>
-      <p>
-        O Sociosofia reúne dados, conceitos, filmes, séries, notícias, pesquisas e repertórios culturais para ajudar estudantes a pensar criticamente a sociedade e usar boas referências em redações, debates e aulas.
-      </p>
+  <main id="conteudo">
+    <section class="section section-feature container" aria-labelledby="curadoria-titulo">
+      <div class="section-heading">
+        <p class="eyebrow">Curadoria da semana</p>
+        <h2 id="curadoria-titulo">Comece por aqui</h2>
+        <p>Um repertório em destaque para abrir conversas entre Sociologia, Filosofia e atualidades.</p>
+      </div>
+      <div id="curadoria" class="feature-card" aria-live="polite"></div>
     </section>
 
-    <section class="grid">
-      <article class="card">
-        <span class="tag">Repertórios</span>
-        <h2>Dados e pesquisas</h2>
-        <p>Fontes confiáveis, como IBGE, IPEA, ONU, Unesco, universidades e observatórios reconhecidos.</p>
-      </article>
+    <section id="temas" class="section container" aria-labelledby="temas-titulo">
+      <div class="section-heading">
+        <p class="eyebrow">Explore por problemas</p>
+        <h2 id="temas-titulo">Temas do Sociosofia</h2>
+        <p>O site é organizado por temas e problemas do mundo contemporâneo, não por divisão entre Filosofia e Sociologia.</p>
+      </div>
+      <div class="theme-grid">
+        <button class="theme-card" data-chip="trabalho"><span>Trabalho e desigualdade</span><small>Precarização, direitos, cidadania</small></button>
+        <button class="theme-card" data-chip="tecnologia"><span>Tecnologia e subjetividade</span><small>Algoritmos, corpo, atenção</small></button>
+        <button class="theme-card" data-chip="gênero"><span>Gênero e feminismos</span><small>Violência, cuidado, direitos</small></button>
+        <button class="theme-card" data-chip="racismo"><span>Racismo e colonialidade</span><small>Território, Estado, reconhecimento</small></button>
+        <button class="theme-card" data-chip="educação"><span>Educação e juventudes</span><small>Escola, desigualdade, rotulação</small></button>
+        <button class="theme-card" data-chip="democracia"><span>Política e democracia</span><small>Mídia, participação, cidadania</small></button>
+      </div>
+    </section>
 
-      <article class="card">
-        <span class="tag">Cultura</span>
-        <h2>Filmes e séries</h2>
-        <p>Indicações comentadas para relacionar cultura pop, filosofia, sociologia e temas contemporâneos.</p>
-      </article>
+    <section id="repertorios" class="section container" aria-labelledby="repertorios-titulo">
+      <div class="section-heading split">
+        <div>
+          <p class="eyebrow">Banco de repertórios</p>
+          <h2 id="repertorios-titulo">Dados, conceitos e cultura para pensar</h2>
+          <p>Cards curtos com fonte, conceitos e sugestão de uso em redação ou debate.</p>
+        </div>
+        <p id="contador" class="counter" aria-live="polite"></p>
+      </div>
 
-      <article class="card">
-        <span class="tag">Redação</span>
-        <h2>Como usar</h2>
-        <p>Explicações simples sobre como transformar repertórios em argumentos para redação, debate ou apresentação.</p>
-      </article>
+      <div class="filters" aria-label="Filtros de repertórios">
+        <label>
+          Tema
+          <select id="filtro-categoria">
+            <option value="">Todos os temas</option>
+          </select>
+        </label>
+        <label>
+          Tipo
+          <select id="filtro-tipo">
+            <option value="">Todos os tipos</option>
+          </select>
+        </label>
+        <label>
+          Uso escolar
+          <select id="filtro-uso">
+            <option value="">Todos os usos</option>
+            <option value="redação">Redação</option>
+            <option value="debate">Debate</option>
+            <option value="seminário">Seminário</option>
+            <option value="aula">Aula</option>
+          </select>
+        </label>
+        <button id="limpar-filtros" class="button ghost" type="button">Limpar filtros</button>
+      </div>
+
+      <div id="lista-repertorios" class="card-grid" aria-live="polite"></div>
+      <p id="sem-resultados" class="empty-state" hidden>Nada por aqui ainda. Tente buscar por um tema mais amplo, como trabalho, gênero ou tecnologia.</p>
     </section>
   </main>
 
-  <footer>
-    Sociosofia — Sociologia + Filosofia para pensar o presente.
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <strong>Sociosofia</strong>
+        <p>Sociologia + Filosofia para pensar o presente com mais cuidado, estranhamento e profundidade.</p>
+      </div>
+      <div>
+        <strong>Política de curadoria</strong>
+        <p>Todo repertório deve indicar fonte original, data e mediação pedagógica antes de ser publicado.</p>
+      </div>
+    </div>
   </footer>
+
+  <script src="app.js" defer></script>
 </body>
 </html>
-```
-
