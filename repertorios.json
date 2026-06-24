@@ -1,0 +1,250 @@
+[
+  {
+    "id": "EDU-0001",
+    "editoria": "Educação e juventudes",
+    "categoria": "Educação e juventudes",
+    "subtema": "Financiamento, equidade e escola pública",
+    "titulo": "Educação, orçamento e equidade",
+    "subtitulo": "O financiamento educacional como instrumento de redução de desigualdades raciais e socioeconômicas",
+    "tipo": "Pesquisa/política pública",
+    "resumo": "O debate sobre equidade na educação mostra que orçamento não é apenas uma soma de recursos: ele também orienta prioridades, comportamentos institucionais e formas de enfrentar desigualdades. A discussão sobre Fundeb, VAAR e ações de equidade ajuda a observar como políticas públicas podem induzir redes de ensino a olhar para desigualdades raciais, sociais e territoriais, em vez de tratar todos os estudantes como se partissem das mesmas condições.",
+    "dado": "O ponto central do repertório é compreender o orçamento educacional como ferramenta de indução política e pedagógica, não apenas como despesa administrativa.",
+    "questao": "O que muda quando o financiamento da educação passa a considerar desigualdades reais entre estudantes e redes de ensino?",
+    "conexoes": "Financiamento educacional, equidade, desigualdade racial, desigualdade socioeconômica, Fundeb, gestão pública e direito à educação.",
+    "conceitos": [
+      "Equidade",
+      "Política pública",
+      "Desigualdade educacional",
+      "Fundeb",
+      "Direito à educação"
+    ],
+    "autores": [
+      "Pierre Bourdieu",
+      "Paulo Freire",
+      "Nancy Fraser"
+    ],
+    "fonte_nome": "FNDE / Novo Fundeb e registro jornalístico a confirmar",
+    "fonte_url": "https://www.gov.br/fnde/pt-br/acesso-a-informacao/acoes-e-programas/financiamento/fundeb/novo-fundeb",
+    "ano_data": "Página institucional consultada em 2026",
+    "confiabilidade": "Alta para a fonte institucional; link da matéria específica ainda deve ser conferido",
+    "fonte_status": "parcial",
+    "tempo_leitura": "3 min",
+    "nivel": "Intermediário",
+    "status": "aguardando revisão",
+    "destaque": true,
+    "tags": [
+      "educação",
+      "equidade",
+      "orçamento",
+      "fundeb",
+      "desigualdade"
+    ]
+  },
+  {
+    "id": "EDU-0002",
+    "editoria": "Educação e juventudes",
+    "categoria": "Educação e juventudes",
+    "subtema": "Juventude, trabalho e permanência escolar",
+    "titulo": "Juventude, trabalho e permanência escolar",
+    "subtitulo": "O ingresso precoce no mercado de trabalho e seus impactos sobre trajetórias educacionais",
+    "tipo": "Pesquisa/dado",
+    "resumo": "A relação entre juventude, trabalho e escola precisa ser lida para além da ideia de escolha individual. Dados sobre trabalho infantil e inserção precoce no mercado de trabalho ajudam a observar como a necessidade de contribuir com a renda familiar pode disputar tempo, energia e permanência escolar. O problema não é apenas o jovem “não querer estudar”, mas as condições sociais que tornam a escola mais difícil de sustentar.",
+    "dado": "A PNAD Contínua do IBGE inclui divulgações anuais sobre educação e sobre trabalho de crianças e adolescentes de 5 a 17 anos.",
+    "questao": "Como a necessidade de trabalhar cedo interfere nas possibilidades de permanência escolar e futuro profissional?",
+    "conexoes": "Juventude, trabalho precoce, permanência escolar, desigualdade social, renda familiar, proteção social e direitos.",
+    "conceitos": [
+      "Juventude",
+      "Trabalho",
+      "Desigualdade",
+      "Permanência escolar",
+      "Proteção social"
+    ],
+    "autores": [
+      "Pierre Bourdieu",
+      "Ricardo Antunes",
+      "Robert Castel"
+    ],
+    "fonte_nome": "IBGE - PNAD Contínua, divulgação anual",
+    "fonte_url": "https://www.ibge.gov.br/estatisticas/sociais/trabalho/17270-pnad-continua.html",
+    "ano_data": "Série anual; página consultada em 2026",
+    "confiabilidade": "Alta",
+    "fonte_status": "conferida",
+    "tempo_leitura": "3 min",
+    "nivel": "Básico",
+    "status": "aguardando revisão",
+    "destaque": false,
+    "tags": [
+      "juventude",
+      "trabalho",
+      "educação",
+      "permanência escolar",
+      "desigualdade"
+    ]
+  },
+  {
+    "id": "EDU-0003",
+    "editoria": "Educação e juventudes",
+    "categoria": "Racismo e colonialidade",
+    "subtema": "Currículo, relações raciais e escola",
+    "titulo": "Relações raciais, currículo e escola",
+    "subtitulo": "A distância entre a obrigatoriedade legal e a experiência cotidiana dos estudantes",
+    "tipo": "Legislação/pesquisa",
+    "resumo": "A obrigatoriedade do ensino de história e cultura afro-brasileira abriu uma disputa importante sobre currículo, memória e reconhecimento. Mas a existência da lei não garante, por si só, que o tema chegue ao cotidiano escolar com profundidade. O repertório permite investigar a distância entre norma legal, práticas pedagógicas, formação docente e percepção dos estudantes sobre o debate racial na escola.",
+    "dado": "A Lei 10.639/2003 alterou a LDB para incluir a obrigatoriedade do ensino de história e cultura afro-brasileira; o Saeb, por sua vez, oferece dados e questionários que permitem investigar fatores do contexto escolar.",
+    "questao": "Por que uma mudança legal pode demorar tanto para transformar a experiência vivida pelos estudantes na escola?",
+    "conexoes": "Currículo, racismo estrutural, memória, reconhecimento, políticas educacionais, formação docente e experiência escolar.",
+    "conceitos": [
+      "Racismo estrutural",
+      "Currículo",
+      "Reconhecimento",
+      "Memória",
+      "Cidadania"
+    ],
+    "autores": [
+      "Nilma Lino Gomes",
+      "Sueli Carneiro",
+      "Abdias do Nascimento",
+      "Kabengele Munanga"
+    ],
+    "fonte_nome": "Lei 10.639/2003 e Inep/Saeb",
+    "fonte_url": "https://www.gov.br/inep/pt-br/areas-de-atuacao/avaliacao-e-exames-educacionais/saeb",
+    "ano_data": "Lei de 2003; página do Saeb consultada em 2026",
+    "confiabilidade": "Alta para as fontes institucionais; levantamento específico citado no Instagram deve ter link final conferido",
+    "fonte_status": "parcial",
+    "tempo_leitura": "4 min",
+    "nivel": "Intermediário",
+    "status": "aguardando revisão",
+    "destaque": false,
+    "tags": [
+      "racismo",
+      "currículo",
+      "educação",
+      "lei 10.639",
+      "saeb"
+    ]
+  },
+  {
+    "id": "EDU-0004",
+    "editoria": "Educação e juventudes",
+    "categoria": "Educação e juventudes",
+    "subtema": "Saúde mental, convivência e pertencimento",
+    "titulo": "Escola, saúde mental e pertencimento",
+    "subtitulo": "Quando o ambiente escolar deixa de ser percebido como espaço de proteção",
+    "tipo": "Pesquisa/reportagem",
+    "resumo": "Pesquisas e reportagens recentes têm apontado que a saúde mental de estudantes e educadores se tornou uma questão estrutural da vida escolar. Cansaço, ansiedade, bullying, isolamento e falta de pertencimento não aparecem apenas como problemas individuais: eles indicam formas de organização da escola, da convivência e da relação entre aprendizagem, cuidado e pressão por desempenho.",
+    "dado": "A legenda analisada menciona levantamento com estudantes, educadores e familiares sobre saúde mental na educação básica, mas o link direto da pesquisa precisa ser confirmado antes da publicação final.",
+    "questao": "O que significa dizer que a escola precisa cuidar da aprendizagem e também das condições de pertencimento?",
+    "conexoes": "Saúde mental, convivência escolar, pertencimento, bullying, cuidado, juventudes e clima escolar.",
+    "conceitos": [
+      "Saúde mental",
+      "Pertencimento",
+      "Socialização",
+      "Bullying",
+      "Juventudes"
+    ],
+    "autores": [
+      "Émile Durkheim",
+      "Paulo Freire",
+      "Byung-Chul Han"
+    ],
+    "fonte_nome": "Instituto Educbank / Porvir - link direto a confirmar",
+    "fonte_url": "https://porvir.org/",
+    "ano_data": "2024-2025, segundo legenda original; confirmar",
+    "confiabilidade": "Em verificação",
+    "fonte_status": "aguardando link direto",
+    "tempo_leitura": "3 min",
+    "nivel": "Básico",
+    "status": "aguardando fonte",
+    "destaque": false,
+    "tags": [
+      "saúde mental",
+      "educação",
+      "juventude",
+      "pertencimento",
+      "bullying"
+    ]
+  },
+  {
+    "id": "EDU-0005",
+    "editoria": "Educação e juventudes",
+    "categoria": "Trabalho e desigualdade",
+    "subtema": "Saúde mental docente e condições de trabalho",
+    "titulo": "Trabalho docente, saúde mental e sobrecarga",
+    "subtitulo": "O adoecimento de professores como problema estrutural da educação",
+    "tipo": "Pesquisa/reportagem",
+    "resumo": "O adoecimento de professores não pode ser entendido apenas como fragilidade individual. As legendas analisadas associam afastamentos, ansiedade, burnout e sofrimento psíquico a fatores como sobrecarga, violência, burocracia, pressão por resultados, plataformização e falta de apoio institucional. O repertório ajuda a deslocar a discussão da vocação docente para as condições concretas de trabalho.",
+    "dado": "As legendas citam levantamentos de APEOESP, DIEESE, AFUSE e reportagens sobre afastamentos por saúde mental; a checagem final exige o relatório ou link direto da pesquisa.",
+    "questao": "Quando o sofrimento docente deixa de ser caso individual e passa a revelar uma forma de organizar o trabalho escolar?",
+    "conexoes": "Trabalho, precarização, saúde mental, educação pública, gestão escolar, plataformas digitais e direitos trabalhistas.",
+    "conceitos": [
+      "Trabalho docente",
+      "Precarização",
+      "Burnout",
+      "Plataformização",
+      "Direitos trabalhistas"
+    ],
+    "autores": [
+      "Ricardo Antunes",
+      "Byung-Chul Han",
+      "Christophe Dejours",
+      "Pierre Bourdieu"
+    ],
+    "fonte_nome": "APEOESP / DIEESE / AFUSE - relatório a confirmar",
+    "fonte_url": "https://www.dieese.org.br/",
+    "ano_data": "2024-2025, segundo legenda original; confirmar",
+    "confiabilidade": "Em verificação",
+    "fonte_status": "aguardando relatório direto",
+    "tempo_leitura": "4 min",
+    "nivel": "Intermediário",
+    "status": "aguardando fonte",
+    "destaque": false,
+    "tags": [
+      "trabalho docente",
+      "saúde mental",
+      "professores",
+      "precarização",
+      "educação"
+    ]
+  },
+  {
+    "id": "EDU-0006",
+    "editoria": "Educação e juventudes",
+    "categoria": "Educação e juventudes",
+    "subtema": "Leitura, infância e desigualdade cultural",
+    "titulo": "Leitura, família e primeira infância",
+    "subtitulo": "A leitura compartilhada como prática cultural desigual antes da alfabetização formal",
+    "tipo": "Pesquisa/reportagem",
+    "resumo": "A leitura compartilhada antes da alfabetização formal ajuda a mostrar que desigualdades educacionais começam antes da prova, da nota e até da entrada plena na escola. Quando famílias têm menos tempo, repertório, livros ou segurança para ler com crianças pequenas, a formação leitora também se torna atravessada por desigualdades de renda, território e capital cultural.",
+    "dado": "A legenda analisada menciona estudo internacional da OCDE sobre famílias brasileiras e leitura para crianças de 5 anos; o link direto da reportagem ou relatório precisa ser confirmado antes da publicação final.",
+    "questao": "Como práticas culturais aparentemente simples, como ler para uma criança, também revelam desigualdades sociais?",
+    "conexoes": "Primeira infância, leitura, alfabetização, capital cultural, família, escola e desigualdade educacional.",
+    "conceitos": [
+      "Capital cultural",
+      "Alfabetização",
+      "Primeira infância",
+      "Desigualdade educacional",
+      "Socialização"
+    ],
+    "autores": [
+      "Pierre Bourdieu",
+      "Bernard Lahire",
+      "Paulo Freire"
+    ],
+    "fonte_nome": "OCDE / Agência Brasil - link direto a confirmar",
+    "fonte_url": "https://www.oecd.org/education/",
+    "ano_data": "Ano da reportagem a confirmar",
+    "confiabilidade": "Em verificação",
+    "fonte_status": "aguardando link direto",
+    "tempo_leitura": "3 min",
+    "nivel": "Básico",
+    "status": "aguardando fonte",
+    "destaque": false,
+    "tags": [
+      "leitura",
+      "infância",
+      "educação",
+      "capital cultural",
+      "desigualdade"
+    ]
+  }
+]

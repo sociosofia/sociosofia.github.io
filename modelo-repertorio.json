@@ -1,0 +1,36 @@
+{
+  "id": "SOC-0010",
+  "editoria": "Trabalho e desigualdade",
+  "categoria": "Trabalho e desigualdade",
+  "subtema": "Juventude, trabalho e educação",
+  "titulo": "Juventude, trabalho e evasão escolar",
+  "subtitulo": "O ingresso precoce dos jovens no mercado de trabalho e seus impactos na educação",
+  "tipo": "Pesquisa/dado",
+  "resumo": "Um parágrafo único com fonte, dado principal e problema social envolvido.",
+  "dado": "Frase curta com o achado central.",
+  "questao": "Pergunta que o repertório ajuda a abrir.",
+  "conexoes": "Relações possíveis com temas, conceitos, autores ou problemas sociais.",
+  "conceitos": [
+    "Trabalho",
+    "Juventude",
+    "Educação"
+  ],
+  "autores": [
+    "Autor 1",
+    "Autora 2"
+  ],
+  "fonte_nome": "Nome da pesquisa ou instituição",
+  "fonte_url": "https://link-da-fonte-original.com",
+  "ano_data": "2026",
+  "confiabilidade": "Alta / Média / Em verificação",
+  "fonte_status": "conferida / parcial / aguardando link direto",
+  "tempo_leitura": "3 min",
+  "nivel": "Básico / Intermediário / Avançado",
+  "status": "aguardando revisão",
+  "destaque": false,
+  "tags": [
+    "trabalho",
+    "juventude",
+    "educação"
+  ]
+}
