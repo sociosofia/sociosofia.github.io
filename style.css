@@ -517,7 +517,8 @@ button {
   font-size: 0.96rem;
 }
 
-.card-practical {
+.card-practical,
+.card-question {
   margin-top: auto;
   border-left: 4px solid var(--marker);
   padding-left: 0.75rem;
@@ -735,4 +736,15 @@ button {
   .feature-card {
     border-radius: 20px;
   }
+}
+
+
+/* Ajuste V1.1: cards menos instrumentais, mais investigativos */
+.card-question {
+  margin-top: auto;
+  border-left-color: var(--secondary);
+}
+
+.theme-grid {
+  align-items: stretch;
 }

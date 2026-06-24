@@ -24,7 +24,6 @@
         <li><a href="index.html">Início</a></li>
         <li><a href="#temas">Temas</a></li>
         <li><a href="#repertorios">Repertórios</a></li>
-        <li><a href="guia.html">Como usar</a></li>
         <li><a href="sobre.html">Sobre</a></li>
       </ul>
     </nav>
@@ -33,7 +32,7 @@
       <p class="eyebrow">Revista digital de repertórios</p>
       <h1 id="titulo-site">Repertórios para pensar o mundo</h1>
       <p class="hero-text">
-        Dados, conceitos, filmes, séries, pesquisas e problemas contemporâneos para usar em redações, debates, seminários e aulas.
+        Dados, conceitos, filmes, séries, pesquisas e problemas contemporâneos para investigar temas sociais, filosóficos, culturais e políticos do presente.
       </p>
 
       <form class="search-box" role="search" aria-label="Busca de repertórios">
@@ -57,7 +56,7 @@
       <div class="section-heading">
         <p class="eyebrow">Curadoria da semana</p>
         <h2 id="curadoria-titulo">Comece por aqui</h2>
-        <p>Um repertório em destaque para abrir conversas entre Sociologia, Filosofia e atualidades.</p>
+        <p>Um repertório em destaque para abrir perguntas entre Sociologia, Filosofia, cultura e vida contemporânea.</p>
       </div>
       <div id="curadoria" class="feature-card" aria-live="polite"></div>
     </section>
@@ -75,6 +74,8 @@
         <button class="theme-card" data-chip="racismo"><span>Racismo e colonialidade</span><small>Território, Estado, reconhecimento</small></button>
         <button class="theme-card" data-chip="educação"><span>Educação e juventudes</span><small>Escola, desigualdade, rotulação</small></button>
         <button class="theme-card" data-chip="democracia"><span>Política e democracia</span><small>Mídia, participação, cidadania</small></button>
+        <button class="theme-card" data-chip="ambiente"><span>Meio ambiente e território</span><small>Justiça ambiental, desenvolvimento</small></button>
+        <button class="theme-card" data-chip="ética"><span>Ética e dilemas morais</span><small>Escolhas, valores, responsabilidade</small></button>
       </div>
     </section>
 
@@ -83,7 +84,7 @@
         <div>
           <p class="eyebrow">Banco de repertórios</p>
           <h2 id="repertorios-titulo">Dados, conceitos e cultura para pensar</h2>
-          <p>Cards curtos com fonte, conceitos e sugestão de uso em redação ou debate.</p>
+          <p>Cards curtos com fonte, contexto, conceitos relacionados e uma pergunta para continuar a investigação.</p>
         </div>
         <p id="contador" class="counter" aria-live="polite"></p>
       </div>
@@ -102,13 +103,9 @@
           </select>
         </label>
         <label>
-          Uso escolar
-          <select id="filtro-uso">
-            <option value="">Todos os usos</option>
-            <option value="redação">Redação</option>
-            <option value="debate">Debate</option>
-            <option value="seminário">Seminário</option>
-            <option value="aula">Aula</option>
+          Conceito
+          <select id="filtro-conceito">
+            <option value="">Todos os conceitos</option>
           </select>
         </label>
         <button id="limpar-filtros" class="button ghost" type="button">Limpar filtros</button>
@@ -126,8 +123,8 @@
         <p>Sociologia + Filosofia para pensar o presente com mais cuidado, estranhamento e profundidade.</p>
       </div>
       <div>
-        <strong>Política de curadoria</strong>
-        <p>Todo repertório deve indicar fonte original, data e mediação pedagógica antes de ser publicado.</p>
+        <strong>Curadoria</strong>
+        <p>Todo repertório deve indicar fonte original, data, contexto e mediação pedagógica antes de ser publicado.</p>
       </div>
     </div>
   </footer>

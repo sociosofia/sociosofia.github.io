@@ -66,7 +66,8 @@ function renderizarItem(item) {
 
     ${secao("Dado ou ideia central", item.ideia)}
     ${secao("Por que isso importa?", item.importancia)}
-    ${secao("Como transformar em argumento?", item.uso)}
+    ${secao("Questão para pensar", item.questao)}
+    ${secao("Conexões possíveis", item.conexoes)}
 
     <section class="detail-section">
       <h2>Conceitos que aparecem aqui</h2>
@@ -78,7 +79,7 @@ function renderizarItem(item) {
       ${autores.length ? `<p>${autores.map(escapar).join("; ")}.</p>` : `<p>A definir.</p>`}
     </section>
 
-    ${item.midia_relacionada ? secao("Repertório cultural relacionado", item.midia_relacionada) : ""}
+    ${item.midia_relacionada && item.midia_relacionada !== "A definir" ? secao("Repertório cultural relacionado", item.midia_relacionada) : ""}
 
     <p><a class="button" href="index.html#repertorios">Voltar aos repertórios</a></p>
   `;
@@ -121,5 +122,5 @@ function escapar(texto) {
 }
 
 function escaparAtributo(texto) {
-  return escapar(texto);
+  return escapar(String(texto ?? ""));
 }

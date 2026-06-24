@@ -14,7 +14,7 @@ const elementos = {
   semResultados: document.querySelector("#sem-resultados"),
   filtroCategoria: document.querySelector("#filtro-categoria"),
   filtroTipo: document.querySelector("#filtro-tipo"),
-  filtroUso: document.querySelector("#filtro-uso"),
+  filtroConceito: document.querySelector("#filtro-conceito"),
   limparFiltros: document.querySelector("#limpar-filtros"),
   navToggle: document.querySelector(".nav-toggle"),
   navList: document.querySelector("#menu-principal")
@@ -25,7 +25,7 @@ let estado = {
   termo: "",
   categoria: "",
   tipo: "",
-  uso: ""
+  conceito: ""
 };
 
 iniciar();
@@ -81,17 +81,17 @@ function configurarEventos() {
     renderizarLista();
   });
 
-  elementos.filtroUso?.addEventListener("change", () => {
-    estado.uso = elementos.filtroUso.value;
+  elementos.filtroConceito?.addEventListener("change", () => {
+    estado.conceito = elementos.filtroConceito.value;
     renderizarLista();
   });
 
   elementos.limparFiltros?.addEventListener("click", () => {
-    estado = { termo: "", categoria: "", tipo: "", uso: "" };
+    estado = { termo: "", categoria: "", tipo: "", conceito: "" };
     elementos.busca.value = "";
     elementos.filtroCategoria.value = "";
     elementos.filtroTipo.value = "";
-    elementos.filtroUso.value = "";
+    elementos.filtroConceito.value = "";
     document.querySelectorAll(".chip.active").forEach((chip) => chip.classList.remove("active"));
     renderizarLista();
   });
@@ -130,6 +130,7 @@ function preencherFiltros(itens) {
   const visiveis = filtrarPorStatus(itens);
   preencherSelect(elementos.filtroCategoria, unicos(visiveis.map((item) => item.categoria)));
   preencherSelect(elementos.filtroTipo, unicos(visiveis.map((item) => item.tipo)));
+  preencherSelect(elementos.filtroConceito, unicos(visiveis.flatMap((item) => item.conceitos || [])));
 }
 
 function preencherSelect(select, opcoes) {
@@ -161,7 +162,7 @@ function renderizarCuradoria(itens) {
       <span class="tag ${destaque.status !== "publicado" ? "review" : ""}">${escapar(destaque.tipo)}</span>
       <h3>${escapar(destaque.titulo)}</h3>
       <p>${escapar(destaque.resumo)}</p>
-      <p class="card-practical"><strong>Use para pensar:</strong> ${escapar(destaque.uso)}</p>
+      ${destaque.questao ? `<p class="card-question"><strong>Questão para pensar:</strong> ${escapar(destaque.questao)}</p>` : ""}
     </div>
     <aside>
       <div class="feature-meta">
@@ -207,7 +208,8 @@ function filtrarRepertorios(itens) {
       item.tipo,
       item.ideia,
       item.importancia,
-      item.uso,
+      item.questao,
+      item.conexoes,
       item.fonte_nome,
       item.midia_relacionada,
       ...(item.conceitos || []),
@@ -218,9 +220,9 @@ function filtrarRepertorios(itens) {
     const combinaTermo = !termo || textoBusca.includes(termo);
     const combinaCategoria = !estado.categoria || item.categoria === estado.categoria;
     const combinaTipo = !estado.tipo || item.tipo === estado.tipo;
-    const combinaUso = !estado.uso || normalizarTexto(item.uso).includes(normalizarTexto(estado.uso));
+    const combinaConceito = !estado.conceito || (item.conceitos || []).includes(estado.conceito);
 
-    return combinaTermo && combinaCategoria && combinaTipo && combinaUso;
+    return combinaTermo && combinaCategoria && combinaTipo && combinaConceito;
   });
 }
 
@@ -239,10 +241,10 @@ function criarCard(item) {
         <span>${escapar(item.tempo_leitura || "Leitura rápida")}</span>
       </div>
       ${conceitos ? `<p class="card-meta"><strong>Conecta com:</strong> ${escapar(conceitos)}</p>` : ""}
-      <p class="card-practical"><strong>Use para pensar:</strong> ${escapar(item.uso)}</p>
+      ${item.questao ? `<p class="card-question"><strong>Questão para pensar:</strong> ${escapar(item.questao)}</p>` : ""}
       <div class="card-actions">
         <span class="card-meta">${escapar(item.status)}</span>
-        <a class="read-more" href="repertorio.html?id=${encodeURIComponent(item.id)}">Ler mais</a>
+        <a class="read-more" href="repertorio.html?id=${encodeURIComponent(item.id)}">Abrir</a>
       </div>
     </article>
   `;
