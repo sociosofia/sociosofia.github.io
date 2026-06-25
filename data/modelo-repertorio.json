@@ -1,36 +1,35 @@
 {
-  "id": "SOC-0010",
-  "editoria": "Trabalho e desigualdade",
-  "categoria": "Trabalho e desigualdade",
-  "subtema": "Juventude, trabalho e educação",
-  "titulo": "Juventude, trabalho e evasão escolar",
-  "subtitulo": "O ingresso precoce dos jovens no mercado de trabalho e seus impactos na educação",
-  "tipo": "Pesquisa/dado",
-  "resumo": "Um parágrafo único com fonte, dado principal e problema social envolvido.",
-  "dado": "Frase curta com o achado central.",
-  "questao": "Pergunta que o repertório ajuda a abrir.",
-  "conexoes": "Relações possíveis com temas, conceitos, autores ou problemas sociais.",
+  "id": "CUL-0000 ou DAD-0000",
+  "editoria": "Notícias, dados e informações ou Séries, filmes, livros e músicas",
+  "categoria": "Notícias, dados e informações ou Séries, filmes, livros e músicas",
+  "tipo": "Pesquisa/relatório, reportagem, filme, série, episódio, documentário, livro ou música",
+  "subtema": "Eixo de leitura",
+  "titulo": "Título curto e pesquisável",
+  "subtitulo": "Complemento explicativo",
+  "resumo": "Resumo curto para aparecer no card",
+  "dado": "Usar apenas em notícias, dados e informações",
+  "conexoes": "Usar em notícias, dados e informações",
+  "resumo_obra": "Usar em repertórios culturais",
+  "leitura_sociosofia": "Usar em repertórios culturais",
+  "ancoragem_teorica": "Autor, autora ou conceito com frase curta de conexão",
   "conceitos": [
-    "Trabalho",
-    "Juventude",
-    "Educação"
+    "Conceito 1",
+    "Conceito 2"
   ],
   "autores": [
-    "Autor 1",
-    "Autora 2"
+    "Autor ou autora 1"
   ],
-  "fonte_nome": "Nome da pesquisa ou instituição",
-  "fonte_url": "https://link-da-fonte-original.com",
-  "ano_data": "2026",
-  "confiabilidade": "Alta / Média / Em verificação",
-  "fonte_status": "conferida / parcial / aguardando link direto",
+  "fonte_nome": "Fonte da pesquisa ou referência da obra",
+  "fonte_url": "Link da fonte original quando houver",
+  "ano_data": "Ano ou data",
+  "confiabilidade": "Alta, média, em verificação ou repertório cultural",
+  "fonte_status": "conferida, fonte secundária, obra identificada, aguardando revisão",
   "tempo_leitura": "3 min",
-  "nivel": "Básico / Intermediário / Avançado",
-  "status": "aguardando revisão",
+  "nivel": "Básico, intermediário ou avançado",
+  "status": "rascunho, aguardando revisão, revisado ou publicado",
   "destaque": false,
   "tags": [
-    "trabalho",
-    "juventude",
-    "educação"
+    "tag 1",
+    "tag 2"
   ]
 }
