@@ -1,9 +1,22 @@
 const CONFIG = {
-  // Durante a montagem, deixe true para visualizar fichas em revisão.
+  // Durante a montagem, deixe true para visualizar fichas em revisão e rascunhos.
   // Antes de divulgar para estudantes, mude para false ou publique apenas itens revisados.
   mostrarRascunhos: true,
   statusPublicaveis: ["revisado", "publicado"]
 };
+
+const CATEGORIAS_PRINCIPAIS = [
+  {
+    nome: "Notícias, dados e informações",
+    descricao: "Pesquisas, relatórios, levantamentos, artigos, dados públicos e fatos verificáveis.",
+    vazio: "Nenhuma fonte de dados cadastrada ainda."
+  },
+  {
+    nome: "Séries, filmes, livros e músicas",
+    descricao: "Obras culturais que ajudam a pensar questões sociais, filosóficas, políticas e subjetivas.",
+    vazio: "Esta estante cultural ainda está em construção."
+  }
+];
 
 const elementos = {
   busca: document.querySelector("#busca"),
@@ -22,12 +35,7 @@ const elementos = {
 };
 
 let repertorios = [];
-let estado = {
-  termo: "",
-  categoria: "",
-  tipo: "",
-  conceito: ""
-};
+let estado = { termo: "", categoria: "", tipo: "", conceito: "" };
 
 iniciar();
 
@@ -41,7 +49,7 @@ async function iniciar() {
     repertorios = normalizarRepertorios(await resposta.json());
     aplicarParametroDeBusca();
     preencherFiltros(repertorios);
-    renderizarTemasEditoriais(repertorios);
+    renderizarCategorias(repertorios);
     renderizarCuradoria(repertorios);
     configurarEventosDinamicos();
     renderizarLista();
@@ -54,8 +62,8 @@ async function iniciar() {
 function aplicarParametroDeBusca() {
   const parametros = new URLSearchParams(window.location.search);
   const tag = parametros.get("tag");
-  const tema = parametros.get("tema");
-  const termo = tag || tema;
+  const categoria = parametros.get("categoria");
+  const termo = tag || categoria;
   if (!termo) return;
   estado.termo = termo;
   if (elementos.busca) elementos.busca.value = termo;
@@ -126,7 +134,8 @@ function configurarEventosDinamicos() {
 function normalizarRepertorios(itens) {
   return itens.map((item) => ({
     ...item,
-    editoria: item.editoria || item.categoria || "A classificar",
+    editoria: item.editoria || item.categoria || "Notícias, dados e informações",
+    categoria: item.categoria || item.editoria || "Notícias, dados e informações",
     conceitos: Array.isArray(item.conceitos) ? item.conceitos : separarLista(item.conceitos),
     autores: Array.isArray(item.autores) ? item.autores : separarLista(item.autores),
     tags: Array.isArray(item.tags) ? item.tags : separarLista(item.tags)
@@ -145,7 +154,7 @@ function filtrarPorStatus(itens) {
 
 function preencherFiltros(itens) {
   const visiveis = filtrarPorStatus(itens);
-  preencherSelect(elementos.filtroCategoria, unicos(visiveis.map((item) => item.categoria)));
+  preencherSelect(elementos.filtroCategoria, CATEGORIAS_PRINCIPAIS.map((cat) => cat.nome));
   preencherSelect(elementos.filtroTipo, unicos(visiveis.map((item) => item.tipo)));
   preencherSelect(elementos.filtroConceito, unicos(visiveis.flatMap((item) => item.conceitos || [])));
 }
@@ -164,24 +173,26 @@ function unicos(lista) {
   return [...new Set(lista.filter(Boolean))].sort((a, b) => a.localeCompare(b, "pt-BR"));
 }
 
-function renderizarTemasEditoriais(itens) {
+function renderizarCategorias(itens) {
   if (!elementos.temasEditoriais) return;
   const visiveis = filtrarPorStatus(itens);
-  const grupos = agruparPor(visiveis, (item) => item.editoria || item.categoria || "A classificar");
 
-  elementos.temasEditoriais.innerHTML = Object.entries(grupos).map(([editoria, entradas]) => {
-    const subtemas = unicos(entradas.map((item) => item.subtema)).slice(0, 4);
+  elementos.temasEditoriais.innerHTML = CATEGORIAS_PRINCIPAIS.map((categoria) => {
+    const entradas = visiveis.filter((item) => item.categoria === categoria.nome || item.editoria === categoria.nome);
+    const subtemas = unicos(entradas.map((item) => item.subtema)).slice(0, 5);
     return `
       <article class="editoria-card">
         <div class="editoria-head">
-          <span class="tag">Tema</span>
-          <h3>${escapar(editoria)}</h3>
-          <p>${subtemas.join(" • ")}</p>
+          <span class="tag">Categoria</span>
+          <h3>${escapar(categoria.nome)}</h3>
+          <p>${escapar(categoria.descricao)}</p>
+          <p class="editoria-count">${entradas.length} repertório${entradas.length === 1 ? "" : "s"}</p>
+          ${subtemas.length ? `<p class="editoria-subtemas">${subtemas.map(escapar).join(" • ")}</p>` : ""}
         </div>
         <div class="mini-list">
-          ${entradas.slice(0, 3).map((item) => criarMiniCard(item)).join("")}
+          ${entradas.length ? entradas.slice(0, 4).map((item) => criarMiniCard(item)).join("") : `<p class="empty-mini">${escapar(categoria.vazio)}</p>`}
         </div>
-        <button class="button ghost small" type="button" data-chip="${escaparAtributo(editoria)}">Ver tudo em ${escapar(editoria)}</button>
+        <button class="button ghost small" type="button" data-chip="${escaparAtributo(categoria.nome)}">Ver ${escapar(categoria.nome)}</button>
       </article>
     `;
   }).join("");
@@ -192,7 +203,7 @@ function criarMiniCard(item) {
     <a class="mini-card" href="repertorio.html?id=${encodeURIComponent(item.id)}">
       <strong>${escapar(item.titulo)}</strong>
       <span>${escapar(item.subtitulo || item.subtema || item.tema || "")}</span>
-      <small>${escapar(item.fonte_status || item.status || "")}</small>
+      <small>${escapar(item.tipo || item.status || "")}</small>
     </a>
   `;
 }
@@ -213,7 +224,6 @@ function renderizarCuradoria(itens) {
       <h3>${escapar(destaque.titulo)}</h3>
       ${destaque.subtitulo ? `<p class="feature-subtitle">${escapar(destaque.subtitulo)}</p>` : ""}
       <p>${escapar(destaque.resumo)}</p>
-      ${destaque.questao ? `<p class="card-question"><strong>Questão para pensar:</strong> ${escapar(destaque.questao)}</p>` : ""}
     </div>
     <aside>
       <div class="feature-meta">
@@ -224,7 +234,7 @@ function renderizarCuradoria(itens) {
         <span>${escapar(destaque.status)}</span>
       </div>
       <ul class="concept-list">
-        ${destaque.tags.slice(0, 6).map((tag) => `<li><a href="index.html?tag=${encodeURIComponent(tag)}#repertorios">${escapar(tag)}</a></li>`).join("")}
+        ${(destaque.tags || []).slice(0, 6).map((tag) => `<li><a href="index.html?tag=${encodeURIComponent(tag)}#repertorios">${escapar(tag)}</a></li>`).join("")}
       </ul>
       <p><a class="read-more" href="repertorio.html?id=${encodeURIComponent(destaque.id)}">Abrir repertório completo</a></p>
     </aside>
@@ -234,7 +244,6 @@ function renderizarCuradoria(itens) {
 function renderizarLista() {
   if (!elementos.lista) return;
   const filtrados = filtrarRepertorios(repertorios);
-
   elementos.contador.textContent = `${filtrados.length} repertório${filtrados.length === 1 ? "" : "s"}`;
   elementos.semResultados.hidden = filtrados.length > 0;
   elementos.lista.innerHTML = filtrados.map(criarCard).join("");
@@ -246,24 +255,25 @@ function filtrarRepertorios(itens) {
 
   return base.filter((item) => {
     const textoBusca = normalizarTexto([
-      item.titulo, item.subtitulo, item.resumo, item.categoria, item.editoria,
-      item.subtema, item.tema, item.tipo, item.dado, item.ideia, item.importancia,
-      item.questao, item.conexoes, item.fonte_nome, item.midia_relacionada,
-      ...(item.conceitos || []), ...(item.autores || []), ...(item.tags || [])
+      item.titulo, item.subtitulo, item.resumo, item.resumo_obra, item.leitura_sociosofia,
+      item.ancoragem_teorica, item.categoria, item.editoria, item.subtema, item.tema,
+      item.tipo, item.dado, item.ideia, item.importancia, item.conexoes, item.fonte_nome,
+      item.midia_relacionada, ...(item.conceitos || []), ...(item.autores || []), ...(item.tags || [])
     ].join(" "));
 
     const combinaTermo = !termo || textoBusca.includes(termo);
     const combinaCategoria = !estado.categoria || item.categoria === estado.categoria;
     const combinaTipo = !estado.tipo || item.tipo === estado.tipo;
     const combinaConceito = !estado.conceito || (item.conceitos || []).includes(estado.conceito);
-
     return combinaTermo && combinaCategoria && combinaTipo && combinaConceito;
   });
 }
 
 function criarCard(item) {
-  const conceitos = item.conceitos.slice(0, 3).join(" • ");
-  const tags = (item.tags || []).slice(0, 5).map((tag) => `<a class="keyword" href="index.html?tag=${encodeURIComponent(tag)}#repertorios">${escapar(tag)}</a>`).join("");
+  const conceitos = (item.conceitos || []).slice(0, 3).join(" • ");
+  const tags = (item.tags || []).slice(0, 6).map((tag) => `<a class="keyword" href="index.html?tag=${encodeURIComponent(tag)}#repertorios">${escapar(tag)}</a>`).join("");
+  const rotuloExtra = item.ancoragem_teorica ? "Ancoragem teórica" : "Conecta com";
+  const extra = item.ancoragem_teorica ? item.ancoragem_teorica : conceitos;
 
   return `
     <article class="card">
@@ -272,12 +282,12 @@ function criarCard(item) {
       ${item.subtitulo ? `<p class="card-subtitle">${escapar(item.subtitulo)}</p>` : ""}
       <p class="card-summary">${escapar(item.resumo)}</p>
       <div class="card-meta">
-        <span>${escapar(item.editoria || item.categoria)}</span>
+        <span>${escapar(item.categoria)}</span>
+        ${item.subtema ? `<span>•</span><span>${escapar(item.subtema)}</span>` : ""}
         <span>•</span>
         <span>${escapar(item.tempo_leitura || "Leitura rápida")}</span>
       </div>
-      ${conceitos ? `<p class="card-meta"><strong>Conecta com:</strong> ${escapar(conceitos)}</p>` : ""}
-      ${item.questao ? `<p class="card-question"><strong>Questão para pensar:</strong> ${escapar(item.questao)}</p>` : ""}
+      ${extra ? `<p class="card-meta"><strong>${escapar(rotuloExtra)}:</strong> ${escapar(extra)}</p>` : ""}
       ${tags ? `<div class="keywords">${tags}</div>` : ""}
       <div class="card-actions">
         <span class="card-meta">${escapar(item.fonte_status || item.status)}</span>
@@ -287,20 +297,8 @@ function criarCard(item) {
   `;
 }
 
-function agruparPor(lista, chaveFn) {
-  return lista.reduce((acc, item) => {
-    const chave = chaveFn(item);
-    acc[chave] = acc[chave] || [];
-    acc[chave].push(item);
-    return acc;
-  }, {});
-}
-
 function normalizarTexto(texto) {
-  return String(texto || "")
-    .toLowerCase()
-    .normalize("NFD")
-    .replace(/[\u0300-\u036f]/g, "");
+  return String(texto || "").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
 }
 
 function escapar(texto) {
@@ -313,5 +311,5 @@ function escapar(texto) {
 }
 
 function escaparAtributo(texto) {
-  return escapar(normalizarTexto(texto).replace(/[^a-z0-9-]/g, "-"));
+  return escapar(String(texto ?? ""));
 }

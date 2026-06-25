@@ -22,7 +22,7 @@
       <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="menu-principal">Menu</button>
       <ul id="menu-principal" class="nav-list">
         <li><a href="index.html">Início</a></li>
-        <li><a href="#temas">Temas</a></li>
+        <li><a href="#temas">Categorias</a></li>
         <li><a href="#repertorios">Repertórios</a></li>
         <li><a href="sobre.html">Sobre</a></li>
       </ul>
@@ -32,7 +32,7 @@
       <p class="eyebrow">Revista digital de repertórios</p>
       <h1 id="titulo-site">Repertórios para pensar o mundo</h1>
       <p class="hero-text">
-        Dados, conceitos, filmes, séries, pesquisas e problemas contemporâneos para investigar temas sociais, filosóficos, culturais e políticos do presente.
+        Pesquisas, notícias, dados e repertórios culturais para pensar problemas sociais, filosóficos e políticos do presente.
       </p>
 
       <form class="search-box" role="search" aria-label="Busca de repertórios">
@@ -42,11 +42,11 @@
       </form>
 
       <div class="quick-links" aria-label="Caminhos rápidos">
-        <button class="chip" data-chip="trabalho">Trabalho</button>
-        <button class="chip" data-chip="tecnologia">Tecnologia</button>
-        <button class="chip" data-chip="racismo">Racismo</button>
-        <button class="chip" data-chip="gênero">Gênero</button>
-        <button class="chip" data-chip="educação">Educação</button>
+        <button class="chip" data-chip="notícias">Notícias</button>
+        <button class="chip" data-chip="dados">Dados</button>
+        <button class="chip" data-chip="pesquisa">Pesquisas</button>
+        <button class="chip" data-chip="filmes">Filmes</button>
+        <button class="chip" data-chip="livros">Livros</button>
       </div>
     </section>
   </header>
@@ -56,16 +56,16 @@
       <div class="section-heading">
         <p class="eyebrow">Curadoria da semana</p>
         <h2 id="curadoria-titulo">Comece por aqui</h2>
-        <p>Um repertório em destaque para abrir perguntas entre Sociologia, Filosofia, cultura e vida contemporânea.</p>
+        <p>Um repertório em destaque para circular entre dados, cultura, conceitos e vida contemporânea.</p>
       </div>
       <div id="curadoria" class="feature-card" aria-live="polite"></div>
     </section>
 
     <section id="temas" class="section container" aria-labelledby="temas-titulo">
       <div class="section-heading">
-        <p class="eyebrow">Explore por problemas</p>
-        <h2 id="temas-titulo">Temas do Sociosofia</h2>
-        <p>O site é organizado por temas e problemas do mundo contemporâneo, não por divisão entre Filosofia e Sociologia.</p>
+        <p class="eyebrow">Duas portas de entrada</p>
+        <h2 id="temas-titulo">Categorias do Sociosofia</h2>
+        <p>O site passa a ter duas categorias principais: uma para pesquisas, dados e informações verificáveis; outra para repertórios culturais como filmes, séries, livros e músicas.</p>
       </div>
       <div id="temas-editoriais" class="editoria-grid" aria-live="polite"></div>
     </section>
@@ -75,16 +75,16 @@
         <div>
           <p class="eyebrow">Banco de repertórios</p>
           <h2 id="repertorios-titulo">Dados, conceitos e cultura para pensar</h2>
-          <p>Cards curtos com título pesquisável, resumo em um parágrafo, fonte completa e palavras-chave clicáveis.</p>
+          <p>Cards curtos com título pesquisável, resumo em um parágrafo, ancoragem teórica, fonte ou referência da obra e palavras-chave clicáveis.</p>
         </div>
         <p id="contador" class="counter" aria-live="polite"></p>
       </div>
 
       <div class="filters" aria-label="Filtros de repertórios">
         <label>
-          Tema
+          Categoria
           <select id="filtro-categoria">
-            <option value="">Todos os temas</option>
+            <option value="">Todas as categorias</option>
           </select>
         </label>
         <label>
@@ -103,7 +103,7 @@
       </div>
 
       <div id="lista-repertorios" class="card-grid" aria-live="polite"></div>
-      <p id="sem-resultados" class="empty-state" hidden>Nada por aqui ainda. Tente buscar por um tema mais amplo, como trabalho, gênero ou tecnologia.</p>
+      <p id="sem-resultados" class="empty-state" hidden>Nada por aqui ainda. Tente buscar por um tema mais amplo, como trabalho, juventude, racismo, guerra ou tecnologia.</p>
     </section>
   </main>
 

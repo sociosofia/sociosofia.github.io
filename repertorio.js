@@ -36,6 +36,7 @@ function renderizarItem(item) {
   const conceitos = normalizarLista(item.conceitos);
   const autores = normalizarLista(item.autores);
   const tags = normalizarLista(item.tags);
+  const cultural = item.categoria === "Séries, filmes, livros e músicas" || Boolean(item.leitura_sociosofia || item.resumo_obra || item.ancoragem_teorica);
 
   detalhe.innerHTML = `
     <header class="detail-hero">
@@ -43,11 +44,10 @@ function renderizarItem(item) {
         <span class="tag ${item.status !== "publicado" ? "review" : ""}">${escapar(item.tipo || "Repertório")}</span>
         <h1>${escapar(item.titulo)}</h1>
         ${item.subtitulo ? `<p class="detail-subtitle">${escapar(item.subtitulo)}</p>` : ""}
-        <p>${escapar(item.resumo)}</p>
+        <p>${escapar(item.resumo || item.resumo_obra || "")}</p>
         <div class="detail-meta">
-          <span>${escapar(item.editoria || item.categoria)}</span>
-          <span>•</span>
-          <span>${escapar(item.subtema || item.tema || "")}</span>
+          <span>${escapar(item.categoria || item.editoria)}</span>
+          ${item.subtema ? `<span>•</span><span>${escapar(item.subtema)}</span>` : ""}
           <span>•</span>
           <span>${escapar(item.status || "rascunho")}</span>
         </div>
@@ -55,34 +55,48 @@ function renderizarItem(item) {
       </div>
       <aside class="detail-sidebar" aria-label="Metadados do repertório">
         <dl>
-          <dt>Fonte completa</dt>
+          <dt>${cultural ? "Referência da obra" : "Fonte completa"}</dt>
           <dd>${item.fonte_url ? `<a href="${escaparAtributo(item.fonte_url)}" target="_blank" rel="noopener noreferrer">${escapar(item.fonte_nome || "Acessar fonte")}</a>` : escapar(item.fonte_nome || "A definir")}</dd>
           <dt>Ano ou data</dt>
           <dd>${escapar(item.ano_data || "A definir")}</dd>
-          <dt>Confiabilidade</dt>
-          <dd>${escapar(item.confiabilidade || "A avaliar")}</dd>
-          <dt>Conferência da fonte</dt>
-          <dd>${escapar(item.fonte_status || "A confirmar")}</dd>
+          <dt>${cultural ? "Tipo de repertório" : "Confiabilidade"}</dt>
+          <dd>${escapar(item.confiabilidade || (cultural ? "Repertório cultural" : "A avaliar"))}</dd>
+          <dt>${cultural ? "Status editorial" : "Conferência da fonte"}</dt>
+          <dd>${escapar(item.fonte_status || item.status || "A confirmar")}</dd>
         </dl>
       </aside>
     </header>
 
-    ${secao("Dado ou ideia central", item.dado || item.ideia)}
-    ${secao("Questão para pensar", item.questao)}
-    ${secao("Conexões possíveis", item.conexoes)}
+    ${cultural ? secoesCulturais(item) : secoesDados(item)}
 
     <section class="detail-section">
-      <h2>Conceitos que aparecem aqui</h2>
+      <h2>Conceitos relacionados</h2>
       ${conceitos.length ? `<ul class="concept-list">${conceitos.map((conceito) => `<li>${escapar(conceito)}</li>`).join("")}</ul>` : `<p>A definir.</p>`}
     </section>
 
     <section class="detail-section">
-      <h2>Autores que ajudam a pensar</h2>
+      <h2>Autores e autoras que ajudam a pensar</h2>
       ${autores.length ? `<p>${autores.map(escapar).join("; ")}.</p>` : `<p>A definir.</p>`}
     </section>
 
     <p><a class="button" href="index.html#repertorios">Voltar aos repertórios</a></p>
   `;
+}
+
+function secoesCulturais(item) {
+  return [
+    secao("Resumo da obra", item.resumo_obra || item.resumo),
+    secao("Leitura Sociosofia", item.leitura_sociosofia),
+    secao("Ancoragem teórica", item.ancoragem_teorica)
+  ].join("");
+}
+
+function secoesDados(item) {
+  return [
+    secao("Dado ou ideia central", item.dado || item.ideia),
+    secao("Conexões possíveis", item.conexoes),
+    secao("Observação editorial", item.observacao_editorial)
+  ].join("");
 }
 
 function secao(titulo, conteudo) {

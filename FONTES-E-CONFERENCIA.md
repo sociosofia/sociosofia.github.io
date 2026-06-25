@@ -1,18 +1,21 @@
-# Fontes e conferência — V1.2
+# Fontes e conferência
 
-Esta versão usa seis repertórios de teste. Os itens com `fonte_status: conferida` ou `parcial` já têm pelo menos uma fonte institucional mapeada. Os itens com `aguardando link direto` ainda precisam do link final da reportagem, relatório ou pesquisa antes de serem tratados como publicados.
+## Notícias, dados e informações
 
-## Conferidas / institucionais mapeadas
+As entradas DAD-0001 a DAD-0007 foram organizadas a partir das fontes já conferidas durante a curadoria:
 
-- INEP — Censo Escolar.
-- IBGE — PNAD Contínua, divulgação anual.
-- INEP — Saeb.
-- FNDE — Novo Fundeb.
+- Juventudes Brasileiras Minorizadas, Fundação Roberto Marinho, Itaú Educação e Trabalho, IEDE e UNICEF/1MiO.
+- Saúde Mental na Educação Básica, Instituto Educbank e Great Place to Study, com ressalva de recorte em escolas privadas.
+- Reportagem do Porvir com pesquisas do GEPEM sobre violência, exclusão e sofrimento emocional nas escolas.
+- Artigo do JAMA Psychiatry sobre idade de início de transtornos mentais, com ressalva de contexto norte-americano.
+- 5ª Pesquisa de Saúde Docente em Santa Catarina, SINTE-SC e UFSC.
+- Relatório brasileiro do IELS, Fundação Maria Cecilia Souto Vidigal, OCDE e LaPOpE/UFRJ, com recorte nos estados participantes.
+- Nota técnica sobre escolas militarizadas, Campanha Nacional pelo Direito à Educação.
 
-## Ainda exigem conferência final
+## Séries, filmes, livros e músicas
 
-- Instituto Educbank / Porvir — saúde mental na educação básica.
-- APEOESP / DIEESE / AFUSE — condições de trabalho e saúde docente.
-- OCDE / Agência Brasil — leitura compartilhada na primeira infância.
+As entradas CUL-0001 a CUL-0026 são repertórios culturais em rascunho editorial. Elas não dependem de fonte estatística, mas devem manter referência clara da obra e ancoragem teórica discreta.
 
-Regra: não mudar status para `publicado` sem link direto e revisão do Luiz.
+## Regra editorial
+
+Não publicar como material final sem revisão explícita do Luiz. Diferenciar sempre dado, interpretação e leitura pedagógica.

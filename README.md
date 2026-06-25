@@ -1,32 +1,26 @@
-# Sociosofia — V1.2 Editorias e Subcards
+# Sociosofia Site V1.4, repertórios culturais
 
-Esta versão testa a arquitetura sugerida por Luiz: **tema/editoria grande** com **subcards de repertórios** dentro dele.
+Esta versão mantém a arquitetura com duas categorias principais:
 
-## O que mudou
+1. Notícias, dados e informações
+2. Séries, filmes, livros e músicas
 
-- A home agora renderiza automaticamente editorias a partir do campo `editoria`.
-- Dentro de cada editoria aparecem subcards de repertórios.
-- Cada repertório tem `titulo` + `subtitulo`.
-- O resumo aparece em um parágrafo único.
-- As palavras-chave (`tags`) são clicáveis e filtram o site.
-- A página individual mostra: resumo, dado central, questão para pensar, conexões possíveis, fonte completa e tags.
+O pacote inclui:
 
-## Alimentação do site
+- 7 repertórios de notícias, dados e pesquisas, com fonte localizada ou ressalva editorial.
+- 26 repertórios culturais em formato de rascunho, com resumo da obra, Leitura Sociosofia, ancoragem teórica, conceitos e tags.
+- `app.js` atualizado para busca, filtros e categorias.
+- `repertorio.js` atualizado para exibir campos diferentes para fontes de dados e repertórios culturais.
+- `data/modelo-repertorio.json` atualizado com os dois formatos.
 
-Edite `data/repertorios.json`. Cada item segue o modelo em `data/modelo-repertorio.json`.
+## Publicação no GitHub Pages
 
-Campos principais:
+Substitua os arquivos do repositório pelos arquivos deste pacote. O arquivo mais importante para atualizações futuras é:
 
-- `editoria`: grande tema do site, como Educação e juventudes.
-- `subtema`: recorte menor dentro do tema.
-- `titulo`: título curto, com palavras-chave.
-- `subtitulo`: frase explicativa mais longa.
-- `resumo`: um parágrafo com fonte, achado principal e problema social.
-- `fonte_url`: link para a fonte completa.
-- `tags`: palavras-chave clicáveis.
-- `fonte_status`: conferida, parcial ou aguardando link direto.
-- `status`: aguardando fonte, aguardando revisão, revisado ou publicado.
+`data/repertorios.json`
 
-## Segurança editorial
+No dia a dia, novas pesquisas, filmes e séries podem ser adicionados apenas nesse JSON.
 
-Nem todo item de Instagram deve virar fonte. A legenda pode servir como pista, mas a publicação final deve apontar para fonte original: relatório, pesquisa, órgão público, universidade, periódico, observatório ou reportagem confiável.
+## Observação editorial
+
+Os repertórios culturais estão como `rascunho`. Antes de divulgar para estudantes, revisar títulos, datas das obras e ancoragens teóricas. Para esconder rascunhos, altere `mostrarRascunhos: true` para `false` em `app.js`.
