@@ -1,10 +1,10 @@
 import {TEMAS,loadItems,inTheme,text,norm,esc} from './site-shared.js';
-import {buildShell} from './home-shell.js';
+import {prepareHeader,buildShell} from './home-shell.js';
 import {card,feature,entityDetail,entityNames} from './home-cards.js';
 
-buildShell();
+prepareHeader();buildShell();
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
-let items=[],state={tema:{dados:'',cultura:''},tipo:'conceito',entidade:''};
+let items=[],state={tema:{dados:'',cultura:''},tipo:'conceito',entidade:'',aberto:''};
 
 init();
 async function init(){
@@ -16,16 +16,17 @@ async function init(){
 function menu(){const b=$('.nav-toggle'),l=$('#menu-principal');b?.addEventListener('click',()=>{const a=b.getAttribute('aria-expanded')==='true';b.setAttribute('aria-expanded',String(!a));l?.classList.toggle('open');});}
 
 function events(){
-  $('#temas').addEventListener('click',e=>{
-    const toggle=e.target.closest('.portal-toggle');if(toggle){open(toggle.closest('[data-portal]').dataset.portal);return;}
-    const t=e.target.closest('[data-theme]');if(t){const b=t.closest('[data-portal]').dataset.portal;state.tema[b]=t.dataset.theme;renderThemes(b);renderPortal(b);return;}
+  $('#explorar').addEventListener('click',e=>{
+    const choice=e.target.closest('.portal-choice');if(choice){togglePortal(choice.dataset.portal);return;}
+    const t=e.target.closest('[data-theme]');if(t){const b=t.closest('[data-panel]').dataset.panel;state.tema[b]=t.dataset.theme;renderThemes(b);renderPortal(b);return;}
     const tab=e.target.closest('[data-entity-type]');if(tab){state.tipo=tab.dataset.entityType;state.entidade='';$$('[data-entity-type]').forEach(x=>x.classList.toggle('active',x===tab));$('#busca-entidades').value='';renderEntities();promptEntity();return;}
     const ent=e.target.closest('[data-entity-name]');if(ent)selectEntity(ent.dataset.entityType,ent.dataset.entityName);
   });
   $('#busca-entidades').addEventListener('input',renderEntities);
-  $('.search-box')?.addEventListener('submit',e=>{e.preventDefault();search($('#busca').value);});
-  $$('[data-chip],[data-search]').forEach(b=>b.addEventListener('click',()=>{const q=b.dataset.chip||b.dataset.search;$('#busca').value=q;search(q);}));
-  $('#limpar-busca').addEventListener('click',()=>{$('#busca').value='';$('#repertorios').hidden=true;});
+  $('#header-search-toggle').addEventListener('click',toggleSearch);
+  $('#header-search-form').addEventListener('submit',e=>{e.preventDefault();search($('#header-search-input').value);});
+  $('#header-search-input').addEventListener('keydown',e=>{if(e.key==='Escape')closeSearch();});
+  $('#limpar-busca').addEventListener('click',()=>{$('#header-search-input').value='';$('#repertorios').hidden=true;});
 }
 
 function renderAll(){
@@ -37,9 +38,13 @@ function renderAll(){
   ['dados','cultura'].forEach(b=>{renderThemes(b);renderPortal(b);});renderEntities();
 }
 
-function open(bloco,scroll=true){
-  $$('[data-portal]').forEach(p=>{const on=p.dataset.portal===bloco;p.querySelector('.portal-toggle').setAttribute('aria-expanded',String(on));p.querySelector('.portal-panel').hidden=!on;});
-  if(scroll)$(`[data-portal="${bloco}"]`).scrollIntoView({behavior:'smooth',block:'start'});
+function togglePortal(bloco){state.aberto=state.aberto===bloco?'':bloco;applyPortal(true);}
+function openPortal(bloco,scroll=true){state.aberto=bloco;applyPortal(scroll);}
+function applyPortal(scroll){
+  const open=state.aberto;$('#portal-expanded').hidden=!open;
+  $$('.portal-choice').forEach(b=>b.setAttribute('aria-expanded',String(b.dataset.portal===open)));
+  $$('[data-panel]').forEach(p=>p.hidden=p.dataset.panel!==open);
+  if(open&&scroll)$('#portal-expanded').scrollIntoView({behavior:'smooth',block:'nearest'});
 }
 
 function renderThemes(bloco){
@@ -55,22 +60,12 @@ function renderPortal(bloco){
   $(`#lista-${bloco}`).innerHTML=`<div class="portal-result-heading"><h3>${esc(titulo)}</h3><p>${out.length} resultado${out.length===1?'':'s'}</p></div>${out.length?`<div class="card-grid">${out.map(card).join('')}</div>`:'<p class="empty-state">Ainda não há repertórios neste tema.</p>'}`;
 }
 
-function renderEntities(){
-  const q=norm($('#busca-entidades')?.value),names=entityNames(items,state.tipo).filter(n=>norm(n).includes(q));
-  $('#lista-entidades').innerHTML=names.map(n=>`<button class="entity-chip ${state.entidade===n?'active':''}" data-entity-type="${state.tipo}" data-entity-name="${esc(n)}">${esc(n)}</button>`).join('')||'<p class="portal-prompt">Nenhuma entrada encontrada.</p>';
-}
+function renderEntities(){const q=norm($('#busca-entidades')?.value),names=entityNames(items,state.tipo).filter(n=>norm(n).includes(q));$('#lista-entidades').innerHTML=names.map(n=>`<button class="entity-chip ${state.entidade===n?'active':''}" data-entity-type="${state.tipo}" data-entity-name="${esc(n)}">${esc(n)}</button>`).join('')||'<p class="portal-prompt">Nenhuma entrada encontrada.</p>';}
 function promptEntity(){$('#detalhe-entidade').innerHTML='<p class="portal-prompt">Escolha uma entrada para ver as conexões com os outros dois blocos.</p>';}
-function selectEntity(tipo,nome){state.tipo=tipo;state.entidade=nome;open('conceitos',false);$$('[data-entity-type]').forEach(x=>x.classList.toggle('active',x.dataset.entityType===tipo));renderEntities();$('#detalhe-entidade').innerHTML=entityDetail(items,tipo,nome);$('#detalhe-entidade').scrollIntoView({behavior:'smooth',block:'nearest'});}
+function selectEntity(tipo,nome){state.tipo=tipo;state.entidade=nome;openPortal('conceitos',false);$$('[data-entity-type]').forEach(x=>x.classList.toggle('active',x.dataset.entityType===tipo));renderEntities();$('#detalhe-entidade').innerHTML=entityDetail(items,tipo,nome);$('#detalhe-entidade').scrollIntoView({behavior:'smooth',block:'nearest'});}
 
-function search(q,scroll=true){
-  const s=norm(q.trim()),out=items.filter(i=>!s||text(i).includes(s));$('#repertorios').hidden=false;
-  $('#resumo-busca').textContent=q.trim()?`${out.length} resultado${out.length===1?'':'s'} para “${q.trim()}”.`:`${out.length} repertórios disponíveis.`;
-  $('#lista-resultados').innerHTML=out.map(card).join('');$('#sem-resultados').hidden=out.length>0;if(scroll)$('#repertorios').scrollIntoView({behavior:'smooth'});
-}
+function toggleSearch(){const form=$('#header-search-form'),open=form.hidden;form.hidden=!open;$('#header-search-toggle').setAttribute('aria-expanded',String(open));document.querySelector('.header-search').classList.toggle('open',open);if(open)$('#header-search-input').focus();}
+function closeSearch(){const form=$('#header-search-form');form.hidden=true;$('#header-search-toggle').setAttribute('aria-expanded','false');document.querySelector('.header-search').classList.remove('open');$('#header-search-toggle').focus();}
+function search(q,scroll=true){const s=norm(q.trim()),out=items.filter(i=>!s||text(i).includes(s));$('#repertorios').hidden=false;$('#resumo-busca').textContent=q.trim()?`${out.length} resultado${out.length===1?'':'s'} para “${q.trim()}”.`:`${out.length} repertórios disponíveis.`;$('#lista-resultados').innerHTML=out.map(card).join('');$('#sem-resultados').hidden=out.length>0;if(scroll)$('#repertorios').scrollIntoView({behavior:'smooth'});}
 
-function params(){
-  const p=new URLSearchParams(location.search),c=p.get('conceito'),a=p.get('autor'),b=p.get('bloco'),t=p.get('tema'),q=p.get('busca')||p.get('tag');
-  if(c||a){selectEntity(c?'conceito':'autor',c||a);return;}
-  if(['dados','cultura','conceitos'].includes(b)){open(b,false);if(t&&b!=='conceitos'){state.tema[b]=t;renderThemes(b);renderPortal(b);}}
-  if(q){$('#busca').value=q;search(q,false);}
-}
+function params(){const p=new URLSearchParams(location.search),c=p.get('conceito'),a=p.get('autor'),b=p.get('bloco'),t=p.get('tema'),q=p.get('busca')||p.get('tag');if(c||a){selectEntity(c?'conceito':'autor',c||a);return;}if(['dados','cultura','conceitos'].includes(b)){openPortal(b,false);if(t&&b!=='conceitos'){state.tema[b]=t;renderThemes(b);renderPortal(b);}}if(q){$('#header-search-input').value=q;search(q,false);}}
