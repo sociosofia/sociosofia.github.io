@@ -1,0 +1,2 @@
+GitHub Pages redeploy trigger.
+Commit criado apenas para iniciar uma nova publicação do site.
