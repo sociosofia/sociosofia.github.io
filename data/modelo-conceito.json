@@ -1,0 +1,19 @@
+{
+  "nome": "Nome do conceito",
+  "status": "modelo editorial, núcleo fundamental ou expansão",
+  "definicoes": [
+    {
+      "autor": "Autor, autora ou tradição",
+      "obra": "Obra ou contexto de referência",
+      "texto": "Definição conceitualmente rigorosa e ancorada",
+      "linguagem_simples": "Explicação acessível sem perder precisão"
+    }
+  ],
+  "ajuda_a_compreender": ["Problema 1", "Problema 2"],
+  "como_mobilizar": "Exemplo de uso interpretativo ou argumentativo",
+  "limites": "Variações, disputas conceituais e cuidados de uso",
+  "grandes_temas": ["politica", "educacao"],
+  "fontes": [
+    {"nome": "Obra original ou estudo de referência", "url": ""}
+  ]
+}
