@@ -2,34 +2,34 @@
   "id": "CUL-0000 ou DAD-0000",
   "editoria": "Notícias, dados e informações ou Séries, filmes, livros e músicas",
   "categoria": "Notícias, dados e informações ou Séries, filmes, livros e músicas",
-  "tipo": "Pesquisa/relatório, reportagem, filme, série, episódio, documentário, livro ou música",
-  "subtema": "Eixo de leitura",
+  "tipo": "Pesquisa, reportagem, filme, série, anime, documentário, livro, música ou jogo",
+  "grande_tema": "trabalho, cultura, politica, religiao, diferencas, educacao ou territorio",
+  "temas_menores": ["Tema menor 1", "Tema menor 2"],
+  "subtema": "Eixo de leitura específico",
   "titulo": "Título curto e pesquisável",
   "subtitulo": "Complemento explicativo",
   "resumo": "Resumo curto para aparecer no card",
   "dado": "Usar apenas em notícias, dados e informações",
-  "conexoes": "Usar em notícias, dados e informações",
-  "resumo_obra": "Usar em repertórios culturais",
-  "leitura_sociosofia": "Usar em repertórios culturais",
+  "conexoes": "Problemas e relações que tornam a fonte pertinente",
+  "resumo_obra": "Apresentação breve da obra cultural",
+  "leitura_sociosofia": "Leitura sociológica e filosófica apresentada como interpretação possível",
+  "o_que_observar": "Cenas, instituições, conflitos ou escolhas narrativas relevantes",
   "ancoragem_teorica": "Autor, autora ou conceito com frase curta de conexão",
-  "conceitos": [
-    "Conceito 1",
-    "Conceito 2"
-  ],
-  "autores": [
-    "Autor ou autora 1"
-  ],
-  "fonte_nome": "Fonte da pesquisa ou referência da obra",
+  "como_mobilizar": "Exemplo de uso em interpretação ou argumento",
+  "cuidados_uso": "Faixa etária, violência, sexualidade, racismo, suicídio ou outros cuidados",
+  "legitimacao": "Autoria, origem, ano, contexto e fonte que legitimam o repertório",
+  "pertinencia": "Explicação do vínculo real entre o repertório e o problema discutido",
+  "produtividade": "O que o repertório permite concluir, explicar ou sustentar",
+  "conceitos": ["Conceito 1", "Conceito 2"],
+  "autores": ["Autor ou autora 1"],
+  "fonte_nome": "Fonte original ou referência completa da obra",
   "fonte_url": "Link da fonte original quando houver",
   "ano_data": "Ano ou data",
   "confiabilidade": "Alta, média, em verificação ou repertório cultural",
-  "fonte_status": "conferida, fonte secundária, obra identificada, aguardando revisão",
+  "fonte_status": "conferida, fonte secundária, obra identificada ou aguardando revisão",
   "tempo_leitura": "3 min",
   "nivel": "Básico, intermediário ou avançado",
   "status": "rascunho, aguardando revisão, revisado ou publicado",
   "destaque": false,
-  "tags": [
-    "tag 1",
-    "tag 2"
-  ]
+  "tags": ["tag 1", "tag 2"]
 }
