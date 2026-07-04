@@ -1,1 +1,1 @@
-const css=document.createElement('link');css.rel='stylesheet';css.href='structure.css';document.head.appendChild(css);await import('./detail.js');
+const css=document.createElement('link');css.rel='stylesheet';css.href='structure.css';document.head.appendChild(css);const editorial=document.createElement('link');editorial.rel='stylesheet';editorial.href='editorial.css';document.head.appendChild(editorial);await import('./detail.js');
