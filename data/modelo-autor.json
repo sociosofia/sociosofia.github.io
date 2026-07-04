@@ -1,0 +1,18 @@
+{
+  "nome": "Nome completo",
+  "status": "núcleo fundamental, núcleo escolar ou expansão",
+  "pais": "País ou contexto de origem",
+  "periodo": "Período histórico",
+  "formacao": "Formação acadêmica ou intelectual relevante",
+  "atividade": "Atividade principal",
+  "concentracao": "Questões centrais que caracterizam sua obra",
+  "obras": ["Obra 1", "Obra 2", "Obra 3"],
+  "conceitos": ["Conceito 1", "Conceito 2"],
+  "grandes_temas": ["trabalho", "politica"],
+  "pertinencia": "Problemas que o autor ou autora ajuda a compreender",
+  "como_mobilizar": "Exemplo de utilização argumentativa",
+  "limites_criticas": "Críticas, controvérsias, limites históricos ou conceituais",
+  "fontes": [
+    {"nome": "Obra original, universidade ou fonte biográfica confiável", "url": ""}
+  ]
+}
