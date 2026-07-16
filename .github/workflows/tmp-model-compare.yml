@@ -30,8 +30,8 @@ jobs:
           curl -L --fail --retry 8 --retry-all-errors --connect-timeout 30 --max-time 300 \
             'https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/governo/desestatizacao/cemiterios/el04/Anexo%20XI%20-%20Plano%20de%20Neg%C3%B3cios%20de%20Refer%C3%AAncia.pdf' \
             -o tmp/model-comparison/anexo_xi_2020.pdf
-          curl -L --fail --retry 8 --retry-all-errors --connect-timeout 30 --max-time 600 \
-            'https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/governo/desestatizacao/cemiterios-publicos/contratos/20._Anexo_XI___Plano_de_Negocios_de_Ref_V26_vlimpa__1_.pdf' \
+          curl -L --fail --retry 8 --retry-all-errors --connect-timeout 30 --max-time 300 \
+            'https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/governo/desestatizacao/cemiterios-publicos/edital_republicado/20_Anexo_XI_Plano_de_Negocios_de_Ref_V26_vlimpa.pdf' \
             -o tmp/model-comparison/anexo_xi_2022.pdf
           pdftotext -layout tmp/model-comparison/anexo_xi_2020.pdf tmp/model-comparison/anexo_xi_2020.txt
           pdftotext -layout tmp/model-comparison/anexo_xi_2022.pdf tmp/model-comparison/anexo_xi_2022.txt
