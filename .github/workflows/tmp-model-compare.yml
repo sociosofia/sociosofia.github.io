@@ -1,0 +1,73 @@
+name: Temporary model comparison
+
+on:
+  push:
+    branches:
+      - tmp-public-doc-analysis
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  compare:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: tmp-public-doc-analysis
+
+      - name: Install PDF tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y poppler-utils
+
+      - name: Download 2020 and 2022 public plans
+        run: |
+          mkdir -p tmp/model-comparison
+          curl -L --fail --retry 8 --retry-all-errors --connect-timeout 30 --max-time 300 \
+            'https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/governo/desestatizacao/cemiterios/el04/Anexo%20XI%20-%20Plano%20de%20Neg%C3%B3cios%20de%20Refer%C3%AAncia.pdf' \
+            -o tmp/model-comparison/anexo_xi_2020.pdf
+          curl -L --fail --retry 8 --retry-all-errors --connect-timeout 30 --max-time 600 \
+            'https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/governo/desestatizacao/cemiterios-publicos/contratos/20._Anexo_XI___Plano_de_Negocios_de_Ref_V26_vlimpa__1_.pdf' \
+            -o tmp/model-comparison/anexo_xi_2022.pdf
+          pdftotext -layout tmp/model-comparison/anexo_xi_2020.pdf tmp/model-comparison/anexo_xi_2020.txt
+          pdftotext -layout tmp/model-comparison/anexo_xi_2022.pdf tmp/model-comparison/anexo_xi_2022.txt
+          pdfinfo tmp/model-comparison/anexo_xi_2020.pdf > tmp/model-comparison/pdfinfo_2020.txt
+          pdfinfo tmp/model-comparison/anexo_xi_2022.pdf > tmp/model-comparison/pdfinfo_2022.txt
+
+      - name: Extract mortality and pandemic passages
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+          root=Path('tmp/model-comparison')
+          terms=re.compile(r'óbito|obito|mortalidade|pandemia|covid|coronav|popula|sepult|crema|demanda|proje',re.I)
+          out=['# Comparison of publicly available reference plans']
+          for year in ('2020','2022'):
+              p=root/f'anexo_xi_{year}.txt'
+              lines=p.read_text(errors='ignore').splitlines()
+              out.append(f'\n## {year}\n')
+              for i,line in enumerate(lines):
+                  if terms.search(line):
+                      a=max(0,i-2); b=min(len(lines),i+5)
+                      out.append(f'### Lines {a+1}-{b}\n```text\n'+ '\n'.join(lines[a:b]) +'\n```')
+          (root/'comparison.md').write_text('\n'.join(out),encoding='utf-8')
+          PY
+
+      - name: Commit temporary public-source copies
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git pull --rebase origin tmp-public-doc-analysis
+          git add tmp/model-comparison
+          git commit -m 'Add temporary copies and extraction of public reference plans' || exit 0
+          git push origin HEAD:tmp-public-doc-analysis
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: model-comparison-public-docs
+          path: tmp/model-comparison
+          retention-days: 1
