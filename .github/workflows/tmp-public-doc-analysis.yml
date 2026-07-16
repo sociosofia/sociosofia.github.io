@@ -1,0 +1,120 @@
+name: Temporary public document analysis
+
+on:
+  push:
+    branches:
+      - tmp-public-doc-analysis
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: tmp-public-doc-analysis
+
+      - name: Install tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y poppler-utils unzip
+          python -m pip install --upgrade pip
+          python -m pip install pandas openpyxl xlrd
+
+      - name: Download public documents
+        run: |
+          mkdir -p tmp/public-docs/downloads tmp/public-docs/extracted
+          curl -L --fail --retry 5 --retry-delay 3 \
+            'https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/governo/desestatizacao/cemiterios-publicos/contratos/20._Anexo_XI___Plano_de_Negocios_de_Ref_V26_vlimpa__1_.pdf' \
+            -o tmp/public-docs/anexo_xi.pdf
+          curl -L --fail --retry 5 --retry-delay 3 \
+            'https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/governo/desestatizacao/cemiterios/dr/Informa%C3%A7%C3%B5es%20SGM%20-%20Manual%20de%20Cen%C3%A1rios%20da%20Licita%C3%A7%C3%A3o.zip' \
+            -o tmp/public-docs/downloads/manual_cenarios.zip
+          curl -L --fail --retry 5 --retry-delay 3 \
+            'https://www.prefeitura.sp.gov.br/cidade/secretarias/upload/governo/desestatizacao/cemiterios/dr/Informa%C3%A7%C3%B5es%20CGM%20-%20Indicador%20F%C3%ADsico%20e%20Vendas%20por%20Itens%20SFMSP.zip' \
+            -o tmp/public-docs/downloads/indicadores_vendas.zip
+          unzip -o tmp/public-docs/downloads/manual_cenarios.zip -d tmp/public-docs/extracted/manual
+          unzip -o tmp/public-docs/downloads/indicadores_vendas.zip -d tmp/public-docs/extracted/indicadores
+          pdftotext -layout tmp/public-docs/anexo_xi.pdf tmp/public-docs/anexo_xi.txt
+
+      - name: Analyze public documents
+        run: |
+          cat > /tmp/analyze.py <<'PY'
+          from pathlib import Path
+          import re, json
+          import pandas as pd
+
+          root = Path('tmp/public-docs')
+          terms = [
+              'óbito','obito','óbitos','obitos','morte','mortalidade','falecimento',
+              'pandemia','covid','coronavírus','coronavirus','sepultamento','sepultamentos',
+              'cremação','cremacao','cremações','cremacoes','população','populacao',
+              'demográfica','demografica','projeção','projecao','nascimentos','demanda'
+          ]
+          pat = re.compile('|'.join(re.escape(x) for x in terms), re.I)
+          out=[]
+          out.append('# Temporary analysis of public concession documents\n')
+          out.append('## Files\n')
+          for p in sorted(root.rglob('*')):
+              if p.is_file():
+                  out.append(f'- `{p}` ({p.stat().st_size} bytes)')
+
+          pdf_txt = root/'anexo_xi.txt'
+          if pdf_txt.exists():
+              text=pdf_txt.read_text(errors='ignore')
+              lines=text.splitlines()
+              out.append('\n## Anexo XI: matching passages\n')
+              for i,line in enumerate(lines):
+                  if pat.search(line):
+                      a=max(0,i-2); b=min(len(lines),i+4)
+                      out.append(f'### Lines {a+1}-{b}\n```text\n'+'\n'.join(lines[a:b])+'\n```')
+
+          out.append('\n## Spreadsheet matches\n')
+          records=[]
+          for p in sorted((root/'extracted').rglob('*')):
+              if not p.is_file() or p.suffix.lower() not in {'.xlsx','.xls','.csv','.txt'}:
+                  continue
+              try:
+                  if p.suffix.lower() in {'.xlsx','.xls'}:
+                      book=pd.ExcelFile(p)
+                      for sheet in book.sheet_names:
+                          df=pd.read_excel(p,sheet_name=sheet,header=None)
+                          for idx,row in df.iterrows():
+                              vals=[str(x) for x in row.tolist() if str(x)!='nan']
+                              joined=' | '.join(vals)
+                              if pat.search(joined):
+                                  rec={'file':str(p),'sheet':sheet,'row':int(idx)+1,'text':joined[:5000]}
+                                  records.append(rec)
+                                  out.append(f"- `{p}` / `{sheet}` / row {idx+1}: {joined[:3000]}")
+                  else:
+                      text=p.read_text(errors='ignore')
+                      for idx,line in enumerate(text.splitlines(),1):
+                          if pat.search(line):
+                              rec={'file':str(p),'sheet':'','row':idx,'text':line[:5000]}
+                              records.append(rec)
+                              out.append(f'- `{p}` / line {idx}: {line[:3000]}')
+              except Exception as e:
+                  out.append(f'- ERROR reading `{p}`: {e}')
+          (root/'summary.md').write_text('\n'.join(out),encoding='utf-8')
+          (root/'matches.json').write_text(json.dumps(records,ensure_ascii=False,indent=2),encoding='utf-8')
+          PY
+          python /tmp/analyze.py
+
+      - name: Commit temporary extracted report and official PDF
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add tmp/public-docs/anexo_xi.pdf tmp/public-docs/anexo_xi.txt tmp/public-docs/summary.md tmp/public-docs/matches.json
+          git commit -m 'Add temporary extraction of public concession documents' || exit 0
+          git push origin HEAD:tmp-public-doc-analysis
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: public-concession-documents
+          path: tmp/public-docs
+          retention-days: 1
