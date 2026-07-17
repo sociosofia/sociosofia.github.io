@@ -1,6 +1,9 @@
 name: Temporary TCM revenue extraction
 
 on:
+  push:
+    branches:
+      - main
   pull_request:
     branches:
       - main
@@ -28,13 +31,6 @@ jobs:
           def norm(x):
               s=unicodedata.normalize('NFKD',str(x)).encode('ascii','ignore').decode('ascii').upper()
               return re.sub(r'\s+',' ',s)
-          def money(s):
-              s=str(s).strip()
-              if not s or s=='.00': return 0.0
-              try: return float(s.replace('.','',s.count('.')-1))
-              except: 
-                  try: return float(s.replace(',','.'))
-                  except: return 0.0
           entities=['CONSOLARE','CORTEL','GRUPO MAYA','VELAR','PREVER ADMINISTRACAO CEMITERIAL','SP REGULA','44.615.216','47.701.152','48.222.338','47.863.166','53/SFMSP/2022','54/SFMSP/2022','55/SFMSP/2022','60/SFMSP/2022']
           rows=[]; annual=[]; specific=[]; legacy=[]
           for year in range(2023,2027):
@@ -47,19 +43,16 @@ jobs:
               df=pd.read_csv(io.StringIO(text),sep=sep,dtype=str,keep_default_na=False,low_memory=False)
               joined=df.astype(str).agg(' | '.join,axis=1).map(norm)
               arrec_col=[c for c in df.columns if norm(c)=='ARRECADADO'][0]
-              # Generic FMD concession outorga rubrica
               mask_fmd=joined.str.contains('OUTORGAS PROVENIENTES DE CONCESSOES - FMD',regex=False,na=False)
               fmd=df.loc[mask_fmd].copy()
               fmd['_valor']=pd.to_numeric(fmd[arrec_col].str.replace(',','.',regex=False),errors='coerce').fillna(0)
               annual.append({'year':year,'rows':len(fmd),'arrecadado_fmd':float(fmd['_valor'].sum())})
               for _,r in fmd.iterrows():
                   d={'year':year,'kind':'FMD'}; d.update(r.to_dict()); rows.append(d)
-              # Exact entity/contract identifiers
               mask_ent=pd.Series(False,index=df.index)
               for e in entities: mask_ent |= joined.str.contains(norm(e),regex=False,na=False)
               for _,r in df.loc[mask_ent].iterrows():
                   d={'year':year,'kind':'ENTITY'}; d.update(r.to_dict()); specific.append(d)
-              # Any cemetery/funeral descriptive rows excluding legacy SFMSP entity
               mask_cf=(joined.str.contains('CEMITER',regex=False,na=False)|joined.str.contains('FUNERAR',regex=False,na=False)|joined.str.contains('CREMAC',regex=False,na=False))
               mask_legacy=joined.str.contains('SERVICO FUNERARIO DO MUNICIPIO DE SAO PAULO',regex=False,na=False)
               for _,r in df.loc[mask_cf & ~mask_legacy].iterrows():
