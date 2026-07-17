@@ -6,7 +6,7 @@ on:
       - main
 
 permissions:
-  contents: write
+  contents: read
 
 jobs:
   download:
@@ -14,58 +14,77 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: Install tools
+      - name: Install browser and PDF tools
         run: |
           sudo apt-get update
           sudo apt-get install -y poppler-utils
-          python -m pip install requests beautifulsoup4
+          python -m pip install playwright
+          python -m playwright install --with-deps chromium
 
-      - name: Download and extract public TCM files
+      - name: Download through public browser session
         run: |
-          mkdir -p tmp/tcm-downloads
+          mkdir -p tmp/tcm-browser
           python - <<'PY'
           from pathlib import Path
-          from urllib.parse import urljoin
-          import json, requests
-          from bs4 import BeautifulSoup
-          base='https://portal.tcm.sp.gov.br'
-          page_url=base+'/ConsultaProcesso?NumeroTC=TC%2F003153%2F2023&buscaSimplificada=True'
-          s=requests.Session(); s.headers.update({'User-Agent':'Mozilla/5.0 Chrome/126 Safari/537.36','Referer':page_url})
-          s.get(page_url,timeout=180).raise_for_status()
-          root=Path('tmp/tcm-downloads')
-          ids=[('relatorio_20_2023',1945272),('resposta_comunicacao',1981587)]
-          summary={}
-          for name,cod in ids:
-              url=base+f'/ConsultaProcesso/DocumentoEtcm?nuProcesso=TC0031532023&codArquivoDigital={cod}'
-              r=s.get(url,timeout=300,allow_redirects=True)
-              entry={'request_url':url,'final_url':r.url,'status':r.status_code,'content_type':r.headers.get('content-type'),'content_disposition':r.headers.get('content-disposition'),'size':len(r.content),'history':[{'status':h.status_code,'url':h.url,'location':h.headers.get('location')} for h in r.history]}
-              (root/f'{name}.bin').write_bytes(r.content)
-              if r.content.startswith(b'%PDF'):
-                  (root/f'{name}.pdf').write_bytes(r.content); entry['pdf']=f'{name}.pdf'
-              else:
-                  (root/f'{name}.html').write_bytes(r.content)
-                  soup=BeautifulSoup(r.content,'html.parser')
-                  entry['html_text']=' '.join(soup.get_text(' ',strip=True).split())[:20000]
-                  links=[]
-                  for tag in soup.find_all(['a','iframe','embed','object','script']):
-                      for attr in ['href','src','data']:
-                          if tag.get(attr): links.append(urljoin(r.url,tag.get(attr)))
-                  entry['embedded_links']=links
-                  for i,link in enumerate(links):
-                      if any(x in link.lower() for x in ['pdf','arquivo','document','download','visualiz']):
-                          try:
-                              rr=s.get(link,timeout=300,allow_redirects=True)
-                              entry.setdefault('embedded_downloads',[]).append({'url':link,'final_url':rr.url,'status':rr.status_code,'content_type':rr.headers.get('content-type'),'size':len(rr.content),'is_pdf':rr.content.startswith(b'%PDF')})
-                              (root/f'{name}_embedded_{i}.bin').write_bytes(rr.content)
-                              if rr.content.startswith(b'%PDF'):
-                                  (root/f'{name}.pdf').write_bytes(rr.content); entry['pdf']=f'{name}.pdf'
-                          except Exception as e: entry.setdefault('errors',[]).append({'url':link,'error':str(e)})
-              summary[name]=entry
-          (root/'download-summary.json').write_text(json.dumps(summary,ensure_ascii=False,indent=2),encoding='utf-8')
+          import json
+          from playwright.sync_api import sync_playwright
+
+          root=Path('tmp/tcm-browser')
+          url='https://portal.tcm.sp.gov.br/ConsultaProcesso?NumeroTC=TC%2F003153%2F2023&buscaSimplificada=True'
+          summary={'page_url':url,'downloads':[],'errors':[]}
+          with sync_playwright() as p:
+              browser=p.chromium.launch(headless=True)
+              context=browser.new_context(accept_downloads=True)
+              page=context.new_page()
+              page.goto(url,wait_until='domcontentloaded',timeout=180000)
+              try:
+                  page.get_by_text('Concordo',exact=True).click(timeout=5000)
+              except Exception:
+                  pass
+              try:
+                  page.locator('#iconShowDetalhe_TC0031532023').click(timeout=30000)
+              except Exception as e:
+                  summary['errors'].append('detail click: '+str(e))
+              try:
+                  page.locator('#btnCarregarDocumento_TC0031532023').click(timeout=30000)
+                  page.wait_for_timeout(5000)
+              except Exception as e:
+                  summary['errors'].append('load list click: '+str(e))
+              html=page.content(); (root/'page-after-clicks.html').write_text(html,encoding='utf-8')
+              anchors=page.locator('#ListaDocumentosEtcm_TC0031532023 a').all()
+              summary['anchor_count']=len(anchors)
+              for i,a in enumerate(anchors):
+                  try:
+                      href=a.get_attribute('href')
+                      text=a.inner_text()
+                      if not href: continue
+                      absolute=page.evaluate('(h)=>new URL(h, location.href).href',href)
+                      item={'index':i,'text':text,'href':href,'absolute':absolute}
+                      # Browser-context request shares cookies with the page.
+                      resp=context.request.get(absolute,timeout=180000,fail_on_status_code=False)
+                      body=resp.body()
+                      item.update({'status':resp.status,'content_type':resp.headers.get('content-type'),'content_disposition':resp.headers.get('content-disposition'),'size':len(body)})
+                      ext='pdf' if body.startswith(b'%PDF') else 'html'
+                      path=root/f'document_{i}.{ext}'; path.write_bytes(body); item['path']=str(path)
+                      summary['downloads'].append(item)
+                  except Exception as e:
+                      summary['errors'].append(f'anchor {i}: {e}')
+              # Also request the two known public document IDs inside the same session.
+              for name,cod in [('report',1945272),('response',1981587)]:
+                  try:
+                      direct=f'https://portal.tcm.sp.gov.br/ConsultaProcesso/DocumentoEtcm?nuProcesso=TC0031532023&codArquivoDigital={cod}'
+                      resp=context.request.get(direct,timeout=180000,fail_on_status_code=False)
+                      body=resp.body(); ext='pdf' if body.startswith(b'%PDF') else 'html'
+                      path=root/f'{name}.{ext}'; path.write_bytes(body)
+                      summary['downloads'].append({'name':name,'absolute':direct,'status':resp.status,'content_type':resp.headers.get('content-type'),'content_disposition':resp.headers.get('content-disposition'),'size':len(body),'path':str(path)})
+                  except Exception as e:
+                      summary['errors'].append(f'direct {name}: {e}')
+              browser.close()
+          (root/'summary.json').write_text(json.dumps(summary,ensure_ascii=False,indent=2),encoding='utf-8')
           print(json.dumps(summary,ensure_ascii=False,indent=2))
           PY
 
-          for f in tmp/tcm-downloads/*.pdf; do
+          for f in tmp/tcm-browser/*.pdf; do
             [ -e "$f" ] || continue
             pdftotext -layout "$f" "${f%.pdf}.txt" || true
             pdfinfo "$f" > "${f%.pdf}.pdfinfo.txt" || true
@@ -74,6 +93,6 @@ jobs:
       - name: Upload public documents
         uses: actions/upload-artifact@v4
         with:
-          name: tcm-public-inspection-files
-          path: tmp/tcm-downloads
+          name: tcm-public-browser-files
+          path: tmp/tcm-browser
           retention-days: 1
