@@ -1,0 +1,79 @@
+name: Temporary TCM public document downloader
+
+on:
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  download:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install tools
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y poppler-utils
+          python -m pip install requests beautifulsoup4
+
+      - name: Download and extract public TCM files
+        run: |
+          mkdir -p tmp/tcm-downloads
+          python - <<'PY'
+          from pathlib import Path
+          from urllib.parse import urljoin
+          import json, requests
+          from bs4 import BeautifulSoup
+          base='https://portal.tcm.sp.gov.br'
+          page_url=base+'/ConsultaProcesso?NumeroTC=TC%2F003153%2F2023&buscaSimplificada=True'
+          s=requests.Session(); s.headers.update({'User-Agent':'Mozilla/5.0 Chrome/126 Safari/537.36','Referer':page_url})
+          s.get(page_url,timeout=180).raise_for_status()
+          root=Path('tmp/tcm-downloads')
+          ids=[('relatorio_20_2023',1945272),('resposta_comunicacao',1981587)]
+          summary={}
+          for name,cod in ids:
+              url=base+f'/ConsultaProcesso/DocumentoEtcm?nuProcesso=TC0031532023&codArquivoDigital={cod}'
+              r=s.get(url,timeout=300,allow_redirects=True)
+              entry={'request_url':url,'final_url':r.url,'status':r.status_code,'content_type':r.headers.get('content-type'),'content_disposition':r.headers.get('content-disposition'),'size':len(r.content),'history':[{'status':h.status_code,'url':h.url,'location':h.headers.get('location')} for h in r.history]}
+              (root/f'{name}.bin').write_bytes(r.content)
+              if r.content.startswith(b'%PDF'):
+                  (root/f'{name}.pdf').write_bytes(r.content); entry['pdf']=f'{name}.pdf'
+              else:
+                  (root/f'{name}.html').write_bytes(r.content)
+                  soup=BeautifulSoup(r.content,'html.parser')
+                  entry['html_text']=' '.join(soup.get_text(' ',strip=True).split())[:20000]
+                  links=[]
+                  for tag in soup.find_all(['a','iframe','embed','object','script']):
+                      for attr in ['href','src','data']:
+                          if tag.get(attr): links.append(urljoin(r.url,tag.get(attr)))
+                  entry['embedded_links']=links
+                  for i,link in enumerate(links):
+                      if any(x in link.lower() for x in ['pdf','arquivo','document','download','visualiz']):
+                          try:
+                              rr=s.get(link,timeout=300,allow_redirects=True)
+                              entry.setdefault('embedded_downloads',[]).append({'url':link,'final_url':rr.url,'status':rr.status_code,'content_type':rr.headers.get('content-type'),'size':len(rr.content),'is_pdf':rr.content.startswith(b'%PDF')})
+                              (root/f'{name}_embedded_{i}.bin').write_bytes(rr.content)
+                              if rr.content.startswith(b'%PDF'):
+                                  (root/f'{name}.pdf').write_bytes(rr.content); entry['pdf']=f'{name}.pdf'
+                          except Exception as e: entry.setdefault('errors',[]).append({'url':link,'error':str(e)})
+              summary[name]=entry
+          (root/'download-summary.json').write_text(json.dumps(summary,ensure_ascii=False,indent=2),encoding='utf-8')
+          print(json.dumps(summary,ensure_ascii=False,indent=2))
+          PY
+
+          for f in tmp/tcm-downloads/*.pdf; do
+            [ -e "$f" ] || continue
+            pdftotext -layout "$f" "${f%.pdf}.txt" || true
+            pdfinfo "$f" > "${f%.pdf}.pdfinfo.txt" || true
+          done
+
+      - name: Upload public documents
+        uses: actions/upload-artifact@v4
+        with:
+          name: tcm-public-inspection-files
+          path: tmp/tcm-downloads
+          retention-days: 1
