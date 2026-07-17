@@ -1,0 +1,18 @@
+Creator:         ScanPDFMaker 1.0
+Producer:        Samsung-M4080FX
+CreationDate:    Thu Oct 19 13:48:22 2023 UTC
+ModDate:         Fri Oct 20 11:42:32 2023 UTC
+Custom Metadata: no
+Metadata Stream: yes
+Tagged:          no
+UserProperties:  no
+Suspects:        no
+Form:            AcroForm
+JavaScript:      no
+Pages:           5
+Encrypted:       no
+Page size:       595.2 x 842.16 pts (A4)
+Page rot:        0
+File size:       379581 bytes
+Optimized:       no
+PDF version:     1.6

@@ -1,0 +1,20 @@
+{
+  "relatorio_20_2023": {
+    "request_url": "https://portal.tcm.sp.gov.br/ConsultaProcesso/DocumentoEtcm?nuProcesso=TC0031532023&codArquivoDigital=1945272",
+    "final_url": "https://portal.tcm.sp.gov.br/ConsultaProcesso/DocumentoEtcm?nuProcesso=TC0031532023&codArquivoDigital=1945272",
+    "status": 200,
+    "content_type": "application/pdf",
+    "content_disposition": null,
+    "size": 1753686,
+    "history": []
+  },
+  "resposta_comunicacao": {
+    "request_url": "https://portal.tcm.sp.gov.br/ConsultaProcesso/DocumentoEtcm?nuProcesso=TC0031532023&codArquivoDigital=1981587",
+    "final_url": "https://portal.tcm.sp.gov.br/ConsultaProcesso/DocumentoEtcm?nuProcesso=TC0031532023&codArquivoDigital=1981587",
+    "status": 200,
+    "content_type": "application/pdf",
+    "content_disposition": null,
+    "size": 379581,
+    "history": []
+  }
+}

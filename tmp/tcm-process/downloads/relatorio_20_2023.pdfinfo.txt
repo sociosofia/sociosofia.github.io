@@ -1,0 +1,19 @@
+Author:          Raphael Costa Carvalho
+Creator:         Microsoft Office Word
+Producer:        Aspose.Words for .NET 19.7 - by Lacuna Software PKI SDK
+CreationDate:    Fri Sep 15 12:03:00 2023 UTC
+ModDate:         Tue Sep 19 13:41:12 2023 UTC
+Custom Metadata: no
+Metadata Stream: no
+Tagged:          no
+UserProperties:  no
+Suspects:        no
+Form:            AcroForm
+JavaScript:      no
+Pages:           47
+Encrypted:       no
+Page size:       595.5 x 842.5 pts (A4)
+Page rot:        0
+File size:       1753686 bytes
+Optimized:       no
+PDF version:     1.7

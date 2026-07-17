@@ -1,0 +1,2166 @@
+                                                                        eTCM 003153/2023
+
+
+
+
+                              RELATÓRIO DE INSPEÇÃO
+
+
+
+
+  Ordem de Serviço           e-TCM                 Período de             Período da
+                                                  abrangência             realização
+
+       2023/01352          03153/2023            07.03.23 a           02.05.23 a 18.08.23
+                                                 03.08.23
+
+Área
+
+Agência Reguladora de Serviços Públicos do Município de São Paulo (SP Regula) / Serviço
+Funerário do Município de São Paulo (SFMSP).
+
+Objeto
+
+Inspeção para verificação dos aspectos no âmbito da execução dos Contratos de Concessão
+dos serviços cemiteriais, funerários e de cremação no Município de São Paulo (Contratos
+53/SFMSP/2023, 54/SFMSP/2023, 55/SFMSP/2023 e 60/SFMSP/2023).
+
+Valor do objeto de auditoria (em R$)               Montante fiscalizado (em R$)
+
+ Contrato 53/SFMSP/2022 – R$ 2.241.636.000,33       Não se aplica
+
+ Contrato 54/SFMSP/2022 – R$ 1.805.256.999,99
+
+ Contrato 55/SFMSP/2022 – R$ 1.784.583.000,00
+
+ Contrato 60/SFMSP/2022 – R$ 1.386.947.000,00
+
+  Total - R$ 7.218.423.000,32 (obs.: valores
+ incluem os investimentos, despesas e custos
+ operacionais, somados com valores de outorga,
+ para o prazo de 25 anos da Concessão)
+
+Objetivo
+
+Verificar o cumprimento dos contratos no que se referem aos aspectos elencados pelo
+Conselheiro Relator para Inspeção dos serviços prestados pelas Concessionárias do Serviço
+Funerário (memorando GAB-MF Nº 19/2023), dentre os quais: a) regras de gratuidade; b)
+observância, pelas Concessionárias, dos valores das tarifas estabelecidas pela Concessão;
+c) preparo/treinamento dos funcionários das Concessionárias no atendimento e orientação
+dos usuários, em especial sobre os direitos à gratuidade, valores do funeral social (ou
+cremação) e sobre os canais de atendimento e reclamações; d) o cumprimento, até o
+momento, dos prazos de sepultamento e cremação previstos no contrato de concessão; e)
+quais ferramentas tecnológicas estão disponíveis, aos usuários, para acompanhamento dos
+Cód. 042 (Versão 05)                                                                        1
+                                                                      eTCM 003153/2023
+
+
+
+serviços; f) as ações de acompanhamento e fiscalização dos serviços do Serviço Funerário
+do Município nessa fase de transferência operacional; e g) política de comunicação com os
+usuários.
+
+
+
+
+Equipe técnica
+
+Fernando Correia Riserio do Bonfim                                      RF 20.216
+
+Raphael Costa Carvalho                                                  RF 20.276
+
+Téo Do Coutto De Sá Alves                                               RF 20.272
+
+Adriano Pinheiro Bezerra de Menezes (supervisor)                        RF 20.290
+
+Anselmo Fernandes Rizante (coordenador)                                 RF 20.269
+
+
+
+
+Cód. 042 (Versão 05)                                                                   2
+                                                                                                        eTCM 003153/2023
+
+
+
+
+                                                    LISTA DE FIGURAS
+
+
+Figura 1 – Treinamento Consolare ...................................................................................................37
+
+
+
+
+   Cód. 042 (Versão 05)                                                                                                         3
+                                                                                                    eTCM 003153/2023
+
+
+
+                                                    LISTA DE QUADROS
+
+
+Quadro 1 – Empresas Concessionárias .............................................................................................9
+
+Quadro 2 – Falecidos elegíveis a gratuidade que sofreram cobrança da Consolare.......................22
+
+Quadro 3 – Falecidos elegíveis a gratuidade com documentação comprobatória insuficiente........23
+
+Quadro 4 – Falecidos elegíveis a gratuidade que sofreram cobrança da Maya ..............................25
+
+Quadro 5 – Falecidos elegíveis a gratuidade com documentação comprobatória insuficiente........25
+
+Quadro 6 – Falecidos elegíveis a gratuidade que sofreram cobrança da Cortel..............................27
+
+Quadro 7 – Falecidos elegíveis a gratuidade com documentação comprobatória insuficiente........28
+
+Quadro 8 – Falecidos elegíveis a gratuidade que sofreram cobrança da Velar...............................29
+
+
+
+
+   Cód. 042 (Versão 05)                                                                                                     4
+                                                                        eTCM 003153/2023
+
+
+
+                                     LISTA DE SIGLAS
+
+
+ABNT – Associação Brasileira de Normas Técnicas
+
+CEC – Caderno de Encargos da Concessionária
+
+DOC – Diário Oficial da Cidade
+
+DM – Decreto Municipal
+
+Fl/fls. – Folha/folhas
+
+LF – Lei Federal
+
+LM – Lei Municipal
+
+NBASP – Normas Brasileiras de Auditoria aplicadas ao Setor Público
+
+PPP – Parcerias Público Privada
+
+SEDP – Secretaria Executiva de Desestatização e Parcerias
+
+SEI – Sistema Eletrônico de Informações
+
+SFMSP – Serviço Funerário do Município de São Paulo
+
+SGM – Secretaria do Governo Municipal
+
+SP Regula – Agência Reguladora de Serviços Públicos do Município de São Paulo
+
+SPP – São Paulo Parcerias S.A.
+
+
+
+
+ Cód. 042 (Versão 05)                                                                 5
+                                                                         eTCM 003153/2023
+
+
+
+                                          RESUMO
+
+A presente Inspeção foi realizada entre 02.05.23 e 18.08.23, com o período de abrangência
+de 07.03.23 a 03.08.23, no âmbito da Concessão dos Serviços Funerários Municipais, com o
+objetivo de verificar o atendimento aos requisitos estabelecidos pelo Conselheiro Relator
+(memorando GAB-MF Nº 19/2023) referentes a: a) regras de gratuidade; b) observância,
+pelas Concessionárias, dos valores das tarifas estabelecidas pela Concessão; c)
+preparo/treinamento dos funcionários das Concessionárias no atendimento e orientação dos
+usuários, em especial sobre os direitos à gratuidade, valores do funeral social (ou cremação)
+e sobre os canais de atendimento e reclamações; d) o cumprimento, até o momento, dos
+prazos de sepultamento e cremação previstos no contrato de concessão; e) quais ferramentas
+tecnológicas estão disponíveis, aos usuários, para acompanhamento dos serviços; f) as ações
+de acompanhamento e fiscalização dos serviços do Serviço Funerário do Município nessa
+fase de transferência operacional; e g) política de comunicação com os usuários.
+Com base nos testes de auditoria realizados foram identificados: i) indícios de
+descumprimento da legislação relativa à gratuidade dos serviços cemiteriais e funerários; ii)
+indícios de desrespeito à política tarifária da concessão; iii) infringência na política de
+comunicação visual das agências funerárias (tabela de preços e informativo sobre gratuidade
+em desacordo com o item 17.2 do Anexo III – Caderno de Encargos da Concessionária); iv)
+ausência de planejamento adequado das ações de acompanhamento e fiscalização por parte
+do Poder Concedente.
+Por outro lado, não foram constatadas impropriedades com relação: i) ao preparo/treinamento
+dos funcionários das Concessionárias; ii) aos canais de atendimento aos usuários; iii) as
+ferramentas tecnológicas disponíveis para acompanhamento dos serviços e iv) aos prazos de
+sepultamento e remoção.
+Os testes de auditoria realizados, referentes à gratuidade, política tarifária e prazos de
+sepultamento e remoção, não foram conclusivos devido às limitações das informações e
+documentos fornecidos pelas Concessionárias por intermédio da SP Regula (item 2.3
+“Limitações da Auditoria” do presente relatório).
+Nesse sentido, durante os procedimentos de auditoria, foi constatada a dificuldade dos órgãos
+responsáveis (SFMSP e SP Regula) em prover, tempestivamente, as informações solicitadas
+pela Auditoria.
+Cód. 042 (Versão 05)                                                                       6
+                                                                                                                eTCM 003153/2023
+
+
+
+                                                               SUMÁRIO
+1.      INTRODUÇÃO .........................................................................................................................8
+
+ 1.1. Destinatários.............................................................................................................................8
+
+ 1.2. Visão geral do objeto, objetivos e escopo ................................................................................8
+
+ 1.3. Normas de auditoria aplicadas na realização do trabalho ......................................................10
+
+ 1.4. A Concessão do Serviço Funerário Municipal........................................................................10
+2.      METODOLOGIA.....................................................................................................................12
+
+ 2.1. Critérios adotados ..................................................................................................................14
+
+ 2.2. Métodos de coleta e análise dos dados .................................................................................16
+
+ 2.3. Limitações da Auditoria ..........................................................................................................17
+3.      ACHADOS DE AUDITORIA...................................................................................................21
+
+ 3.1. Achados sobre as regras de gratuidade.................................................................................21
+
+ 3.2. Achados sobre a política tarifária da Concessão ...................................................................30
+
+ 3.3. Sobre o preparo/ treinamento dos funcionários das concessionárias no atendimento,
+      ferramentas tecnológicas disponíveis e política de comunicação com os usuários...............35
+
+ 3.4. Sobre o cumprimento dos prazos de sepultamento e remoção previstos no contrato de
+      concessão ..............................................................................................................................41
+
+ 3.5. As ações de acompanhamento e fiscalização do serviço funerário do município nessa fase
+      de transferência operacional ..................................................................................................43
+4.      COMENTÁRIOS DO GESTOR ..............................................................................................44
+5.      CONCLUSÃO.........................................................................................................................45
+6.      ANÁLISE DOS ELEMENTOS DA RESPONSABILIZAÇÃO.................................................46
+7.      PROPOSTAS DE ENCAMINHAMENTO ...............................................................................46
+
+ 7.1. Propostas de determinação....................................................................................................46
+
+ 7.2. Propostas de recomendação..................................................................................................47
+
+ 7.3. Propostas de ciência ..............................................................................................................47
+                                                                           eTCM 003153/2023
+
+
+
+1. INTRODUÇÃO
+
+Trata-se de fiscalização, na modalidade Inspeção, destinada a verificar os requisitos determinados
+pelo Conselheiro Relator no memorando GAB-MF Nº 19/2023 (peça 1).
+
+O contexto dessa determinação é a transferência da execução dos serviços cemiteriais e
+funerários, além da operação do crematório existente no Município às quatro empresas
+Concessionárias, em 07.03.23, e as informações noticiadas pela mídia nesse período que
+indicariam a ocorrência de falhas na prestação dos serviços, sobretudo no que diz respeito à
+inobservância das regras de gratuidade e do valor máximo a ser cobrado pelos serviços (política
+tarifária).
+
+Ademais, também foi destacado pelo Conselheiro Relator a situação e os papéis desempenhados
+pela SP Regula e pelo Serviço Funerário do Município em relação aos Contratos de Concessão,
+bem como as ferramentas tecnológicas disponibilizadas aos usuários e a política de comunicação
+das Concessionárias.
+
+1.1. Destinatários
+
+O destinatário direto do trabalho é o Conselheiro Relator que determinou sua realização e o Pleno
+deste Tribunal, responsável pelo julgamento, alcançando ainda as áreas fiscalizadas (SP Regula e
+SFMSP) e a sociedade paulistana.
+
+1.2. Visão geral do objeto, objetivos e escopo
+
+O objeto do presente trabalho de Inspeção é a verificação dos aspectos determinados pelo
+Conselheiro Relator no âmbito da execução dos Contratos de Concessão dos Serviços Cemiteriais,
+Funerários e de Cremação no Município de São Paulo.
+
+Em 07.03.23 ocorreu a transferência da execução dos serviços cemiteriais, funerários e operação
+do crematório existente no Município às quatro empresas Concessionárias vencedoras da licitação
+e responsáveis pelos Contratos de Concessão, conforme quadro a seguir:
+                                                                                                          eTCM 003153/2023
+
+
+
+Quadro 1 – Empresas Concessionárias
+Concessionária                                                                                 Bloco       Contrato
+
+CONCESSIONÁRIA         DE   CEMITÉRIOS       E   SERVIÇOS      FUNERÁRIOS       SPE    S/A
+                                                                                                  I        53/SFMSP/2022
+(CONSOLARE)
+
+SPE CONSÓRCIO CORTEL SP S/A (CORTEL)                                                              II       54/SFMSP/2022
+
+CEMITÉRIOS E CREMATÓRIOS SÃO PAULO SPE S/A (GRUPO MAYA)                                          III       55/SFMSP/2022
+
+CONCESSIONÁRIA PREVER               ADMINISTRAÇÃO         CEMITERIAL       E   SERVIÇOS
+                                                                                                 IV        60/SFMSP/2022
+FUNERÁRIOS S.A (VELAR)
+Fonte: Processos SEI 9310.2023/0000188-5; 9310.2023/0000191-5; 9310.2023/0000193-1; 9310.2023/0000196-6
+
+
+Logo após o início dos serviços pelas Concessionárias, foram noticiadas pela mídia fatos que
+indicariam a ocorrência de falhas na prestação dos serviços, sendo protocoladas Representações,
+por parte de Vereadores da CMSP, de Deputado Estadual e de Deputado Federal, junto a esta
+Corte de Contas (eTCM 002161/2023, 002364/2023, 003684/2023, 004388/2023, 007425/2023,
+006830/2023, 003124/2023).
+
+Na sequência, por Determinação do Conselheiro Relator, foi instaurada a presente fiscalização na
+modalidade Inspeção.
+
+Os procedimentos de auditoria executados têm o objetivo de verificação do determinado no
+memorando GAB-MF Nº 19/2023 (fl. 02, peça 1, eTCM 003153/2023), a saber:
+
+                            a) as regras de gratuidade;
+                            b) a observância, pelas Concessionárias, dos valores das tarifas estabelecidas pela
+                            Concessão;
+                            c) o preparo/treinamento dos funcionários das Concessionárias no atendimento e
+                            orientação dos usuários, em especial sobre os direitos à gratuidade, valores do
+                            funeral social (ou cremação) e sobre os canais de atendimento e reclamações;
+                            d) o cumprimento, até o momento, dos prazos de sepultamento e cremação
+                            previstos no contrato de concessão;
+                            e) as ferramentas tecnológicas disponíveis, aos usuários, para acompanhamento
+                            dos serviços;
+                            f) as ações de acompanhamento e fiscalização dos serviços do Serviço Funerário do
+                            Município nessa fase de transferência operacional; e
+                            g) política de comunicação com os usuários.
+
+
+Cumpre salientar que no curso da instrução processual houve mudança da relatoria para o
+Conselheiro Roberto Braguim, conforme deliberação do Pleno na 3276ª Sessão Ordinária, o qual
+determinou a continuidade da instrução (peça 14).
+
+Desse modo, o escopo da fiscalização é o determinado pelo Conselheiro Relator, tendo em vista
+os critérios legais aplicáveis.
+                                                                                                              eTCM 003153/2023
+
+
+
+1.3. Normas de auditoria aplicadas na realização do trabalho
+
+Nos termos da INF. n.º 014/SFC/2021, a inspeção foi conduzida em conformidade com o Manual
+de Auditoria Governamental (MAG1), que é consistente com as Normas Brasileiras de Auditoria do
+Setor Público (NBASP), desenvolvidas com base nos Princípios Fundamentais de Auditoria (ISSAI
+100-199), integrante da Estrutura de Pronunciamentos Profissionais da INTOSAI. Foram
+consideradas, ainda, as premissas referenciais do Manual de Fiscalização ora vigente.
+
+1.4. A Concessão do Serviço Funerário Municipal
+
+Este tópico trata, resumidamente, de aspectos e características dos Contratos, relevantes para a
+presente Inspeção, conforme o planejamento e a estruturação da Concessão realizada pela
+PMSP.
+
+A SP Parcerias foi a responsável pela estruturação de projeto de concessão dos serviços
+cemiteriais, envolvendo a gestão, operação, manutenção, exploração, revitalização e expansão
+dos 22 (vinte e dois) cemitérios e crematórios públicos e da prestação de serviços funerários no
+Município de São Paulo2.
+
+A nota técnica3 (peça 24) elaborada pela entidade, justifica que:
+
+                              Além de favorecer a realização de investimentos nesses equipamentos, o modelo
+                              contratual é pautado pelo cumprimento de critérios mínimos de qualidade para oferta
+                              do serviço, promovendo a gestão eficiente das diversas atividades inerentes à
+                              gestão, operação, manutenção e revitalização de tais equipamentos.
+
+                              [...] Nesse sentido, o modelo de concessão comum confere à Municipalidade as
+                              ferramentas necessárias para a melhoria na gestão e realização de investimentos,
+                              por meio de um contrato de longo prazo estruturado em métricas de desempenho4.
+
+Ao tratar do Caderno de Encargos da Contratada (CEC), a SP Parcerias explicava na nota que:
+
+                              Nesse contexto, o CEC define os principais critérios, diretrizes, encargos e
+                              parâmetros necessários à prestação dos serviços, sem, no entanto, desnaturar o
+                              conceito da própria concessão e retirar da concessionária a premissa de prestar o
+                              serviço concedido, por sua conta e risco e da melhor forma possível dentro de sua
+                              expertise.
+
+                              Busca-se, portanto, a melhor e mais adequada prestação do serviço, o que, por sua
+                              vez, não combina com a descrição extremamente detalhada dos encargos de obra
+                              da concessionária e nem com o instituto da própria concessão.
+1 Conforme o item “1. Apresentação” do Manual de Auditoria Governamental – Princípios Gerais (MAG-SFC-01): “...dentre os procedimentos
+disciplinados na Resolução 06/2000, a inspeção e alguns tipos de análises e acompanhamentos, por constituírem-se fiscalizações às quais não se
+aplicam, de modo predominante, as diretrizes da NBASP 100, não serão tratadas neste manual de auditoria, mas no Manual de Fiscalização,
+incidindo sobre elas as regras deste manual subsidiariamente” (grifos nossos).
+2 Termo de Contrato nº 014/2019-SGM celebrado entre a São Paulo Parcerias (“SPP”) e a Secretaria do Governo Municipal da Prefeitura da Cidade
+
+de São Paulo (“SGM”).
+3 Doc. nº 066000315, processo SEI 6011202100025221.
+4 Pág. 14 (Doc. nº 066000315, processo SEI 6011202100025221).
+                                                                                            eTCM 003153/2023
+
+
+
+                               [...] No Capítulo IV – Parâmetros Gerais de Serviço e no Capítulo V – Encargos de
+                               Operação e Gestão, são apresentados os aspectos gerais e específicos
+                               relacionados aos serviços objeto da concessão, como os procedimentos
+                               relacionados à cobrança da tarifa de manutenção, política de gratuidade atinente
+                               aos usuários hipossuficientes e doadores de órgãos, manutenção da
+                               capacidade de sepultamento, mecanismo de incentivo às áreas verdes, descrição
+                               das obrigações administrativas, atendimento e orientação ao usuário, manutenção,
+                               segurança e bem estar, zeladoria e limpeza, e áreas verdes5. (grifos nossos)
+
+No que se refere à comunicação visual informava que:
+
+                               Destarte, a sinalização e a comunicação visual também foram elementos que
+                               guiaram a elaboração do CEC, a fim de promover o estabelecimento de uma
+                               identidade padronizada dos cemitérios, de modo que foram previstos mapas do
+                               interior dos equipamentos, divulgação de informações históricas e culturais dos
+                               equipamentos, informativos acerca das condições relacionadas à política de
+                               gratuidades, bem como a afixação da tabela de preços dos serviços
+                               cemiteriais e funerários, tanto para os cemitérios e crematórios públicos, quanto
+                               para os cemitérios particulares, caso estes manifestem interesse.
+
+                               Salienta-se que a divulgação da tabela de preços dos serviços cemiteriais dos
+                               cemitérios privados está em linha com o disposto no § 3º do Art. 3º da Lei Municipal
+                               nº 17.180/2019, a qual estabelece que o contrato de concessão deverá prever
+                               instrumentos que assegurem a livre escolha do usuário e evitem o
+                               direcionamento da oferta dos serviços cemiteriais6. (grifos nossos)
+
+No detalhamento da política de gratuidade destacava que:
+
+                               Isto posto, o projeto traz, como encargo da concessionária, a obrigação de arcar
+                               com os custos das gratuidades a serem fornecidas aos usuários hipossuficientes e
+                               doadores de órgãos, conforme limites máximos e mínimos estabelecidos no Anexo II
+                               – Minuta do Contrato [...]
+
+                               Dessa forma, em conformidade com as orientações presentes no Decreto em vigor,
+                               o Apêndice V – Requisitos Mínimos e Parâmetros definiu os padrões sob os quais
+                               deverão ser oferecidos os serviços e produtos previstos acima, de modo que, caso a
+                               concessionária não possua algum dos produtos e/ou serviços supracitados, essa
+                               deverá fornecer aqueles de categoria imediatamente superior. Os beneficiários da
+                               política de gratuidade para hipossuficientes terão direito ao pacote de
+                               produtos e serviços representado pelo Funeral Social.
+
+                               [...] o contrato garante que todas as concessionárias deverão arcar com parte das
+                               gratuidades nos limites estabelecidos em contrato, e que deverão realizar o
+                               atendimento do beneficiário, mesmo que os sepultamentos ou cremações não sejam
+                               realizados em seus cemitérios ou crematórios.
+
+                               [...] Para as gratuidades de doadores de órgãos, não há restrição para qual cemitério
+                               deverá ser realizado o sepultamento – desde que o cemitério selecionado pelo
+                               usuário possua capacidade para o recebimento de novas cessões de gaveta unitária
+                               a prazo fixo – de maneira que tais beneficiários terão direito ao pacote de produtos e
+                               serviços representado pelo Funeral Padrão, conforme parâmetros fixados no
+                               Apêndice IV – Requisitos Mínimos e Parâmetros.
+
+                               [...] Cumpre salientar que os custos das gratuidades hipossuficientes e doadores de
+
+5   Págs. 25 e 26 (Doc. nº 066000315, processo SEI 6011202100025221).
+6   Pág. 36 (Doc. nº 066000315, processo SEI 6011202100025221).
+                                                                                          eTCM 003153/2023
+
+
+
+                               órgãos deverão ser arcados pela concessionária adjudicatária do bloco em que se
+                               dará o sepultamento, ao passo que, para os beneficiários hipossuficientes, será
+                               facultado ao usuário a escolha de um dentre os 4 (quatro) cemitérios citados, de
+                               modo que a concessionária responsável pelo cemitério em que se dará o
+                               sepultamento também deverá arcar com os custos relativos à execução dos serviços
+                               funerários.
+
+                               A verificação dos critérios para a concessão das gratuidades será feita pelas
+                               concessionárias, sujeita à fiscalização do poder concedente; é infração
+                               contratual, nos termos do Anexo XII – Infrações e Penalidades, deixar de
+                               conceder o benefício ao usuário que comprovadamente possuía esse direito
+                               no momento da solicitação, bem como deixar de oferecer quaisquer serviços
+                               ou produtos incluídos na gratuidade, nos termos da legislação. As
+                               concessionárias deverão submeter ao poder concedente, trimestralmente,
+                               relatório com o detalhamento das gratuidades concedidas e indeferidas, nos
+                               termos indicados no CEC.
+
+                               Caso o usuário não comprove, no momento da solicitação, atender aos
+                               critérios legais para a concessão da gratuidade, o benefício será executado de
+                               modo imediato, devendo a concessionária emitir título de cobrança com prazo
+                               de 60 (sessenta) dias para o seu vencimento, conforme determinado pelo
+                               Decreto Municipal nº 59.196/2020, no valor de R$ 850,00 (oitocentos e
+                               cinquenta reais)7. (grifos nossos)
+
+A partir desses aspectos da estruturação da Concessão, foram elaborados e assinados os termos
+contratuais junto as Concessionárias.
+
+Os aspectos pertinentes da legislação municipal sobre serviços funerários e cemiteriais, assim
+como os itens de maior relevo do Caderno de Encargos e Contrato da Concessão são analisados
+em maior detalhe no item “2.1. Critérios Adotados”.
+
+2. METODOLOGIA
+
+Conforme mencionado anteriormente, a presente inspeção teve seu objetivo determinado no
+memorando GAB-MF Nº 19/2023 (peça 1), consistindo na análise e verificação do cumprimento
+dos seguintes itens:
+
+                               1) as regras de gratuidade;
+
+                               2) a observância, pelas Concessionárias, dos valores das tarifas estabelecidas pela
+                               Concessão;
+
+                               3) o preparo/treinamento dos funcionários das Concessionárias no atendimento e
+                               orientação dos usuários, em especial sobre os direitos à gratuidade, valores do
+                               funeral social (ou cremação) e sobre os canais de atendimento e reclamações;
+
+                               4) o cumprimento, até o momento, dos prazos de sepultamento e cremação
+                               previstos no contrato de concessão;
+
+                               5) as ferramentas tecnológicas disponíveis, aos usuários, para acompanhamento
+
+7   Pág. 46 a 48 (Doc. nº 066000315, processo SEI 6011202100025221).
+                                                                               eTCM 003153/2023
+
+
+
+                     dos serviços;
+
+                     6) as ações de acompanhamento e fiscalização dos serviços do Serviço Funerário
+                     do Município nessa fase de transferência operacional; e
+
+                     7) política de comunicação com os usuários.
+
+
+Para sua consecução, a auditoria atuou em duas frentes.
+
+A primeira frente tratou da verificação dos dois primeiros itens (regras de gratuidade e política
+tarifária) e, para tanto, foram idealizados testes de auditoria sobre as bases de dados fornecidas
+pelas Concessionárias.
+
+No caso das regras de gratuidade, inicialmente, foi realizado um teste de consistência do sistema
+Hagape, que é a ferramenta desenvolvida pelo SFMSP para avaliar se o usuário tem direito à
+gratuidade.
+
+Com esse intuito, foram comparadas as informações de entrada (ex.: bases de dados do Cadastro
+Único) e saída (relação de benefícios aprovados ou negados). A partir desse cotejamento foram
+encontradas inconsistências, as quais foram informadas ao SFMSP.           Contudo, a lentidão do
+SFMSP em identificar a fonte do erro e corrigir a base de dados encaminhada para a Auditoria
+impossibilitou uma análise conclusiva sobre o funcionamento do Sistema Hagape (a ordem
+cronológica dos fatos está detalhada no item “2.3 Limitações da Auditoria”).
+
+Na sequência dos testes, referentes à gratuidade, foram contrastadas a base de dados do Hagape
+e a base de dados das Concessionárias. Foram realizados filtros, por meio da linguagem de
+programação "R”, para identificar se os clientes considerados elegíveis para o benefício
+efetivamente constavam como usuários da gratuidade nos sistemas de faturamento das
+Concessionárias.
+
+A segunda frente objetivou responder às cinco questões remanescentes – acerca do
+(3) treinamento e preparo dos funcionários das concessionárias; (4) prazos de sepultamento; (5)
+ferramentas tecnológicas implementadas; (6) ações de acompanhamento e fiscalização dos
+serviços; e (7) política de comunicação dos usuários. Para tanto, a auditoria realizou diligências
+aos cemitérios e às agências funerárias das quatro concessionárias, para verificação do
+cumprimento das medidas exigidas pelo Anexo do Caderno de Encargos (CEC), bem como para
+avaliar o comportamento das concessionárias nesse momento de início da execução do contrato.
+
+Portanto, o desenvolvimento de duas frentes de auditoria, por meio de metodologias distintas
+(testes para a análise de dados por programação computacional e verificação in loco de eventuais
+                                                                                    eTCM 003153/2023
+
+
+
+descumprimentos dos termos do contrato), foi planejado de modo a buscar o atingimento do
+objetivo da inspeção de maneira mais abrangente e com mais significância.
+
+2.1. Critérios adotados
+
+Cabe destacar os principais aspectos da legislação municipal referentes aos serviços funerários e
+cemiteriais, que embasam as normas contratuais, em especial, a concessão de gratuidade aos
+usuários elegíveis.
+
+A isenção de cobrança de preços públicos, taxas, emolumentos e tarifas tem como fundamento a
+Lei Municipal nº 11.083/1991, que autorizou o Poder Executivo a instituir, dentre outras hipóteses,
+a gratuidade do sepultamento para a população de baixa renda (hipossuficiente). A
+regulamentação da lei foi realizada pelo Decreto Municipal (DM) nº 59.196/20, o qual estabelece
+em seu art. 81:
+
+                      Art. 81. Para os fins deste decreto, será concedida a gratuidade dos serviços referidos
+                      no seu artigo 80 ao munícipe que demonstrar:
+
+                      I - ser membro da família do falecido, com renda mensal familiar “per capita” de até
+                      meio salário mínimo nacional, ou renda mensal familiar de até três salários mínimos
+                      nacionais, bem como possuir inscrição válida e atualizada no Cadastro Único –
+                      CadÚnico, instituído pelo Decreto Federal nº 6.135, de 26 de junho de 2007;
+
+                      II – ter sido cadastrado no SISRUA - Sistema de Atendimento ao Cidadão em
+                      Situação de Rua nos últimos 12 (doze) meses.
+
+Desse modo, a inscrição válida e atualizada no Cadastro Único é requisito legal para a concessão
+do benefício de gratuidade para a família hipossuficiente.
+
+Já o art. 82 do DM 59.196/20 confere a possibilidade de contratação dos serviços, mesmo que o
+cadastro não esteja atualizado, com a emissão de boleto para pagamento futuro e prazo de 60
+dias para o munícipe atualizar o Cadastro Único e cancelar a cobrança que seria realizada. Tal
+previsão está refletida no Caderno de Encargos - CEC (peça 25):
+
+                      ANEXO III - CADERNO DE ENCARGOS DA CONCESSIONÁRIA
+
+                      24.30. A CONCESSIONÁRIA deverá emitir, para os USUÁRIOS que tiveram a
+                      GRATUIDADE indeferida no momento da solicitação, título de cobrança com prazo de
+                      60 (sessenta) dias para o seu vencimento, conforme estipulado pelo Decreto
+                      Municipal nº 59.196/2020, no valor de R$ 850,00 (oitocentos e cinquenta reais).
+
+Ainda sobre a concessão de gratuidade, o Anexo III do CEC dispõe que:
+
+                      [...] (c) A informação sobre os produtos e serviços aos quais os USUÁRIOS
+                      beneficiados pelas GRATUIDADES terão direito, a ser fixada em painel visível com no
+                      mínimo 1 m² (um metro quadrado), incluindo a indicação dos CEMITÉRIOS nos quais
+                                                                               eTCM 003153/2023
+
+
+
+                    poderão ser realizados os sepultamentos, no caso da GRATUIDADE
+                    SEPULTAMENTO HIPOSSUFICIENTES, e dos CREMATÓRIOS operantes nos quais
+                    poderão ser realizadas as cremações, no caso da GRATUIDADE CREMAÇÃO
+                    HIPOSSUFICIENTES E DOADORES;
+
+                    (d) A legislação e demais normas que regem a política de GRATUIDADES;
+
+                    [...] 24.25. A verificação dos critérios para a concessão de GRATUIDADES deverá ser
+                    realizada pela CONCESSIONÁRIA, a qual deverá manter registro próprio das
+                    GRATUIDADES deferidas e não deferidas, sempre instruídas com a motivação do ato.
+
+                    [...] 24.27. Na hipótese de indeferimento da concessão da GRATUIDADE pela
+                    CONCESSIONÁRIA, o USUÁRIO poderá interpor recurso administrativo endereçado
+                    ao PODER CONCEDENTE, devendo instruí-lo com documentação que demonstre o
+                    atendimento aos critérios previstos no CONTRATO e seus ANEXOS e nas normas
+                    vigentes aplicáveis para a fruição das GRATUIDADES.
+
+                    24.28. A CONCESSIONÁRIA deverá orientar o USUÁRIO sobre a possibilidade de
+                    interposição de recurso e dos procedimentos necessários para o seu correto
+                    encaminhamento ao PODER CONCEDENTE.
+
+Nos Contratos da Concessão (peças 20, 21, 22 e 23) destaca-se:
+
+                    Cláusula 13ª: 13.2. São obrigações da Concessionária, sem prejuízo das demais
+                    obrigações estabelecidas neste Contrato, em seus Anexos e na legislação pertinente:
+
+                    [...] (zz) informar previamente aos USUÁRIOS sobre as tarifas e demais preços
+                    cobrados em decorrência da exploração dos SERVIÇOS CONCEDIDOS e
+                    SERVIÇOS COMPLEMENTARES;
+
+                    [...] (ooo) realizar o atendimento do USUÁRIO das GRATUIDADES na AGÊNCIA
+                    FUNERÁRIA para a contratação dos serviços concedidos incluídos nas
+                    GRATUIDADES, independentemente do CEMITÉRIO de escolha do USUÁRIO, nos
+                    termos do anexo III – CADERNO DE ENCARGOS DA CONCESSIONÁRIA;
+
+                    Cláusula 17ª:
+
+                    [...] e) obtenção do benefício da GRATUIDADE para os SERVIÇOS CONCEDIDOS,
+                    desde que se enquadrem nos requisitos e cumpram com os procedimentos previstos
+                    na Lei Municipal nº 17.180/2019 e demais normas regulamentadores relativas à
+                    política de GRATUIDADE aplicável aos SERVIÇOS CEMITERIAIS e SERVIÇOS
+                    FUNERÁRIOS;
+
+                    [...] (g) obtenção de informações precisas e de fácil acesso nos locais de prestação
+                    dos serviços OBJETO deste CONTRATO.
+
+Do exposto, cabe ressaltar que as Concessionárias têm a obrigação de verificar a eligibilidade ao
+benefício da gratuidade, mantendo registro próprio instruído com a motivação do ato (item 24.25
+do CEC). Logo, apesar dos termos contratuais não detalharem a forma pela qual as
+Concessionárias deverão registrar o processo de concessão da gratuidade, existe a obrigação
+contratual de documentar as gratuidades concedidas e negadas aos usuários do serviço.
+                                                                               eTCM 003153/2023
+
+
+
+
+2.2. Métodos de coleta e análise dos dados
+
+No caso da primeira frente da auditoria, a que utilizou testes de auditoria sobre as bases de
+dados fornecidas pelas Concessionárias, foram utilizados os seguintes métodos:
+
+   Consultas     aos    Processos     SEI     6011.2021/0002522-1,        9310.2023/0000188-5,
+    9310.2023/0000191-5, 9310.2023/0000193-1, 9310.2023/0000196-6;
+   Requisição inicial de informações. Tratamento e análise das bases de dados recebidas
+    para embasar requisições adicionais de informações. Todo o trâmite da coleta e análise de
+    dados foi registrado pela SP-Regula nos Processos SEI 9310.2023/0000602-0 (92 atos);
+    9310.2023/0000756-5 (16 atos), 9310.2023/0000799-9 (30 atos) e 9310.2023/0000882-0
+    (23 atos), totalizando 161 atos processuais relacionados às requisições de informações
+    efetuadas pela Auditoria;
+   Os testes de auditoria, referentes ao cumprimento da política tarifária e gratuidades, foram
+    realizados sobre as bases de dados fornecidas pelas Concessionárias, por meio da
+    linguagem de programação R, e encaminhados para a SP Regula para comentários (os
+    códigos de programação foram registrados nos Processos SEI 9310.2023/0000602-0 (Doc.
+    083662819, Doc. 083663237), 9310.2023/0000756-5 (Doc. 083927495, Doc. 083927650),
+    9310.2023/0000799-9 (Doc. 084219884, Doc. 084220168) e 9310.2023/0000882-0 (Doc.
+    085057934).
+
+A segunda frente da auditoria, além das consultas aos processos, contratos e requisição de
+informações, tais como os atestados de óbito e registros relacionados aos prazos de
+sepultamento, utilizou como método principal a execução de diligências para a verificação “in loco”,
+verificando questões como: i) a forma que o usuário é recepcionado e atendido, na atual fase de
+concessão do serviço funerário; ii) o preparo e treinamento dos funcionários das Concessionárias,
+por meio de entrevistas; iii) a política de comunicação com os usuários, mediante avaliação dos
+informativos disponibilizados nas agências funerárias.
+
+Para tanto, em 08.05.2023, o Superintendente de Fiscalização da SP Regula, senhor Gilson Luiz
+da Costa, emitiu e-mail à SFMSP e às quatro concessionárias, comunicando-as da inspeção do
+TCM-SP e de possíveis visitas aos cemitérios e às agências funerárias, da seguinte maneira:
+
+                     Cumpre-me comunicá-los que com a finalidade de cumprir com suas atribuições
+                     institucionais, a equipe de fiscalização do TCM, que este lê em cópia, visitará os
+                     cemitérios da Concessão, de forma aleatória e de inopino, visando medição da
+                     execução contratual.
+                                                                                                        eTCM 003153/2023
+
+
+
+                            Solicito orientar os vossos colaboradores a receber os agentes do TCM, fornecer as
+                            informações que eles solicitarem durante as visitas e colaborar com o serviço
+                            prestado.
+
+No que se refere à análise documental, foi enviada à SP Regula e ao SFMSP, a Requisição de
+Documentos nº 3 (peça 26), no dia 23/05/2023, com os seguintes questionamentos:
+
+                            - 1. Informar se foram realizados treinamentos com os funcionários com vista à
+                            preparação para o atendimento aos usuários; há certificados dos treinamentos?
+
+                            - 2.    Informar quais os canais de atendimento disponíveis aos usuários;
+
+                            - 3. Informar as ferramentas tecnológicas disponíveis aos usuários para
+                            acompanhamento dos serviços;
+
+                            - 4. Informar como estão sendo realizados o acompanhamento e fiscalização dos
+                            serviços por parte do Serviço Funerário nessa fase de transferência operacional;
+
+                            - 5.    Informar a política de comunicação com os usuários;
+
+                            - 6. Cópias digitalizadas dos atestados de óbito, das declarações de óbito e do
+                            registro de sepultamento e cremação feitos desde o início das concessões até a
+                            data da presente requisição.
+
+No dia 30.05.2023, a SP Regula, através da sua Diretora Carolina Rocha Malheiros (ponto focal da
+SP Regula para resposta das requisições e e-mails de esclarecimento); apresentou uma primeira
+resposta aos questionamentos, entretanto apenas com esclarecimentos prestados pela
+concessionária Consolare (peças 27 e 34).
+
+Posteriormente, após novo questionamento da equipe de auditoria, a SP Regula forneceu, em
+08.08.2023, as respostas com os esclarecimentos prestados pelas demais concessionárias (peças
+35 e 36).
+
+
+2.3. Limitações da Auditoria
+
+Os procedimentos de auditoria sofreram limitações devido às inconsistências observadas nas
+informações fornecidas. As bases de dados obtidas pela SP Regula, junto as Concessionárias,
+apresentaram diversas discrepâncias, de modo que os testes não foram conclusivos, em especial
+no que se refere ao cumprimento da política tarifária da Concessão.
+
+A seguir apresenta-se a ordem cronológica em que tais inconsistências foram informadas por e-
+mail à SP Regula:
+    22.05.23, referente às informações da Concessionária Consolare: a base de dados8
+
+8 Arquivo “SPREGULA_RelatorioDetalhado_Consolare.xlsx”, processo SEI 9310202300006020, documento “Relatório (082982674)”. Cabe
+mencionar que a aba “CONSOLIDADO” apresenta apenas 9 linhas. Desse modo, para o teste foram utilizados os dados da aba “Base_Atual” com
+31.729 linhas que aparentava ser a mais completa.
+                                                                                                         eTCM 003153/2023
+
+
+
+     fornecida apresentava divergências entre suas abas. O principal problema, no entanto, é
+     que em muitos casos a descrição dos produtos vendidos é diferente do previsto nas
+     tabelas da política tarifária. São utilizados termos diferentes (exemplo: SEMI LUXO) e são
+     apresentados conjuntos de serviços que podem ou não incluir produtos e serviços
+     tabelados pela política tarifária, como por exemplo: "SERVICO CONJUNTO", “SERVICO
+     VELORIO", "SERVICO COROA", "SERVICO VEU", etc. Contudo, cabe mencionar que os
+     dados foram fornecidos de forma relativamente coesa na comparação com as demais
+     Concessionárias.
+    26.05.23, referente às informações da Concessionária Maia: a base de dados9 foi fornecida
+     com grande número de lacunas em variáveis (colunas) que são fundamentais para a
+     análise de auditoria. São 4296 linhas sem a informação do tipo de serviço, 1489 sem a
+     informação do pacote e 572 sem a informação do produto, o que prejudicou
+     substancialmente os resultados dos testes. Além das lacunas de informação, na coluna
+     “tipo de serviço” há a ocorrência de 2054 classificações “somente declaração de óbito”, a
+     qual não se relaciona como os demais tipos de serviços apresentados que se referem ao
+     modo de cobrança (“atendimento particular”, “contratação normal” e “gratuito”). Ademais,
+     foram utilizados 48 termos diferentes na coluna “pacote”, enquanto a política tarifária faz
+     referência a apenas 9 tipos de pacote (Social, Popular, Padrão, Luxo, Israelita, Viagem
+     Nac. 1, Viagem Nac. 2, Viagem Intern.1 e Viagem Intern. 2.). Dentre os termos utilizados,
+     há palavras que se referem a produtos ao invés de pacotes como, por exemplo, “flor
+     artificial”.
+    01.06.23, referente às informações da Concessionária Cortel: a base de dados10
+     apresentou um número relevante de lacunas, 622 linhas sem a informação do tipo de
+     serviço e 2.203 linhas sem a informação do pacote utilizado. Além de tais lacunas de
+     informação, cabe destacar que foram apresentadas 224 descrições genéricas de produto
+     ou serviço vendido, utilizando o termo “pacote serviços funerários”, o que inviabiliza a
+     verificação do cumprimento da política tarifária para estes casos.
+    19.06.23, sobre a Concessionária Velar: a base de dados11 da concessionária foi
+     apresentada fora do padrão das demais. Os dados estão separados em diferentes abas
+     sem que haja uma chave única entre elas. Por exemplo: Na aba “Base-Atual”, as linhas
+     seguem a ordem da coluna/variável “NumOrdem”, já na aba “Serviços” esta mesma coluna
+     é chamada “Funeral” e consta uma segunda coluna identificada apenas com uma hashtag
+     “#”. Por sua vez, na aba “Itens” a única referência é o número da “OS”, o qual corresponde
+
+9 Arquivo “RelatorioDetalhado_MAIA_03_04_23.xls”, processo SEI 9310202300006020, documento “Relatório (082982183)”
+10 Arquivo “RelatorioDetalhado_CORTEL_040523.xlsx”, processo SEI 9310202300006020, documento “Relatório (082981911)”
+11 Arquivo “RelatorioDetalhado_VELAR.xlsx”, processo SEI 9310202300006020, documento “Relatório (082982505)”
+                                                                                 eTCM 003153/2023
+
+
+
+    ao valor da coluna “#” da aba anterior. Essa segregação das informações inviabilizou a
+    aplicação adequada dos testes de auditoria. Além disso, foi constatada inconsistência nos
+    dados da aba “Itens”, pois se observaram dezenas de itens com valores de cobrança para
+    os quais foi utilizada, contraditoriamente, a classificação “gratuito”.
+
+O longo trâmite das requisições de informação feitas pela Auditoria, documentadas nos processos
+(9310.2023/0000602-0,      9310.2023/0000756-5,       9310.2023/0000799-9,      9310.2023/0000882-0),
+mostra a dificuldade que a SP Regula teve em obter os dados das vendas de produtos e serviços
+realizados pelas Concessionárias. Durante as reuniões realizadas, os servidores da agência
+informaram que está em andamento um projeto do departamento de Tecnologia da Informação
+para automatizar o acesso pela SP Regula aos dados das Concessionárias.
+
+Contudo, até que a solução tecnológica seja implementada, para que a SP Regula consiga cumprir
+adequadamente com suas obrigações de fiscalização do serviço, é fundamental que os dados
+sejam    saneados     e   se   tornem     plenamente     auditáveis,   por    meio   da   inclusão   de
+variável(eis)/coluna(s) de modo a identificar o item e a tabela de referência da política tarifária,
+quando aplicável, permitindo a diferenciação inequívoca dos produtos/serviços tabelados daqueles
+que não precisam respeitar os limites da política tarifária.
+
+Com relação ao SFMSP, também foram encontradas dificuldades para o cumprimento das
+requisições de informação, o que impactou no prazo e no escopo dos procedimentos de auditoria.
+O trâmite foi documentado no processo SEI 9310.2023/0000602-0 conforme abaixo:
+   A primeira requisição foi entregue em 24.04.23 (Doc. “Requisição 082014555”);
+   Em 27.04.23, após manifestação do departamento de TI do SFMSP, a Auditoria solicitou
+    uma alteração para facilitar o atendimento da requisição, simplificando os dados a serem
+    encaminhados (Doc. “Solicitação 082280782”);
+   Uma parte dos dados foi encaminhada em 02.05.23 (Doc. “Encaminhamento 082526620”);
+   A complementação das informações foi fornecida em 10.05.23 (Doc. “Encaminhamento
+    082987116”);
+   Em 15.05.23, a Auditoria encaminhou um teste preliminar de consistência das informações
+    produzidas pelo Sistema Hagape do SFMSP, para verificar se seria possível alguma falha
+    do sistema que induzisse as Concessionárias a erro, ou seja, se o sistema poderia
+    informar, equivocadamente, que o benefício da gratuidade não deveria ser concedido para
+    uma pessoa que na verdade tinha direito ao benefício. O cruzamento dos dados de
+    entrada e saída do Hagape apontou inconsistências que foram encaminhadas para análise
+    do SFMSP (Doc. “Requisição 083177038”)
+                                                                                 eTCM 003153/2023
+
+
+
+   A análise do SFMSP sobre as divergências identificadas pela Auditoria foi apresentada em
+    19.05.23. A Superintendência da Autarquia (Doc. “Ofício 083536582”) concluiu que:
+
+                     [...] A extração do CadUnico fornecida continha registros não elegíveis à gratuidade
+                     devido a um erro na query utilizada para exportação de dados diretamente do
+                     banco, sendo necessária uma nova extração. (grifos nossos)
+
+                     [...] Para facilitar as verificações de consistência que serão realizadas pela Corte,
+                     entre a planilha de log de consultas e as extrações das bases de dados do Cadúnico e
+                     BPC/SisRua fornecidas, esta autarquia realizará novas exportações contendo as
+                     colunas anteriormente omitidas (grifos no original).
+
+   Em 25.05.23 (Doc. “Encaminhamento 083859027”), a Assessoria e a Superintendência
+    Jurídica informam a Presidência da SP Regula que o SFMSP havia complementado a
+    requisição de informações que se encontrava pendente mencionando os documentos
+    083536582 (Ofício de 19.05.23 mencionado acima) e 083559680 (Manual de uso do
+    Hagape).
+   Em 05.06.23 é encaminhado, pela SP Regula, ofício ao TCMSP informando,
+    equivocadamente, que a requisição de informações havia sido atendida (Doc. “Ofício
+    084443279”).
+   A Auditoria encaminhou e-mail em 07.06.23 (Doc. “E-mail 084488119”) notificando que a
+    requisição ainda estava pendente, pois não haviam sido encaminhados os dados que
+    precisavam ser corrigidos, conforme reconhecido pelo SFMSP em 19.05.23.
+   Na sequência, ainda em 07.06.23, a chefia de gabinete do SFMSP, por fim, encaminhou à
+    Superintendência    Jurídica   os   links   para    acesso    aos    dados    corrigidos    (Doc.
+    “Encaminhamento 084494339”), os quais foram encaminhados para a Auditoria.
+
+Assim, constata-se que a requisição de informações protocolada em 24.04.23 foi atendida apenas
+em 07.06.23, o que dificultou a execução de um teste de auditoria sobre o sistema Hagape.
+
+De forma similar, a requisição de informações, protocolada junto à SP Regula, em 23.05.23,
+solicitando cópias digitalizadas dos atestados de óbito, das declarações de óbito e do registro de
+sepultamento e cremação realizados, foi respondida, com o posicionamento completo das
+Concessionárias, apenas em 08.08.23, o que impactou na execução dos testes de auditoria.
+
+É importante destacar que, a despeito de a unidade auditada ser a SP Regula, as detentoras das
+informações são as Concessionárias, de modo que a lentidão nas respostas destas implica no
+atraso da Agência Reguladora em atender as solicitações da Auditoria.
+
+Por todo o exposto neste item, verifica-se que a demora no atendimento das requisições e as
+inconsistências identificas nas informações fornecidas prejudicaram o bom andamento dos
+                                                                                                     eTCM 003153/2023
+
+
+
+trabalhos de modo que os testes de auditoria, em boa parte, não foram conclusivos.
+
+3. ACHADOS DE AUDITORIA
+
+3.1. Achados sobre as regras de gratuidade
+
+     3.1.1. Gratuidade – Concessionária Consolare – Indícios de descumprimento ao direito
+             de gratuidade dos usuários elegíveis ao benefício
+
+Critério(s):
+
+    Decreto Municipal (DM) nº 59.196/20, art. 81.
+
+Situação encontrada:
+
+Após a coleta inicial e análise dos dados da Concessionária Consolare12, conforme item “2.2
+Métodos de coleta e análise dos dados”, foi encaminhado e-mail, em 22.05.23, para os
+responsáveis na SP Regula com as constatações preliminares da Auditoria e requisição adicional
+de informações.
+
+A primeira etapa do procedimento foi verificar quais dos falecidos foram consultados no sistema do
+SFMSP (Hagape13). Dentre os 199 nomes consultados, em uma análise com foco na identificação
+apenas pelo nome, o Hagape informou que 51 tinham direito à gratuidade. Porém apenas 30
+usufruíram do benefício, de modo que numa análise inicial, aproximadamente, 40% das pessoas
+que tinham direito ao benefício acabaram pagando pelos serviços utilizados. Após análise das
+datas dos falecimentos de modo a excluir falecidos que tinham homônimos, restaram 22 falecidos
+para os quais o Hagape informou que havia direito à gratuidade, porém foi realizada cobrança.
+
+Então, foi solicitado à Concessionária que apresentasse os documentos comprobatórios (por
+exemplo: formulário de entrevista, termo de ciência, nota de contratação etc.) mostrando que as
+pessoas foram informadas do seu direito e, por livre e espontânea vontade, desejaram renunciar
+ao benefício para, por exemplo, contratar pacotes mais completos ou mais adequados às suas
+necessidades.
+
+A SP Regula encaminhou a resposta da Consolare14, contendo os documentos solicitados, sem,
+no entanto, realizar análise própria sobre a documentação enviada.
+
+
+12 Processo SEI 9310.2023/0000602-0, documento “Relatório (082982674)”.
+13 O histórico do Hagape foi fornecido no arquivo “CONSULTAS_GRATUIDADE___07_03_23_A_25_04_23.xlsx” (Doc. Sei Planilha – 082199509,
+SEI 9310.2023/0000602-0)
+14 Ofício nº 141/2023/SP-Regula e Doc. 083998974 (Processo SEI 9310.2023/0000602-0).
+                                                                                      eTCM 003153/2023
+
+
+
+Evidências:
+
+Cabe repisar que toda a análise sofreu as restrições elencadas no item “2.3 Limitações da
+Auditoria”. O teste de auditoria inicial sobre os dados resultou na lista a seguir com 22 nomes,
+contendo falecidos que foram consultados no sistema do SFMSP (Hagape), o qual retornou a
+informação de que o benefício estava aprovado, porém, mesmo assim, foi realizado algum tipo de
+cobrança, segundo as informações da base de dados da Consolare.
+
+Quadro 2 – Falecidos elegíveis a gratuidade que sofreram cobrança da Consolare
+ Falecido                                                     Cliente (Contratante)
+ VERA LUCIA BARBOSA BUENO                                     SIMONE DE CARVALHO BUENO
+ SUELI MARIA DE OLIVEIRA VAZ                                  CINTHIA VAZ MANENTTI
+ GERALDO BARBOSA DO NASCIMENTO                                CLEBER APARECIDO DOS SANTOS
+ EDNA ALVES DOS SANTOS                                        DAIANE DA SILVA MARTINS
+ DALVA BUENO DE RAMOS                                         MONICA APARECIDA RAMOS
+ CLAUDENICE DE JESUS CRUZ                                     JEFFERSON JESUS FREITAS
+ MARIA DE FATIMA COSMO                                        MARIA ELAIDE DE SOUZA COSMO
+ CLAUDETE DA SILVA MARTINS                                    ROMILSON DA SILVA MARTINS
+ WILLIAMS LUIZ CANDIDO DE ANDRADE                             RENATA CANDIDO DE ANDRADE
+ FLAVIA DE MANI GIANNETTI CAMBOIM                             MAURICIO GIANNETTI CAMBOIM
+ JOSE CARLOS DA CRUZ                                          FERNANDO APARECIDO DA CRUZ
+ VAGNER CARVALHO DOS SANTOS                                   WILSON CARVALHO DOS SANTOS
+ JORGE LUIS CAMPOS                                            ANDREA APARECIDA FELIX CPSTA PEREIRA
+ ROBERTI CRUZ                                                 DOUGLAS BONESSO CRUZ
+ MARIA DA SILVA SOUZA                                         RAFAELA OLIVEIRA BONO
+ MARIA DE JESUS SILVA                                         LUCILA DE JESUS YAMAMOTO
+ SANDOVAL JOSE DA SILVA                                       EDIVAL JOSE DA SILVA
+ CELIA REGINA RODRIGUES                                       JORGE ERCILIO SAMUEL RODRIGUES
+ VALDEMI MORAES ALVES                                         BRUNO MORAES ALVES
+ ANTONIO DIAS VIANA                                           JORGE DIAS VIANA
+ GENILDA MARIA CRUZ DE MERELES BENTO                          KAREN CRISTINIE DE MERELES
+ INES DE JESUS DE ALMEIDA                                     JONAS FLORENTINO PEREIRA
+Fonte: Própria
+
+
+Na resposta encaminhada pela Consolare, após a requisição de informações da Auditoria, foram
+apresentados documentos comprobatórios (termo de ciência) para 8 casos, mostrando que o
+contratante preencheu termo de próprio punho optando pelo serviço particular (pago), com o intuito
+de contratar um produto/serviço superior ao gratuito.
+
+Em outros 3 casos, a Concessionária mostrou que a cobrança efetuada foi apenas de serviços que
+não fazem parte do pacote gratuito, como, por exemplo, a tanatopraxia. Em um caso, não houve
+cobrança efetiva e o nome do falecido não deveria ter constado da lista.
+
+Contudo, nos 10 casos restantes a documentação enviada foi insuficiente para comprovar que os
+                                                                                           eTCM 003153/2023
+
+
+
+contratantes foram corretamente informados e, ainda assim, optaram pelo serviço particular ao
+invés do gratuito, conforme o quadro a seguir:
+
+Quadro 3 – Falecidos elegíveis a gratuidade com documentação comprobatória insuficiente
+Falecido                                 Valor Cobrado    Termo de Ciência   Observação
+GERALDO BARBOSA DO NASCIMENTO                   1843,44   ausente            NA
+EDNA ALVES DOS SANTOS                            566,04   ausente            NA
+CLAUDENICE DE JESUS CRUZ                        1236,93   ausente            NA
+MARIA DE FATIMA COSMO                            6159,6   ausente            NA
+FLAVIA DE MANI GIANNETTI CAMBOIM                1342,39   ausente            NA
+VAGNER CARVALHO DOS SANTOS                      4520,17   ausente            NA
+CELIA REGINA RODRIGUES                          2614,79   ausente            NA
+                                                                             Dados do contratante não estão
+WILLIAMS LUIZ CANDIDO DE ANDRADE                1512,11 incompleto
+                                                                             preenchidos
+                                                                             Dados do contratante não estão
+MARIA DA SILVA SOUZA                            3677,16 incompleto
+                                                                             preenchidos
+                                                                             Termo preenchido de forma contraditória,
+                                                                             assinalado o item de que não haveria
+VALDEMI MORAES ALVES                            2450,24 incorreto            direito à gratuidade, conjuntamente, com a
+                                                                             opção por não exercer o direito de
+                                                                             gratuidade concedido.
+Fonte: Própria
+
+
+Cabe destacar que o termo de ciência mencionado acima não é uma exigência explícita do
+Contrato da Concessão. A despeito de o Anexo III do CEC, item 24.25, obrigar as Concessionárias
+a manter registro próprio das gratuidades, instruído com a motivação do ato, o modo de realização
+desse registro não se encontra detalhado nos termos contratuais.
+
+O termo de ciência, elaborado pela Consolare, é um formulário para preenchimento de próprio
+punho e assinatura do contratante, o qual, de fato, constitui um documento apto a comprovar que o
+beneficiário abdicou do direito à gratuidade. No entanto, a ausência do termo não é suficiente para
+caracterizar uma infração, dada a ausência de previsão contratual explícita para o preenchimento
+de tal termo.
+
+Desse modo, o quadro anterior congrega somente indícios de descumprimento da legislação de
+gratuidade, os quais devem ser analisados e investigados em maior profundidade pela SP Regula,
+no atendimento de sua função fiscalizadora.
+
+Ademais, constata-se a necessidade premente da emissão de uma Resolução ou outro ato
+normativo, por parte da Agência Reguladora, de modo a determinar a obrigação explícita de
+preenchimento de um termo de ciência ou documento equivalente, para possibilitar a adequada
+comprovação do cumprimento da legislação em todos os casos aplicáveis. Nesse sentido,
+inclusive, cabe a SP Regula avaliar a necessidade de realização de termo aditivo nos Contratos da
+Concessão, para permitir uma fiscalização mais efetiva da concessão das gratuidades e a
+respectiva aplicação de penalidades em caso de descumprimento.
+                                                                                                              eTCM 003153/2023
+
+
+
+Causas e efeitos:
+
+As causas se relacionam à atuação dos funcionários das Concessionárias, em especial, o
+entendimento e aplicação do manual de uso do sistema HAGAPE do SFMSP (Manual de
+Referência – Concessionárias Contingência 2 - Pesquisa de Gratuidades15), assim como o correto
+processo de registro das gratuidades, arquivando todos os documentos comprobatórios
+necessários.
+
+O efeito de possíveis erros na concessão da gratuidade, basicamente, reside na cobrança de
+valores indevidos aos usuários dos serviços cemiteriais e funerários, ocasionando o
+descumprimento da legislação aplicável, bem como traz efeitos econômico-financeiros aos
+contratos ao reduzir de forma não orgânica a concessão de gratuidades.
+
+     3.1.2. Gratuidade – Concessionária Maya – Indícios de descumprimento ao direito de
+              gratuidade dos usuários elegíveis ao benefício
+
+Critério(s):
+
+
+    Decreto Municipal (DM) nº 59.196/20, art. 81.
+
+Situação encontrada:
+
+Após a coleta inicial e análise dos dados da Concessionária Maya16 foi encaminhado e-mail, em
+26.05.23, para os responsáveis na SP Regula com a situação encontrada (constatações
+preliminares17) e requisição da documentação comprobatória das gratuidades que os usuários
+deixaram de utilizar. A SP Regula encaminhou a resposta da Maya18 em 02.06.23.
+
+Evidências:
+
+Na análise inicial, considerando as restrições elencadas no item “2.3 Limitações da Auditoria”,
+foram identificados 4 falecidos para os quais o Hagape informou que havia direito à gratuidade,
+porém foi realizada cobrança.
+
+
+15 Processo SEI 9310.2023/0000602-0, doc. 083559680.
+16 Processo SEI 9310.2023/0000602-0, doc. “Relatório 082982183”.
+17 A primeira etapa do procedimento foi verificar quais dos falecidos foram consultados no sistema do SFMSP (Hagape). O histórico do Hagape foi
+
+fornecido no arquivo “CONSULTAS_GRATUIDADE___07_03_23_A_25_04_23.xlsx” (Doc. Sei Planilha – 082199509), sendo que os dados do
+Hagape compreendem o período até 25.04.23, enquanto que a base da Maia compreende as transações até 30.04.23. Para contextualizar o teste,
+observamos que foram consultados no Hagape 46 de um total de 1589 nomes de falecidos da base de dados até 25.04.23, o que equivale a um
+percentual de 2,9% (o percentual da Consolare foi maior de 6,3%). Cabe destacar que esse percentual se refere apenas a consultas pelo nome.
+Nessa análise aproximada, dentre os 46 consultados, 17 nomes foram aprovados pelo Hagape para concessão da gratuidade. Dos 17 com direito à
+gratuidade, 12 usufruíram do benefício, o que corresponde a um aproveitamento de 70% (o percentual da Consolare foi menor 59%).
+18 Ofício 149.2023 SP Regula.
+                                                                                             eTCM 003153/2023
+
+
+
+Quadro 4 – Falecidos elegíveis a gratuidade que sofreram cobrança da Maya
+ Falecido                                                              Cliente (Contratante)
+ FLAVIO NATALICIO DA SILVA                                             IAGO GOULART SILVA
+ VANIA BRANDÃO DE ANDRADE                                              JENIFER BRANDÃO DE ANDRADE SILVA
+ ZILMA BATISTA MESSIAS                                                 DANIELA BATISTA ELERO
+ FERNANDO NUNES PEREIRA                                                LARISSA DE JESUS NUNES PEREIRA
+Fonte: Própria
+
+
+Após a análise da documentação encaminhada pela Maya, foi comprovado que no caso da
+falecida Vania Brandão de Andrada (contratante Jenifer Brandão de Andrade Silva) foram
+cobrados apenas serviços adicionais que não fazem parte do pacote de gratuidade (ex.:
+tanatopraxia). No entanto, para os demais casos a documentação apresentada foi insuficiente,
+conforme quadro a seguir.
+
+Quadro 5 – Falecidos elegíveis a gratuidade com documentação comprobatória insuficiente
+Falecido                        Valor Cobrado   Termo de Ciência   Observação da Maya
+
+                                                                   Nesse caso, a contratante, Larissa de Jesus Nunes
+                                                                   Pereira, solicitou que o sepultamento do falecido,
+                                                                   Fernando Nunes Pereira – hipossuficiente – fosse
+FERNANDO NUNES PEREIRA                 2789,82 ausente
+                                                                   realizado no Cemitério Campo Grande, e não no
+                                                                   Cemitério Saudade, que é o indicado para atender
+                                                                   sepultamentos destinados aos hipossuficientes.
+
+
+
+                                                                   Neste caso, o cliente Iago Goulart Silva, fez solicitação
+                                                                   que o sepultamento de Flávio Natalício da Silva fosse
+FLAVIO NATALICIO DA SILVA              2943,88 ausente             realizado no Cemitério Campo Grande e não no
+                                                                   Cemitério Saudade, que é o indicado para atender
+                                                                   sepultamentos destinados aos hipossuficientes.
+
+
+                                                                   Este é um caso no qual o cadastrado foi consultado no
+                                                                   sistema do CADUNICO, a respeito da falecida Zilma
+                                                                   Batista Messias. A consulta foi realizada no dia 29/03,
+                                                                   1 dia após o atendimento e da emissão do boleto. O
+ZILMA BATISTA MESSIAS                  1056,28 ausente             valor do carro remoção (R$ 103,14) foi incluído no
+                                                                   boleto indevidamente. Sendo assim, cumpre informar
+                                                                   que o boleto não foi enviado a nenhuma instituição
+                                                                   financeira, será cancelado e excluído de nosso
+                                                                   sistema e nenhuma taxa será cobrada
+Fonte: Própria
+
+
+Nos dois primeiros casos, a Maya informou que os contratantes escolheram um cemitério diferente
+do qual seria o permitido para a utilização do benefício da gratuidade, o que implicou na renúncia a
+este direito. Contudo, não foi anexada nenhuma documentação que tenha registrado essa opção
+por parte do contratante. No terceiro caso, a concessionária reconhece que ocorreu um erro e a
+cobrança era indevida, informando que o boleto emitido foi cancelado e não será realizada a
+cobrança.
+
+Cabe destacar que na manifestação encaminhada pela SP Regula (Ofício 149.2023 SP Regula,
+                                                                                                             eTCM 003153/2023
+
+
+
+peça 29), a Maya argumenta que não há obrigatoriedade de registro da renúncia ao direito da
+gratuidade por parte do usuário:
+
+                              No que diz respeito à renúncia da gratuidade para hipossuficientes, essa
+                              Concessionária informa ao cessionário sobre o direito que lhe cabe, contudo, quando
+                              o munícipe renuncia a esse direito, é acatada a decisão do cliente. Não é colhida
+                              nenhuma declaração, tendo em vista que não há previsão contratual que assim
+                              determine. (grifos nossos)
+
+Esse posicionamento reforça a necessidade, conforme explicado anteriormente, de a SP Regula,
+por meio do seu poder regulatório, publicar Resolução ou outro ato normativo, determinando a
+obrigação explícita de preenchimento de termo de ciência ou documento equivalente. Nesse
+sentido, caso necessário, cabe a Agência Reguladora realizar termo aditivo nos Contratos da
+Concessão para garantir a adequada comprovação do cumprimento da legislação em todos os
+casos aplicáveis e a respectiva aplicação de penalidades quando tal comprovação não for
+realizada.
+
+Causas e efeitos:
+
+A avaliação de causas e efeitos se mantém a mesma do item anterior.
+
+     3.1.3. Gratuidade – Concessionária Cortel – Indícios de descumprimento ao direito de
+              gratuidade dos usuários elegíveis ao benefício
+
+Critério(s):
+
+
+    Decreto Municipal (DM) nº 59.196/20, art. 81.
+
+Situação encontrada:
+
+Após a coleta inicial e análise dos dados da Concessionária Cortel19 foi encaminhado e-mail, em
+01.06.23, para os responsáveis na SP Regula com a situação encontrada (constatações
+preliminares20) e requisição da documentação comprobatória das gratuidades que os usuários
+deixaram de utilizar. A SP Regula encaminhou a resposta da Cortel21 (Ofício 165.2023 SP Regula,
+peça 30) em 22.06.23.
+
+
+
+19Processo SEI 9310.2023/0000602-0, doc. “Relatório 082981911”.
+20 Foram verificados quais dos falecidos haviam sido consultados no sistema do SFMSP. Identificamos que foram consultados no Hagape, um
+montante de 109 de um total de 2414 nomes de falecidos da base de dados até 25.04.23, o que equivale a um percentual de 4,5% (no caso da Maia
+havia sido 2,9% e no da Consolare 6,3%). Nessa análise, considerando apenas tais consultas pelo nome, observa-se que dentre os 109
+consultados, 27 nomes foram aprovados pelo Hagape para concessão da gratuidade. Desses 27 com direito à gratuidade, apenas 10 usufruíram do
+benefício, o que corresponde a um aproveitamento de 37% (o aproveitamento da Maia havia sido 70%, enquanto o da Consolare 59%).
+21 Ofício 165.2023 SP Regula.
+                                                                                      eTCM 003153/2023
+
+
+
+Evidências:
+
+Na análise inicial, considerando as restrições elencadas no item “2.3 Limitações da Auditoria”,
+foram identificados 14 falecidos para os quais o Hagape informou que havia direito à gratuidade,
+porém foi realizada cobrança.
+
+Quadro 6 – Falecidos elegíveis a gratuidade que sofreram cobrança da Cortel
+ Falecido                                                             Cliente (Contratante)
+ BENEDITO PEREIRA DOS SANTOS                                          SHEILA MARIA CHARLEAUX
+ GERALDO VIEIRA DE CARVALHO                                           TACIANE APARECIDA GOMES DE
+                                                                      CARVALHO
+ PETRONIO BARBOSA DA CRUZ                                             KLEBER PEDRO DA CRUZ
+ CARLOS ALBERTO MOBARAC                                               SANDRA REGINA MOBARAC
+ CARLOS ALBERTO MOBARAC                                               EDUARDO JORGE MOBARAK
+ PALMIRO DA SILVA                                                     OSVALDO DA SILVA
+ DAVI CAMARGO GIMENEZ                                                 DAVI PARMESANO GIMENEZ
+ ADONIS DE SOUZA BOURY                                                VALDERES BOURY DA SILVA
+ MARIA DE FATIMA SILVA                                                SILVIA DE PAULA SANTOS
+ WILLIAMS LUIZ CANDIDO DE ANDRADE                                     RENATA CANDIDO DE ANDRADE
+ EDUARDO PEREIRA DOS SANTOS                                           GISLAINE DE JESUS SANTOS
+ JOSE CARLOS AGUIAR MENEZES                                           JOSE AUGUSTO AGUIAR MENESES
+ GENILDA MARIA CRUZ DE MERELES BENTO                                  KAREM CRISTINIE DE MERELES
+ LUZIA DA CONCEIÇÃO CAMPOS SILVA                                      ANDRE LUIZ DA SILVA
+Fonte: Própria
+
+
+Após a análise da documentação encaminhada pela Cortel, foi desconsiderada a segunda linha
+relacionada ao falecido Carlos Alberto Mobarac por se tratar de serviço de exumação faturado a
+parte do pacote contratado. Cabe destacar que a Concessionária não elabora um termo de ciência
+apartado como o que é feito pela Consolare. A Cortel apenas adiciona um comentário de rodapé à
+nota de contratação. A renúncia do direito à gratuidade é formalizada com o seguinte texto:
+
+                         Declaro que tenho ciência do DECRETO Nº 59.196 DE 29 DE JANEIRO DE 2020 e
+                         do direito à gratuidade do CPF *** do falecido ou o CPF **** do declarante e, por
+                         livre e espontânea vontade, opto por não exercer o direito à gratuidade e por
+                         contratar os serviços aqui descritos.
+
+Constata-se que a forma adotada pela Cortel é menos clara que o termo apartado da Consolare, o
+qual é preenchido de próprio punho pelo contratante com a seleção da forma de contratação.
+Entretanto, pode-se considerar que a nota de rodapé seria suficiente para comprovar a renúncia
+ao benefício de gratuidade.
+
+Ocorre que a documentação enviada pela Concessionária contém os documentos eletrônicos das
+notas de contratação (modelo em pdf), ao invés de cópia do documento físico que foi efetivamente
+assinado pelo contratante.
+                                                                                                                 eTCM 003153/2023
+
+
+
+Por conta disso, a documentação não assinada foi considerada insuficiente, assim como as notas
+de contratação nas quais não foi inserido o texto da renúncia a gratuidade, conforme a tabela a
+seguir:
+
+Quadro 7 – Falecidos elegíveis a gratuidade com documentação comprobatória insuficiente
+ Falecido                                                    Valor Cobrado    Nota de rodapé            Observação
+ BENEDITO PEREIRA DOS SANTOS                                          2699,01 ausente                   NA
+ PALMIRO DA SILVA                                                       2465,02 ausente                 NA
+ DAVI CAMARGO GIMENEZ                                                      5114 ausente                 NA
+ WILLIAMS LUIZ CANDIDO DE ANDRADE                                        101,35 ausente                 NA
+ GENILDA MARIA CRUZ DE MERELES BENTO                                     302,18 ausente                 NA
+ GERALDO VIEIRA DE CARVALHO                                             2620,62 incompleto              falta assinatura
+ PETRONIO BARBOSA DA CRUZ                                               2558,18 incompleto              falta assinatura
+ CARLOS ALBERTO MOBARAC                                                  999,02 incompleto              falta assinatura
+ ADONIS DE SOUZA BOURY                                                  1709,74 incompleto              falta assinatura
+ MARIA DE FATIMA SILVA                                                     3995 incompleto              falta assinatura
+ EDUARDO PEREIRA DOS SANTOS                                             1234,52 incompleto              falta assinatura
+ JOSE CARLOS AGUIAR MENEZES                                                2655 incompleto              falta assinatura
+ LUZIA DA CONCEIÇÃO CAMPOS SILVA                                        1709,74 incompleto              falta assinatura
+Fonte: Própria
+
+
+Causas e efeitos:
+
+A avaliação de causas e efeitos se mantém a mesma dos itens anteriores.
+
+
+     3.1.4. Gratuidade – Concessionária Velar – Indícios de descumprimento ao direito de
+                 gratuidade dos usuários elegíveis ao benefício
+
+Critério(s):
+
+
+    Decreto Municipal (DM) nº 59.196/20, Art. 81.
+
+Situação encontrada:
+
+Após a coleta inicial e análise da situação encontrada (base de dados da Concessionária Velar22)
+foi encaminhado e-mail, em 19.06.23, para os responsáveis na SP Regula com as constatações
+preliminares23 e requisição da documentação comprobatória das gratuidades que os usuários
+
+22Processo SEI 9310.2023/0000602-0, doc. “Relatório 082982505”.
+23 A despeito da baixa qualidade da base de dados encaminhada, foi feita uma tentativa para verificar a concessão de gratuidade aos usuários
+elegíveis mediante o mesmo procedimento adotado para as outras Concessionárias. A primeira etapa foi verificar quais dos falecidos foram
+consultados no sistema do SFMSP (Hagape), na sequência foram listados os nomes, consultados pela Velar, para os quais o Hagape havia
+retornado "SIM" aprovado. Então, foi feita a tentativa de checar se o benefício da gratuidade foi efetivamente concedido. Ocorre que na aba
+“Base_Atual” não há informação do preço cobrado e na coluna “tipo_serviço” são apresentadas diversas classificações, para as quais não é
+possível saber se o serviço foi cobrado ou não, tais como: "liberação", "sepultamento", "cremação", "outros" e "complementação", inviabilizando um
+teste de auditoria foi completo. Logo, na requisição de informações foram solicitados dados apenas para os falecidos, aprovados no Hagape, que
+constam com o tipo de serviço “particular”, pois este não deixa dúvidas de que não é "gratuito".
+                                                                                      eTCM 003153/2023
+
+
+
+deixaram de utilizar. A SP Regula encaminhou a resposta da Velar (Ofício 177.2023 SP Regula,
+peça 31) em 29.06.23 .
+
+Evidências:
+
+Os dados fornecidos apresentaram sérias deficiências, conforme detalhado no item “2.3
+Limitações da Auditoria”, de modo que o teste de auditoria no caso da Velar foi realizado sobre
+apenas uma parte do total de vendas de produtos e serviços da concessionária. Ainda assim,
+foram identificados 03 casos em que poderia ter ocorrido uma cobrança indevida.
+
+Quadro 8 – Falecidos elegíveis a gratuidade que sofreram cobrança da Velar
+ Falecido                                                             Cliente (Contratante)
+ JOÃO GENEROSO DA SILVA                                               NÃO FOI POSSÍVEL IDENTIFICAR
+ JOSÉ LAELSON DA SILVA                                                NÃO FOI POSSÍVEL IDENTIFICAR
+ MARIA APARECIDA SOUZA TAVARES                                        NÃO FOI POSSÍVEL IDENTIFICAR
+Fonte: Própria
+
+
+A resposta da Velar, encaminhada pela Agência Reguladora no Ofício 177.2023 SP Regula (peça
+31), não apresentou documentação comprobatória e se resumiu a seguinte resposta por e-mail:
+
+                        Trata-se a Requisição n. 6 do Tribunal de Contas do Município de São Paulo (TCM)
+                        de solicitação de documentos comprobatórios de que os contratantes dos funerais
+                        dos falecidos João Generoso da Silva, José Laelson da Silva e de Maria Aparecida
+                        Souza Tavares terem sido informados sobre o direito à gratuidade pela
+                        Concessionária Prever e de que esses abriram mão desse direito.
+
+                        Informo, inicialmente, que embora conste registrado em nosso sistema o funeral do
+                        Sr. José Laelson da Silva como particular, foi averiguado que esse serviço de fato foi
+                        gratuito e executado pela Consolare, em virtude da escolha da família em sepultar
+                        no Cemitério Vila Formosa. Destaco, nesse sentido, disposição contratual segundo a
+                        qual o cemitério de destino define a Concessionária responsável pela prestação dos
+                        serviços funerários e cemiteriais gratuitos.
+
+                        Em relação aos funerais do Sr. João Generoso da Silva e da Sra. Maria Aparecida
+                        Souza Tavares, esclareço que foi realizada a consulta no Hágape por nossos
+                        agentes, que confirmaram o direito à gratuidade e informaram os familiares a
+                        respeito de tal direito. Entretanto, como já é de conhecimento, as famílias optaram
+                        por contratar os nossos serviços, constando em nosso sistema informação de que
+                        tinham direito à gratuidade, mas optaram por contratar os serviços.
+
+Assim, a Concessionária explica que o falecido José Laelson Da Silva não deveria ter constado da
+sua base de dados, pois o serviço foi efetivamente prestado pela Consolare. Com relação aos
+outros dois casos, a Velar afirma que os usuários foram informados a respeito do benefício de
+gratuidade e renunciaram a esse direito. Contudo, não é apresentada documentação que subsidie
+a afirmação da representante da Concessionária.
+                                                                                eTCM 003153/2023
+
+
+
+Causas e efeitos:
+
+Além das causas mencionadas para as demais concessionárias, no caso específico da Velar,
+houve uma maior dificuldade para o atendimento das requisições de informação, o que poderia
+sugerir a necessidade de aprimoramento na sua gestão de bases de dados relativas a vendas de
+bens/serviços e no processo de registro da documentação respectiva.
+
+3.2. Achados sobre a política tarifária da Concessão
+
+    3.2.1. Política Tarifária – Concessionária Consolare – Indícios de descumprimento da
+             política tarifária da Concessão.
+
+Critério(s):
+
+
+   Anexo      VI   do   Contrato   -   Política   Tarifária   (Doc.   065483593,   Processo   SEI
+      6011.2021/0002522-1, Peça 32).
+
+Situação encontrada
+
+Conforme descrito no item “2.3 Limitações da Auditoria”, a base de dados da Consolare foi
+disponibilizada de modo que inviabiliza um teste de auditoria completo sobre o cumprimento das
+regras tarifárias, uma vez que a descrição dos produtos na base é diferente do previsto nas
+tabelas da política tarifária.
+
+Na análise da situação encontrada, a despeitos de tais limitações, ainda foi possível identificar, em
+planilha (arquivo “xlsx” salvo em papéis de trabalho deste eTCM) serviços nos quais os preços que
+constam da base da Consolare aparentam estar divergentes dos limites estabelecidos na política
+tarifária.
+
+Evidências:
+
+Foram identificados 03 tipos de evidências com indícios de desrespeito a política tarifária, as quais
+foram encaminhadas por e-mail à SP Regula em 22.05.23. Cabe destacar que, em decorrência
+das restrições mencionadas anteriormente, o teste não é conclusivo, ou seja, não é possível
+afirmar de forma inequívoca que teria havido cobrança de valores indevidos. As evidências
+encontradas se referem aos seguintes serviços:
+
+a) “Carro remoção”.
+
+Na tabela 2 da política tarifária (Tarifas de Classe B) o valor máximo para “carro remoção” é de R$
+                                                                                 eTCM 003153/2023
+
+
+
+384,00. Na tabela 3 (Preços máximos por tipo de caixão adulto) o valor máximo para aquisição
+dentro do “pacote” é de R$ 103,14 (pacote Popular), R$ 360,10 (pacote Padrão) e R$ 384,00
+(pacote Luxo). Entretanto, conforme se observa na aba “carro_remocao” da planilha supracitada,
+foram identificados 26 serviços de carro remoção “SEMI LUXO” para pacotes classificados como
+“PADRAO” ou “POPULAR” em que foi cobrado R$ 600,00, o que estaria acima do teto de R$
+384,00 da política tarifária.
+
+b) “Enfeite floral”.
+
+Na tabela 2 da política (Tarifas de Classe B) o valor para “Venda de enfeite floral” é de R$ 394,00.
+Na tabela 3 (Preços máximos por tipo de caixão adulto) o valor máximo para “Venda de enfeite
+floral” é de R$ 83,41 (pacote Popular), R$ 369,54 (pacote Padrão) e R$ 394,00 (pacote Luxo).
+Entretanto, conforme se observa na aba “enfeite_floral” da planilha, foram identificados 7 produtos
+“ENFEITE FLORAL LUXO 2 - APATITA” para pacotes classificados como “PADRAO” em que foi
+cobrado R$ 690,00, o que estaria acima do teto de R$ 394,00 para o pacote mais caro (LUXO) na
+política tarifária. Também foi identificado um “ENFEITE FLORAL LUXO 3 – PEROLA” para um
+pacote classificado como “POPULAR” em que foi cobrado R$ 1.500,00.
+
+c) “Revestimento interno”.
+
+Na tabela 2 da política (Tarifas de Classe B) o valor para “Revestimento interno padrão” é de R$
+126,00. Na tabela 3 (Preços máximos por tipo de caixão adulto) o valor máximo para “Venda de
+revestimento interno para caixão padrão” é de R$ 32,74 (pacote Popular), R$ 117,72 (pacote
+Padrão)      e   R$    126,00   (pacote   Luxo).   Entretanto,   conforme   se     observa   na   aba
+“revestimento_interno” da planilha, foram identificadas 19 “VENDA DE REVESTIMENTO
+INTERNO” para pacotes classificados como “PADRAO” ou “POPULAR” em que foi cobrado R$
+240,00, o que está acima do teto de R$ 126,00 para o pacote mais caro (LUXO) na política
+tarifária.
+
+Na resposta encaminhada pela SP Regula, os indícios de descumprimento da política tarifária não
+foram tratados, nem pela Concessionária e nem pela SP Regula. Desse modo, faz-se necessário
+que a SP Regula analise e investigue tais indícios no âmbito da sua função fiscalizadora para
+assegurar se houve ou não descumprimento da política tarifária e, em caso positivo, aplicar as
+penalidades correspondentes.
+
+Causas e efeitos:
+
+Uma das possíveis causas para eventuais descumprimentos da política tarifária pode ser
+                                                                                 eTCM 003153/2023
+
+
+
+localizada na falta de padronização da base de dados da Concessionária. Os sistemas internos de
+controle de vendas/faturamento/gestão da empresa devem estar parametrizados de modo que os
+bens e serviços tabelados nas regras tarifárias sejam identificados de forma inequívoca.
+
+Nesse sentido, para que os dados sejam auditáveis é necessário que seja incluída na base de
+dados variáveis/colunas que identifiquem o item e a tabela de referência da política tarifária,
+quando aplicável, de modo a segregar os produtos/serviços tabelados daqueles que não precisam
+respeitar os limites da política tarifária.
+
+O efeito da ausência de padronização dos dados é tornar inviável um teste de auditoria completo e
+aumentar o risco de cobrança de valores indevidos dos usuários do serviço.
+
+    3.2.2. Política Tarifária – Concessionária Maya – Indícios de descumprimento da política
+           tarifária da Concessão.
+
+Critério(s):
+
+
+   Anexo      VI   do   Contrato    -   Política   Tarifária   (Doc.   065483593,   Processo   SEI
+     6011.2021/0002522-1, peça 32).
+
+Situação encontrada
+
+Conforme descrito no item “2.3 Limitações da Auditoria”, a base de dados da Maya apresentou
+diversas inconsistências que prejudicaram os resultados da auditoria. Apesar da baixa qualidade
+dos dados fornecidos, a situação encontrada contém indícios de “venda de véu” acima do teto da
+política tarifária (arquivo “xlsx” salvo em papéis de trabalho deste eTCM).
+
+Evidências:
+
+Os indícios de descumprimento da política tarifária foram encaminhados por e-mail em 26.05.23.
+Na tabela 2 da política (Tarifas de Classe B) o valor para “Venda de véu” (item 3.24) é de R$ 21,00
+e na tabela 3 (Preços máximos por tipo de caixão adulto) o valor máximo para aquisição dentro do
+pacote “Luxo” também é de R$ 21,00. Entretanto, conforme se observa na planilha supracitada,
+foram identificadas 06 vendas de “Véu Luxo” para pacotes classificados como “véu luxo” em que
+foi cobrado R$ 75,00.
+
+Na resposta encaminhada pelo Ofício 149.2023 SP Regula, dentre outros pontos, a
+Concessionária destacou que um dos benefícios da concessão, citados inclusive em audiência
+pública durante o processo licitatório, é o aumento da disponibilidade de produtos e serviços, de
+                                                                                    eTCM 003153/2023
+
+
+
+modo que o Grupo Maya disponibiliza diferentes modelos de bens que se caracterizam como
+receitas acessórias de Classe B e não se sujeitam aos limites da política tarifária.
+
+Especificamente sobre a questão dos véus, a Concessionária afirmou que:
+
+                         Cumpre informar que o limite do valor para a política tarifária foi devidamente
+                         cumprido e que o valor das receitas acessórias, previstas em contrato e no Edital de
+                         Licitação, são definidas por cada Concessionária – caso do valor do véu luxo, nos
+                         termos do Anexo III, item 4.1. Segue nota fiscal nº 3.787 em anexo (Anexo V).
+
+Logo, a Maya argumenta que, no caso utilizado como exemplo, o “véu luxo” foi uma aquisição
+realizada fora de um pacote, e, portanto, não se submete ao teto fixado pela política tarifária. Ou
+seja, não se trataria de um véu adquirido dentro do pacote LUXO, para o qual o limite de cobrança
+seria de R$ 21,00.
+
+Essa situação ilustra de forma clara como a falta de padronização da base de dados e,
+principalmente, a ausência de correspondência dos serviços vendidos listados na base de dados
+com os serviços descritos na política tarifária impede uma análise conclusiva sobre o cumprimento
+das regras tarifárias.
+
+Causas e efeitos:
+
+A análise dos dados da Maya reforça que a falta de padronização da base de dados da
+Concessionária pode, em tese, ser uma causa geradora de descumprimento da política tarifária.
+
+Assim, enfatiza-se a necessidade de que os sistemas internos de controle de vendas da empresa
+devem estar parametrizados de modo que os bens e serviços sujeitos ao tabelamento das regras
+tarifárias sejam identificados de forma inequívoca na sua base de dados.
+
+Conforme dito anteriormente, o efeito da ausência de padronização dos dados é tornar inviável um
+teste de auditoria conclusivo e aumentar o risco de cobrança de valores indevidos dos usuários do
+serviço.
+
+
+   3.2.3. Política Tarifária – Concessionária Cortel – Indícios de descumprimento da política
+           tarifária da Concessão.
+
+Critério(s):
+
+
+ Anexo        VI   do   Contrato      -   Política   Tarifária   (Doc.   065483593,    Processo     SEI
+     6011.2021/0002522-1, Peça 32).
+                                                                                eTCM 003153/2023
+
+
+
+Situação encontrada
+
+A base de dados da Cortel, conforme descrito no item “2.3 Limitações da Auditoria”, apresenta 224
+descrições genéricas de produto ou serviço vendido, utilizando o termo “pacote serviços
+funerários”, o que inviabiliza a verificação do cumprimento da política tarifária para estes casos.
+Apesar desse problema, a situação encontrada contém indícios de descumprimento da política
+tarifária (arquivo “xlsx” salvo em papéis de trabalho deste eTCM).
+
+Evidências:
+
+Os indícios de descumprimento da política tarifária foram encaminhados por e-mail em 01.06.23. A
+divergência mais importante se refere a cobrança pelo aluguel das salas de velório. A política
+tarifária impõe um teto máximo de R$ 523,00 para o aluguel das salas enquanto uma série de
+condições pré-determinadas não forem atendidas (item 2.13 da política tarifária, peça 32):
+
+                         2.13. A CONCESSIONÁRIA deverá adotar o preço constante no item 2.1 da Tabela
+                         2 – Tarifas de Classe B para aluguel de sala de velório até a realização das
+                         seguintes condições: (a) Antes e durante o PROGRAMA DE INTERVENÇÃO; (b)
+                         Até a completa digitalização dos livros de registro; e (c) Até o completo
+                         recadastramento.
+
+Logo, até o momento da Inspeção, a Cortel não poderia cobrar além dos R$ 523,00. Entretanto,
+conforme se observa na aba “sala_velorio” da planilha supracitada foram identificadas 49
+cobranças referentes a sala de velório, acima do teto permitido.
+
+Um segundo problema são as cobranças referentes à cremação. Na tabela 3 (Preços máximos por
+tipo de caixão adulto), a política tarifária determina que para o pacote “popular” o preço da
+cremação é R$ 850,00. Contudo foram identificadas 12 vendas do serviço para pacotes
+classificados como “popular” em que foram cobrados valores acima dos R$ 850,00, em 10 casos a
+cobrança foi igual ou maior que R$ 1.800,00.
+
+Causas e efeitos:
+
+As causas e efeitos são similares àquelas dos itens anteriores.
+
+   3.2.4. Política Tarifária – Concessionária Velar – Indícios de descumprimento da política
+           tarifária da Concessão.
+
+Critério(s):
+
+
+ Anexo        VI   do   Contrato   -   Política   Tarifária   (Doc.   065483593,   Processo   SEI
+                                                                              eTCM 003153/2023
+
+
+
+     6011.2021/0002522-1, peça 32).
+
+Situação encontrada
+
+As deficiências da base de dados (item “2.3 Limitações da Auditoria”) inviabilizaram a aplicação
+adequada dos testes de auditoria e a análise da situação encontrada.
+
+Evidências:
+
+Para constatar a fragilidade dos dados encaminhados, filtrando a aba “Itens” da base de dados
+fornecida pela Velar (arquivo “xlsx” salvo em papéis de trabalho deste eTCM) pela classificação
+“gratuito”, observam-se dezenas de itens com valores de cobrança, ou seja, que não teriam sido
+gratuitos e, portanto, presume-se que não deveriam estar classificados como tal (SEI
+9310.2023/0000882-0, doc. “Planilha 085057556”).
+
+Causas e efeitos:
+
+As causas e efeitos são similares àquelas dos itens anteriores.
+
+3.3. Sobre o preparo/ treinamento dos funcionários das concessionárias no atendimento,
+           ferramentas tecnológicas disponíveis e política de comunicação com os usuários.
+
+   3.3.1. Do preparo/treinamento dos funcionários das Concessionárias no atendimento e
+           orientação dos usuários, em especial sobre os direitos à gratuidade, valores do
+           funeral social (ou cremação) e sobre os canais de atendimento e reclamações
+
+Critério(s):
+
+
+   Anexo III do Contrato – Caderno de Encargos da Concessionária (peça 25);
+
+Situação encontrada
+
+Conforme exposto nos itens 27.12. e 27.13 do Anexo III – Caderno de Encargos:
+
+                      27.12. Caberá à CONCESSIONÁRIA ou suas subcontratadas a capacitação e
+                      treinamento de seus empregados.
+
+                      27.13. Caberá à CONCESSIONÁRIA ou suas subcontratadas capacitar seus
+                      prepostos ou empregados para manter um relacionamento cordial e solícito com os
+                      USUÁRIOS.
+
+Durante as diligências, os funcionários das concessionárias presentes nos cemitérios e agências
+funerárias foram arguidos pela auditoria sobre a realização de treinamentos para o atendimento ao
+                                                                             eTCM 003153/2023
+
+
+
+público e prestação de informações acerca da gratuidade, o que prontamente era respondido
+positivamente.
+
+Em que pese a dificuldade da confirmação da resposta assertiva, os funcionários que se
+encontravam em especial no balcão das agências funerárias demonstravam, de fato,
+conhecimento sobre a consulta ao sistema CADÚNICO e Hagape, inclusive mostrando na tela dos
+computadores, como a consulta era feita, conforme demostrado nas figuras 5 e 6 do Anexo I –
+Relatório Fotográfico (peça 39).
+
+De   acordo   com    as   informações   prestadas,   todas   as   agências   visitadas   realizavam
+protocolarmente, através de consulta no sistema Hagape, verificação do direito à concessão de
+gratuidade para o usuário.
+
+Além disso, foi informado pelos entrevistados que os atendentes responsáveis pelo atendimento
+ao público passaram por treinamento antes da assunção da gestão dos serviços funerários pelas
+concessionárias.
+
+Sobre esse tema, ainda, o Relatório de Informações Gerais (peça 5, fl. 10 do eDoc 06551/2023)
+concluiu que em 19 de 20 agências visitadas foi informado que haviam sido realizados
+treinamentos para os funcionários responsáveis pelo atendimento ao público.
+
+Nas respostas apresentadas pelas Concessionárias à Requisição de Documentos nº 3 (peça 27),
+a única concessionária que apresentou registro fotográfico do treinamento foi a Consolare (peça
+34), conforme apresentado a seguir:
+                                                                                  eTCM 003153/2023
+
+
+
+Figura 1 – Treinamento Consolare
+
+
+
+
+Fonte: Ofício 288, fl 01, Processo SEI nº 9310.2023/0000602-0
+
+
+
+Quanto às outras concessionárias, no Ofício nº 205/2023, a superintendência jurídica da SP-
+Regula, informa que:
+
+                              As Concessionárias efetuaram esta resposta conforme solicitado pelo e-TCM
+                              006551/2023 – Intimação 1032/2023, os seus treinamentos são internos sem
+                              emissão de nenhum certificado.
+
+
+Dessa forma, na impossibilidade de verificação mais acurada, não se constatou impropriedade na
+prestação de treinamento para junto aos funcionários da Concessionária que lidam diretamente
+com o público.
+
+
+    3.3.2. As ferramentas tecnológicas disponíveis, aos usuários, para acompanhamento
+              dos serviços;
+   Critério(s):
+
+    Anexo III do Contrato – Caderno de Encargos da Concessionária (peça 25);
+
+A superintendência jurídica da SP-Regula, ao ser questionada, no Ofício nº 205/2023 (peça 36,
+                                                                               eTCM 003153/2023
+
+
+
+fl. 6), informa que os canais habilitados e a serem utilizados pelos Usuários são o 156 (via
+telefone) e Portal 156 (via Site).
+
+Também informa que haverá ferramentas tecnológicas disponíveis aos usuários para
+acompanhamento dos serviços, mas que neste momento, por questão contratual, as empresas
+deverão implantar alguns tipos de acompanhamento, mas que o prazo está em curso.
+
+Nas respostas encaminhadas pelas Concessionárias ainda são trazidas as seguintes informações:
+  a) Concessionária Consolare: “Para acompanhamento dos serviços disponibilizamos o 0800-
+      0800190”. (peça 34, fl. 2)
+  b) Concessionária Velar:
+
+                      Em cumprimento à obrigação prevista no item 20.7, do Anexo III - Caderno de
+                      Encargos da Concessionária do Contrato de Concessão, de rastrear e monitorar
+                      tanto os veículos funerários quanto os corpos cadavéricos, de modo a permitir que
+                      tanto as famílias quanto o Poder Concedente possam acompanhar o deslocamento
+                      do corpo, a Velar iniciou projeto para desenvolvimento, implantação, teste e
+                      capacitação dos colaboradores das ferramentas tecnológicas para monitoramento
+                      dos veículos funerários e corpos cadavéricos.
+                      No âmbito da Carta 027/PR/2023, de 03 de abril p.p., foi apresentado o seguinte
+                      planejamento deste projeto:
+                      Fase 01 – Desenvolvimento da tecnologia: Prazo: 01 a 04 meses - Análise do
+                      processo, desenho e estruturação das operações; - Cotação e levantamento de
+                      fornecedores e parceiros; - Desenvolvimento da tecnologia.
+                      Fase 02 – Implantação parcial: Prazo: 01 a 02 meses - Treinamento com equipe
+                      para operação de testes; - Implantação em base para testes da operação; -
+                      Diagnóstico de falhas, correções e aprimoramentos necessários.
+                      Fase 03 – Testes iniciais: Prazo: 02 meses - Ajustes do processo com base nos
+                      resultados obtidos nos testes realizados em campo.
+                      Fase 04 – Capacitação do pessoal: Prazo: 02 meses - Treinamento e
+                      implementação em toda a base; - Retorno de toda base.
+                      Fase 05 – Implantação total da tecnologia: Prazo: 02 meses - Ajustes minoritários
+                      finais.
+                      Fase 06 – Conclusão do projeto - Entrega do projeto e disponibilização das
+                      tecnologias de monitoramento. (peça 35, fl. 6)
+
+  c) Concessionária Cortel:
+
+                      Na forma prevista no item 20.7.2. do Anexo III – Caderno de Encargos da
+                      Concessionária, a Cortel SP executa o rastreamento de corpos e veículos em tempo
+                      real, rastreados pelo sistema ROTAEXATA SOFTWARE, sendo disponibilizado ao
+                      usuário contratante dos serviços quando solicitado, via aplicativo de mensagens
+                      WhatsApp.
+                      Inclusive, via aplicativo de mensagem WhatsApp o usuário obtém o atendimento
+                      instantâneo prestado pelo SAC da Concessionária. (peça 35, fl. 12)
+
+
+  d) Concessionária Grupo Maya:
+
+                      6. Referente à disponibilização de ferramentas tecnológicas aos usuários para o
+                      acompanhamento de serviços, é importante relembrar o subitem 20.7.3.4, do
+                      Capítulo IV – Parâmetros Gerais de Serviço, do Anexo III – Caderno de Encargos,
+                                                                                     eTCM 003153/2023
+
+
+
+                       do Edital, parte integrante do contrato de concessão nº 60/SFMSP/2022, que
+                       determina:
+                       20.7.3.4. O sistema de rastreamento e monitoramento de corpos em tempo real
+                       deverá ser implementado e estar em funcionamento até o término do Estágio 2 da
+                       Fase de Implementação.
+                       7. A data de término do Estágio 2 da Fase de Implementação está estabelecido
+                       como sendo dia 05 de janeiro de 2024, portanto o Grupo Maya ainda não tem a
+                       obrigatoriedade de disponibilizar tais recursos aos usuários. Entretanto, informamos
+                       que estamos trabalhando para o cumprimento do prazo contratual. (peça 35, fl. 16)
+
+
+   Nesse sentido, destaca-se que a concessão tem prazo total de 25 anos e que, de acordo com
+   o Caderno de Encargos da Concessionária (CEC), o contrato encontra-se, neste momento, na
+   fase de implementação, em seu Estágio 224, o que, portanto, não confere descumprimento
+   contratual quanto a este quesito analisado.
+
+
+
+   3.3.3. A Política de comunicação com os usuários;
+
+Critério(s):
+
+
+   art. 71 do Decreto Municipal nº 59196/2020;
+
+   Anexo III do Contrato – Caderno de Encargos da Concessionária (peça 25);
+
+   Anexo IV do Contrato – Política Tarifária (peça 32).
+
+Com vistas à verificar a atuação das concessionárias no que se refere ao primeiro atendimento ao
+usuário, quando estes chegam à agencia para informações a respeito dos serviços oferecidos,
+bem como o direto à gratuidade, foram realizadas visitas in loco conforme descrito no item 3.6.
+
+Nessas vistorias pode ser constatado pela auditoria, conforme exposto no Anexo I – Relatório
+Fotográfico (peça 39):
+  a) As agências visitadas apresentavam fixadas nas paredes e/ou balcões de atendimento
+      tabelas de preços referentes aos serviços prestados conforme disposto no Anexo VI –
+
+
+24 4.1. A FASE DE IMPLEMENTAÇÃO consiste na etapa de transição inicial da CONCESSÃO, a qual se institui na
+
+DATA DA ORDEM DE INÍCIO e tem como finalidade a apresentação do PLANO DE ASSUNÇÃO DA CONCESSÃO e
+a assunção gradual dos bens e serviços do OBJETO pela CONCESSIONÁRIA.
+4.1.1. Essa fase terá duração máxima de 12 (doze) meses e será composta por dois estágios distintos:
+(a) Estágio 1 – Operação do PODER CONCEDENTE acompanhado pela CONCESSIONÁRIA e apresentação e
+análise do PLANO DE ASSUNÇÃO DA CONCESSÃO, com duração de 2 (dois) meses; e
+(b) Estágio 2 – Operação da CONCESSIONÁRIA assistida pelo PODER CONCEDENTE, com duração de 10 (dez)
+meses.
+[...]
+6.1 No Estágio 2, a CONCESSIONÁRIA irá assumir as atividades funcionais relativas à operação dos SERVIÇOS
+CONCEDIDOS, ainda com o suporte do PODER CONCEDENTE, a fim de efetivamente iniciar a transição a partir do
+diagnóstico e planejamento realizado no estágio anterior. (Anexo IX – Plano de Transferência Operacional).
+                                                                                    eTCM 003153/2023
+
+
+
+      Política Tarifária. Entretanto, embora expostas nas agências, as tabelas foram impressas
+      em tamanho que não facilitavam a fácil e rápida visualização por parte do usuário, em
+      desacordo com o disposto no item 17.2 alínea j) do Anexo III – Caderno de Encargos da
+      Concessionária25.
+  b) As agências visitadas apresentavam fixadas nas paredes informativos a respeito dos
+      produtos e serviços aos quais os usuários beneficiados pelas gratuidades terão direito.
+      Entretanto, embora expostas nas agências, os informativos impressos não atendiam o
+      disposto no item 17.2 alínea c) do Anexo III – Caderno de Encargos da Concessionária26,
+      de maneira que não contribuíam para uma fácil e rápida visualização por parte dos
+      usuários.
+
+Nesse sentido, corroborando com o observado pela equipe de auditoria em suas visitas, o
+Relatório de Informações Gerais27, de 16.06.23, concluiu que em 7 de 20 agências visitadas a
+tabela de preços dos serviços afixada não estavam em conformidade com o disposto no Caderno
+de Encargos da Concessionário.
+
+Da mesma forma, o Relatório citado também concluiu que em 16 de 20 agências visitadas as
+informações sobre gratuidade não estavam dentro das especificações constantes do Caderno de
+Encargos da Concessionária.
+
+Portanto, de acordo com o exposto, conclui-se que as informações expostas pelas
+Concessionárias em suas agências, tanto quanto aos preços praticados quanto às
+informações a respeito do benefício da gratuidade, não atendem ao disposto no item 17.2
+alíneas c) e j) do Anexo III – Caderno de Encargos da Concessionária (Proposta de Ciência
+7.3.1).
+
+
+
+
+25 17.2 A CONCESSIONÁRIA deverá disponibilizar, por meio físico e on-line no website da CONCESSIONÁRIA, de
+
+forma visível e de fácil acesso aos USUÁRIOS, em todos os CEMITÉRIOS, CREMATÓRIOS e AGÊNCIAS
+FUNERÁRIAS, caso aplicável:
+[...]
+j) A tabela de preços vigentes naquele ano para os SERVIÇOES CEMITERIAIS, no caso dos CEMITÉRIOS e
+CREMATÓRIO, e para os SERVIÇOS FUNERÁRIOS, no caso das AGÊNCIAS FUNERÁRIAS.
+26 17.2 A CONCESSIONÁRIA deverá disponibilizar, por meio físico e on-line no website da CONCESSIONÁRIA, de
+
+forma visível e de fácil acesso aos USUÁRIOS, em todos os CEMITÉRIOS, CREMATÓRIOS e AGÊNCIAS
+FUNERÁRIAS, caso aplicável:
+[...].
+c) A informação de que os produtos e serviços aos quais os USUÁRIOS beneficiados pelas GRATUIDADES terão
+direito, a ser fixada em painel visível com no mínimo 1m² (um metro quadrado), incluindo a indicação dos
+CEMITÉRIOS nos quais poderão ser realizados os sepultamentos, no caso da GRATUIDADE SEPULTAMENTO
+HIPOSSUFCIENTES, e dos CREMATÓRIOS operantes no quais poderão ser realizadas as cremações, no caso da
+GRATUIDADE CREMAÇÃO HIPOSSUFICIENTES E DOADORES;
+27 Peça 5, fl. 11 do eTCM 6551/2023
+                                                                              eTCM 003153/2023
+
+
+
+3.4. Sobre o cumprimento dos prazos de sepultamento e remoção previstos no contrato de
+           concessão
+
+Critério(s):
+
+   Anexo III do Contrato – Caderno de Encargos da Concessionária (peça 25);
+
+De acordo com o disposto no Caderno de Encargos da Concessionaria:
+
+
+                    21.3.10. O tempo entre a apresentação da Declaração ou Atestado do Óbito na
+                    AGÊNCIA FUNERÁRIA e liberação do corpo cadavérico pelas entidades e órgãos
+                    competentes até o sepultamento ou cremação dos corpos e partes do corpo deverá
+                    ser de, no máximo, 9 (nove) horas, descontado o tempo de duração do velório,
+                    guarda nas câmaras frigoríficas e o período para ornamentação do corpo
+                    (somatoconservação,       formolização,  tanatoestética   ou    necromaquiagem,
+                    tanatopraxia, embalsamamento etc.), estando a CONCESSIONÁRIA sujeita às
+                    penalidades cabíveis em caso de descumprimento.
+                    21.3.11. A partir da apresentação da Declaração ou Atestado do Óbito na AGÊNCIA
+                    FUNERÁRIA e liberação do corpo cadavérico pelas entidades e órgãos
+                    competentes, a CONCESSIONÁRIA terá, no máximo, 6 (seis) horas para recolher o
+                    corpo e disponibilizá-lo para a cerimônia do velório ou despedida, descontado o
+                    período para ornamentação do corpo (somatoconservação, formolização,
+                    tanatoestética ou necromaquiagem, tanatopraxia, embalsamamento etc.) e guarda
+                    em câmara frigorífica.
+
+                    21.3.12. Corpos necropsiados por SVO/IML poderão exceder o prazo dos subitens
+                    acima, observada a legislação aplicável.
+                    21.3.13. Os limites de tempo previstos nos itens 21.3.10 e 21.3.11 não se aplicam
+                    nos seguintes casos:
+
+                    a) translado do corpo além dos limites do Município de São Paulo;
+                    b) translado aéreo;
+                    c) adiamento do velório ou sepultamento/cremação por pedido expresso do
+                    USUÁRIO;
+                    d) adiamento do sepultamento em razão do horário de funcionamento regular do
+                    CEMITÉRIO.
+
+Para análise do cumprimento dos prazos de sepultamento e cremação, foi solicitado à SP Regula
+através da Requisição de Documentos nº 3 (peça 26) a apresentação das cópias digitalizadas dos
+atestados de óbito, das declarações de óbito e do registro de sepultamento e cremação feitos
+desde o início das concessões até a data de recebimento da referida requisição.
+
+Em resposta, apenas a Concessionária Consolare apresentou documentação que possibilitasse a
+verificação do lapso entre a Declaração de Óbito e liberação do corpo pelas entidades e órgãos
+competentes e o seu sepultamento/cremação. Porém, nessa documentação não é possível
+conferir o horário de recolhimento e disponibilização do corpo para a cerimônia. Essa ausência de
+documentação    com    informações   a   respeito   dos   registros   de   horários   dos   ritos   de
+sepultamento/cremação inviabilizou a análise do presente item de maneira mais abrangente.
+                                                                                 eTCM 003153/2023
+
+
+
+A documentação disponibilizada pela Consolare apresenta o registro de cerca de 1500
+sepultamentos realizados pela Concessionaria no período entre os dias 20.03.23 e 05.04.23
+(peca 34). Em analise por amostragem dessa documentação, pode-se constatar que, de maneira
+geral, os falecidos com declaração de óbito emitidos em um determinado dia tinham o seu
+sepultamento realizado no mesmo dia (caso a declaração tenha sido emitida no período da
+madrugada/manhã) ou no dia seguinte (caso a declaração tenha sido emitida no período da
+tarde/noite).
+
+Como de acordo com os próprios itens transcritos do CEC, para a contagem do prazo de
+sepultamento e cremação são descontados o tempo de duração do velório, guarda nas câmaras
+frigorificas e o período de ornamentação do corpo, não é possível concluir de maneira inequívoca
+que os prazos são cumpridos.
+
+A SP Regula também apresentou argumentação sobre o tema, no sentido de que:
+
+                      Nos documentos listados acima apresentamos os serviços executados, as
+                      digitalizadas estão demandando um pouco mais de tempo, e um trabalho mais
+                      efetivo está sendo realizado e já se comprometeram em nos apresentar.
+
+                      A esse respeito, acrescenta-se o disposto no contrato, sendo que o prazo contratual
+                      limite para a digitalização dos documentos acima mencionados ainda não se
+                      esgotou:
+
+                      23.1.6.A CONCESSIONÁRIA irá dispor do prazo de 42 (quarenta e dois) meses a
+                      partir da data da ORDEM DE INÍCIO para realizar a digitalização do livro de
+                      registros e a efetivação do recadastramento de cada um dos CEMITÉRIOS do
+                      respectivo BLOCO por ela adjudicado.
+
+                      (...)
+
+                      23.2. Até o final do Estágio 2 da FASE DE IMPLEMENTAÇÃO, a
+                      CONCESSIONÁRIA, individualmente ou em conjunto com as outras
+                      CONCESSIONÁRIAS dos SERVIÇOS CONCEDIDOS, publicará em, no mínimo,
+                      dois jornais de grande circulação na Capital, comunicado com o seguinte conteúdo:
+
+                      (...) (d) o prazo previsto para o encerramento da etapa relativa à digitalização dos
+                      livros de registros, efetivação do recadastramento e conclusão do PROGRAMA DE
+                      INTERVENÇÃO; e (...).
+
+Em que pese a SP Regula trazer que a Concessionária dispõe de prazo de 42 meses, a partir da
+Ordem de Início, para a digitalização do livro de registros, salienta-se que a solicitação feita referia-
+se apenas àqueles registros ocorridos após a assunção dos serviços funerários pela
+Concessionária.
+
+Portanto, aponta-se as dificuldades na prestação das informações das concessionárias
+Maya, Cortel e Velar, nos controles e organização da documentação de sepultamento,
+                                                                                       eTCM 003153/2023
+
+
+
+indicando a conferência deste item para um futuro acompanhamento de execução
+contratual (Proposta de Recomendação 7.2.1).
+
+3.5. As ações de acompanhamento e fiscalização do serviço funerário do município nessa
+          fase de transferência operacional
+
+Critério(s):
+
+
+       art. 88 do Decreto Municipal nº 59196/2020;
+
+       art. 93 do Decreto Municipal nº 59196/2020;
+
+       Anexo III do Contrato – Caderno de Encargos da Concessionária (peça 25)
+
+       Anexo IX – Planos de Transferência Operacional (peça 37);
+
+
+O Anexo IX – Planos de Transferência Operacional, em seu item 4.1.1., estabelece que a fase de
+implantação da concessão seja dividida em dois estágios, com duração total de 12 meses
+contados a partir da data da ordem de início, da seguinte forma:
+
+(a)        Estágio 1 – Operação do Poder Concedente acompanhado pela Concessionária e
+apresentação e análise do Plano de Assunção da Concessão, com duração de 2 meses.
+
+(b)        Estágio 2 – Operação da Concessionária assistida pelo Poder Concedente.
+
+Conforme consta das Ordens de Início28 dos contratos, para todas as Concessionárias a fase de
+implantação da Concessão teve início no dia 06.01.23. O estágio 2, o qual a Concessionária passa
+a assumir a responsabilidade pelas atividades funcionais de operação dos serviços concedidos
+teve início, também para todas as Concessionárias, no dia 07.03.2329.
+
+Compulsando os processos referentes aos Contratos de Concessão, até o momento da
+elaboração deste relatório, não haviam sido anexados quaisquer documentos relativos a
+procedimentos de acompanhamento e fiscalização por parte do Poder Concedente.
+
+Dessa forma, com vistas a conhecer os procedimentos de acompanhamento e fiscalização da
+Concessionária durante esse estágio da concessão foi encaminhada à SP Regula a Requisição de
+Documentos nº 03 (Peça 26) solicitando:
+
+                              4. Informar como estão sendo realizados o acompanhamento e fiscalização dos
+                              serviços por parte do Serviço Funerário nessa fase de transferência operacional;
+
+28   Documentos SEI 078586566; 078586869; 078587356; e 078587570.
+29   Documentos SEI 080978896;
+                                                                                                       eTCM 003153/2023
+
+
+
+Em resposta, o Serviço Funerário do Município de São Paulo respondeu que estão sendo
+realizadas reuniões periódicas, coordenadas pela Superintendência de Fiscalização da SP-Regula,
+com o objetivo de definir o cronograma de fiscalização a ser desempenhado pela Concedente.
+Também apresenta que os fiscais podem atuar de ofício quando verificarem eventuais falhas na
+prestação contratual.
+
+Portanto, a resposta apresentada pelo Serviço Funerário, bem como a ausência de autuação
+dos documentos citados indicam que ainda não são realizados de maneira ordinária e
+planejada,        por     parte      do     Poder       Concedente,          procedimentos             suficientes        para      o
+acompanhamento e fiscalização dos serviços concedidos, concentrando-se, neste
+momento, a atuação de ofício dos fiscais quando tomam ciência de eventuais denúncias e
+irregularidades.
+
+Assim, faz-se necessário que a SP Regula adote providências com vistas a implantar
+procedimentos sistematizados e planejados para o acompanhamento e fiscalização adequada dos
+serviços concedidos (Proposta de Recomendação 7.2.1).
+
+4. COMENTÁRIOS DO GESTOR
+
+Conforme mencionado nos itens anteriores (2.2 “Métodos de coleta e análise dos dados”, 3.1
+“Achados sobre as regras de gratuidade” e 3.2. “Achados sobre a política tarifária da Concessão”)
+os testes de auditoria iniciais, referentes ao cumprimento da política tarifária e gratuidades, foram
+realizados sobre as bases de dados fornecidas e os primeiros resultados foram encaminhados
+para a SP Regula para análise e complementação das informações30.
+
+Com relação a cada uma das Concessionários foram encaminhados e-mails31, com a mesma
+estrutura, abordando as inconsistências entre as informações do sistema Hagape e as bases de
+dados das Concessionárias (no caso das gratuidades) e a solicitação de documentação
+comprobatória adicional, além da análise das divergências entre os preços cobrados pelas
+Concessionárias em relação à política tarifária da Concessão.
+
+A SP Regula encaminhou tais requisições de informações para cada Concessionária, porém as
+devolutivas para a Auditoria apenas repassaram os dados complementares enviados pelas
+Concessionárias sem que tenha havido uma avaliação própria por parte da Agência Reguladora.
+Desse modo, até o momento, ainda não há “comentários do gestor” da SP Regula sobre os
+
+30  Os códigos de programação foram registrados nos Processos SEI 9310.2023/0000602-0 (Doc. 083662819, Doc. 083663237),
+9310.2023/0000756-5 (Doc. 083927495, Doc. 083927650), 9310.2023/0000799-9 (Doc. 084219884, Doc. 084220168) e 9310.2023/0000882-0 (Doc.
+085057934).
+31 Referente aos dados da Consolare em 22.05.23, Maya em 26.05.23, Cortel em 01.06.23 e Velar em 19.06.23
+                                                                              eTCM 003153/2023
+
+
+
+apontamentos relatados pela Auditoria.
+
+Por fim, cabe destacar que no momento de execução da Inspeção ainda se encontrava em
+andamento o projeto de automatização do acesso, pela Agência Reguladora, aos dados das
+Concessionárias. Nesse contexto, enquanto a SP Regula não dispor de acesso integral e
+tempestivo a uma base completa e sem erros, com todas as informações de interesse do Poder
+Concedente, a própria capacidade de análise e fiscalização da Agência Reguladora sobre a
+Concessão restará comprometida.
+
+5. CONCLUSÃO
+
+Em síntese, a Auditoria apurou:
+
+i) indícios de descumprimento da legislação relativa à gratuidade dos serviços cemiteriais e
+funerários;
+
+ii) indícios de desrespeito à política tarifária da concessão;
+
+iii) infringência na política de comunicação visual das agências funerárias (tabela de preços e
+informativo sobre gratuidade em desacordo com o item 17.2 do Anexo III – Caderno de Encargos
+da Concessionária);
+
+iv) ausência de planejamento adequado das ações de acompanhamento e fiscalização por parte
+do Poder Concedente.
+
+Por outro lado, não foram constatadas impropriedades com relação:
+
+i) ao preparo/treinamento dos funcionários das Concessionárias;
+
+ii) aos canais de atendimento aos usuários;
+
+iii) as ferramentas tecnológicas disponíveis para acompanhamento dos serviços e
+
+iv) aos prazos de sepultamento e remoção.
+
+Cabe repisar que devido as inconsistências das bases de dados fornecidas (item 2.3 “Limitações
+da Auditoria”) os testes de auditoria, referentes as gratuidades e a política tarifária da Concessão,
+não foram conclusivos. Além disso, a ausência de normatização detalhada da forma de
+comprovação, quando o usuário renuncia ao direito de gratuidade, seja nos Contratos de
+Concessão ou em ato normativo da SP Regula, foi preponderante para que o teste relativo à
+                                                                              eTCM 003153/2023
+
+
+
+gratuidade fosse inconclusivo, ou seja, a ausência de critério legal específico impossibilitou a
+caracterização completa desses apontamentos como “achados de auditoria”.
+
+De forma similar, a desestruturação na prestação das informações das concessionárias Maya,
+Cortel e Velar, nos controles e organização da documentação dos sepultamentos, dificultou a
+análise dos seus prazos.
+
+Por fim, deve-se mencionar que as respostas apresentadas pelo Serviço Funerário corroboram a
+percepção de que não estavam sendo realizadas ações estruturadas de acompanhamento e
+fiscalização dos serviços concedidos, restringindo-se, neste momento, a atuação de ofício dos
+fiscais quando tomam ciência de eventuais denúncias e irregularidades.
+
+6. ANÁLISE DOS ELEMENTOS DA RESPONSABILIZAÇÃO
+
+Devido as restrições encontradas na realização dos testes de Auditoria (item 2.3 “Limitações da
+Auditoria”), não foi possível caracterizar de forma conclusiva parte dos apontamentos como
+“achado de auditoria” e, também, não se pôde identificar os agentes que lhe deram causa. Assim,
+consoante o disposto no art. 122 do Regimento Interno do TCMSP, o dirigente máximo da SP
+Regula (João Manoel da Costa Neto, Diretor-Presidente) poderá ser intimado para indicar os
+agentes responsáveis.
+
+7. PROPOSTAS DE ENCAMINHAMENTO
+
+Com base nas análises efetuadas, à luz dos critérios aplicáveis (item 3), são propostos os
+seguintes encaminhamentos à SP Regula:
+
+7.1. Propostas de determinação
+
+7.1.1. Determinar à SP Regula, que adote, no prazo de 3 meses, providências com vistas a
+publicação de Resolução, ou outro ato normativo equivalente, após analisar se há necessidade de
+realização de Termo Aditivo nos Contratos da Concessão, de modo a esclarecer e detalhar a
+obrigação, por parte das Concessionárias, de orientar os usuários ao preenchimento de um termo
+de ciência ou documento equivalente, para garantir a adequada comprovação documental nos
+casos em que houve renúncia ao direito à gratuidade, devido aos indícios de descumprimento ao
+Decreto Municipal nº 59.196/20 identificados pela Auditoria. (subitem 3.1.)
+
+7.1.2. Determinar à SP Regula, que adote, no prazo de 6 meses, providências com vistas à
+conclusão do desenvolvimento do sistema informatizado que irá garantir o acesso integral, sem
+erros e tempestivo às bases de dados das Concessionárias, incluindo todas as informações de
+                                                                                                                                        eTCM 003153/2023
+
+
+
+  interesse do Poder Concedente para o exercício de sua competência reguladora, devido aos
+  indícios de descumprimento da Política Tarifária da Concessão identificados pela Auditoria.
+  (subitem 3.2.)
+
+  7.2. Propostas de recomendação
+
+  7.2.1. Recomendar à SP Regula que adote providências corretivas para evitar as falhas de
+  controle observadas na resposta apresentada pelo Serviço Funerário e a ausência de autuação de
+  documentos, assim como as dificuldades na apresentação das informações dos sepultamentos
+  (Concessionárias Maya, Corel e Velar), as quais indicam que ainda não são realizados de maneira
+  ordinária e planejada, por parte do Poder Concedente, procedimentos suficientes para o
+  acompanhamento e fiscalização dos serviços concedidos, concentrando-se, neste momento, na
+  atuação de ofício dos fiscais quando tomam ciência de eventuais denúncias e irregularidades.
+  (subitens 3.4 e 3.5)
+
+  7.3. Propostas de ciência
+
+  7.3.1. Dar ciência à SP Regula sobre as informações expostas pelas Concessionárias em suas
+  agências, tanto quanto aos preços praticados quanto às informações a respeito do benefício da
+  gratuidade, o que afronta o disposto no item 17.2 alíneas c) e j) do Anexo III – Caderno de
+  Encargos da Concessionária, com vistas à adoção de providências internas que previnam a
+  ocorrência de outras semelhantes. (Subitem 3.3.3)
+
+
+
+
+                                                                                                        Em 18.08.23
+
+
+                         TÉO DO COUTTO DE SÁ ALVES                                                                    RAPHAEL COSTA CARVALHO
+                           Auditor de Controle Externo                                                                 Auditor de Controle Externo
+
+
+                                                                FERNANDO CORREIA RISERIO DO BONFIM
+                                                                       Auditor de Controle Externo
+  De acordo.
+
+
+                                                                                ADRIANO PINHEIRO B. MENEZES
+                                                                                Supervisor de Controle Externo 9
+
+Assinado digitalmente   Assinado digitalmente por   Assinado digitalmente por   Assinado digitalmente
+                        ADRIANO PINHEIRO            FERNANDO CORREIA
+  RPP: AAS
+por TEO DO COUTTO                                                               por RAPHAEL COSTA
+DE SA ALVES             BEZERRA DE MENEZES          RISERIO DO BONFIM           CARVALHO
+Data: 18/09/2023        Data: 18/09/2023            Data: 18/09/2023            Data: 19/09/2023
+14:25:54 -03:00         14:28:14 -03:00             15:37:38 -03:00             10:40:41 -03:00
+
