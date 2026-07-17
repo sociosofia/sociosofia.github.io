@@ -1,0 +1,95 @@
+name: Temporary TCM process endpoint mapper
+
+on:
+  push:
+    branches:
+      - tmp-tcm-process-endpoints
+
+permissions:
+  contents: write
+
+jobs:
+  map:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: tmp-tcm-process-endpoints
+
+      - name: Install dependencies
+        run: python -m pip install requests beautifulsoup4
+
+      - name: Fetch process page and map endpoints
+        run: |
+          mkdir -p tmp/tcm-process
+          python - <<'PY'
+          from pathlib import Path
+          from urllib.parse import urljoin
+          import json, re, requests
+          from bs4 import BeautifulSoup
+
+          base='https://portal.tcm.sp.gov.br'
+          url=base+'/ConsultaProcesso?NumeroTC=TC%2F003153%2F2023&buscaSimplificada=True'
+          s=requests.Session()
+          s.headers.update({'User-Agent':'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/126 Safari/537.36'})
+          r=s.get(url,timeout=120)
+          r.raise_for_status()
+          root=Path('tmp/tcm-process')
+          (root/'process.html').write_bytes(r.content)
+          soup=BeautifulSoup(r.content,'html.parser')
+
+          scripts=[]
+          for tag in soup.find_all('script',src=True):
+              src=urljoin(url,tag['src'])
+              try:
+                  rr=s.get(src,timeout=120)
+                  scripts.append({'url':src,'status':rr.status_code,'size':len(rr.content)})
+                  name=re.sub(r'[^A-Za-z0-9._-]+','_',src.split('/')[-1].split('?')[0] or 'script.js')
+                  (root/name).write_bytes(rr.content)
+              except Exception as e:
+                  scripts.append({'url':src,'error':str(e)})
+          (root/'scripts.json').write_text(json.dumps(scripts,ensure_ascii=False,indent=2),encoding='utf-8')
+
+          patterns=[
+              r'url\s*:\s*["\']([^"\']+)["\']',
+              r'fetch\s*\(\s*["\']([^"\']+)["\']',
+              r'\.get\s*\(\s*["\']([^"\']+)["\']',
+              r'\.post\s*\(\s*["\']([^"\']+)["\']',
+              r'["\'](/[^"\']*(?:Process|Documento|Tramit|Arquivo|Anexo|Consulta)[^"\']*)["\']'
+          ]
+          findings=[]
+          for p in root.iterdir():
+              if not p.is_file() or p.suffix.lower() not in {'.js','.html','.txt'}: continue
+              text=p.read_text(errors='ignore')
+              low=text.lower()
+              if any(k in low for k in ['document','tramit','arquivo','anexo','processo','resolucao']):
+                  for pat in patterns:
+                      for m in re.finditer(pat,text,re.I):
+                          findings.append({'file':p.name,'match':m.group(1)[:1000]})
+          # unique while preserving order
+          seen=set(); uniq=[]
+          for x in findings:
+              key=(x['file'],x['match'])
+              if key not in seen:
+                  seen.add(key); uniq.append(x)
+          (root/'endpoints.json').write_text(json.dumps(uniq,ensure_ascii=False,indent=2),encoding='utf-8')
+
+          # Extract visible links/buttons/forms too
+          links=[]
+          for tag in soup.find_all(['a','form','button']):
+              item={'tag':tag.name,'text':' '.join(tag.get_text(' ',strip=True).split())[:500]}
+              for attr in ['href','action','onclick','data-url','data-href','id','name','value']:
+                  if tag.get(attr): item[attr]=tag.get(attr)
+              if len(item)>2 or item['text']:
+                  links.append(item)
+          (root/'visible-controls.json').write_text(json.dumps(links,ensure_ascii=False,indent=2),encoding='utf-8')
+          print('page',r.status_code,len(r.content),'scripts',len(scripts),'endpoint candidates',len(uniq),'controls',len(links))
+          PY
+
+      - name: Commit temporary mapper output
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add tmp/tcm-process
+          git commit -m 'Add temporary TCM process endpoint map' || exit 0
+          git push origin HEAD:tmp-tcm-process-endpoints
