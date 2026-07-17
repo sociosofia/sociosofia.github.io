@@ -1,0 +1,81 @@
+{
+  "documentos_resolucao": {
+    "url": "https://portal.tcm.sp.gov.br/ConsultaProcesso/CarregarListaDocumentosAnexosResolucao",
+    "status": 200,
+    "content_type": "application/json; charset=utf-8",
+    "size": 372,
+    "json": {
+      "renderHtml": "\r\n\r\n\r\n<dl class=\"dl-horizontal\">\r\n    <dt style=\"break-after:avoid\">\r\n        Documentos\r\n    </dt>\r\n\r\n    <dd class=\"text-justify\" style=\"break-before:avoid\">\r\nNão há arquivos anexados relativos a este processo.    </dd>\r\n</dl>\r\n",
+      "success": true,
+      "errorMessage": ""
+    },
+    "links": [],
+    "text": "Documentos Não há arquivos anexados relativos a este processo."
+  },
+  "arquivos_eletronicos": {
+    "url": "https://portal.tcm.sp.gov.br/ConsultaProcesso/CarregarListaDocumentosETCM",
+    "status": 200,
+    "content_type": "application/json; charset=utf-8",
+    "size": 4205,
+    "json": {
+      "renderHtml": "\r\n\r\n\r\n    <dl class=\"dl-horizontal\">\r\n\r\n        <dt style=\"break-after:avoid\">\r\n            Arquivos Eletrônicos\r\n        </dt>\r\n\r\n        <dd class=\"text-justify\" style=\"break-before:avoid\">\r\n\r\n            <div class=\"alert alert-warning\" style=\"font-size: 18px;\">\r\n                <strong>Atenção!</strong> A contagem de prazos processuais é regida pelos artigos 119 e 120 do Regimento Interno do TCMSP. Não se inicia com a visualização de peças do processo\r\n            </div>\r\n\r\n\r\n            <div Class=\"table-responsive\">\r\n                <Table Class=\"table table-hover table-striped sortable\" style=\"font-size:12px\">\r\n                    <thead>\r\n                        <tr>\r\n                            <th>#</th>\r\n                            <th style=\"min-width: 100px;\"> Arquivo</th>\r\n                            <th> nº/ano Ato</th>\r\n                            <th> Area</th>\r\n                            <th> Sigla Documento</th>\r\n                            <th> Tipo Documento</th>\r\n                            <th> Data arquivo</th>\r\n                        </tr>\r\n                    </thead>\r\n\r\n                    <tbody>\r\n\r\n                            <tr>\r\n\r\n\r\n                                <td>\r\n                                    1\r\n                                </td>\r\n\r\n                                <td>\r\n                                            <a href=\"\\ConsultaProcesso\\DocumentoEtcm?nuProcesso=TC0031532023&amp;codArquivoDigital=1945272\" title=\"Ver arquivo\" target=\"_blank\">\r\n\r\n\r\n\r\n        <img src=\"/Content/images/Free-file-icons/48px/pdf.png\" width=\"30 px\" />\r\n                                                Abrir\r\n                                            </a>\r\n\r\n                                </td>\r\n\r\n                                <td>20/2023</td>\r\n                                <td>C5 - COORDENADORIA V</td>\r\n                                <td>REL</td>\r\n                                <td>RELAT&#211;RIO</td>\r\n                                <td>18/09/2023</td>\r\n\r\n                            </tr>\r\n                            <tr>\r\n\r\n\r\n                                <td>\r\n                                    2\r\n                                </td>\r\n\r\n                                <td>\r\n                                            <a href=\"\\ConsultaProcesso\\DocumentoEtcm?nuProcesso=TC0031532023&amp;codArquivoDigital=1981587\" title=\"Ver arquivo\" target=\"_blank\">\r\n\r\n\r\n\r\n        <img src=\"/Content/images/Free-file-icons/48px/pdf.png\" width=\"30 px\" />\r\n                                                Abrir\r\n                                            </a>\r\n\r\n                                </td>\r\n\r\n                                <td></td>\r\n                                <td>UTCC - UNIDADE T&#201;CNICA DE CART&#211;RIO, CADASTRO E ARQUIVO</td>\r\n                                <td>RESP COM PRO</td>\r\n                                <td>RESPOSTA DE COMUNICA&#199;&#195;O PROCESSUAL</td>\r\n                                <td>20/10/2023</td>\r\n\r\n                            </tr>\r\n\r\n                    </tbody>\r\n\r\n                </Table>\r\n\r\n            </div>\r\n\r\n        </dd>\r\n    </dl>\r\n\r\n",
+      "success": true,
+      "errorMessage": ""
+    },
+    "links": [
+      {
+        "tag": "a",
+        "text": "Abrir",
+        "href": "\\ConsultaProcesso\\DocumentoEtcm?nuProcesso=TC0031532023&codArquivoDigital=1945272",
+        "title": "Ver arquivo"
+      },
+      {
+        "tag": "a",
+        "text": "Abrir",
+        "href": "\\ConsultaProcesso\\DocumentoEtcm?nuProcesso=TC0031532023&codArquivoDigital=1981587",
+        "title": "Ver arquivo"
+      }
+    ],
+    "text": "Arquivos Eletrônicos Atenção! A contagem de prazos processuais é regida pelos artigos 119 e 120 do Regimento Interno do TCMSP. Não se inicia com a visualização de peças do processo # Arquivo nº/ano Ato Area Sigla Documento Tipo Documento Data arquivo 1 Abrir 20/2023 C5 - COORDENADORIA V REL RELATÓRIO 18/09/2023 2 Abrir UTCC - UNIDADE TÉCNICA DE CARTÓRIO, CADASTRO E ARQUIVO RESP COM PRO RESPOSTA DE COMUNICAÇÃO PROCESSUAL 20/10/2023"
+  },
+  "tramitacao": {
+    "url": "https://portal.tcm.sp.gov.br/ConsultaProcesso/CarregarTramitacao",
+    "status": 200,
+    "content_type": "application/json; charset=utf-8",
+    "size": 813,
+    "json": {
+      "renderHtml": "\r\n<div class=\"table-responsive\">\r\n    <table class=\"table\" style=\"font-size:12px\">\r\n        <thead>\r\n            <tr>\r\n                <th>#</th>\r\n                <th>Data Entrada</th>\r\n                <th>Data Saída</th>\r\n                <th>Dias</th>\r\n                <th>Origem</th>\r\n                <th>Destino</th>\r\n            </tr>\r\n        </thead>\r\n        <tbody>\r\n        </tbody>\r\n    </table>\r\n</div>",
+      "renderSituacaoHtml": "\r\n\r\nUNIDADE T&#201;CNICA DE PAUTA / PLENO - 06/02/2026\r\n",
+      "success": true,
+      "errorMessage": ""
+    },
+    "links": [],
+    "text": "# Data Entrada Data Saída Dias Origem Destino"
+  },
+  "interessados": {
+    "url": "https://portal.tcm.sp.gov.br/ConsultaProcesso/CarregarInteressados",
+    "status": 200,
+    "content_type": "application/json; charset=utf-8",
+    "size": 497,
+    "json": {
+      "renderHtml": "\r\nAg&#234;ncia Reguladora de Servi&#231;os P&#250;blicos do Munic&#237;pio de S&#227;o Paulo (*)    <br />\r\nCONSOLARE - Concession&#225;ria de Cemit&#233;rios e Servi&#231;os Funer&#225;rios SPE    <br />\r\nJo&#227;o Manoel da Costa Neto    <br />\r\nServi&#231;o Funer&#225;rio do Munic&#237;pio de S&#227;o Paulo (*)    <br />\r\n",
+      "success": true,
+      "errorMessage": ""
+    },
+    "links": [],
+    "text": "Agência Reguladora de Serviços Públicos do Município de São Paulo (*) CONSOLARE - Concessionária de Cemitérios e Serviços Funerários SPE João Manoel da Costa Neto Serviço Funerário do Município de São Paulo (*)"
+  },
+  "publicacoes": {
+    "url": "https://portal.tcm.sp.gov.br/ConsultaProcesso/CarregarListaPublicacoesRelacionadas",
+    "status": 200,
+    "content_type": "application/json; charset=utf-8",
+    "size": 62,
+    "json": {
+      "renderHtml": "\r\n\r\n\r\n",
+      "success": true,
+      "errorMessage": ""
+    },
+    "links": [],
+    "text": ""
+  }
+}
