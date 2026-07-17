@@ -1,0 +1,77 @@
+name: Temporary TCM revenue extraction
+
+on:
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: write
+
+jobs:
+  extract:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: tmp-tcm-revenue-api
+      - name: Install dependencies
+        run: python -m pip install pandas
+      - name: Download and search IRIS revenue files
+        run: |
+          mkdir -p tmp/tcm-revenue
+          cat > /tmp/extract.py <<'PY'
+          import io, re, json, unicodedata, urllib.request
+          from pathlib import Path
+          import pandas as pd
+          outdir = Path('tmp/tcm-revenue')
+          terms = ['OUTORGA','CEMITER','FUNERAR','CREMAC','SP REGULA','SPREGULA','CONSOLARE','CORTEL','MAYA','VELAR','PREVER ADMINISTRACAO CEMITERIAL','44.615.216','47.701.152','48.222.338','47.863.166','53/SFMSP/2022','54/SFMSP/2022','55/SFMSP/2022','60/SFMSP/2022']
+          def norm(x):
+              s=unicodedata.normalize('NFKD',str(x)).encode('ascii','ignore').decode('ascii').upper()
+              return re.sub(r'\s+',' ',s)
+          nterms=[norm(t) for t in terms]
+          all_matches=[]; metadata=[]
+          for year in range(2023,2027):
+              url=f'https://iris.tcm.sp.gov.br/assets/data/receita/csvReceita{year}.csv'
+              dest=outdir/f'csvReceita{year}.csv'
+              urllib.request.urlretrieve(url,dest)
+              raw=dest.read_bytes()
+              for enc in ('utf-8-sig','latin1','cp1252'):
+                  try: text=raw.decode(enc); encoding=enc; break
+                  except UnicodeDecodeError: pass
+              first='\n'.join(text.splitlines()[:5]); sep=';' if first.count(';')>=first.count(',') else ','
+              df=pd.read_csv(io.StringIO(text),sep=sep,dtype=str,keep_default_na=False,low_memory=False)
+              metadata.append({'year':year,'rows':len(df),'columns':list(df.columns),'encoding':encoding,'separator':sep,'bytes':len(raw)})
+              joined=df.astype(str).agg(' | '.join,axis=1).map(norm)
+              mask=pd.Series(False,index=df.index)
+              for t in nterms: mask |= joined.str.contains(re.escape(t),na=False)
+              sub=df.loc[mask].copy(); sub.insert(0,'ANO_ARQUIVO',year); sub.insert(1,'TEXTO_NORMALIZADO',joined.loc[mask].values)
+              all_matches.append(sub)
+          combined=pd.concat(all_matches,ignore_index=True,sort=False) if all_matches else pd.DataFrame()
+          combined.to_csv(outdir/'matches.csv',index=False,sep=';',encoding='utf-8-sig')
+          (outdir/'metadata.json').write_text(json.dumps(metadata,ensure_ascii=False,indent=2),encoding='utf-8')
+          lines=['# Varredura da Receita IRIS/TCMSP — concessões funerárias','']
+          for m in metadata:
+              lines += [f"## {m['year']}: {m['rows']} linhas, {len(m['columns'])} colunas",'Colunas: '+', '.join(m['columns']),'']
+          lines += [f'## Total de linhas correspondentes: {len(combined)}','']
+          if len(combined):
+              for _,row in combined.head(500).iterrows():
+                  vals=[f'{c}={v}' for c,v in row.items() if str(v).strip() and c!='TEXTO_NORMALIZADO']
+                  lines.append('- '+' | '.join(vals))
+          else: lines.append('Nenhuma linha correspondeu diretamente aos termos pesquisados.')
+          (outdir/'summary.md').write_text('\n'.join(lines),encoding='utf-8')
+          print('\n'.join(lines[:100]))
+          PY
+          python /tmp/extract.py
+      - name: Commit compact results to temporary branch
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add tmp/tcm-revenue/summary.md tmp/tcm-revenue/matches.csv tmp/tcm-revenue/metadata.json
+          git commit -m 'Add temporary IRIS revenue extraction results' || exit 0
+          git push origin HEAD:tmp-tcm-revenue-api
+      - uses: actions/upload-artifact@v4
+        with:
+          name: tcm-revenue-extraction
+          path: tmp/tcm-revenue
+          retention-days: 1
