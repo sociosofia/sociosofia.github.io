@@ -1,0 +1,250 @@
+[
+  {
+    "file": "dx.all.debug.js",
+    "match": "/"
+  },
+  {
+    "file": "dx.all.debug.js",
+    "match": "string"
+  },
+  {
+    "file": "dx.all.debug.js",
+    "match": "globalize-messages"
+  },
+  {
+    "file": "dx.all.debug.js",
+    "match": "gestureHandling"
+  },
+  {
+    "file": "process.html",
+    "match": "/ConsultaProcesso/Interessados"
+  },
+  {
+    "file": "process.html",
+    "match": "/Account/Login?returnUrl=/ConsultaProcesso"
+  },
+  {
+    "file": "process.html",
+    "match": "/consulta-a-processos"
+  },
+  {
+    "file": "process.html",
+    "match": "/Processos"
+  },
+  {
+    "file": "process.html",
+    "match": "/ConsultaProcesso?NumeroTC=TC%2F003153%2F2023&amp;buscaSimplificada=True"
+  },
+  {
+    "file": "process.html",
+    "match": "/Jurisdicionado/EnvioDocumentacao/ConfirmacaoDados?codProcesso=TC/003153/2023"
+  },
+  {
+    "file": "process.html",
+    "match": "/ConsultaProcesso/Print?NumeroTC=TC0031532023"
+  },
+  {
+    "file": "process.html",
+    "match": "/ConsultaProcesso/PrintList"
+  },
+  {
+    "file": "process.html",
+    "match": "/ConsultaProcesso/ExportXLS"
+  },
+  {
+    "file": "process.html",
+    "match": "/ConsultaProcesso/ExportXLS?downloadTokenValue="
+  },
+  {
+    "file": "process.html",
+    "match": "/ConsultaProcesso/Index?buscaSimplificada=True&NumeroTC="
+  },
+  {
+    "file": "process.html",
+    "match": "/ConsultaProcesso/ArquivoDigital?TC="
+  },
+  {
+    "file": "process.html",
+    "match": "/ConsultaProcesso/InscreverNotificacaoProcesso"
+  },
+  {
+    "file": "process.html",
+    "match": "/ConsultaProcesso/CancelarNotificacaoProcesso"
+  },
+  {
+    "file": "process.html",
+    "match": "/ConsultaProcesso/CarregarListaDocumentosETCM"
+  },
+  {
+    "file": "process.html",
+    "match": "/ConsultaProcesso/CarregarListaDocumentosAnexosResolucao"
+  },
+  {
+    "file": "process.html",
+    "match": "/ConsultaProcesso/CarregarListaPublicacoesRelacionadas"
+  },
+  {
+    "file": "process.html",
+    "match": "/ConsultaProcesso/CarregarInteressados"
+  },
+  {
+    "file": "process.html",
+    "match": "/ConsultaProcesso/CarregarTramitacao"
+  },
+  {
+    "file": "process.html",
+    "match": "/ConsultaProcesso/CarregarAcordao"
+  },
+  {
+    "file": "process.html",
+    "match": "/ConsultaProcesso/CarregarResultados"
+  },
+  {
+    "file": "process.html",
+    "match": "/ConsultaProcesso/CarregarRecursos"
+  },
+  {
+    "file": "process.html",
+    "match": "/ConsultaProcesso/CarregarVideTC"
+  },
+  {
+    "file": "process.html",
+    "match": "/ConsultaProcesso/CarregarProcessoExterno"
+  },
+  {
+    "file": "select2.js",
+    "match": "multiple"
+  },
+  {
+    "file": "select2.js",
+    "match": "escapeMarkup"
+  },
+  {
+    "file": "select2.js",
+    "match": "translations"
+  },
+  {
+    "file": "select2.js",
+    "match": "sorter"
+  },
+  {
+    "file": "select2.js",
+    "match": "searching"
+  },
+  {
+    "file": "select2.js",
+    "match": "templateResult"
+  },
+  {
+    "file": "select2.js",
+    "match": "templateSelection"
+  },
+  {
+    "file": "select2.js",
+    "match": "disabled"
+  },
+  {
+    "file": "select2.js",
+    "match": "placeholder"
+  },
+  {
+    "file": "select2.js",
+    "match": "debug"
+  },
+  {
+    "file": "select2.js",
+    "match": "matcher"
+  },
+  {
+    "file": "select2.js",
+    "match": "data"
+  },
+  {
+    "file": "select2.js",
+    "match": "ajax"
+  },
+  {
+    "file": "select2.js",
+    "match": "tags"
+  },
+  {
+    "file": "select2.js",
+    "match": "createTag"
+  },
+  {
+    "file": "select2.js",
+    "match": "insertTag"
+  },
+  {
+    "file": "select2.js",
+    "match": "tokenizer"
+  },
+  {
+    "file": "select2.js",
+    "match": "tokenSeparators"
+  },
+  {
+    "file": "select2.js",
+    "match": "minimumInputLength"
+  },
+  {
+    "file": "select2.js",
+    "match": "maximumInputLength"
+  },
+  {
+    "file": "select2.js",
+    "match": "maximumSelectionLength"
+  },
+  {
+    "file": "select2.js",
+    "match": "dir"
+  },
+  {
+    "file": "select2.js",
+    "match": "loadingMore"
+  },
+  {
+    "file": "select2.js",
+    "match": "dropdownParent"
+  },
+  {
+    "file": "select2.js",
+    "match": "dropdownAutoWidth"
+  },
+  {
+    "file": "select2.js",
+    "match": "minimumResultsForSearch"
+  },
+  {
+    "file": "select2.js",
+    "match": "amdBase"
+  },
+  {
+    "file": "select2.js",
+    "match": "dataAdapter"
+  },
+  {
+    "file": "select2.js",
+    "match": "selectionAdapter"
+  },
+  {
+    "file": "select2.js",
+    "match": "dropdownAdapter"
+  },
+  {
+    "file": "select2.js",
+    "match": "resultsAdapter"
+  },
+  {
+    "file": "select2.js",
+    "match": "width"
+  },
+  {
+    "file": "select2.js",
+    "match": "theme"
+  },
+  {
+    "file": "layout.js",
+    "match": "icon.png"
+  }
+]

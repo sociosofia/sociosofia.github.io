@@ -1,0 +1,479 @@
+[
+  {
+    "tag": "a",
+    "text": "",
+    "href": "/",
+    "id": "loginLink"
+  },
+  {
+    "tag": "a",
+    "text": "",
+    "href": "/Account/Login?returnUrl=/ConsultaProcesso",
+    "id": "loginLink"
+  },
+  {
+    "tag": "a",
+    "text": "",
+    "href": "/"
+  },
+  {
+    "tag": "a",
+    "text": "Tribunal de Contas do Município de São Paulo",
+    "href": "#"
+  },
+  {
+    "tag": "a",
+    "text": "Institucional",
+    "href": "/colegiado"
+  },
+  {
+    "tag": "a",
+    "text": "Sessões Plenária",
+    "href": "/Pagina/11242"
+  },
+  {
+    "tag": "a",
+    "text": "Fiscalização",
+    "href": "/Publicacoes/index/38"
+  },
+  {
+    "tag": "a",
+    "text": "Serviços",
+    "href": "/consulta-a-processos"
+  },
+  {
+    "tag": "a",
+    "text": "Transparência",
+    "href": "/Pagina/102"
+  },
+  {
+    "tag": "a",
+    "text": "Visite o TCMSP",
+    "href": "/#"
+  },
+  {
+    "tag": "a",
+    "text": "Biblioteca",
+    "href": "/Pagina/79669"
+  },
+  {
+    "tag": "a",
+    "text": "Comunicação",
+    "href": "/comunicacao"
+  },
+  {
+    "tag": "a",
+    "text": "Escola de Gestão e Contas",
+    "href": "https://escoladecontas.tcm.sp.gov.br/"
+  },
+  {
+    "tag": "a",
+    "text": "Home",
+    "href": "/"
+  },
+  {
+    "tag": "a",
+    "text": "Processos",
+    "href": "/Processos"
+  },
+  {
+    "tag": "a",
+    "text": "Buscar",
+    "href": "#collapse1",
+    "id": "filtrarPanel"
+  },
+  {
+    "tag": "a",
+    "text": "",
+    "href": "#",
+    "id": "closeButton"
+  },
+  {
+    "tag": "form",
+    "text": "Nº Processo TC Busca avançada | Pesquisar Limpar Limpar Pesquisar",
+    "action": "/ConsultaProcesso?NumeroTC=TC%2F003153%2F2023&buscaSimplificada=True"
+  },
+  {
+    "tag": "a",
+    "text": "",
+    "href": "#",
+    "id": "btnLimparFiltroNumeroTC"
+  },
+  {
+    "tag": "a",
+    "text": "Busca avançada",
+    "href": "\\ConsultaProcesso"
+  },
+  {
+    "tag": "button",
+    "text": "Pesquisar",
+    "id": "btnBuscar"
+  },
+  {
+    "tag": "button",
+    "text": "Limpar",
+    "id": "btnLimparFiltrar"
+  },
+  {
+    "tag": "button",
+    "text": "Limpar",
+    "id": "btnLimparFiltrarSmall"
+  },
+  {
+    "tag": "button",
+    "text": "Pesquisar",
+    "id": "btnBuscarSmall"
+  },
+  {
+    "tag": "a",
+    "text": "",
+    "href": "javascript:gerarPdfLista()"
+  },
+  {
+    "tag": "a",
+    "text": "",
+    "href": "javascript:gerarXlsxLista()"
+  },
+  {
+    "tag": "a",
+    "text": "PUSH",
+    "href": "javascript:maisdetalhes();void(0);"
+  },
+  {
+    "tag": "a",
+    "text": "",
+    "href": "javascript:verDetalhes('TC0031532023')",
+    "id": "iconShowDetalhe_TC0031532023"
+  },
+  {
+    "tag": "a",
+    "text": "",
+    "href": "javascript:fecharDetalhes('TC0031532023')",
+    "id": "iconHideDetalhe_TC0031532023"
+  },
+  {
+    "tag": "a",
+    "text": "Acompanhar tramitação",
+    "href": "javascript:MensagemLogin();void(0);"
+  },
+  {
+    "tag": "a",
+    "text": "Peticionar",
+    "href": "/Jurisdicionado/EnvioDocumentacao/ConfirmacaoDados?codProcesso=TC/003153/2023"
+  },
+  {
+    "tag": "a",
+    "text": "",
+    "href": "javascript:window.open('/ConsultaProcesso/Print?NumeroTC=TC0031532023','_blank','fullscreen=no,location =no,menubar =no,status =no,toolbar =no');void(0)"
+  },
+  {
+    "tag": "a",
+    "text": "",
+    "href": "javascript:window.open('/ConsultaProcesso/Print?NumeroTC=TC0031532023','_blank','fullscreen=no,location =no,menubar =no,status =no,toolbar =no');void(0)"
+  },
+  {
+    "tag": "a",
+    "text": "",
+    "href": "#",
+    "id": "divHistoricoTramitacao_TC0031532023"
+  },
+  {
+    "tag": "a",
+    "text": "",
+    "href": "#",
+    "id": "divHistoricoTramitacao_XS_TC0031532023"
+  },
+  {
+    "tag": "a",
+    "text": "Carregar Lista Publicações Relacionadas",
+    "href": "javascript:carregarListaPublicacoesRelacionadas('TC0031532023');void(0)",
+    "id": "btnCarregarListaPublicacoesRelacionadas_TC0031532023"
+  },
+  {
+    "tag": "a",
+    "text": "Carregar Lista Documentos Resolução",
+    "href": "javascript:carregarListaDocumentosAnexosResolucao('TC0031532023');void(0)",
+    "id": "btnCarregarAnexosResolucao_TC0031532023"
+  },
+  {
+    "tag": "a",
+    "text": "Carregar Lista Documentos",
+    "href": "javascript:carregarListaDocumentosEtcm('TC0031532023');void(0)",
+    "id": "btnCarregarDocumento_TC0031532023"
+  },
+  {
+    "tag": "a",
+    "text": "1"
+  },
+  {
+    "tag": "a",
+    "text": "",
+    "href": "#0"
+  },
+  {
+    "tag": "a",
+    "text": "",
+    "href": "#0"
+  },
+  {
+    "tag": "a",
+    "text": "",
+    "href": "/privacidade/"
+  },
+  {
+    "tag": "a",
+    "text": "",
+    "href": "https://lgpd.tcm.sp.gov.br",
+    "value": "Entendi"
+  },
+  {
+    "tag": "a",
+    "text": "Política de Privacidade.",
+    "href": "https://lgpd.tcm.sp.gov.br"
+  },
+  {
+    "tag": "a",
+    "text": "Concordo",
+    "href": "javascript:fecharAvisoCookies()",
+    "value": "Concordo"
+  },
+  {
+    "tag": "a",
+    "text": "Institucional"
+  },
+  {
+    "tag": "a",
+    "text": "Colegiado",
+    "href": "/colegiado "
+  },
+  {
+    "tag": "a",
+    "text": "História",
+    "href": "/historia"
+  },
+  {
+    "tag": "a",
+    "text": "Missão, Visão e Valores",
+    "href": "/missao"
+  },
+  {
+    "tag": "a",
+    "text": "Relatorias",
+    "href": "/relatorias"
+  },
+  {
+    "tag": "a",
+    "text": "Organograma",
+    "href": "/organograma"
+  },
+  {
+    "tag": "a",
+    "text": "Competências",
+    "href": "/competencias"
+  },
+  {
+    "tag": "a",
+    "text": "Legislação",
+    "href": "/legislacao"
+  },
+  {
+    "tag": "a",
+    "text": "Planejamento Estratégico",
+    "href": "/planejamento"
+  },
+  {
+    "tag": "a",
+    "text": "Proteção de Dados",
+    "href": "/protecao-de-dados"
+  },
+  {
+    "tag": "a",
+    "text": "ISO 9001",
+    "href": "/isso"
+  },
+  {
+    "tag": "a",
+    "text": "Sessões Plenárias"
+  },
+  {
+    "tag": "a",
+    "text": "Ao Vivo",
+    "href": "/ao-vivo"
+  },
+  {
+    "tag": "a",
+    "text": "Pauta",
+    "href": "/pauta"
+  },
+  {
+    "tag": "a",
+    "text": "Ata",
+    "href": "/ata"
+  },
+  {
+    "tag": "a",
+    "text": "Notas Taquigráficas",
+    "href": "/notas-taquigraficas"
+  },
+  {
+    "tag": "a",
+    "text": "Juizo Oral",
+    "href": "/sustentacao-oral"
+  },
+  {
+    "tag": "a",
+    "text": "Sessões Plenárias",
+    "href": "/acompanhar-sessoes"
+  },
+  {
+    "tag": "a",
+    "text": "Jurisprudência",
+    "href": "/juris"
+  },
+  {
+    "tag": "a",
+    "text": "Fiscalização"
+  },
+  {
+    "tag": "a",
+    "text": "Controle Externo",
+    "href": "/secretaria-de-controle-externo"
+  },
+  {
+    "tag": "a",
+    "text": "Contas do Prefeito",
+    "href": "/contas-do-prefeito"
+  },
+  {
+    "tag": "a",
+    "text": "Relatório de Fiscalização",
+    "href": "/relatorios-de-fiscalizacao"
+  },
+  {
+    "tag": "a",
+    "text": "Plano Anual de Fiscalização",
+    "href": "/fiscalizacao-paf"
+  },
+  {
+    "tag": "a",
+    "text": "Transparência"
+  },
+  {
+    "tag": "a",
+    "text": "Acesso à Informação",
+    "href": "/Pagina/102"
+  },
+  {
+    "tag": "a",
+    "text": "Solicitação de dados",
+    "href": "/Pagina/10834"
+  },
+  {
+    "tag": "a",
+    "text": "Contrato e Afins",
+    "href": "/Pagina/102"
+  },
+  {
+    "tag": "a",
+    "text": "Execução Orçamentária e Financeira",
+    "href": "/Pagina/97"
+  },
+  {
+    "tag": "a",
+    "text": "Servidores",
+    "href": "/Pagina/102#Servidores"
+  },
+  {
+    "tag": "a",
+    "text": "Visite o TCMSP"
+  },
+  {
+    "tag": "a",
+    "text": "Agende sua Visita",
+    "href": "/Pagina/67470"
+  },
+  {
+    "tag": "a",
+    "text": "Comunicação"
+  },
+  {
+    "tag": "a",
+    "text": "Notícias",
+    "href": "/noticias"
+  },
+  {
+    "tag": "a",
+    "text": "Atendimento à Imprensa",
+    "href": "/comunicacao"
+  },
+  {
+    "tag": "a",
+    "text": "Receba Novidades do TCMSP no Whatsapp",
+    "href": "/comunicacao"
+  },
+  {
+    "tag": "a",
+    "text": "Escola de Gestão e Contas"
+  },
+  {
+    "tag": "a",
+    "text": "Escola de Gestão e Contas",
+    "href": "https://escoladecontas.tcm.sp.gov.br/"
+  },
+  {
+    "tag": "a",
+    "text": "",
+    "href": "https://www.instagram.com/tcmsp/"
+  },
+  {
+    "tag": "a",
+    "text": "",
+    "href": "https://www.youtube.com/channel/UCRVPytw01gl1FFxpuba00tA"
+  },
+  {
+    "tag": "a",
+    "text": "",
+    "href": "https://www.linkedin.com/company/tcm-sp"
+  },
+  {
+    "tag": "a",
+    "text": "",
+    "href": "https://www.facebook.com//TCMSP.gov"
+  },
+  {
+    "tag": "a",
+    "text": "",
+    "href": "https://twitter.com/tcm_sp"
+  },
+  {
+    "tag": "a",
+    "text": "",
+    "href": "/RSS"
+  },
+  {
+    "tag": "a",
+    "text": "+55 11 5080 - 1000",
+    "href": "tel:+55-11-5080-1000"
+  },
+  {
+    "tag": "button",
+    "text": "×"
+  },
+  {
+    "tag": "button",
+    "text": "Confirmar",
+    "id": "confirm"
+  },
+  {
+    "tag": "button",
+    "text": "Cancelar"
+  },
+  {
+    "tag": "button",
+    "text": "×"
+  },
+  {
+    "tag": "button",
+    "text": "Fechar"
+  }
+]

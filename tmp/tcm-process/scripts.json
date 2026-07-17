@@ -1,0 +1,212 @@
+[
+  {
+    "url": "https://www.googletagmanager.com/gtag/js?id=G-QZ36H68ESK",
+    "status": 200,
+    "size": 539819
+  },
+  {
+    "url": "https://platform-api.sharethis.com/js/sharethis.js#property=58e2275cbd89c500112d109d&product=social-analytics",
+    "status": 200,
+    "size": 213690
+  },
+  {
+    "url": "https://portal.tcm.sp.gov.br/Scripts/jquery-3.6.0.js",
+    "status": 200,
+    "size": 288580
+  },
+  {
+    "url": "https://portal.tcm.sp.gov.br/Scripts/cldr.js",
+    "status": 200,
+    "size": 17817
+  },
+  {
+    "url": "https://portal.tcm.sp.gov.br/Scripts/cldr/event.js",
+    "status": 200,
+    "size": 18598
+  },
+  {
+    "url": "https://portal.tcm.sp.gov.br/Scripts/cldr/supplemental.js",
+    "status": 200,
+    "size": 2403
+  },
+  {
+    "url": "https://portal.tcm.sp.gov.br/Scripts/cldr/unresolved.js",
+    "status": 200,
+    "size": 4037
+  },
+  {
+    "url": "https://portal.tcm.sp.gov.br/Scripts/globalize.js",
+    "status": 200,
+    "size": 10909
+  },
+  {
+    "url": "https://portal.tcm.sp.gov.br/Scripts/globalize/number.js",
+    "status": 200,
+    "size": 46023
+  },
+  {
+    "url": "https://portal.tcm.sp.gov.br/Scripts/globalize/currency.js",
+    "status": 200,
+    "size": 17391
+  },
+  {
+    "url": "https://portal.tcm.sp.gov.br/Scripts/globalize/date.js",
+    "status": 200,
+    "size": 75672
+  },
+  {
+    "url": "https://portal.tcm.sp.gov.br/Scripts/globalize/message.js",
+    "status": 200,
+    "size": 61904
+  },
+  {
+    "url": "https://portal.tcm.sp.gov.br/Scripts/dx.all.debug.js",
+    "status": 200,
+    "size": 11943390
+  },
+  {
+    "url": "https://portal.tcm.sp.gov.br/Scripts/aspnet/dx.aspnet.data.js",
+    "status": 200,
+    "size": 12363
+  },
+  {
+    "url": "https://portal.tcm.sp.gov.br/Scripts/aspnet/dx.aspnet.mvc.js",
+    "status": 200,
+    "size": 8938
+  },
+  {
+    "url": "https://cse.google.com/cse.js?cx=f237f0bdb7b5e4331",
+    "status": 200,
+    "size": 9805
+  },
+  {
+    "url": "https://portal.tcm.sp.gov.br/Scripts/modernizr-2.8.3.js",
+    "status": 200,
+    "size": 51351
+  },
+  {
+    "url": "https://portal.tcm.sp.gov.br/Scripts/jquery.validate.custom.pt-br.js",
+    "status": 200,
+    "size": 514
+  },
+  {
+    "url": "https://portal.tcm.sp.gov.br/Scripts/jquery.validate.js",
+    "status": 200,
+    "size": 50963
+  },
+  {
+    "url": "https://portal.tcm.sp.gov.br/Scripts/jquery.validate.unobtrusive.js",
+    "status": 200,
+    "size": 35320
+  },
+  {
+    "url": "https://portal.tcm.sp.gov.br/Scripts/bootstrap.js",
+    "status": 200,
+    "size": 75484
+  },
+  {
+    "url": "https://portal.tcm.sp.gov.br/Scripts/respond.js",
+    "status": 200,
+    "size": 8536
+  },
+  {
+    "url": "https://portal.tcm.sp.gov.br/Scripts/bootbox.js",
+    "status": 200,
+    "size": 24804
+  },
+  {
+    "url": "https://portal.tcm.sp.gov.br/Scripts/bootstrap-sortable.js",
+    "status": 200,
+    "size": 17287
+  },
+  {
+    "url": "https://portal.tcm.sp.gov.br/Scripts/moment.min.js",
+    "status": 200,
+    "size": 58862
+  },
+  {
+    "url": "https://portal.tcm.sp.gov.br/Scripts/moment-with-locales.min.js",
+    "status": 200,
+    "size": 369176
+  },
+  {
+    "url": "https://portal.tcm.sp.gov.br/Scripts/slick.min.js",
+    "status": 200,
+    "size": 41953
+  },
+  {
+    "url": "https://portal.tcm.sp.gov.br/Scripts/Application/layout.js",
+    "status": 200,
+    "size": 14379
+  },
+  {
+    "url": "https://portal.tcm.sp.gov.br/\\scripts\\moment.js",
+    "status": 429,
+    "size": 8610
+  },
+  {
+    "url": "https://portal.tcm.sp.gov.br/Scripts/listbox.js",
+    "status": 200,
+    "size": 10028
+  },
+  {
+    "url": "https://portal.tcm.sp.gov.br/Scripts/jquery.multi-select.js",
+    "status": 200,
+    "size": 19930
+  },
+  {
+    "url": "https://portal.tcm.sp.gov.br/Scripts/jquery.quicksearch.js",
+    "status": 200,
+    "size": 5514
+  },
+  {
+    "url": "https://portal.tcm.sp.gov.br/Scripts/jquery.mask.min.js",
+    "status": 200,
+    "size": 4863
+  },
+  {
+    "url": "https://portal.tcm.sp.gov.br/Scripts/select2.js",
+    "status": 200,
+    "size": 141934
+  },
+  {
+    "url": "https://portal.tcm.sp.gov.br/Scripts/i18n/pt-BR.js",
+    "status": 200,
+    "size": 853
+  },
+  {
+    "url": "https://portal.tcm.sp.gov.br/Scripts/jquery.cookie.js",
+    "status": 200,
+    "size": 3121
+  },
+  {
+    "url": "https://portal.tcm.sp.gov.br/Scripts/slick.min.js",
+    "status": 200,
+    "size": 41953
+  },
+  {
+    "url": "https://portal.tcm.sp.gov.br/Scripts/jquery.waypoints.min.js",
+    "status": 200,
+    "size": 9028
+  },
+  {
+    "url": "https://portal.tcm.sp.gov.br/Scripts/jquery.signalR-2.4.2.min.js",
+    "status": 200,
+    "size": 40784
+  },
+  {
+    "url": "https://portal.tcm.sp.gov.br/signalr/hubs",
+    "status": 200,
+    "size": 4155
+  },
+  {
+    "url": "https://portal.tcm.sp.gov.br/Scripts/Application/notificaoSistema.js?v=1.1.8",
+    "status": 200,
+    "size": 1811
+  },
+  {
+    "url": "https://plugin.handtalk.me/web/latest/handtalk.min.js",
+    "status": 200,
+    "size": 558041
+  }
+]
