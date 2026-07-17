@@ -17,73 +17,83 @@ jobs:
           ref: tmp-tcm-process-endpoints
 
       - name: Install dependencies
-        run: python -m pip install requests beautifulsoup4
-
-      - name: Fetch process document lists
         run: |
-          mkdir -p tmp/tcm-process
+          sudo apt-get update
+          sudo apt-get install -y poppler-utils
+          python -m pip install requests beautifulsoup4
+
+      - name: Download public process files and extract text
+        run: |
+          mkdir -p tmp/tcm-process/downloads
           python - <<'PY'
           from pathlib import Path
           from urllib.parse import urljoin
-          import json, re, requests
+          import json, re, subprocess, requests
           from bs4 import BeautifulSoup
 
           base='https://portal.tcm.sp.gov.br'
           page_url=base+'/ConsultaProcesso?NumeroTC=TC%2F003153%2F2023&buscaSimplificada=True'
           s=requests.Session()
-          s.headers.update({
-              'User-Agent':'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 Chrome/126 Safari/537.36',
-              'X-Requested-With':'XMLHttpRequest',
-              'Referer':page_url,
-          })
-          r=s.get(page_url,timeout=180)
-          r.raise_for_status()
-          root=Path('tmp/tcm-process')
-          (root/'process.html').write_bytes(r.content)
-
-          endpoints={
-              'documentos_resolucao':'/ConsultaProcesso/CarregarListaDocumentosAnexosResolucao',
-              'arquivos_eletronicos':'/ConsultaProcesso/CarregarListaDocumentosETCM',
-              'tramitacao':'/ConsultaProcesso/CarregarTramitacao',
-              'interessados':'/ConsultaProcesso/CarregarInteressados',
-              'publicacoes':'/ConsultaProcesso/CarregarListaPublicacoesRelacionadas',
-          }
+          s.headers.update({'User-Agent':'Mozilla/5.0 Chrome/126 Safari/537.36','Referer':page_url})
+          page=s.get(page_url,timeout=180); page.raise_for_status()
+          root=Path('tmp/tcm-process'); dld=root/'downloads'
+          ids=[('relatorio_20_2023',1945272),('resposta_comunicacao',1981587)]
           summary={}
-          all_links=[]
-          for name,path in endpoints.items():
-              rr=s.post(urljoin(base,path),data={'nutc':'TC0031532023'},timeout=180)
-              entry={'url':rr.url,'status':rr.status_code,'content_type':rr.headers.get('content-type'),'size':len(rr.content)}
-              (root/f'{name}.raw').write_bytes(rr.content)
-              try:
-                  obj=rr.json()
-                  entry['json']=obj
-                  html=obj.get('renderHtml','') if isinstance(obj,dict) else ''
-              except Exception:
-                  html=rr.text
-              (root/f'{name}.html').write_text(html or '',encoding='utf-8',errors='ignore')
-              soup=BeautifulSoup(html or '','html.parser')
-              links=[]
-              for tag in soup.find_all(['a','button','form']):
-                  item={'tag':tag.name,'text':' '.join(tag.get_text(' ',strip=True).split())[:1000]}
-                  for attr in ['href','action','onclick','data-url','data-href','id','name','value','title']:
-                      if tag.get(attr): item[attr]=tag.get(attr)
-                  if len(item)>2 or item['text']:
-                      links.append(item)
-                      all_links.append({'source':name,**item})
-              entry['links']=links
-              entry['text']=' '.join(soup.get_text(' ',strip=True).split())[:20000]
+          for name,cod in ids:
+              url=base+f'/ConsultaProcesso/DocumentoEtcm?nuProcesso=TC0031532023&codArquivoDigital={cod}'
+              r=s.get(url,timeout=300,allow_redirects=True)
+              entry={'request_url':url,'final_url':r.url,'status':r.status_code,'content_type':r.headers.get('content-type'),'content_disposition':r.headers.get('content-disposition'),'size':len(r.content),'history':[{'status':h.status_code,'url':h.url,'location':h.headers.get('location')} for h in r.history]}
+              raw=dld/f'{name}.bin'; raw.write_bytes(r.content)
+              ext='pdf' if r.content.startswith(b'%PDF') or 'pdf' in (r.headers.get('content-type') or '').lower() else 'html'
+              target=dld/f'{name}.{ext}'; target.write_bytes(r.content)
+              if ext=='html':
+                  soup=BeautifulSoup(r.content,'html.parser')
+                  links=[]
+                  for tag in soup.find_all(['a','iframe','embed','object','script']):
+                      for attr in ['href','src','data']:
+                          if tag.get(attr): links.append(urljoin(r.url,tag.get(attr)))
+                  entry['html_text']=' '.join(soup.get_text(' ',strip=True).split())[:20000]
+                  entry['embedded_links']=links
+                  # follow likely document/PDF links
+                  for i,link in enumerate(links):
+                      if any(x in link.lower() for x in ['pdf','arquivo','document','download','visualiz']):
+                          try:
+                              rr=s.get(link,timeout=300,allow_redirects=True)
+                              p=dld/f'{name}_embedded_{i}.bin'; p.write_bytes(rr.content)
+                              entry.setdefault('embedded_downloads',[]).append({'url':link,'final_url':rr.url,'status':rr.status_code,'content_type':rr.headers.get('content-type'),'size':len(rr.content),'is_pdf':rr.content.startswith(b'%PDF'),'path':str(p)})
+                              if rr.content.startswith(b'%PDF'):
+                                  pdf=dld/f'{name}.pdf'; pdf.write_bytes(rr.content)
+                          except Exception as e:
+                              entry.setdefault('embedded_errors',[]).append({'url':link,'error':str(e)})
               summary[name]=entry
-          (root/'endpoint-results.json').write_text(json.dumps(summary,ensure_ascii=False,indent=2,default=str),encoding='utf-8')
-          (root/'document-links.json').write_text(json.dumps(all_links,ensure_ascii=False,indent=2),encoding='utf-8')
+          (root/'download-summary.json').write_text(json.dumps(summary,ensure_ascii=False,indent=2),encoding='utf-8')
+          print(json.dumps(summary,ensure_ascii=False,indent=2))
+          PY
 
-          # Human-readable index
-          out=['# TC/003153/2023 — public document lists']
-          for name,entry in summary.items():
-              out.append(f'\n## {name}\n- status: {entry["status"]}\n- bytes: {entry["size"]}\n- text: {entry.get("text","")[:5000]}')
-              for link in entry.get('links',[]):
-                  out.append('- '+json.dumps(link,ensure_ascii=False))
-          (root/'document-index.md').write_text('\n'.join(out),encoding='utf-8')
-          print(json.dumps({k:{'status':v['status'],'size':v['size'],'links':len(v.get('links',[])),'text':v.get('text','')[:300]} for k,v in summary.items()},ensure_ascii=False,indent=2))
+          for f in tmp/tcm-process/downloads/*.pdf; do
+            [ -e "$f" ] || continue
+            pdftotext -layout "$f" "${f%.pdf}.txt" || true
+            pdfinfo "$f" > "${f%.pdf}.pdfinfo.txt" || true
+          done
+
+          python - <<'PY'
+          from pathlib import Path
+          import re
+          root=Path('tmp/tcm-process/downloads')
+          terms=re.compile(r'receita|outorga|financeir|balan[cç]o|demonstra[cç][aã]o|gratuidade|tarifa|investimento|concession|contrato|despesa|custo|lucro|preju[ií]zo|faturamento',re.I)
+          out=['# Extracted passages from TC/003153/2023 public files']
+          for p in sorted(root.glob('*.txt')):
+              if p.name.endswith('.pdfinfo.txt'): continue
+              lines=p.read_text(errors='ignore').splitlines()
+              out.append(f'\n## {p.name}')
+              found=0
+              for i,line in enumerate(lines):
+                  if terms.search(line):
+                      a=max(0,i-2); b=min(len(lines),i+4)
+                      out.append(f'### lines {a+1}-{b}\n```text\n'+'\n'.join(lines[a:b])+'\n```')
+                      found+=1
+                      if found>=120: break
+          (Path('tmp/tcm-process')/'financial-passages.md').write_text('\n'.join(out),encoding='utf-8')
           PY
 
       - name: Commit temporary public outputs
@@ -91,5 +101,5 @@ jobs:
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add tmp/tcm-process
-          git commit -m 'Retrieve public TCM process document lists' || exit 0
+          git commit -m 'Download public TCM inspection files' || exit 0
           git push origin HEAD:tmp-tcm-process-endpoints
