@@ -17,7 +17,7 @@ jobs:
       - name: Probe and extract 2018 annual accounts
         shell: bash
         run: |
-          set -euo pipefail
+          set +e
           mkdir -p sfmsp_2018_output
           URLS=(
             'https://www.saopaulo.sp.leg.br/iah/fulltext/contas/EXEC2018-BALANCO.pdf'
@@ -30,18 +30,25 @@ jobs:
           for url in "${URLS[@]}"; do
             i=$((i+1))
             out="/tmp/doc${i}.pdf"
+            : > "$out"
             echo "=== $url ===" | tee -a sfmsp_2018_output/probe.txt
-            code=$(curl -L -sS --retry 2 --connect-timeout 20 --max-time 180 -w '%{http_code}' -o "$out" "$url" || true)
-            echo "HTTP $code bytes $(wc -c < "$out" 2>/dev/null || echo 0)" | tee -a sfmsp_2018_output/probe.txt
-            file "$out" | tee -a sfmsp_2018_output/probe.txt || true
+            code=$(curl -L -sS --retry 2 --connect-timeout 20 --max-time 180 -w '%{http_code}' -o "$out" "$url")
+            bytes=$(stat -c%s "$out" 2>/dev/null || echo 0)
+            echo "HTTP $code bytes $bytes" | tee -a sfmsp_2018_output/probe.txt
+            file "$out" | tee -a sfmsp_2018_output/probe.txt
             if file "$out" | grep -qi PDF; then
-              pdftotext -layout "$out" "/tmp/doc${i}.txt" || true
+              pdftotext -layout "$out" "/tmp/doc${i}.txt"
               echo '--- SFMSP/FUNERARIO MATCHES WITH CONTEXT ---' | tee -a sfmsp_2018_output/probe.txt
-              grep -ainE -C 8 'SFMSP|SERVI.C?O FUNER.RIO|FUNER.RIO DO MUNIC.PIO' "/tmp/doc${i}.txt" | head -n 1200 | tee -a sfmsp_2018_output/probe.txt || true
+              grep -ainE -C 10 'SFMSP|SERVI.C?O FUNER.RIO|FUNER.RIO DO MUNIC.PIO' "/tmp/doc${i}.txt" | head -n 1600 | tee -a sfmsp_2018_output/probe.txt
               cp "/tmp/doc${i}.txt" "sfmsp_2018_output/doc${i}.txt"
+            else
+              head -c 500 "$out" | strings | tee -a sfmsp_2018_output/probe.txt
             fi
+            echo | tee -a sfmsp_2018_output/probe.txt
           done
+          exit 0
       - name: Upload extraction artifact
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: sfmsp-2018-pdf-probe
