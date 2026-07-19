@@ -11,39 +11,39 @@ permissions:
 jobs:
   extract:
     runs-on: ubuntu-latest
-    timeout-minutes: 10
+    timeout-minutes: 8
     steps:
       - uses: actions/checkout@v4
-      - name: Extract matching rows from official TCM open data
+      - name: Probe and extract 2018 annual accounts
         shell: bash
         run: |
           set -euo pipefail
           mkdir -p sfmsp_2018_output
-          REV='https://iris.tcm.sp.gov.br/assets/data/receita/csvReceita2018.csv'
-          EMP='https://iris.tcm.sp.gov.br/assets/data/empenho/Empenho2018.csv'
-          curl -L --retry 3 --connect-timeout 30 --max-time 240 "$REV" -o /tmp/receita.csv
-          curl -L --retry 3 --connect-timeout 30 --max-time 360 "$EMP" -o /tmp/empenho.csv
-          {
-            echo '=== FILE SIZES ==='
-            wc -c /tmp/receita.csv /tmp/empenho.csv
-            echo '=== RECEITA HEADER ==='
-            head -n 1 /tmp/receita.csv
-            echo '=== RECEITA MATCHES ==='
-            grep -aiE 'funer|SFMSP' /tmp/receita.csv || true
-            echo '=== EMPENHO HEADER ==='
-            head -n 1 /tmp/empenho.csv
-            echo '=== EMPENHO MATCH COUNT ==='
-            grep -aicE 'funer|SFMSP' /tmp/empenho.csv || true
-            echo '=== EMPENHO MATCHES FIRST 500 ==='
-            grep -aiE 'funer|SFMSP' /tmp/empenho.csv | head -n 500 || true
-          } | tee sfmsp_2018_output/extraction.txt
-          head -n 1 /tmp/receita.csv > sfmsp_2018_output/receita_sfmsp.csv
-          grep -aiE 'funer|SFMSP' /tmp/receita.csv >> sfmsp_2018_output/receita_sfmsp.csv || true
-          head -n 1 /tmp/empenho.csv > sfmsp_2018_output/empenho_sfmsp.csv
-          grep -aiE 'funer|SFMSP' /tmp/empenho.csv >> sfmsp_2018_output/empenho_sfmsp.csv || true
+          URLS=(
+            'https://www.saopaulo.sp.leg.br/iah/fulltext/contas/EXEC2018-BALANCO.pdf'
+            'https://documentacao.saopaulo.sp.leg.br/iah/fulltext/contas/EXEC2018-BALANCO.pdf'
+            'https://www.saopaulo.sp.leg.br/iah/fulltext/contas/EXEC2018-RELTCM.pdf'
+            'https://documentacao.saopaulo.sp.leg.br/iah/fulltext/contas/EXEC2018-RELTCM.pdf'
+          )
+          : > sfmsp_2018_output/probe.txt
+          i=0
+          for url in "${URLS[@]}"; do
+            i=$((i+1))
+            out="/tmp/doc${i}.pdf"
+            echo "=== $url ===" | tee -a sfmsp_2018_output/probe.txt
+            code=$(curl -L -sS --retry 2 --connect-timeout 20 --max-time 180 -w '%{http_code}' -o "$out" "$url" || true)
+            echo "HTTP $code bytes $(wc -c < "$out" 2>/dev/null || echo 0)" | tee -a sfmsp_2018_output/probe.txt
+            file "$out" | tee -a sfmsp_2018_output/probe.txt || true
+            if file "$out" | grep -qi PDF; then
+              pdftotext -layout "$out" "/tmp/doc${i}.txt" || true
+              echo '--- SFMSP/FUNERARIO MATCHES WITH CONTEXT ---' | tee -a sfmsp_2018_output/probe.txt
+              grep -ainE -C 8 'SFMSP|SERVI.C?O FUNER.RIO|FUNER.RIO DO MUNIC.PIO' "/tmp/doc${i}.txt" | head -n 1200 | tee -a sfmsp_2018_output/probe.txt || true
+              cp "/tmp/doc${i}.txt" "sfmsp_2018_output/doc${i}.txt"
+            fi
+          done
       - name: Upload extraction artifact
         uses: actions/upload-artifact@v4
         with:
-          name: sfmsp-2018-output-fast
+          name: sfmsp-2018-pdf-probe
           path: sfmsp_2018_output/
           retention-days: 1
