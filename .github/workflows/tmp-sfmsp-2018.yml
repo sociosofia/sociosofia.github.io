@@ -4,6 +4,9 @@ on:
   push:
     branches:
       - tmp-sfmsp-2018-20260718
+  pull_request:
+    branches:
+      - main
   workflow_dispatch:
 
 permissions:
@@ -24,7 +27,7 @@ jobs:
         shell: bash
         run: |
           cat > /tmp/extract.py <<'PY'
-          import csv, io, json, re, unicodedata
+          import csv, json, re, unicodedata
           from pathlib import Path
           import pandas as pd
           import requests
@@ -50,19 +53,16 @@ jobs:
 
           def sniff(path):
               raw = path.read_bytes()[:200000]
-              enc = None
-              for candidate in ('utf-8-sig','latin1','cp1252'):
+              for enc in ('utf-8-sig','latin1','cp1252'):
                   try:
-                      text = raw.decode(candidate)
-                      enc = candidate
+                      text = raw.decode(enc)
                       break
                   except UnicodeDecodeError:
-                      pass
-              if enc is None:
+                      continue
+              else:
                   enc='latin1'; text=raw.decode(enc,errors='replace')
               try:
-                  dialect = csv.Sniffer().sniff(text[:50000], delimiters=';,\t|')
-                  sep = dialect.delimiter
+                  sep = csv.Sniffer().sniff(text[:50000], delimiters=';,\t|').delimiter
               except Exception:
                   sep=';'
               return enc, sep
@@ -72,12 +72,9 @@ jobs:
               path, size, ctype = download(name,url)
               enc, sep = sniff(path)
               summary['sources'][name] = {'url':url,'bytes':size,'content_type':ctype,'encoding':enc,'separator':sep}
-              chunks=[]
-              total=0
-              matched=0
+              chunks=[]; total=0; matched=0
               for chunk in pd.read_csv(path, sep=sep, encoding=enc, dtype=str, chunksize=100000, low_memory=False, on_bad_lines='skip'):
                   total += len(chunk)
-                  # Broad lexical filter across every field; retain SFMSP and Serviço Funerário rows.
                   joined = chunk.fillna('').astype(str).agg(' | '.join, axis=1).map(norm)
                   mask = joined.str.contains(r'FUNERAR|SFMSP|SERVICO FUNERARIO', regex=True, na=False)
                   hit=chunk.loc[mask].copy()
@@ -85,19 +82,14 @@ jobs:
                   if len(hit): chunks.append(hit)
               summary['sources'][name]['rows_total']=total
               summary['sources'][name]['rows_matched']=matched
-              if chunks:
-                  df=pd.concat(chunks,ignore_index=True)
-              else:
-                  df=pd.DataFrame()
-              out_csv=OUT/f'{name}_sfmsp_filtered.csv'
-              df.to_csv(out_csv,index=False,encoding='utf-8-sig')
+              df=pd.concat(chunks,ignore_index=True) if chunks else pd.DataFrame()
+              df.to_csv(OUT/f'{name}_sfmsp_filtered.csv',index=False,encoding='utf-8-sig')
               summary['filters'][name] = {
                   'columns': list(df.columns),
                   'rows': len(df),
                   'unique_samples': {c: [str(v) for v in df[c].dropna().drop_duplicates().head(20).tolist()] for c in df.columns[:30]},
                   'head': df.head(30).fillna('').to_dict(orient='records'),
               }
-              # Numeric profile for every column to help identify monetary fields.
               profiles={}
               for c in df.columns:
                   s=df[c].astype(str).str.replace('.','',regex=False).str.replace(',','.',regex=False).str.replace(r'[^0-9\-\.]','',regex=True)
