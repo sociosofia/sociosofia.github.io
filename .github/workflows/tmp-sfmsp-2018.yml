@@ -1,0 +1,117 @@
+name: Temporary SFMSP 2018 extraction
+
+on:
+  push:
+    branches:
+      - tmp-sfmsp-2018-20260718
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  extract:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install dependencies
+        run: pip install pandas requests
+      - name: Download and inspect official 2018 TCM open data
+        shell: bash
+        run: |
+          cat > /tmp/extract.py <<'PY'
+          import csv, io, json, re, unicodedata
+          from pathlib import Path
+          import pandas as pd
+          import requests
+
+          OUT = Path('sfmsp_2018_output')
+          OUT.mkdir(exist_ok=True)
+          urls = {
+              'receita': 'https://iris.tcm.sp.gov.br/assets/data/receita/csvReceita2018.csv',
+              'empenho': 'https://iris.tcm.sp.gov.br/assets/data/empenho/Empenho2018.csv',
+          }
+
+          def norm(s):
+              s = '' if s is None else str(s)
+              s = unicodedata.normalize('NFKD', s).encode('ascii','ignore').decode('ascii')
+              return re.sub(r'\s+', ' ', s).strip().upper()
+
+          def download(name, url):
+              r = requests.get(url, timeout=180, headers={'User-Agent':'Mozilla/5.0'})
+              r.raise_for_status()
+              p = OUT / f'{name}_2018.bin'
+              p.write_bytes(r.content)
+              return p, len(r.content), r.headers.get('content-type')
+
+          def sniff(path):
+              raw = path.read_bytes()[:200000]
+              enc = None
+              for candidate in ('utf-8-sig','latin1','cp1252'):
+                  try:
+                      text = raw.decode(candidate)
+                      enc = candidate
+                      break
+                  except UnicodeDecodeError:
+                      pass
+              if enc is None:
+                  enc='latin1'; text=raw.decode(enc,errors='replace')
+              try:
+                  dialect = csv.Sniffer().sniff(text[:50000], delimiters=';,\t|')
+                  sep = dialect.delimiter
+              except Exception:
+                  sep=';'
+              return enc, sep
+
+          summary = {'sources':{}, 'filters':{}, 'notes':[]}
+          for name, url in urls.items():
+              path, size, ctype = download(name,url)
+              enc, sep = sniff(path)
+              summary['sources'][name] = {'url':url,'bytes':size,'content_type':ctype,'encoding':enc,'separator':sep}
+              chunks=[]
+              total=0
+              matched=0
+              for chunk in pd.read_csv(path, sep=sep, encoding=enc, dtype=str, chunksize=100000, low_memory=False, on_bad_lines='skip'):
+                  total += len(chunk)
+                  # Broad lexical filter across every field; retain SFMSP and Serviço Funerário rows.
+                  joined = chunk.fillna('').astype(str).agg(' | '.join, axis=1).map(norm)
+                  mask = joined.str.contains(r'FUNERAR|SFMSP|SERVICO FUNERARIO', regex=True, na=False)
+                  hit=chunk.loc[mask].copy()
+                  matched += len(hit)
+                  if len(hit): chunks.append(hit)
+              summary['sources'][name]['rows_total']=total
+              summary['sources'][name]['rows_matched']=matched
+              if chunks:
+                  df=pd.concat(chunks,ignore_index=True)
+              else:
+                  df=pd.DataFrame()
+              out_csv=OUT/f'{name}_sfmsp_filtered.csv'
+              df.to_csv(out_csv,index=False,encoding='utf-8-sig')
+              summary['filters'][name] = {
+                  'columns': list(df.columns),
+                  'rows': len(df),
+                  'unique_samples': {c: [str(v) for v in df[c].dropna().drop_duplicates().head(20).tolist()] for c in df.columns[:30]},
+                  'head': df.head(30).fillna('').to_dict(orient='records'),
+              }
+              # Numeric profile for every column to help identify monetary fields.
+              profiles={}
+              for c in df.columns:
+                  s=df[c].astype(str).str.replace('.','',regex=False).str.replace(',','.',regex=False).str.replace(r'[^0-9\-\.]','',regex=True)
+                  nums=pd.to_numeric(s,errors='coerce')
+                  if nums.notna().sum():
+                      profiles[c]={'numeric_count':int(nums.notna().sum()),'sum':float(nums.sum()),'min':float(nums.min()),'max':float(nums.max())}
+              summary['filters'][name]['numeric_profiles']=profiles
+          (OUT/'summary.json').write_text(json.dumps(summary,ensure_ascii=False,indent=2),encoding='utf-8')
+          print(json.dumps(summary,ensure_ascii=False,indent=2)[:50000])
+          PY
+          python /tmp/extract.py
+      - name: Upload extraction artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: sfmsp-2018-output
+          path: sfmsp_2018_output/
+          retention-days: 1
