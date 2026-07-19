@@ -11,46 +11,34 @@ permissions:
 jobs:
   extract:
     runs-on: ubuntu-latest
-    timeout-minutes: 8
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
-      - name: Probe and extract 2018 annual accounts
+      - name: Install PDF tools
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq poppler-utils
+      - name: Download and extract 2018 annual accounts
         shell: bash
         run: |
-          set +e
+          set -euo pipefail
           mkdir -p sfmsp_2018_output
-          URLS=(
-            'https://www.saopaulo.sp.leg.br/iah/fulltext/contas/EXEC2018-BALANCO.pdf'
-            'https://documentacao.saopaulo.sp.leg.br/iah/fulltext/contas/EXEC2018-BALANCO.pdf'
-            'https://www.saopaulo.sp.leg.br/iah/fulltext/contas/EXEC2018-RELTCM.pdf'
-            'https://documentacao.saopaulo.sp.leg.br/iah/fulltext/contas/EXEC2018-RELTCM.pdf'
-          )
-          : > sfmsp_2018_output/probe.txt
-          i=0
-          for url in "${URLS[@]}"; do
-            i=$((i+1))
-            out="/tmp/doc${i}.pdf"
-            : > "$out"
-            echo "=== $url ===" | tee -a sfmsp_2018_output/probe.txt
-            code=$(curl -L -sS --retry 2 --connect-timeout 20 --max-time 180 -w '%{http_code}' -o "$out" "$url")
-            bytes=$(stat -c%s "$out" 2>/dev/null || echo 0)
-            echo "HTTP $code bytes $bytes" | tee -a sfmsp_2018_output/probe.txt
-            file "$out" | tee -a sfmsp_2018_output/probe.txt
-            if file "$out" | grep -qi PDF; then
-              pdftotext -layout "$out" "/tmp/doc${i}.txt"
-              echo '--- SFMSP/FUNERARIO MATCHES WITH CONTEXT ---' | tee -a sfmsp_2018_output/probe.txt
-              grep -ainE -C 10 'SFMSP|SERVI.C?O FUNER.RIO|FUNER.RIO DO MUNIC.PIO' "/tmp/doc${i}.txt" | head -n 1600 | tee -a sfmsp_2018_output/probe.txt
-              cp "/tmp/doc${i}.txt" "sfmsp_2018_output/doc${i}.txt"
-            else
-              head -c 500 "$out" | strings | tee -a sfmsp_2018_output/probe.txt
-            fi
-            echo | tee -a sfmsp_2018_output/probe.txt
-          done
-          exit 0
+          curl -L -sS --retry 3 --max-time 240 \
+            'https://www.saopaulo.sp.leg.br/iah/fulltext/contas/EXEC2018-BALANCO.pdf' \
+            -o sfmsp_2018_output/EXEC2018-BALANCO.pdf
+          curl -L -sS --retry 3 --max-time 240 \
+            'https://www.saopaulo.sp.leg.br/iah/fulltext/contas/EXEC2018-RELTCM.pdf' \
+            -o sfmsp_2018_output/EXEC2018-RELTCM.pdf
+          pdftotext -layout sfmsp_2018_output/EXEC2018-BALANCO.pdf sfmsp_2018_output/EXEC2018-BALANCO.txt
+          pdftotext -layout sfmsp_2018_output/EXEC2018-RELTCM.pdf sfmsp_2018_output/EXEC2018-RELTCM.txt
+          {
+            echo '=== BALANCO MATCHES ==='
+            grep -ainE -C 12 'SFMSP|SERVI.C?O FUNER.RIO|FUNER.RIO DO MUNIC.PIO' sfmsp_2018_output/EXEC2018-BALANCO.txt | head -n 2500 || true
+            echo '=== RELTCM MATCHES ==='
+            grep -ainE -C 12 'SFMSP|SERVI.C?O FUNER.RIO|FUNER.RIO DO MUNIC.PIO' sfmsp_2018_output/EXEC2018-RELTCM.txt | head -n 2500 || true
+          } > sfmsp_2018_output/matches.txt
+          wc -c sfmsp_2018_output/*
       - name: Upload extraction artifact
-        if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: sfmsp-2018-pdf-probe
+          name: sfmsp-2018-pdfs-and-text
           path: sfmsp_2018_output/
           retention-days: 1
