@@ -1,12 +1,8 @@
 name: Temporary SFMSP 2018 extraction
 
 on:
-  push:
-    branches:
-      - tmp-sfmsp-2018-20260718
   pull_request:
-    branches:
-      - main
+    branches: [main]
   workflow_dispatch:
 
 permissions:
@@ -15,95 +11,39 @@ permissions:
 jobs:
   extract:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.12'
-      - name: Install dependencies
-        run: pip install pandas requests
-      - name: Download and inspect official 2018 TCM open data
+      - name: Extract matching rows from official TCM open data
         shell: bash
         run: |
-          cat > /tmp/extract.py <<'PY'
-          import csv, json, re, unicodedata
-          from pathlib import Path
-          import pandas as pd
-          import requests
-
-          OUT = Path('sfmsp_2018_output')
-          OUT.mkdir(exist_ok=True)
-          urls = {
-              'receita': 'https://iris.tcm.sp.gov.br/assets/data/receita/csvReceita2018.csv',
-              'empenho': 'https://iris.tcm.sp.gov.br/assets/data/empenho/Empenho2018.csv',
-          }
-
-          def norm(s):
-              s = '' if s is None else str(s)
-              s = unicodedata.normalize('NFKD', s).encode('ascii','ignore').decode('ascii')
-              return re.sub(r'\s+', ' ', s).strip().upper()
-
-          def download(name, url):
-              r = requests.get(url, timeout=180, headers={'User-Agent':'Mozilla/5.0'})
-              r.raise_for_status()
-              p = OUT / f'{name}_2018.bin'
-              p.write_bytes(r.content)
-              return p, len(r.content), r.headers.get('content-type')
-
-          def sniff(path):
-              raw = path.read_bytes()[:200000]
-              for enc in ('utf-8-sig','latin1','cp1252'):
-                  try:
-                      text = raw.decode(enc)
-                      break
-                  except UnicodeDecodeError:
-                      continue
-              else:
-                  enc='latin1'; text=raw.decode(enc,errors='replace')
-              try:
-                  sep = csv.Sniffer().sniff(text[:50000], delimiters=';,\t|').delimiter
-              except Exception:
-                  sep=';'
-              return enc, sep
-
-          summary = {'sources':{}, 'filters':{}, 'notes':[]}
-          for name, url in urls.items():
-              path, size, ctype = download(name,url)
-              enc, sep = sniff(path)
-              summary['sources'][name] = {'url':url,'bytes':size,'content_type':ctype,'encoding':enc,'separator':sep}
-              chunks=[]; total=0; matched=0
-              for chunk in pd.read_csv(path, sep=sep, encoding=enc, dtype=str, chunksize=100000, low_memory=False, on_bad_lines='skip'):
-                  total += len(chunk)
-                  joined = chunk.fillna('').astype(str).agg(' | '.join, axis=1).map(norm)
-                  mask = joined.str.contains(r'FUNERAR|SFMSP|SERVICO FUNERARIO', regex=True, na=False)
-                  hit=chunk.loc[mask].copy()
-                  matched += len(hit)
-                  if len(hit): chunks.append(hit)
-              summary['sources'][name]['rows_total']=total
-              summary['sources'][name]['rows_matched']=matched
-              df=pd.concat(chunks,ignore_index=True) if chunks else pd.DataFrame()
-              df.to_csv(OUT/f'{name}_sfmsp_filtered.csv',index=False,encoding='utf-8-sig')
-              summary['filters'][name] = {
-                  'columns': list(df.columns),
-                  'rows': len(df),
-                  'unique_samples': {c: [str(v) for v in df[c].dropna().drop_duplicates().head(20).tolist()] for c in df.columns[:30]},
-                  'head': df.head(30).fillna('').to_dict(orient='records'),
-              }
-              profiles={}
-              for c in df.columns:
-                  s=df[c].astype(str).str.replace('.','',regex=False).str.replace(',','.',regex=False).str.replace(r'[^0-9\-\.]','',regex=True)
-                  nums=pd.to_numeric(s,errors='coerce')
-                  if nums.notna().sum():
-                      profiles[c]={'numeric_count':int(nums.notna().sum()),'sum':float(nums.sum()),'min':float(nums.min()),'max':float(nums.max())}
-              summary['filters'][name]['numeric_profiles']=profiles
-          (OUT/'summary.json').write_text(json.dumps(summary,ensure_ascii=False,indent=2),encoding='utf-8')
-          print(json.dumps(summary,ensure_ascii=False,indent=2)[:50000])
-          PY
-          python /tmp/extract.py
+          set -euo pipefail
+          mkdir -p sfmsp_2018_output
+          REV='https://iris.tcm.sp.gov.br/assets/data/receita/csvReceita2018.csv'
+          EMP='https://iris.tcm.sp.gov.br/assets/data/empenho/Empenho2018.csv'
+          curl -L --retry 3 --connect-timeout 30 --max-time 240 "$REV" -o /tmp/receita.csv
+          curl -L --retry 3 --connect-timeout 30 --max-time 360 "$EMP" -o /tmp/empenho.csv
+          {
+            echo '=== FILE SIZES ==='
+            wc -c /tmp/receita.csv /tmp/empenho.csv
+            echo '=== RECEITA HEADER ==='
+            head -n 1 /tmp/receita.csv
+            echo '=== RECEITA MATCHES ==='
+            grep -aiE 'funer|SFMSP' /tmp/receita.csv || true
+            echo '=== EMPENHO HEADER ==='
+            head -n 1 /tmp/empenho.csv
+            echo '=== EMPENHO MATCH COUNT ==='
+            grep -aicE 'funer|SFMSP' /tmp/empenho.csv || true
+            echo '=== EMPENHO MATCHES FIRST 500 ==='
+            grep -aiE 'funer|SFMSP' /tmp/empenho.csv | head -n 500 || true
+          } | tee sfmsp_2018_output/extraction.txt
+          head -n 1 /tmp/receita.csv > sfmsp_2018_output/receita_sfmsp.csv
+          grep -aiE 'funer|SFMSP' /tmp/receita.csv >> sfmsp_2018_output/receita_sfmsp.csv || true
+          head -n 1 /tmp/empenho.csv > sfmsp_2018_output/empenho_sfmsp.csv
+          grep -aiE 'funer|SFMSP' /tmp/empenho.csv >> sfmsp_2018_output/empenho_sfmsp.csv || true
       - name: Upload extraction artifact
         uses: actions/upload-artifact@v4
         with:
-          name: sfmsp-2018-output
+          name: sfmsp-2018-output-fast
           path: sfmsp_2018_output/
           retention-days: 1
