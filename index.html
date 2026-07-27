@@ -9,24 +9,18 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700;9..144,800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="student-header.css" />
 </head>
 <body>
   <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
 
   <header class="site-header">
-    <nav class="nav container" aria-label="Menu principal">
+    <nav class="nav container simple-nav" aria-label="Cabeçalho principal">
       <a class="brand" href="index.html" aria-label="Página inicial do Sociosofia">
         <span class="brand-mark" aria-hidden="true">S</span>
-        <span>Sociosofia</span>
+        <span class="brand-name">Sociosofia</span>
       </a>
-      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="menu-principal">Menu</button>
-      <ul id="menu-principal" class="nav-list">
-        <li><a href="index.html">Início</a></li>
-        <li><a href="#estudante">Área do Estudante</a></li>
-        <li><a href="#temas">Categorias</a></li>
-        <li><a href="#repertorios">Repertórios</a></li>
-        <li><a href="sobre.html">Sobre</a></li>
-      </ul>
+      <a class="student-area-link" href="alunos/">Área do Estudante</a>
     </nav>
 
     <section class="hero container" aria-labelledby="titulo-site">
@@ -52,82 +46,7 @@
     </section>
   </header>
 
-  <main id="conteudo">
-    <section class="section section-feature container" aria-labelledby="curadoria-titulo">
-      <div class="section-heading">
-        <p class="eyebrow">Curadoria da semana</p>
-        <h2 id="curadoria-titulo">Comece por aqui</h2>
-        <p>Um repertório em destaque para circular entre dados, cultura, conceitos e vida contemporânea.</p>
-      </div>
-      <div id="curadoria" class="feature-card" aria-live="polite"></div>
-    </section>
-
-    <section id="estudante" class="section container" aria-labelledby="estudante-titulo">
-      <div class="section-heading">
-        <p class="eyebrow">Área do Estudante</p>
-        <h2 id="estudante-titulo">Acompanhe o material do ensino médio</h2>
-        <p>Percursos permanentes para ler antes da aula, acompanhar o capítulo e retomar conceitos para atividades e avaliações.</p>
-      </div>
-      <article class="feature-card">
-        <div>
-          <p class="eyebrow">Sociologia · 1º ano</p>
-          <h3>Do olhar sociológico aos fluxos globais</h3>
-          <p>Dez capítulos organizados pelas páginas do livro, com movimentos de aprendizagem, autores, conceitos e conexões.</p>
-          <p><a class="button" href="alunos/sociologia-1ano/">Abrir Sociologia — 1º ano</a></p>
-        </div>
-        <div>
-          <strong>Três modos de uso</strong>
-          <p>Ler antes da aula<br>Acompanhar o capítulo<br>Retomar para avaliação</p>
-          <p><small>Material de referência: SESI-SP, 3ª edição, 2026.</small></p>
-        </div>
-      </article>
-    </section>
-
-    <section id="temas" class="section container" aria-labelledby="temas-titulo">
-      <div class="section-heading">
-        <p class="eyebrow">Duas portas de entrada</p>
-        <h2 id="temas-titulo">Categorias do Sociosofia</h2>
-        <p>O site passa a ter duas categorias principais: uma para pesquisas, dados e informações verificáveis; outra para repertórios culturais como filmes, séries, livros e músicas.</p>
-      </div>
-      <div id="temas-editoriais" class="editoria-grid" aria-live="polite"></div>
-    </section>
-
-    <section id="repertorios" class="section container" aria-labelledby="repertorios-titulo">
-      <div class="section-heading split">
-        <div>
-          <p class="eyebrow">Banco de repertórios</p>
-          <h2 id="repertorios-titulo">Dados, conceitos e cultura para pensar</h2>
-          <p>Cards curtos com título pesquisável, resumo em um parágrafo, ancoragem teórica, fonte ou referência da obra e palavras-chave clicáveis.</p>
-        </div>
-        <p id="contador" class="counter" aria-live="polite"></p>
-      </div>
-
-      <div class="filters" aria-label="Filtros de repertórios">
-        <label>
-          Categoria
-          <select id="filtro-categoria">
-            <option value="">Todas as categorias</option>
-          </select>
-        </label>
-        <label>
-          Tipo
-          <select id="filtro-tipo">
-            <option value="">Todos os tipos</option>
-          </select>
-        </label>
-        <label>
-          Conceito
-          <select id="filtro-conceito">
-            <option value="">Todos os conceitos</option>
-          </select>
-        </label>
-        <button id="limpar-filtros" class="button ghost" type="button">Limpar filtros</button>
-      </div>
-
-      <div id="lista-repertorios" class="card-grid" aria-live="polite"></div>
-      <p id="sem-resultados" class="empty-state" hidden>Nada por aqui ainda. Tente buscar por um tema mais amplo, como trabalho, juventude, racismo, guerra ou tecnologia.</p>
-    </section>
-  </main>
+  <main id="conteudo"></main>
 
   <footer class="site-footer">
     <div class="container footer-grid">
