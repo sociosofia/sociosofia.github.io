@@ -1,0 +1,67 @@
+.simple-nav {
+  min-height: 62px;
+}
+
+.student-area-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  padding: 0.62rem 0.95rem;
+  border: 1px solid rgba(255, 255, 255, 0.42);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  color: var(--paper);
+  text-decoration: none;
+  font-size: 0.92rem;
+  font-weight: 800;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.student-area-link:hover,
+.student-area-link:focus-visible {
+  background: var(--marker);
+  color: var(--primary);
+}
+
+@media (max-width: 520px) {
+  .simple-nav {
+    gap: 0.55rem;
+  }
+
+  .brand {
+    min-width: 0;
+    gap: 0.48rem;
+  }
+
+  .brand-mark {
+    width: 34px;
+    height: 34px;
+    flex: 0 0 34px;
+  }
+
+  .brand-name {
+    font-size: 0.92rem;
+  }
+
+  .student-area-link {
+    min-height: 38px;
+    padding: 0.55rem 0.72rem;
+    font-size: 0.78rem;
+  }
+}
+
+@media (max-width: 350px) {
+  .brand-name {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+  }
+}
