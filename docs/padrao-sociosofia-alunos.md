@@ -14,14 +14,26 @@ O andamento de uma turma específica não determina a disponibilidade dos capít
 
 ## Estrutura de navegação
 
-Caminho público:
+O acesso público começa sempre por uma página própria da Área do Estudante:
 
-> escola → ano → componente → etapa → capítulo
+> Área do Estudante → escola → ano ou turma → componente → etapa → capítulo
+
+A página inicial do Sociosofia deve possuir um único link de acesso à Área do Estudante no lado direito do cabeçalho. Esse link aponta para `/alunos/`, nunca para uma âncora da página inicial.
+
+A página `/alunos/` apresenta primeiro as quatro escolas:
+
+- SESI Rio Claro;
+- SESI Iracemápolis;
+- ETEC Prof. Armando Bayeux;
+- ETEC de Americana.
+
+Somente depois da escola são apresentadas as escolhas de ano ou turma, disciplina, etapa e capítulo. Materiais ainda não concluídos aparecem como conteúdo em preparação, sem links provisórios ou falsos.
 
 Estrutura no repositório:
 
 ```text
 alunos/
+  index.html
   sociologia-1ano/
   filosofia-1ano/
   sociologia-2ano/
@@ -29,6 +41,24 @@ alunos/
 ```
 
 Cada livro deve possuir uma página anual integrada, com todos os capítulos organizados em etapas.
+
+## Cabeçalho e responsividade
+
+Na página inicial:
+
+- marca Sociosofia à esquerda;
+- apenas o link **Área do Estudante** à direita;
+- sem menu expansível;
+- sem sobreposição de navegação e texto;
+- em telas muito estreitas, reduzir espaçamentos e tamanho do texto antes de ocultar a identificação visual da marca.
+
+Na Área do Estudante:
+
+- manter um caminho horizontal rolável;
+- apresentar uma escolha por vez;
+- usar cartões em uma coluna no celular;
+- preservar botões de retorno e foco visível;
+- permitir abrir capítulos diretamente e também o percurso anual completo.
 
 ## Estrutura do conteúdo
 
@@ -161,7 +191,7 @@ Quando o material mudar, criar uma nova versão e preservar a anterior em arquiv
 
 ## Portão de qualidade
 
-Um livro só pode ser integrado à página inicial quando:
+Um livro só pode ser integrado à Área do Estudante quando:
 
 - todas as páginas estiverem conferidas;
 - todos os capítulos tiverem auditoria;
@@ -170,7 +200,8 @@ Um livro só pode ser integrado à página inicial quando:
 - não houver links sem destino;
 - a camada pública estiver livre de bastidores;
 - dados atuais estiverem datados ou removidos da camada permanente;
-- a navegação tiver sido testada em computador e celular.
+- a navegação tiver sido testada em computador e celular;
+- o caminho escola → ano/turma → disciplina → etapa → capítulo estiver funcionando.
 
 ## Referência inicial
 
