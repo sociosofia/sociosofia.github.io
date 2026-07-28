@@ -1,14 +1,17 @@
 (() => {
   const reader = document.getElementById('reader');
-  const readerFrame = document.getElementById('reader-frame');
   const readerTitle = document.getElementById('reader-title');
   const readerMeta = document.getElementById('reader-meta');
   const readerStatus = document.getElementById('reader-status');
 
-  if (!reader || !readerFrame || !readerTitle || !readerMeta || !readerStatus) return;
+  if (!reader || !readerTitle || !readerMeta || !readerStatus) return;
 
   let pollId = null;
-  let activeKey = '';
+  let runId = 0;
+
+  function currentFrame() {
+    return document.getElementById('reader-frame');
+  }
 
   function normalizeText(value) {
     return String(value || '')
@@ -92,11 +95,16 @@
     return anchor;
   }
 
-  function stopLocator() {
+  function clearPoll() {
     if (pollId !== null) {
       clearInterval(pollId);
       pollId = null;
     }
+  }
+
+  function stop() {
+    runId += 1;
+    clearPoll();
   }
 
   function currentChapterKey() {
@@ -105,16 +113,16 @@
     return chapterId && title ? `${chapterId}:${normalizeText(title)}` : '';
   }
 
-  function locateOnce() {
-    if (!reader.open) return false;
+  function locateOnce(expectedFrame) {
+    if (!reader.open || currentFrame() !== expectedFrame) return false;
 
     const chapterId = chapterNumber();
     const title = readerTitle.textContent.trim();
     if (!chapterId || !title) return false;
 
     try {
-      const document = readerFrame.contentDocument;
-      if (!document?.body) return false;
+      const document = expectedFrame.contentDocument;
+      if (!document?.body || !document.body.textContent?.trim()) return false;
 
       const anchorId = `capitulo-${chapterId}`;
       let anchor = document.getElementById(anchorId);
@@ -124,8 +132,8 @@
         anchor = ensureAnchor(document, target, chapterId);
       }
 
-      readerFrame.hidden = false;
-      readerFrame.style.visibility = 'visible';
+      expectedFrame.hidden = false;
+      expectedFrame.style.visibility = 'visible';
       readerStatus.hidden = true;
       anchor.scrollIntoView({ block: 'start' });
       return true;
@@ -134,33 +142,42 @@
     }
   }
 
-  function startLocator() {
-    stopLocator();
-    activeKey = currentChapterKey();
-    if (!activeKey) return;
+  function start() {
+    stop();
 
+    const expectedFrame = currentFrame();
+    const expectedKey = currentChapterKey();
+    if (!expectedFrame || !expectedKey || !reader.open) return;
+
+    const expectedRun = runId;
     let attempts = 0;
+
     const check = () => {
-      const nextKey = currentChapterKey();
-      if (!reader.open || !nextKey || nextKey !== activeKey) {
-        stopLocator();
+      if (expectedRun !== runId || !reader.open || currentChapterKey() !== expectedKey || currentFrame() !== expectedFrame) {
+        clearPoll();
         return;
       }
 
       attempts += 1;
-      if (locateOnce() || attempts >= 100) stopLocator();
+      if (locateOnce(expectedFrame)) {
+        clearPoll();
+        return;
+      }
+
+      if (attempts >= 600) {
+        clearPoll();
+        expectedFrame.hidden = true;
+        readerStatus.hidden = false;
+        readerStatus.textContent = 'Não consegui carregar o texto deste capítulo. Feche o leitor e tente novamente.';
+      }
     };
 
     check();
-    if (pollId === null && attempts < 100 && readerStatus.hidden === false) {
+    if (pollId === null && !readerStatus.hidden) {
       pollId = window.setInterval(check, 50);
     }
   }
 
-  readerFrame.addEventListener('load', startLocator);
-  new MutationObserver(startLocator).observe(readerFrame, {
-    attributes: true,
-    attributeFilter: ['srcdoc']
-  });
-  reader.addEventListener('close', stopLocator);
+  window.SocioSofiaChapterLocator = { start, stop };
+  reader.addEventListener('close', stop);
 })();
