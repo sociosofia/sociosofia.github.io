@@ -7,6 +7,9 @@
 
   if (!reader || !readerFrame || !readerTitle || !readerMeta || !readerStatus) return;
 
+  let pollId = null;
+  let activeKey = '';
+
   function normalizeText(value) {
     return String(value || '')
       .normalize('NFD')
@@ -89,23 +92,35 @@
     return anchor;
   }
 
-  function locateChapter() {
-    if (!reader.open) return;
+  function stopLocator() {
+    if (pollId !== null) {
+      clearInterval(pollId);
+      pollId = null;
+    }
+  }
+
+  function currentChapterKey() {
+    const chapterId = chapterNumber();
+    const title = readerTitle.textContent.trim();
+    return chapterId && title ? `${chapterId}:${normalizeText(title)}` : '';
+  }
+
+  function locateOnce() {
+    if (!reader.open) return false;
 
     const chapterId = chapterNumber();
     const title = readerTitle.textContent.trim();
-    if (!chapterId || !title) return;
+    if (!chapterId || !title) return false;
 
     try {
       const document = readerFrame.contentDocument;
-      const frameWindow = readerFrame.contentWindow;
-      if (!document?.body || !frameWindow) return;
+      if (!document?.body) return false;
 
       const anchorId = `capitulo-${chapterId}`;
       let anchor = document.getElementById(anchorId);
       if (!anchor) {
         const target = findByTitle(document, title);
-        if (!target) return;
+        if (!target) return false;
         anchor = ensureAnchor(document, target, chapterId);
       }
 
@@ -113,16 +128,39 @@
       readerFrame.style.visibility = 'visible';
       readerStatus.hidden = true;
       anchor.scrollIntoView({ block: 'start' });
+      return true;
     } catch {
-      // O documento ainda está sendo substituído pelo srcdoc; a próxima verificação tenta novamente.
+      return false;
     }
   }
 
-  readerFrame.addEventListener('load', locateChapter);
-  new MutationObserver(locateChapter).observe(readerFrame, {
+  function startLocator() {
+    stopLocator();
+    activeKey = currentChapterKey();
+    if (!activeKey) return;
+
+    let attempts = 0;
+    const check = () => {
+      const nextKey = currentChapterKey();
+      if (!reader.open || !nextKey || nextKey !== activeKey) {
+        stopLocator();
+        return;
+      }
+
+      attempts += 1;
+      if (locateOnce() || attempts >= 100) stopLocator();
+    };
+
+    check();
+    if (pollId === null && attempts < 100 && readerStatus.hidden === false) {
+      pollId = window.setInterval(check, 50);
+    }
+  }
+
+  readerFrame.addEventListener('load', startLocator);
+  new MutationObserver(startLocator).observe(readerFrame, {
     attributes: true,
     attributeFilter: ['srcdoc']
   });
-
-  window.setInterval(locateChapter, 100);
+  reader.addEventListener('close', stopLocator);
 })();
