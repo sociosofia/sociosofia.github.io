@@ -25,9 +25,10 @@ export function entityDetail(items,tipo,nome){
 }
 
 function defaultSummary(tipo,nome,n){
-  if(tipo==='autor')return `${nome} aparece como referência teórica em ${n} repertório${n===1?'':'s'} disponível${n===1?'':'eis'}.`;
-  if(tipo==='tema')return `Este tema reúne ${n} repertório${n===1?'':'s'} e permite comparar diferentes abordagens do assunto.`;
-  return `${nome} ajuda a interpretar ${n} repertório${n===1?'':'s'} por meio de uma ferramenta conceitual comum.`;
+  const total=`${n} repertório${n===1?'':'s'}`;
+  if(tipo==='autor')return `${nome} aparece como referência teórica em ${total}.`;
+  if(tipo==='tema')return `Este tema reúne ${total} e permite comparar diferentes abordagens do assunto.`;
+  return `${nome} ajuda a interpretar ${total} por meio de uma ferramenta conceitual comum.`;
 }
 
 function section(titulo,itens){return `<section class="relation-section"><h3>${titulo}</h3>${itens.length?`<div class="relation-grid">${itens.slice(0,8).map(relationCard).join('')}</div>`:'<p class="portal-prompt">Ainda não há repertórios relacionados nesta seção.</p>'}</section>`;}
