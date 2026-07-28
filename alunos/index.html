@@ -9,31 +9,103 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700;9..144,800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <style>
-    :root { --paper:#F7F1E8;--card:#FFFDF9;--ink:#1F1F1F;--muted:#675F59;--purple:#5B2E91;--terra:#D95D39;--teal:#2F6F73;--yellow:#F2C14E;--line:rgba(31,31,31,.13);--shadow:0 18px 44px rgba(49,34,25,.09);--radius:22px; }
-    *{box-sizing:border-box} html{scroll-behavior:smooth} body{margin:0;background:radial-gradient(circle at top left,rgba(242,193,78,.18),transparent 32rem),var(--paper);color:var(--ink);font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.58}
+    :root{--paper:#F7F1E8;--card:#FFFDF9;--ink:#1F1F1F;--muted:#675F59;--purple:#5B2E91;--terra:#D95D39;--teal:#2F6F73;--yellow:#F2C14E;--line:rgba(31,31,31,.13);--shadow:0 18px 44px rgba(49,34,25,.09);--radius:22px}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:radial-gradient(circle at top left,rgba(242,193,78,.18),transparent 32rem),var(--paper);color:var(--ink);font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.58}
     button,a{font:inherit}button{cursor:pointer}:focus-visible{outline:4px solid rgba(242,193,78,.9);outline-offset:3px}.wrap{width:min(calc(100% - 32px),1120px);margin-inline:auto}
     .skip-link{position:absolute;top:10px;left:10px;z-index:100;transform:translateY(-160%);padding:.7rem 1rem;border-radius:999px;background:var(--yellow);color:var(--ink);font-weight:800}.skip-link:focus{transform:none}
     .header{position:sticky;top:0;z-index:30;background:rgba(91,46,145,.97);color:white;border-bottom:1px solid rgba(255,255,255,.18);backdrop-filter:blur(12px)}.header-inner{min-height:68px;display:flex;align-items:center;justify-content:space-between;gap:12px}.brand{display:inline-flex;align-items:center;gap:10px;color:white;text-decoration:none;font-weight:800}.brand-mark{width:38px;height:38px;display:grid;place-items:center;flex:0 0 38px;border-radius:50%;background:var(--yellow);color:var(--purple);font-family:Fraunces,Georgia,serif;font-size:1.2rem}.home-link{color:white;text-decoration:none;border:1px solid rgba(255,255,255,.38);border-radius:999px;padding:.58rem .82rem;font-size:.84rem;font-weight:800;white-space:nowrap}.home-link:hover{background:var(--yellow);color:var(--purple)}
     .hero{padding:clamp(42px,8vw,82px) 0 34px}.eyebrow{margin:0 0 8px;color:var(--terra);font-weight:800;text-transform:uppercase;letter-spacing:.12em;font-size:.75rem}h1,h2,h3{font-family:Fraunces,Georgia,serif;line-height:1.08;margin:0}h1{font-size:clamp(2.65rem,8vw,5.8rem);max-width:950px}h2{font-size:clamp(1.9rem,4vw,3rem)}h3{font-size:1.35rem}.lead{max-width:780px;color:var(--muted);font-size:clamp(1rem,2vw,1.22rem)}
+    .install-panel{display:flex;align-items:center;justify-content:space-between;gap:20px;margin-top:24px;padding:18px 20px;border:1px solid rgba(91,46,145,.18);border-radius:var(--radius);background:linear-gradient(135deg,#FFFDF9,#FFF8E8);box-shadow:0 10px 30px rgba(49,34,25,.06)}.install-panel strong{display:block;color:var(--purple);font-family:Fraunces,Georgia,serif;font-size:1.25rem}.install-panel p{margin:5px 0 0;color:var(--muted);font-size:.9rem}.install-cta{display:inline-flex;align-items:center;justify-content:center;flex:0 0 auto;border-radius:999px;background:var(--purple);color:white;text-decoration:none;padding:.82rem 1.05rem;font-weight:900;white-space:nowrap}.install-cta:hover{background:var(--terra)}
     .steps{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:8px;margin-top:28px}.step{min-width:0;padding:12px;border:1px solid var(--line);border-radius:14px;background:rgba(255,253,249,.72);color:var(--muted);font-size:.75rem}.step strong{display:block;color:var(--purple);font-size:.95rem}.step.active{background:var(--purple);color:white;border-color:var(--purple)}.step.active strong{color:var(--yellow)}
     .pathbar{border-block:1px solid var(--line);background:#FFFAF3}.path{min-height:52px;display:flex;align-items:center;gap:7px;overflow-x:auto;white-space:nowrap;scrollbar-width:thin}.crumb{border:0;background:transparent;color:var(--purple);padding:7px 9px;border-radius:999px;font-weight:700;font-size:.78rem}.crumb:hover{background:rgba(91,46,145,.09)}.crumb.current{background:var(--purple);color:white}.arrow{color:#998E85}
     main{padding:36px 0 76px}.panel-head{display:flex;justify-content:space-between;gap:24px;align-items:end;margin-bottom:22px}.panel-head p{max-width:590px;color:var(--muted);margin:7px 0 0}.back-button{border:1px solid var(--line);background:var(--card);color:var(--purple);border-radius:999px;padding:.62rem .9rem;font-size:.82rem;font-weight:800}.back-button[hidden]{display:none}
     .choice-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.choice{width:100%;min-height:156px;display:grid;grid-template-columns:54px 1fr;gap:16px;border:1px solid var(--line);border-radius:var(--radius);background:var(--card);color:var(--ink);padding:20px;text-align:left;box-shadow:0 8px 28px rgba(49,34,25,.05);transition:.18s ease}.choice:hover{transform:translateY(-3px);border-color:rgba(91,46,145,.36);box-shadow:var(--shadow)}.choice-number{width:50px;height:50px;display:grid;place-items:center;border-radius:15px;background:var(--purple);color:white;font-family:Fraunces,Georgia,serif;font-size:1.25rem;font-weight:700}.choice p{color:var(--muted);margin:8px 0 0;font-size:.88rem}.choice small{display:block;margin-top:12px;color:var(--teal);font-weight:800}.choice.preparing .choice-number{background:var(--teal)}
     .stage-list{display:grid;gap:18px}.stage{border:1px solid var(--line);border-radius:var(--radius);background:var(--card);overflow:hidden;box-shadow:0 10px 30px rgba(49,34,25,.05)}.stage-head{padding:20px 22px;background:#FFFAF3;border-bottom:1px solid var(--line)}.stage-head p{color:var(--muted);margin:7px 0 0}.chapter-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;padding:16px}.chapter-link{display:grid;grid-template-columns:48px 1fr;gap:13px;min-height:132px;border:1px solid var(--line);border-radius:17px;background:white;color:var(--ink);text-decoration:none;padding:16px}.chapter-link:hover{border-color:var(--terra);transform:translateY(-2px)}.chapter-number{width:44px;height:44px;display:grid;place-items:center;border-radius:13px;background:var(--terra);color:white;font-weight:800}.chapter-link small{color:var(--teal);font-weight:800}.chapter-link h3{font-size:1.05rem;margin:5px 0 0}.open-complete{display:inline-flex;margin-top:20px;background:var(--yellow);color:var(--ink);text-decoration:none;border-radius:999px;padding:.8rem 1.05rem;font-weight:900}
     .notice{border-left:5px solid var(--yellow);border-radius:0 var(--radius) var(--radius) 0;background:var(--card);padding:22px;box-shadow:0 8px 26px rgba(49,34,25,.05)}.notice p{color:var(--muted);margin-bottom:0}.footer{border-top:1px solid var(--line);padding:24px 0;color:var(--muted);font-size:.78rem}
-    @media(max-width:760px){.steps{grid-template-columns:1fr}.step{display:none}.step.active{display:block}.choice-grid,.chapter-grid{grid-template-columns:1fr}.panel-head{align-items:start;flex-direction:column}.choice{min-height:138px}}
+    @media(max-width:760px){.steps{grid-template-columns:1fr}.step{display:none}.step.active{display:block}.choice-grid,.chapter-grid{grid-template-columns:1fr}.panel-head{align-items:start;flex-direction:column}.choice{min-height:138px}.install-panel{align-items:stretch;flex-direction:column}.install-cta{width:100%}}
     @media(max-width:420px){.wrap{width:min(calc(100% - 22px),1120px)}.header-inner{min-height:62px}.brand{gap:7px;font-size:.88rem}.brand-mark{width:33px;height:33px;flex-basis:33px}.home-link{padding:.5rem .65rem;font-size:.72rem}.choice{grid-template-columns:44px 1fr;padding:16px}.choice-number{width:42px;height:42px}.chapter-link{grid-template-columns:42px 1fr;padding:14px}.chapter-number{width:39px;height:39px}}
   </style>
 </head>
 <body>
   <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
-  <header class="header"><div class="wrap header-inner"><a class="brand" href="../index.html" aria-label="Voltar à página inicial do Sociosofia"><span class="brand-mark" aria-hidden="true">S</span><span>Sociosofia</span></a><a class="home-link" href="../index.html">Página inicial</a></div></header>
-  <section class="hero"><div class="wrap"><p class="eyebrow">Área do Estudante</p><h1>Encontre seu percurso.</h1><p class="lead">Escolha primeiro a escola. Depois, siga por ano ou turma, disciplina, etapa e capítulo. O material permanece disponível para antecipar conteúdos, acompanhar as aulas e revisar avaliações.</p><div class="steps" aria-label="Etapas da navegação"><div class="step active" data-step="1"><strong>1</strong>Escola</div><div class="step" data-step="2"><strong>2</strong>Ano ou turma</div><div class="step" data-step="3"><strong>3</strong>Disciplina</div><div class="step" data-step="4"><strong>4</strong>Etapa</div><div class="step" data-step="5"><strong>5</strong>Capítulo</div></div></div></section>
+  <header class="header">
+    <div class="wrap header-inner">
+      <a class="brand" href="../index.html" aria-label="Voltar à página inicial do Sociosofia"><span class="brand-mark" aria-hidden="true">S</span><span>Sociosofia</span></a>
+      <a class="home-link" href="../index.html">Página inicial</a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="wrap">
+      <p class="eyebrow">Área do Estudante</p>
+      <h1>Encontre seu percurso.</h1>
+      <p class="lead">Escolha primeiro a escola. Depois, siga por ano ou turma, disciplina, etapa e capítulo. O material permanece disponível para antecipar conteúdos, acompanhar as aulas e revisar avaliações.</p>
+
+      <aside class="install-panel" aria-label="Instalação do aplicativo SocioSofia">
+        <div>
+          <strong>Leve a Área do Estudante para a tela inicial</strong>
+          <p>Instale o SocioSofia como aplicativo e acesse seus percursos com mais facilidade.</p>
+        </div>
+        <a class="install-cta" href="../app/?install=1">Instalar SocioSofia</a>
+      </aside>
+
+      <div class="steps" aria-label="Etapas da navegação">
+        <div class="step active" data-step="1"><strong>1</strong>Escola</div>
+        <div class="step" data-step="2"><strong>2</strong>Ano ou turma</div>
+        <div class="step" data-step="3"><strong>3</strong>Disciplina</div>
+        <div class="step" data-step="4"><strong>4</strong>Etapa</div>
+        <div class="step" data-step="5"><strong>5</strong>Capítulo</div>
+      </div>
+    </div>
+  </section>
+
   <nav class="pathbar" aria-label="Caminho escolhido"><div class="wrap path" id="path"></div></nav>
-  <main id="conteudo" class="wrap" tabindex="-1"><div class="panel-head"><div><p class="eyebrow" id="view-eyebrow">Primeiro passo</p><h2 id="view-title">Escolha sua escola</h2><p id="view-description">Os materiais são organizados de acordo com cada unidade e turma.</p></div><button class="back-button" id="back" type="button" hidden>← Voltar</button></div><div id="view" aria-live="polite"></div></main>
+  <main id="conteudo" class="wrap" tabindex="-1">
+    <div class="panel-head">
+      <div><p class="eyebrow" id="view-eyebrow">Primeiro passo</p><h2 id="view-title">Escolha sua escola</h2><p id="view-description">Os materiais são organizados de acordo com cada unidade e turma.</p></div>
+      <button class="back-button" id="back" type="button" hidden>← Voltar</button>
+    </div>
+    <div id="view" aria-live="polite"></div>
+  </main>
   <footer class="footer"><div class="wrap">Sociosofia Alunos · materiais permanentes vinculados às edições didáticas de referência.</div></footer>
+
   <script>
-    const SCHOOLS = {"sesi-rio-claro":{"name":"SESI Rio Claro","description":"Percursos de Sociologia e Filosofia do ensino médio.","years":{"1ano":{"name":"1º ano","disciplines":{"sociologia":{"name":"Sociologia","complete":"sociologia-1ano/","stages":[{"name":"1ª etapa","description":"Do nascimento da Sociologia à análise da desigualdade.","chapters":[[1,"Fundação e construção do pensamento sociológico","12–29"],[2,"A dinâmica das relações entre indivíduo e sociedade","30–41"],[3,"Processo de socialização e suas instituições","42–55"],[4,"Caracterizando a mobilidade e a desigualdade sociais","56–69"]]},{"name":"2ª etapa","description":"Diferença, violência, cultura, ideologia e resistência.","chapters":[[5,"Diferentes, sim. Desiguais, não! Reflexões sobre a origem da violência","70–93"],[6,"Ninguém é igual a ninguém: culturas, diferenças e diversidades","94–101"],[7,"Ideologia: cultura, sociedade e resistência","102–117"]]},{"name":"3ª etapa","description":"Problemas contemporâneos: ambiente, tecnologia e migrações.","chapters":[[8,"Sustentabilidade e meio ambiente: o que eu tenho a ver com isso?","118–141"],[9,"Sociedade digitalizada: comunicação, informação e tecnologia","142–161"],[10,"Fluxos globais, migrações e xenofobia","162–185"]]}]},"filosofia":{"name":"Filosofia","complete":"filosofia-1ano/","stages":[{"name":"1ª etapa","description":"Problematizar, argumentar e investigar o conhecimento.","chapters":[[1,"Nos passos da Filosofia","12–25"],[2,"Lógica e argumentação","26–39"],[3,"A origem do conhecimento: racionalismo, empirismo e criticismo","40–51"],[4,"Conhecimento, linguagem e verdade","52–69"]]},{"name":"2ª etapa","description":"Conhecimento científico, ação moral e realidade.","chapters":[[5,"Filosofia da Ciência","70–88"],[6,"Ética e moral","89–107"],[7,"Metafísica","108–125"]]},{"name":"3ª etapa","description":"Sensibilidade, informação, valores e cuidado.","chapters":[[8,"Reflexões filosóficas: a experiência estética e a arte","126–141"],[9,"Filosofia da Informação","142–155"],[10,"Valores, escolhas e cuidado: tópicos de ética contemporânea","156–177"]]}]}}},"2ano":{"name":"2º ano","disciplines":{"sociologia":{"name":"Sociologia","preparing":"A primeira etapa está em produção a partir da edição SESI-SP de 2026."},"filosofia":{"name":"Filosofia","preparing":"Material em preparação."}}}}},"sesi-iracemapolis":{"name":"SESI Iracemápolis","description":"Percursos de Sociologia e Filosofia do 1º ano.","years":{"1ano":{"name":"1º ano","disciplines":{"sociologia":{"name":"Sociologia","preparing":"Material em preparação."},"filosofia":{"name":"Filosofia","preparing":"Material em preparação."}}}}},"etec-bayeux":{"name":"ETEC Prof. Armando Bayeux","description":"Materiais organizados por turma e componente.","years":{"2adm":{"name":"2º ADM","disciplines":{"filosofia":{"name":"Filosofia","preparing":"Material em preparação."}}},"2automacao":{"name":"2º Automação","disciplines":{"etica":{"name":"Ética e Cidadania","preparing":"Material em preparação."}}},"2ch":{"name":"2º CH","disciplines":{"each":{"name":"EAC;H","preparing":"Material em preparação."}}},"2logistica":{"name":"2º Logística","disciplines":{"filosofia":{"name":"Filosofia","preparing":"Material em preparação."}}},"3cn":{"name":"3º CN","disciplines":{"sociologia":{"name":"Sociologia","preparing":"Material em preparação."}}}}},"etec-americana":{"name":"ETEC de Americana","description":"A estrutura de turmas e componentes será confirmada antes da publicação.","years":{}}};
+    const SCHOOLS = {
+      "sesi-rio-claro": {
+        "name": "SESI Rio Claro",
+        "description": "Percursos de Sociologia e Filosofia do ensino médio.",
+        "years": {
+          "1ano": {
+            "name": "1º ano",
+            "disciplines": {
+              "sociologia": {
+                "name": "Sociologia",
+                "complete": "sociologia-1ano/",
+                "stages": [
+                  {"name":"1ª etapa","description":"Do nascimento da Sociologia à análise da desigualdade.","chapters":[[1,"Fundação e construção do pensamento sociológico","12–29"],[2,"A dinâmica das relações entre indivíduo e sociedade","30–41"],[3,"Processo de socialização e suas instituições","42–55"],[4,"Caracterizando a mobilidade e a desigualdade sociais","56–69"]]},
+                  {"name":"2ª etapa","description":"Diferença, violência, cultura, ideologia e resistência.","chapters":[[5,"Diferentes, sim. Desiguais, não! Reflexões sobre a origem da violência","70–93"],[6,"Ninguém é igual a ninguém: culturas, diferenças e diversidades","94–101"],[7,"Ideologia: cultura, sociedade e resistência","102–117"]]},
+                  {"name":"3ª etapa","description":"Problemas contemporâneos: ambiente, tecnologia e migrações.","chapters":[[8,"Sustentabilidade e meio ambiente: o que eu tenho a ver com isso?","118–141"],[9,"Sociedade digitalizada: comunicação, informação e tecnologia","142–161"],[10,"Fluxos globais, migrações e xenofobia","162–185"]]}
+                ]
+              },
+              "filosofia": {
+                "name": "Filosofia",
+                "complete": "filosofia-1ano/",
+                "stages": [
+                  {"name":"1ª etapa","description":"Problematizar, argumentar e investigar o conhecimento.","chapters":[[1,"Nos passos da Filosofia","12–25"],[2,"Lógica e argumentação","26–39"],[3,"A origem do conhecimento: racionalismo, empirismo e criticismo","40–51"],[4,"Conhecimento, linguagem e verdade","52–69"]]},
+                  {"name":"2ª etapa","description":"Conhecimento científico, ação moral e realidade.","chapters":[[5,"Filosofia da Ciência","70–88"],[6,"Ética e moral","89–107"],[7,"Metafísica","108–125"]]},
+                  {"name":"3ª etapa","description":"Sensibilidade, informação, valores e cuidado.","chapters":[[8,"Reflexões filosóficas: a experiência estética e a arte","126–141"],[9,"Filosofia da Informação","142–155"],[10,"Valores, escolhas e cuidado: tópicos de ética contemporânea","156–177"]]}
+                ]
+              }
+            }
+          },
+          "2ano": {"name":"2º ano","disciplines":{"sociologia":{"name":"Sociologia","preparing":"A primeira etapa está em produção a partir da edição SESI-SP de 2026."},"filosofia":{"name":"Filosofia","preparing":"Material em preparação."}}}
+        }
+      },
+      "sesi-iracemapolis": {"name":"SESI Iracemápolis","description":"Percursos de Sociologia e Filosofia do 1º ano.","years":{"1ano":{"name":"1º ano","disciplines":{"sociologia":{"name":"Sociologia","preparing":"Material em preparação."},"filosofia":{"name":"Filosofia","preparing":"Material em preparação."}}}}},
+      "etec-bayeux": {"name":"ETEC Prof. Armando Bayeux","description":"Materiais organizados por turma e componente.","years":{"2adm":{"name":"2º ADM","disciplines":{"filosofia":{"name":"Filosofia","preparing":"Material em preparação."}}},"2automacao":{"name":"2º Automação","disciplines":{"etica":{"name":"Ética e Cidadania","preparing":"Material em preparação."}}},"2ch":{"name":"2º CH","disciplines":{"each":{"name":"EAC;H","preparing":"Material em preparação."}}},"2logistica":{"name":"2º Logística","disciplines":{"filosofia":{"name":"Filosofia","preparing":"Material em preparação."}}},"3cn":{"name":"3º CN","disciplines":{"sociologia":{"name":"Sociologia","preparing":"Material em preparação."}}}}},
+      "etec-americana": {"name":"ETEC de Americana","description":"A estrutura de turmas e componentes será confirmada antes da publicação.","years":{}}
+    };
+
     const state={school:null,year:null,discipline:null};
     const view=document.getElementById("view"),path=document.getElementById("path"),title=document.getElementById("view-title"),eyebrow=document.getElementById("view-eyebrow"),description=document.getElementById("view-description"),back=document.getElementById("back");
     const esc=value=>String(value).replace(/[&<>"']/g,char=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[char]));
