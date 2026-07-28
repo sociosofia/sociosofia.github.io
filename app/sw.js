@@ -1,5 +1,5 @@
 const CACHE_PREFIX = 'sociosofia-alunos-';
-const CACHE = `${CACHE_PREFIX}v3`;
+const CACHE = `${CACHE_PREFIX}v4`;
 const APP_SHELL = [
   './',
   './index.html',
