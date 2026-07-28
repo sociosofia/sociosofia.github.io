@@ -1,16 +1,23 @@
-import {TEMAS,loadItems,inTheme,text,norm,esc} from './site-shared.js';
+import {TEMAS,loadItems,loadEntityRegistry,loadHighlights,inTheme,text,norm,esc,entityNames} from './site-shared.js';
 import {buildShell} from './home-shell.js';
-import {card,feature,entityDetail,entityNames} from './home-cards.js';
+import {card,feature,previousHighlight,entityDetail} from './home-cards.js';
 
 buildShell();
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
-let items=[],state={tema:{dados:'',cultura:''},tipo:'conceito',entidade:''};
+let items=[],highlights={atual:null,anteriores:[]},state={tema:{dados:'',cultura:''},tipo:'conceito',entidade:''};
 
 init();
 async function init(){
   menu();events();
-  try{items=await loadItems();renderAll();params();}
-  catch(e){['#lista-dados','#lista-cultura'].forEach(s=>$(s).innerHTML='<p class="empty-state">Não foi possível carregar o banco de repertórios.</p>');console.error(e);}
+  try{
+    const [loadedItems,loadedHighlights]=await Promise.all([loadItems(),loadHighlights(),loadEntityRegistry()]);
+    items=loadedItems;
+    highlights=loadedHighlights;
+    renderAll();params();
+  }catch(e){
+    ['#lista-dados','#lista-cultura'].forEach(s=>$(s).innerHTML='<p class="empty-state">Não foi possível carregar o banco de repertórios.</p>');
+    console.error(e);
+  }
 }
 
 function menu(){const b=$('.nav-toggle'),l=$('#menu-principal');b?.addEventListener('click',()=>{const a=b.getAttribute('aria-expanded')==='true';b.setAttribute('aria-expanded',String(!a));l?.classList.toggle('open');});}
@@ -32,9 +39,22 @@ function renderAll(){
   const d=items.filter(i=>i.bloco==='dados'),c=items.filter(i=>i.bloco==='cultura');
   $('#contador-dados').textContent=`${d.length} repertório${d.length===1?'':'s'}`;
   $('#contador-cultura').textContent=`${c.length} repertório${c.length===1?'':'s'}`;
-  $('#contador-conceitos').textContent=`${entityNames(items,'conceito').length+entityNames(items,'autor').length} entradas`;
-  $('#curadoria').innerHTML=feature(items.find(i=>i.destaque)||items[0]);
-  ['dados','cultura'].forEach(b=>{renderThemes(b);renderPortal(b);});renderEntities();
+  const entityCount=['conceito','tema','autor'].reduce((sum,tipo)=>sum+entityNames(items,tipo).length,0);
+  $('#contador-conceitos').textContent=`${entityCount} cards`;
+  renderWeekly();
+  ['dados','cultura'].forEach(b=>{renderThemes(b);renderPortal(b);});
+  renderEntities();
+}
+
+function renderWeekly(){
+  const currentMeta=highlights.atual||{};
+  const current=items.find(i=>i.id===currentMeta.id)||items.find(i=>i.destaque)||items[0];
+  $('#repertorio-semana').innerHTML=feature(current,currentMeta);
+
+  const previous=(highlights.anteriores||[]).map(meta=>({meta,item:items.find(i=>i.id===meta.id)})).filter(x=>x.item);
+  const section=$('#destaques-anteriores');
+  section.hidden=previous.length===0;
+  $('#lista-destaques-anteriores').innerHTML=previous.map(({item,meta})=>previousHighlight(item,meta)).join('');
 }
 
 function open(bloco,scroll=true){
@@ -57,9 +77,10 @@ function renderPortal(bloco){
 
 function renderEntities(){
   const q=norm($('#busca-entidades')?.value),names=entityNames(items,state.tipo).filter(n=>norm(n).includes(q));
-  $('#lista-entidades').innerHTML=names.map(n=>`<button class="entity-chip ${state.entidade===n?'active':''}" data-entity-type="${state.tipo}" data-entity-name="${esc(n)}">${esc(n)}</button>`).join('')||'<p class="portal-prompt">Nenhuma entrada encontrada.</p>';
+  $('#lista-entidades').innerHTML=names.map(n=>`<button class="entity-chip ${state.entidade===n?'active':''}" data-entity-type="${state.tipo}" data-entity-name="${esc(n)}">${esc(n)}</button>`).join('')||'<p class="portal-prompt">Nenhum card encontrado.</p>';
 }
-function promptEntity(){$('#detalhe-entidade').innerHTML='<p class="portal-prompt">Escolha uma entrada para ver as conexões com os outros dois blocos.</p>';}
+
+function promptEntity(){$('#detalhe-entidade').innerHTML='<p class="portal-prompt">Escolha um card para ver suas conexões com os repertórios do banco atual.</p>';}
 function selectEntity(tipo,nome){state.tipo=tipo;state.entidade=nome;open('conceitos',false);$$('[data-entity-type]').forEach(x=>x.classList.toggle('active',x.dataset.entityType===tipo));renderEntities();$('#detalhe-entidade').innerHTML=entityDetail(items,tipo,nome);$('#detalhe-entidade').scrollIntoView({behavior:'smooth',block:'nearest'});}
 
 function search(q,scroll=true){
@@ -69,7 +90,8 @@ function search(q,scroll=true){
 }
 
 function params(){
-  const p=new URLSearchParams(location.search),c=p.get('conceito'),a=p.get('autor'),b=p.get('bloco'),t=p.get('tema'),q=p.get('busca')||p.get('tag');
+  const p=new URLSearchParams(location.search),entity=p.get('entidade'),entityType=p.get('tipo'),c=p.get('conceito'),a=p.get('autor'),b=p.get('bloco'),t=p.get('tema'),q=p.get('busca')||p.get('tag');
+  if(entity&&['conceito','tema','autor'].includes(entityType)){selectEntity(entityType,entity);return;}
   if(c||a){selectEntity(c?'conceito':'autor',c||a);return;}
   if(['dados','cultura','conceitos'].includes(b)){open(b,false);if(t&&b!=='conceitos'){state.tema[b]=t;renderThemes(b);renderPortal(b);}}
   if(q){$('#busca').value=q;search(q,false);}
