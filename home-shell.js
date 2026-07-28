@@ -12,9 +12,18 @@ export function buildShell(){
     <div class="section-heading">
       <p class="eyebrow">Outra forma de explorar</p>
       <h2 id="titulo-palavras-chave">Ou busque por palavras-chave</h2>
-      <p>Use um atalho para localizar repertórios pelo tipo de material que você procura.</p>
+      <p>Depois de conhecer a estrutura do Sociosofia, você pode ir diretamente a um tema, conceito, autor, obra ou assunto de interesse.</p>
     </div>
-    <div class="quick-links keyword-shortcuts" aria-label="Palavras-chave para busca rápida">
+    <form class="search-box keyword-search-box" role="search" aria-label="Busca de repertórios por palavra-chave">
+      <label for="busca" class="sr-only">Buscar repertórios</label>
+      <input id="busca" type="search" placeholder="Busque por tema, conceito, autor, filme ou atualidade..." autocomplete="off" />
+      <button type="submit">
+        <svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-4.4-4.4"></path></svg>
+        <span>Buscar</span>
+      </button>
+    </form>
+    <p class="keyword-shortcuts-label">Atalhos por tipo de repertório</p>
+    <div class="quick-links keyword-shortcuts" aria-label="Atalhos para busca rápida">
       <button class="chip" data-chip="notícias">Notícias</button>
       <button class="chip" data-chip="dados">Dados</button>
       <button class="chip" data-chip="pesquisa">Pesquisas</button>
