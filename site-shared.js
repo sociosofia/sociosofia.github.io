@@ -31,7 +31,7 @@ function normalizeRegistry(raw={}){
 export async function loadEntityRegistry(){
   try{
     const r=await fetch("data/entidades.json");
-    if(!r.ok)throw new Error("Registro de entidades indisponível");
+    if(!r.ok)throw new Error("Não foi possível carregar as conexões");
     entityRegistry=normalizeRegistry(await r.json());
   }catch(e){
     console.warn(e);
@@ -51,14 +51,14 @@ export function normalizeItem(i){
 
 export async function loadItems(){
   const r=await fetch("data/repertorios.json");
-  if(!r.ok) throw new Error("Banco de repertórios indisponível");
+  if(!r.ok) throw new Error("Não foi possível carregar os repertórios");
   return (await r.json()).map(normalizeItem).filter(i=>i.status!=="arquivado");
 }
 
 export async function loadHighlights(){
   try{
     const r=await fetch("data/destaques.json");
-    if(!r.ok)throw new Error("Curadoria semanal indisponível");
+    if(!r.ok)throw new Error("Não foi possível carregar o repertório da semana");
     const data=await r.json();
     return {atual:data.atual||null,anteriores:list(data.anteriores)};
   }catch(e){
@@ -130,7 +130,7 @@ export function relationCard(i){return `<a class="relation-card ${i.bloco==='cul
 export function entityLinks(i,tipos=['tema','conceito','autor']){
   const links=[];
   tipos.forEach(tipo=>itemEntityNames(i,tipo).forEach(nome=>links.push({tipo,nome})));
-  return links.length?`<div class="entity-links"><span>Cards relacionados</span><ul class="inline-links">${links.slice(0,7).map(({tipo,nome})=>`<li><a href="${entityUrl(tipo,nome)}">${esc(nome)}</a></li>`).join("")}</ul></div>`:"";
+  return links.length?`<div class="entity-links"><span>Conexões</span><ul class="inline-links">${links.slice(0,7).map(({tipo,nome})=>`<li><a href="${entityUrl(tipo,nome)}">${esc(nome)}</a></li>`).join("")}</ul></div>`:"";
 }
 
 export function keywordList(i,limit=6){
