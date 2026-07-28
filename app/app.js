@@ -12,7 +12,9 @@ const state = {
   favorites: new Set(readJson(STORAGE_KEYS.favorites, [])),
   annualHtml: null,
   installPrompt: null,
-  activeChapter: null
+  activeChapter: null,
+  readerPollId: null,
+  readerScrollTimeouts: []
 };
 
 const stagesContainer = document.getElementById('stages');
@@ -176,9 +178,10 @@ function prepareSrcdoc(html, chapterId) {
         window.scrollTo(0, Math.max(0, top - 12));
       };
       addEventListener('DOMContentLoaded', jump);
-      addEventListener('load', jump);
-      setTimeout(jump, 100);
-      setTimeout(jump, 400);
+      setTimeout(jump, 60);
+      setTimeout(jump, 180);
+      setTimeout(jump, 500);
+      setTimeout(jump, 1200);
     })();
   <\/script>`;
   const output = html.includes('<head>')
@@ -200,18 +203,64 @@ function scrollFrameToChapter(chapterId) {
   }
 }
 
+function clearReaderTimers() {
+  if (state.readerPollId !== null) {
+    clearInterval(state.readerPollId);
+    state.readerPollId = null;
+  }
+  state.readerScrollTimeouts.forEach((timeoutId) => clearTimeout(timeoutId));
+  state.readerScrollTimeouts = [];
+}
+
 function scheduleChapterScroll(chapterId) {
-  [0, 80, 240, 700].forEach((delay) => {
-    setTimeout(() => {
-      if (state.activeChapter?.id === chapterId) scrollFrameToChapter(chapterId);
-    }, delay);
-  });
+  state.readerScrollTimeouts.forEach((timeoutId) => clearTimeout(timeoutId));
+  state.readerScrollTimeouts = [0, 80, 240, 700, 1400].map((delay) => setTimeout(() => {
+    if (state.activeChapter?.id === chapterId) scrollFrameToChapter(chapterId);
+  }, delay));
+}
+
+function revealChapterWhenParsed(chapterId) {
+  clearReaderTimers();
+  let attempts = 0;
+
+  const checkDocument = () => {
+    if (state.activeChapter?.id !== chapterId) {
+      clearReaderTimers();
+      return;
+    }
+
+    attempts += 1;
+    const found = scrollFrameToChapter(chapterId);
+    if (found) {
+      readerFrame.style.visibility = 'visible';
+      readerStatus.hidden = true;
+      scheduleChapterScroll(chapterId);
+      if (state.readerPollId !== null) {
+        clearInterval(state.readerPollId);
+        state.readerPollId = null;
+      }
+      return;
+    }
+
+    if (attempts >= 100) {
+      clearReaderTimers();
+      readerFrame.hidden = true;
+      readerStatus.hidden = false;
+      readerStatus.innerHTML = `Não consegui localizar este capítulo dentro do material. <a href="${COURSE.sourcePath}#capitulo-${chapterId}" target="_blank" rel="noopener">Abra a versão anual</a>.`;
+    }
+  };
+
+  checkDocument();
+  if (!readerStatus.hidden) {
+    state.readerPollId = window.setInterval(checkDocument, 50);
+  }
 }
 
 async function openChapter(chapterId) {
   const chapter = CHAPTERS.find((item) => item.id === chapterId);
   if (!chapter) return;
 
+  clearReaderTimers();
   state.activeChapter = chapter;
   localStorage.setItem(STORAGE_KEYS.lastChapter, String(chapter.id));
   updateContinueCard();
@@ -222,7 +271,8 @@ async function openChapter(chapterId) {
   legacyLink.href = `${COURSE.sourcePath}#capitulo-${chapter.id}`;
   readerStatus.textContent = 'Preparando o capítulo…';
   readerStatus.hidden = false;
-  readerFrame.hidden = true;
+  readerFrame.hidden = false;
+  readerFrame.style.visibility = 'hidden';
   readerFrame.removeAttribute('src');
   readerFrame.srcdoc = '';
   updateReaderFavorite();
@@ -232,14 +282,12 @@ async function openChapter(chapterId) {
 
   try {
     const html = await loadAnnualPage();
-    readerFrame.onload = () => {
-      readerStatus.hidden = true;
-      readerFrame.hidden = false;
-      scheduleChapterScroll(chapter.id);
-    };
     readerFrame.srcdoc = prepareSrcdoc(html, chapter.id);
+    revealChapterWhenParsed(chapter.id);
   } catch (error) {
     console.error(error);
+    clearReaderTimers();
+    readerFrame.hidden = true;
     readerStatus.innerHTML = `Não foi possível abrir o conteúdo integrado. <a href="${COURSE.sourcePath}#capitulo-${chapter.id}" target="_blank" rel="noopener">Abra a versão anual</a>.`;
   }
 }
@@ -247,7 +295,9 @@ async function openChapter(chapterId) {
 function closeReader() {
   if (reader.open) reader.close();
   document.body.style.overflow = '';
-  readerFrame.onload = null;
+  clearReaderTimers();
+  readerFrame.hidden = true;
+  readerFrame.style.visibility = '';
   readerFrame.srcdoc = '';
   state.activeChapter = null;
 }
