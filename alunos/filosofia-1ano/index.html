@@ -25,7 +25,7 @@
     (async()=>{
       try{
         if(!("DecompressionStream" in window))throw new Error("Este navegador não oferece suporte à descompressão da página.");
-        const files=["page-01.b64","page-02.b64","page-03.b64","page-04.b64"];
+        const files=["page-01.b64","page-02.b64","page-03.b64","page-04.b64","page-05.b64","page-06.b64","page-07.b64","page-08.b64"];
         const parts=await Promise.all(files.map(async file=>{const response=await fetch(file,{cache:"force-cache"});if(!response.ok)throw new Error(`Falha ao carregar ${file}`);return(await response.text()).trim()}));
         const raw=atob(parts.join(""));const bytes=Uint8Array.from(raw,c=>c.charCodeAt(0));
         const stream=new Blob([bytes]).stream().pipeThrough(new DecompressionStream("gzip"));
