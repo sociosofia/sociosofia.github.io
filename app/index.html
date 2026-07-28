@@ -25,7 +25,7 @@
         <span class="brand-section">Alunos</span>
       </a>
       <div class="header-actions">
-        <button class="ghost-button" id="install-button" type="button" hidden>Instalar</button>
+        <button class="ghost-button" id="install-button" type="button" hidden>Instalar SocioSofia</button>
         <a class="ghost-button" href="../alunos/">Trocar percurso</a>
       </div>
     </div>
@@ -83,6 +83,19 @@
     </div>
   </dialog>
 
+  <dialog class="install-dialog" id="install-disclaimer" aria-labelledby="install-disclaimer-title">
+    <article class="install-card">
+      <p class="eyebrow">Antes de instalar</p>
+      <h2 id="install-disclaimer-title">Um guia para acompanhar seus estudos</h2>
+      <p>O SocioSofia não substitui nem reproduz o material didático adotado. Ele funciona como guia de acompanhamento, revisão e apoio à compreensão dos conteúdos trabalhados em aula.</p>
+      <p class="install-status" id="install-status" role="status" hidden></p>
+      <div class="install-actions">
+        <button class="secondary-button" id="cancel-install" type="button">Agora não</button>
+        <button class="primary-button" id="confirm-install" type="button">Continuar instalação</button>
+      </div>
+    </article>
+  </dialog>
+
   <footer class="footer">
     <div class="shell footer-inner">
       <p><strong>SocioSofia Alunos</strong> · material permanente de apoio às aulas.</p>
@@ -91,6 +104,7 @@
   </footer>
 
   <script src="chapter-locator.js?v=10"></script>
+  <script src="install-disclaimer.js?v=13"></script>
   <script type="module" src="app.js?v=10"></script>
   <script type="module" src="resume-direct.js?v=12"></script>
 </body>
