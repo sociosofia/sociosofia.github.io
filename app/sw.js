@@ -1,10 +1,10 @@
 const CACHE_PREFIX = 'sociosofia-alunos-';
-const CACHE = `${CACHE_PREFIX}v8`;
+const CACHE = `${CACHE_PREFIX}v9`;
 const APP_SHELL = [
   './',
   './index.html',
   './styles.css',
-  './app.js?v=6',
+  './app.js?v=9',
   './chapter-locator.js?v=8',
   './content.js',
   './manifest.webmanifest',
