@@ -11,10 +11,10 @@ const state = {
   favoritesOnly: false,
   favorites: new Set(readJson(STORAGE_KEYS.favorites, [])),
   annualHtml: null,
+  annualHtmlPromise: null,
   installPrompt: null,
   activeChapter: null,
-  readerPollId: null,
-  readerScrollTimeouts: []
+  openRequestId: 0
 };
 
 const stagesContainer = document.getElementById('stages');
@@ -134,6 +134,7 @@ function updateContinueCard() {
   const chapter = CHAPTERS.find((item) => item.id === id);
   if (!chapter) {
     continueCard.hidden = true;
+    continueButton.onclick = null;
     return;
   }
   continueTitle.textContent = `Capítulo ${chapter.id} · ${chapter.title}`;
@@ -142,125 +143,61 @@ function updateContinueCard() {
   continueCard.hidden = false;
 }
 
-async function loadAnnualPage() {
-  if (state.annualHtml) return state.annualHtml;
+function loadAnnualPage() {
+  if (state.annualHtml) return Promise.resolve(state.annualHtml);
+  if (state.annualHtmlPromise) return state.annualHtmlPromise;
+
   if (!('DecompressionStream' in window)) {
-    throw new Error('Este navegador não oferece o recurso necessário para abrir o material integrado.');
+    return Promise.reject(new Error('Este navegador não oferece o recurso necessário para abrir o material integrado.'));
   }
 
-  const parts = await Promise.all(LEGACY_FILES.map(async (filename) => {
-    const response = await fetch(`${COURSE.sourcePath}${filename}`);
-    if (!response.ok) throw new Error(`Falha ao carregar ${filename}.`);
-    return (await response.text()).trim();
-  }));
+  state.annualHtmlPromise = (async () => {
+    const parts = await Promise.all(LEGACY_FILES.map(async (filename) => {
+      const response = await fetch(`${COURSE.sourcePath}${filename}`);
+      if (!response.ok) throw new Error(`Falha ao carregar ${filename}.`);
+      return (await response.text()).trim();
+    }));
 
-  const raw = atob(parts.join(''));
-  const bytes = Uint8Array.from(raw, (character) => character.charCodeAt(0));
-  const stream = new Blob([bytes]).stream().pipeThrough(new DecompressionStream('gzip'));
-  const html = await new Response(stream).text();
-  state.annualHtml = html;
-  return html;
+    const raw = atob(parts.join(''));
+    const bytes = Uint8Array.from(raw, (character) => character.charCodeAt(0));
+    const stream = new Blob([bytes]).stream().pipeThrough(new DecompressionStream('gzip'));
+    const html = await new Response(stream).text();
+    state.annualHtml = html;
+    return html;
+  })().catch((error) => {
+    state.annualHtmlPromise = null;
+    throw error;
+  });
+
+  return state.annualHtmlPromise;
 }
 
-function prepareSrcdoc(html, chapterId) {
+function prepareSrcdoc(html) {
   const base = `<base href="${location.origin}${COURSE.sourcePath}">`;
   const bridgeStyle = `
     <style>
       html { scroll-behavior: auto !important; }
       body { padding-bottom: 80px !important; }
     </style>`;
-  const bridgeScript = `<script>
-    (() => {
-      const jump = () => {
-        const target = document.getElementById('capitulo-${chapterId}');
-        if (!target) return;
-        const top = target.getBoundingClientRect().top + window.scrollY;
-        window.scrollTo(0, Math.max(0, top - 12));
-      };
-      addEventListener('DOMContentLoaded', jump);
-      setTimeout(jump, 60);
-      setTimeout(jump, 180);
-      setTimeout(jump, 500);
-      setTimeout(jump, 1200);
-    })();
-  <\/script>`;
-  const output = html.includes('<head>')
+  return html.includes('<head>')
     ? html.replace('<head>', `<head>${base}${bridgeStyle}`)
     : `${base}${bridgeStyle}${html}`;
-  return output.replace('</body>', `${bridgeScript}</body>`);
 }
 
-function scrollFrameToChapter(chapterId) {
-  try {
-    const frameWindow = readerFrame.contentWindow;
-    const target = readerFrame.contentDocument?.getElementById(`capitulo-${chapterId}`);
-    if (!frameWindow || !target) return false;
-    const top = target.getBoundingClientRect().top + frameWindow.scrollY;
-    frameWindow.scrollTo(0, Math.max(0, top - 12));
-    return true;
-  } catch {
-    return false;
-  }
-}
-
-function clearReaderTimers() {
-  if (state.readerPollId !== null) {
-    clearInterval(state.readerPollId);
-    state.readerPollId = null;
-  }
-  state.readerScrollTimeouts.forEach((timeoutId) => clearTimeout(timeoutId));
-  state.readerScrollTimeouts = [];
-}
-
-function scheduleChapterScroll(chapterId) {
-  state.readerScrollTimeouts.forEach((timeoutId) => clearTimeout(timeoutId));
-  state.readerScrollTimeouts = [0, 80, 240, 700, 1400].map((delay) => setTimeout(() => {
-    if (state.activeChapter?.id === chapterId) scrollFrameToChapter(chapterId);
-  }, delay));
-}
-
-function revealChapterWhenParsed(chapterId) {
-  clearReaderTimers();
-  let attempts = 0;
-
-  const checkDocument = () => {
-    if (state.activeChapter?.id !== chapterId) {
-      clearReaderTimers();
-      return;
-    }
-
-    attempts += 1;
-    const found = scrollFrameToChapter(chapterId);
-    if (found) {
-      readerFrame.style.visibility = 'visible';
-      readerStatus.hidden = true;
-      scheduleChapterScroll(chapterId);
-      if (state.readerPollId !== null) {
-        clearInterval(state.readerPollId);
-        state.readerPollId = null;
-      }
-      return;
-    }
-
-    if (attempts >= 100) {
-      clearReaderTimers();
-      readerFrame.hidden = true;
-      readerStatus.hidden = false;
-      readerStatus.innerHTML = `Não consegui localizar este capítulo dentro do material. <a href="${COURSE.sourcePath}#capitulo-${chapterId}" target="_blank" rel="noopener">Abra a versão anual</a>.`;
-    }
-  };
-
-  checkDocument();
-  if (!readerStatus.hidden) {
-    state.readerPollId = window.setInterval(checkDocument, 50);
-  }
+function resetReaderSurface() {
+  readerStatus.textContent = 'Preparando o capítulo…';
+  readerStatus.hidden = false;
+  readerFrame.hidden = false;
+  readerFrame.style.visibility = 'hidden';
+  readerFrame.removeAttribute('src');
+  readerFrame.srcdoc = '';
 }
 
 async function openChapter(chapterId) {
   const chapter = CHAPTERS.find((item) => item.id === chapterId);
   if (!chapter) return;
 
-  clearReaderTimers();
+  const requestId = ++state.openRequestId;
   state.activeChapter = chapter;
   localStorage.setItem(STORAGE_KEYS.lastChapter, String(chapter.id));
   updateContinueCard();
@@ -269,12 +206,7 @@ async function openChapter(chapterId) {
   readerStage.textContent = chapter.stageName;
   readerMeta.textContent = `Capítulo ${chapter.id} · páginas ${chapter.pages}`;
   legacyLink.href = `${COURSE.sourcePath}#capitulo-${chapter.id}`;
-  readerStatus.textContent = 'Preparando o capítulo…';
-  readerStatus.hidden = false;
-  readerFrame.hidden = false;
-  readerFrame.style.visibility = 'hidden';
-  readerFrame.removeAttribute('src');
-  readerFrame.srcdoc = '';
+  resetReaderSurface();
   updateReaderFavorite();
 
   if (!reader.open) reader.showModal();
@@ -282,23 +214,25 @@ async function openChapter(chapterId) {
 
   try {
     const html = await loadAnnualPage();
-    readerFrame.srcdoc = prepareSrcdoc(html, chapter.id);
-    revealChapterWhenParsed(chapter.id);
+    if (requestId !== state.openRequestId || state.activeChapter?.id !== chapter.id || !reader.open) return;
+    readerFrame.srcdoc = prepareSrcdoc(html);
   } catch (error) {
+    if (requestId !== state.openRequestId) return;
     console.error(error);
-    clearReaderTimers();
     readerFrame.hidden = true;
+    readerStatus.hidden = false;
     readerStatus.innerHTML = `Não foi possível abrir o conteúdo integrado. <a href="${COURSE.sourcePath}#capitulo-${chapter.id}" target="_blank" rel="noopener">Abra a versão anual</a>.`;
   }
 }
 
 function closeReader() {
+  state.openRequestId += 1;
   if (reader.open) reader.close();
   document.body.style.overflow = '';
-  clearReaderTimers();
   readerFrame.hidden = true;
   readerFrame.style.visibility = '';
   readerFrame.srcdoc = '';
+  readerStatus.hidden = false;
   state.activeChapter = null;
 }
 
