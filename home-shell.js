@@ -5,7 +5,7 @@ export function buildShell(){
   <div class="portal-list">
     ${portal("dados","01","Dados, notícias, artigos e pesquisas","Informações verificáveis para compreender como os problemas aparecem na realidade.")}
     ${portal("cultura","02","Filmes, séries e outros repertórios culturais","Obras que tornam os problemas visíveis, sensíveis e discutíveis.")}
-    <article class="portal-card" data-portal="conceitos"><button class="portal-toggle" type="button" aria-expanded="false"><span class="portal-number">03</span><span class="portal-copy"><strong>Conceitos, temas, autores e autoras</strong><small>Cards editoriais que ajudam a interpretar repertórios. Palavras-chave continuam como etiquetas de busca, sem virar fichas automaticamente.</small></span><span id="contador-conceitos" class="portal-count"></span><span class="portal-arrow">⌄</span></button><div class="portal-panel" hidden><div class="entity-toolbar"><div class="entity-tabs"><button class="entity-tab active" data-entity-type="conceito">Conceitos</button><button class="entity-tab" data-entity-type="tema">Temas</button><button class="entity-tab" data-entity-type="autor">Autores e autoras</button></div><label class="entity-search-label"><span class="sr-only">Filtrar lista</span><input id="busca-entidades" type="search" placeholder="Filtrar esta lista..."></label></div><div id="lista-entidades" class="entity-list"></div><div id="detalhe-entidade" class="entity-detail"><p class="portal-prompt">Escolha um card para ver suas conexões com os repertórios do banco atual.</p></div></div></article>
+    <article class="portal-card" data-portal="conceitos"><button class="portal-toggle" type="button" aria-expanded="false"><span class="portal-number">03</span><span class="portal-copy"><strong>Conceitos, temas, autores e autoras</strong><small>Ideias e referências que ajudam a interpretar repertórios e construir argumentos.</small></span><span id="contador-conceitos" class="portal-count"></span><span class="portal-arrow">⌄</span></button><div class="portal-panel" hidden><div class="entity-toolbar"><div class="entity-tabs"><button class="entity-tab active" data-entity-type="conceito">Conceitos</button><button class="entity-tab" data-entity-type="tema">Temas</button><button class="entity-tab" data-entity-type="autor">Autores e autoras</button></div><label class="entity-search-label"><span class="sr-only">Filtrar lista</span><input id="busca-entidades" type="search" placeholder="Filtrar esta lista..."></label></div><div id="lista-entidades" class="entity-list"></div><div id="detalhe-entidade" class="entity-detail"><p class="portal-prompt">Escolha uma entrada para ver suas conexões com os repertórios disponíveis.</p></div></div></article>
   </div></section>
 
   <section class="section keyword-search-section container" aria-labelledby="titulo-palavras-chave">
@@ -36,7 +36,7 @@ export function buildShell(){
     <div class="section-heading weekly-heading">
       <p class="eyebrow">Repertório da semana</p>
       <h2 id="titulo-repertorio-semana">Para pensar o presente</h2>
-      <p>Uma curadoria ligada a um acontecimento recente, conectada a conceitos, autores e outros repertórios.</p>
+      <p>Um repertório ligado a um acontecimento recente, conectado a conceitos, autores e outras leituras.</p>
     </div>
     <div id="repertorio-semana" class="feature-card"></div>
     <section id="destaques-anteriores" class="previous-highlights" aria-labelledby="titulo-destaques-anteriores" hidden>
