@@ -11,7 +11,6 @@ const state = {
   favoritesOnly: false,
   favorites: new Set(readJson(STORAGE_KEYS.favorites, [])),
   annualHtml: null,
-  annualDocument: null,
   installPrompt: null,
   activeChapter: null
 };
@@ -158,7 +157,6 @@ async function loadAnnualPage() {
   const stream = new Blob([bytes]).stream().pipeThrough(new DecompressionStream('gzip'));
   const html = await new Response(stream).text();
   state.annualHtml = html;
-  state.annualDocument = new DOMParser().parseFromString(html, 'text/html');
   return html;
 }
 
@@ -166,20 +164,48 @@ function prepareSrcdoc(html, chapterId) {
   const base = `<base href="${location.origin}${COURSE.sourcePath}">`;
   const bridgeStyle = `
     <style>
-      html { scroll-behavior: smooth; }
+      html { scroll-behavior: auto !important; }
       body { padding-bottom: 80px !important; }
-      .app-bridge-note { position: sticky; top: 0; z-index: 9999; padding: 9px 14px; background: #F2C14E; color: #1F1F1F; font: 700 13px Inter, system-ui, sans-serif; border-bottom: 1px solid rgba(31,31,31,.16); }
     </style>`;
   const bridgeScript = `<script>
-    addEventListener('DOMContentLoaded', () => {
-      const target = document.getElementById('capitulo-${chapterId}');
-      if (target) target.scrollIntoView({ block: 'start' });
-    });
+    (() => {
+      const jump = () => {
+        const target = document.getElementById('capitulo-${chapterId}');
+        if (!target) return;
+        const top = target.getBoundingClientRect().top + window.scrollY;
+        window.scrollTo(0, Math.max(0, top - 12));
+      };
+      addEventListener('DOMContentLoaded', jump);
+      addEventListener('load', jump);
+      setTimeout(jump, 100);
+      setTimeout(jump, 400);
+    })();
   <\/script>`;
-  const note = `<div class="app-bridge-note">Capítulo ${chapterId} · conteúdo anual integrado ao aplicativo</div>`;
-  let output = html.includes('<head>') ? html.replace('<head>', `<head>${base}${bridgeStyle}`) : `${base}${bridgeStyle}${html}`;
-  output = output.includes('<body>') ? output.replace('<body>', `<body>${note}`) : `${note}${output}`;
+  const output = html.includes('<head>')
+    ? html.replace('<head>', `<head>${base}${bridgeStyle}`)
+    : `${base}${bridgeStyle}${html}`;
   return output.replace('</body>', `${bridgeScript}</body>`);
+}
+
+function scrollFrameToChapter(chapterId) {
+  try {
+    const frameWindow = readerFrame.contentWindow;
+    const target = readerFrame.contentDocument?.getElementById(`capitulo-${chapterId}`);
+    if (!frameWindow || !target) return false;
+    const top = target.getBoundingClientRect().top + frameWindow.scrollY;
+    frameWindow.scrollTo(0, Math.max(0, top - 12));
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+function scheduleChapterScroll(chapterId) {
+  [0, 80, 240, 700].forEach((delay) => {
+    setTimeout(() => {
+      if (state.activeChapter?.id === chapterId) scrollFrameToChapter(chapterId);
+    }, delay);
+  });
 }
 
 async function openChapter(chapterId) {
@@ -207,14 +233,9 @@ async function openChapter(chapterId) {
   try {
     const html = await loadAnnualPage();
     readerFrame.onload = () => {
-      try {
-        const target = readerFrame.contentDocument?.getElementById(`capitulo-${chapter.id}`);
-        if (target) target.scrollIntoView({ block: 'start' });
-      } catch {
-        // O srcdoc continua utilizável mesmo quando o navegador restringe o acesso ao documento interno.
-      }
       readerStatus.hidden = true;
       readerFrame.hidden = false;
+      scheduleChapterScroll(chapter.id);
     };
     readerFrame.srcdoc = prepareSrcdoc(html, chapter.id);
   } catch (error) {
@@ -226,6 +247,7 @@ async function openChapter(chapterId) {
 function closeReader() {
   if (reader.open) reader.close();
   document.body.style.overflow = '';
+  readerFrame.onload = null;
   readerFrame.srcdoc = '';
   state.activeChapter = null;
 }
