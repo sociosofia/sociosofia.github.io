@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-labelledby="icon-title">
+  <title id="icon-title">Ícone SocioSofia</title>
+  <circle cx="256" cy="256" r="236" fill="#F2C14E"/>
+  <circle cx="256" cy="256" r="234" fill="none" stroke="#5B2E91" stroke-opacity=".16" stroke-width="5"/>
+  <text x="256" y="332" text-anchor="middle" fill="#5B2E91" font-family="Fraunces, Georgia, serif" font-size="220" font-weight="800" letter-spacing="-28">SS</text>
+</svg>

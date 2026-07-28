@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="440" height="96" viewBox="0 0 440 96" role="img" aria-labelledby="logo-title logo-desc">
+  <title id="logo-title">SocioSofia</title>
+  <desc id="logo-desc">A palavra SocioSofia com os dois esses maiúsculos em círculos amarelos.</desc>
+  <circle cx="48" cy="48" r="39" fill="#F2C14E"/>
+  <text x="48" y="66" text-anchor="middle" fill="#5B2E91" font-family="Fraunces, Georgia, serif" font-size="55" font-weight="800">S</text>
+  <text x="84" y="66" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="52" font-weight="750" letter-spacing="-1.2">ocio</text>
+  <circle cx="286" cy="48" r="39" fill="#F2C14E"/>
+  <text x="286" y="66" text-anchor="middle" fill="#5B2E91" font-family="Fraunces, Georgia, serif" font-size="55" font-weight="800">S</text>
+  <text x="322" y="66" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="52" font-weight="750" letter-spacing="-1.2">ofia</text>
+</svg>
