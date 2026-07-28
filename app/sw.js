@@ -1,4 +1,5 @@
-const CACHE = 'sociosofia-alunos-v1';
+const CACHE_PREFIX = 'sociosofia-alunos-';
+const CACHE = `${CACHE_PREFIX}v2`;
 const APP_SHELL = [
   './',
   './index.html',
@@ -7,6 +8,7 @@ const APP_SHELL = [
   './content.js',
   './manifest.webmanifest',
   './offline.html',
+  './brand/logo-sociosofia.svg',
   './icons/icon-192.svg',
   './icons/icon-512.svg',
   '../alunos/sociologia-1ano/page-01.b64',
@@ -16,13 +18,21 @@ const APP_SHELL = [
 ];
 
 self.addEventListener('install', (event) => {
-  event.waitUntil(caches.open(CACHE).then((cache) => cache.addAll(APP_SHELL)).then(() => self.skipWaiting()));
+  event.waitUntil(
+    caches.open(CACHE)
+      .then((cache) => cache.addAll(APP_SHELL))
+      .then(() => self.skipWaiting())
+  );
 });
 
 self.addEventListener('activate', (event) => {
   event.waitUntil(
     caches.keys()
-      .then((keys) => Promise.all(keys.filter((key) => key !== CACHE).map((key) => caches.delete(key))))
+      .then((keys) => Promise.all(
+        keys
+          .filter((key) => key.startsWith(CACHE_PREFIX) && key !== CACHE)
+          .map((key) => caches.delete(key))
+      ))
       .then(() => self.clients.claim())
   );
 });
