@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Sociosofia Alunos — percurso permanente de Sociologia do 2º ano do ensino médio.">
+<title>Sociosofia Alunos — Sociologia, 2º ano</title>
+<style>
+:root{--paper:#F7F1E8;--ink:#1F1F1F;--purple:#5B2E91;--terra:#D95D39}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;padding:24px;background:var(--paper);color:var(--ink);font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;text-align:center}main{width:min(620px,100%);padding:34px;border:1px solid rgba(31,31,31,.12);border-radius:24px;background:#FFFDF9;box-shadow:0 18px 45px rgba(31,31,31,.08)}h1{margin:0 0 10px;color:var(--purple);font-family:Georgia,serif;font-size:clamp(2rem,6vw,3.4rem)}p{color:#675F59}.loader{width:54px;height:54px;margin:24px auto 0;border:6px solid rgba(91,46,145,.15);border-top-color:var(--terra);border-radius:50%;animation:spin .8s linear infinite}a{color:var(--purple);font-weight:700}@keyframes spin{to{transform:rotate(360deg)}}@media(prefers-reduced-motion:reduce){.loader{animation:none}}
+</style>
+</head>
+<body>
+<main id="status" aria-live="polite"><h1>Sociosofia Alunos</h1><p>Carregando Sociologia — 2º ano…</p><div class="loader" aria-hidden="true"></div></main>
+<script>
+(async()=>{try{if(!("DecompressionStream" in window))throw new Error("Este navegador não oferece suporte à descompressão da página.");const files=["page-01.b64","page-02-01.b64","page-02-02.b64","page-02-03.b64","page-02-04.b64","page-02-05.b64","page-02-06.b64","page-03-01.b64","page-03-02.b64","page-03-03.b64","page-03-04.b64","page-03-05.b64","page-03-06.b64","page-04-01.b64","page-04-02.b64","page-04-03.b64","page-04-04.b64","page-04-05.b64","page-04-06.b64"];const parts=await Promise.all(files.map(async file=>{const response=await fetch(file,{cache:"force-cache"});if(!response.ok)throw new Error(`Falha ao carregar ${file}`);return(await response.text()).trim()}));const raw=atob(parts.join(""));const bytes=Uint8Array.from(raw,c=>c.charCodeAt(0));const stream=new Blob([bytes]).stream().pipeThrough(new DecompressionStream("gzip"));const page=await new Response(stream).text();document.open();document.write(page);document.close()}catch(error){console.error(error);document.getElementById("status").innerHTML=`<h1>Não foi possível abrir o material.</h1><p>Tente atualizar a página. Persistindo o problema, volte à <a href="../">Área do Estudante</a>.</p>`}})();
+</script>
+</body></html>
