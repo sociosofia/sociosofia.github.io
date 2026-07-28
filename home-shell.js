@@ -1,12 +1,26 @@
 export function buildShell(){
   const main=document.querySelector("#conteudo");
   main.innerHTML=`
-  <section class="section section-feature container"><div class="section-heading"><p class="eyebrow">Curadoria da semana</p><h2>Comece por aqui</h2><p>Um repertório em destaque para circular entre dados, cultura e conceitos.</p></div><div id="curadoria" class="feature-card"></div></section>
+  <section class="section section-feature container" aria-labelledby="titulo-repertorio-semana">
+    <div class="section-heading weekly-heading">
+      <p class="eyebrow">Repertório da semana</p>
+      <h2 id="titulo-repertorio-semana">Para pensar o presente</h2>
+      <p>Uma curadoria ligada a um acontecimento recente, conectada a conceitos, autores e outros repertórios.</p>
+    </div>
+    <div id="repertorio-semana" class="feature-card"></div>
+    <section id="destaques-anteriores" class="previous-highlights" aria-labelledby="titulo-destaques-anteriores" hidden>
+      <div class="previous-highlights-heading">
+        <h3 id="titulo-destaques-anteriores">Destaques anteriores</h3>
+        <p>Repertórios que estiveram em evidência nas semanas anteriores.</p>
+      </div>
+      <div id="lista-destaques-anteriores" class="previous-highlights-grid"></div>
+    </section>
+  </section>
   <section id="temas" class="section container"><div class="section-heading"><p class="eyebrow">Três portas de entrada</p><h2>Escolha por onde começar</h2><p>Você pode começar por um dado, por uma obra cultural ou por uma ferramenta de interpretação e circular entre os três blocos.</p></div>
   <div class="portal-list">
     ${portal("dados","01","Dados, notícias, artigos e pesquisas","Informações verificáveis para compreender como os problemas aparecem na realidade.")}
     ${portal("cultura","02","Filmes, séries e outros repertórios culturais","Obras que tornam os problemas visíveis, sensíveis e discutíveis.")}
-    <article class="portal-card" data-portal="conceitos"><button class="portal-toggle" type="button" aria-expanded="false"><span class="portal-number">03</span><span class="portal-copy"><strong>Conceitos, autores e autoras</strong><small>Ferramentas teóricas para interpretar repertórios e transformá-los em argumento.</small></span><span id="contador-conceitos" class="portal-count"></span><span class="portal-arrow">⌄</span></button><div class="portal-panel" hidden><div class="entity-toolbar"><div class="entity-tabs"><button class="entity-tab active" data-entity-type="conceito">Conceitos</button><button class="entity-tab" data-entity-type="autor">Autores e autoras</button></div><label class="entity-search-label"><span class="sr-only">Filtrar lista</span><input id="busca-entidades" type="search" placeholder="Filtrar esta lista..."></label></div><div id="lista-entidades" class="entity-list"></div><div id="detalhe-entidade" class="entity-detail"><p class="portal-prompt">Escolha uma entrada para ver as conexões com os outros dois blocos.</p></div></div></article>
+    <article class="portal-card" data-portal="conceitos"><button class="portal-toggle" type="button" aria-expanded="false"><span class="portal-number">03</span><span class="portal-copy"><strong>Conceitos, temas, autores e autoras</strong><small>Cards editoriais que ajudam a interpretar repertórios. Palavras-chave continuam como etiquetas de busca, sem virar fichas automaticamente.</small></span><span id="contador-conceitos" class="portal-count"></span><span class="portal-arrow">⌄</span></button><div class="portal-panel" hidden><div class="entity-toolbar"><div class="entity-tabs"><button class="entity-tab active" data-entity-type="conceito">Conceitos</button><button class="entity-tab" data-entity-type="tema">Temas</button><button class="entity-tab" data-entity-type="autor">Autores e autoras</button></div><label class="entity-search-label"><span class="sr-only">Filtrar lista</span><input id="busca-entidades" type="search" placeholder="Filtrar esta lista..."></label></div><div id="lista-entidades" class="entity-list"></div><div id="detalhe-entidade" class="entity-detail"><p class="portal-prompt">Escolha um card para ver suas conexões com os repertórios do banco atual.</p></div></div></article>
   </div></section>
   <section id="repertorios" class="section container search-results-section" hidden><div class="section-heading split"><div><p class="eyebrow">Busca integrada</p><h2>Resultados</h2><p id="resumo-busca"></p></div><button id="limpar-busca" class="button ghost">Limpar busca</button></div><div id="lista-resultados" class="card-grid"></div><p id="sem-resultados" class="empty-state" hidden>Nenhum repertório encontrado.</p></section>`;
 }
