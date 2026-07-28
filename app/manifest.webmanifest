@@ -1,6 +1,7 @@
 {
-  "name": "Sociosofia Alunos",
-  "short_name": "Sociosofia",
+  "id": "./",
+  "name": "SocioSofia Alunos",
+  "short_name": "SocioSofia",
   "description": "Percursos de Sociologia e Filosofia para estudantes do ensino médio.",
   "lang": "pt-BR",
   "start_url": "./",
@@ -11,7 +12,7 @@
   "theme_color": "#5B2E91",
   "categories": ["education", "books"],
   "icons": [
-    { "src": "icons/icon-192.svg", "sizes": "192x192", "type": "image/svg+xml", "purpose": "any maskable" },
-    { "src": "icons/icon-512.svg", "sizes": "512x512", "type": "image/svg+xml", "purpose": "any maskable" }
+    { "src": "icons/icon-192.svg", "sizes": "192x192", "type": "image/svg+xml", "purpose": "any" },
+    { "src": "icons/icon-512.svg", "sizes": "512x512", "type": "image/svg+xml", "purpose": "any" }
   ]
 }
