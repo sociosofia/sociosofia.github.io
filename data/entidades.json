@@ -1,0 +1,135 @@
+{
+  "conceito": [
+    {"nome": "Alienação"},
+    {"nome": "Alteridade"},
+    {"nome": "Angústia"},
+    {"nome": "Autoridade"},
+    {"nome": "Branquitude"},
+    {"nome": "Capital cultural"},
+    {"nome": "Capital simbólico"},
+    {"nome": "Capitalismo"},
+    {"nome": "Cidadania"},
+    {"nome": "Colonialidade"},
+    {"nome": "Democracia"},
+    {"nome": "Desigualdade estrutural"},
+    {"nome": "Desumanização"},
+    {"nome": "Disciplina"},
+    {"nome": "Distinção"},
+    {"nome": "Estado"},
+    {"nome": "Eugenia"},
+    {"nome": "Existência"},
+    {"nome": "Fascismo"},
+    {"nome": "Finitude"},
+    {"nome": "Gênero"},
+    {"nome": "Hegemonia"},
+    {"nome": "Ideologia"},
+    {"nome": "Indústria cultural"},
+    {"nome": "Masculinidade"},
+    {"nome": "Medicalização"},
+    {"nome": "Mercantilização"},
+    {"nome": "Militarização"},
+    {"nome": "Misoginia"},
+    {"nome": "Necropolítica"},
+    {"nome": "Obediência"},
+    {"nome": "Objetificação"},
+    {"nome": "Pós-humanismo"},
+    {"nome": "Precarização"},
+    {"nome": "Racismo científico"},
+    {"nome": "Racismo estrutural"},
+    {"nome": "Reconhecimento"},
+    {"nome": "Reprodução social"},
+    {"nome": "Simulação"},
+    {"nome": "Socialização"},
+    {"nome": "Sociedade do espetáculo"},
+    {"nome": "Subjetividade"},
+    {"nome": "Técnica"},
+    {"nome": "Uberização"},
+    {"nome": "Violência estrutural"},
+    {"nome": "Violência simbólica"}
+  ],
+  "tema": [
+    {
+      "nome": "Juventudes, educação e escola",
+      "termos": ["juventude", "adolescência", "escola", "educação", "infância", "docente"],
+      "resumo": "Reúne repertórios sobre formação, experiência escolar, desigualdades educacionais e trajetórias juvenis presentes no banco atual."
+    },
+    {
+      "nome": "Trabalho e desigualdade",
+      "termos": ["trabalho", "precarização", "uberização", "pobreza", "desigualdade", "renda"],
+      "resumo": "Reúne repertórios que relacionam trabalho, exploração, proteção social, pobreza e distribuição desigual de oportunidades."
+    },
+    {
+      "nome": "Saúde mental e cuidado",
+      "termos": ["saúde mental", "sofrimento", "cuidado", "medicalização", "trauma", "ansiedade"],
+      "resumo": "Reúne repertórios sobre sofrimento psíquico, cuidado, pertencimento e as condições sociais que atravessam o bem-estar."
+    },
+    {
+      "nome": "Raça, racismo e colonialidade",
+      "termos": ["racismo", "racial", "branquitude", "colonialidade", "eugenia", "embranquecimento"],
+      "resumo": "Reúne repertórios sobre produção histórica das hierarquias raciais, colonialidade, branquitude e formas de resistência."
+    },
+    {
+      "nome": "Tecnologia e vida digital",
+      "termos": ["tecnologia", "digital", "algoritmo", "inteligência artificial", "vigilância", "pós-humanismo"],
+      "resumo": "Reúne repertórios sobre mediação tecnológica, subjetividade, vigilância, algoritmos e transformação dos vínculos."
+    },
+    {
+      "nome": "Cultura, mídia e identidade",
+      "termos": ["cultura", "mídia", "identidade", "espetáculo", "indústria cultural", "representação"],
+      "resumo": "Reúne repertórios sobre produção cultural, imagens, identidades, consumo e disputa de sentidos."
+    },
+    {
+      "nome": "Política, democracia e cidadania",
+      "termos": ["política", "democracia", "cidadania", "estado", "ditadura", "participação"],
+      "resumo": "Reúne repertórios sobre poder, Estado, participação, autoritarismo, direitos e experiências democráticas."
+    },
+    {
+      "nome": "Violência, guerra e justiça",
+      "termos": ["violência", "guerra", "polícia", "crime", "justiça", "desumanização"],
+      "resumo": "Reúne repertórios sobre produção social da violência, guerra, punição, segurança e construção do inimigo."
+    },
+    {
+      "nome": "Gênero, corpo e sexualidade",
+      "termos": ["gênero", "corpo", "mulher", "masculinidade", "misoginia", "sexualidade"],
+      "resumo": "Reúne repertórios sobre normas de gênero, controle dos corpos, masculinidades, sexualidade e desigualdade."
+    },
+    {
+      "nome": "Religião, moralidade e sentido",
+      "termos": ["religião", "fé", "moralidade", "salvação", "finitude", "sentido da vida"],
+      "resumo": "Reúne repertórios sobre fé, autoridade religiosa, moralidade, finitude e busca de sentido."
+    }
+  ],
+  "autor": [
+    {"nome": "Abdias do Nascimento"},
+    {"nome": "Achille Mbembe"},
+    {"nome": "Antonio Gramsci"},
+    {"nome": "bell hooks"},
+    {"nome": "Bernard Lahire"},
+    {"nome": "Byung-Chul Han"},
+    {"nome": "Christophe Dejours"},
+    {"nome": "Donna Haraway"},
+    {"nome": "Émile Durkheim"},
+    {"nome": "Erik Erikson"},
+    {"nome": "Frantz Fanon"},
+    {"nome": "Guy Debord"},
+    {"nome": "Hannah Arendt"},
+    {"nome": "Jessé Souza"},
+    {"nome": "Josué de Castro"},
+    {"nome": "Karl Marx"},
+    {"nome": "Lev Vygotsky"},
+    {"nome": "Loïc Wacquant"},
+    {"nome": "Max Weber"},
+    {"nome": "Michel Foucault"},
+    {"nome": "Nilma Lino Gomes"},
+    {"nome": "Paulo Freire"},
+    {"nome": "Pierre Bourdieu"},
+    {"nome": "Platão"},
+    {"nome": "Ricardo Antunes"},
+    {"nome": "Sigmund Freud"},
+    {"nome": "Simone de Beauvoir"},
+    {"nome": "Søren Kierkegaard"},
+    {"nome": "Theodor Adorno e Max Horkheimer"},
+    {"nome": "Walter Benjamin"},
+    {"nome": "Zygmunt Bauman"}
+  ]
+}
