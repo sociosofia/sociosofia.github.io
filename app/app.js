@@ -32,7 +32,7 @@ const readerTitle = document.getElementById('reader-title');
 const readerStage = document.getElementById('reader-stage');
 const readerMeta = document.getElementById('reader-meta');
 const readerStatus = document.getElementById('reader-status');
-const readerFrame = document.getElementById('reader-frame');
+let readerFrame = document.getElementById('reader-frame');
 const readerFavorite = document.getElementById('reader-favorite');
 const legacyLink = document.getElementById('legacy-link');
 const connectionStatus = document.getElementById('connection-status');
@@ -184,13 +184,24 @@ function prepareSrcdoc(html) {
     : `${base}${bridgeStyle}${html}`;
 }
 
+function createFreshReaderFrame() {
+  window.SocioSofiaChapterLocator?.stop();
+
+  const freshFrame = document.createElement('iframe');
+  freshFrame.id = 'reader-frame';
+  freshFrame.title = 'Conteúdo do capítulo';
+  freshFrame.hidden = false;
+  freshFrame.style.visibility = 'hidden';
+
+  readerFrame.replaceWith(freshFrame);
+  readerFrame = freshFrame;
+  return freshFrame;
+}
+
 function resetReaderSurface() {
   readerStatus.textContent = 'Preparando o capítulo…';
   readerStatus.hidden = false;
-  readerFrame.hidden = false;
-  readerFrame.style.visibility = 'hidden';
-  readerFrame.removeAttribute('src');
-  readerFrame.srcdoc = '';
+  return createFreshReaderFrame();
 }
 
 async function openChapter(chapterId) {
@@ -206,7 +217,7 @@ async function openChapter(chapterId) {
   readerStage.textContent = chapter.stageName;
   readerMeta.textContent = `Capítulo ${chapter.id} · páginas ${chapter.pages}`;
   legacyLink.href = `${COURSE.sourcePath}#capitulo-${chapter.id}`;
-  resetReaderSurface();
+  const frameForRequest = resetReaderSurface();
   updateReaderFavorite();
 
   if (!reader.open) reader.showModal();
@@ -215,7 +226,11 @@ async function openChapter(chapterId) {
   try {
     const html = await loadAnnualPage();
     if (requestId !== state.openRequestId || state.activeChapter?.id !== chapter.id || !reader.open) return;
-    readerFrame.srcdoc = prepareSrcdoc(html);
+    if (frameForRequest !== readerFrame || !frameForRequest.isConnected) return;
+
+    frameForRequest.dataset.openRequest = String(requestId);
+    frameForRequest.srcdoc = prepareSrcdoc(html);
+    window.SocioSofiaChapterLocator?.start();
   } catch (error) {
     if (requestId !== state.openRequestId) return;
     console.error(error);
@@ -227,11 +242,12 @@ async function openChapter(chapterId) {
 
 function closeReader() {
   state.openRequestId += 1;
+  window.SocioSofiaChapterLocator?.stop();
   if (reader.open) reader.close();
   document.body.style.overflow = '';
   readerFrame.hidden = true;
   readerFrame.style.visibility = '';
-  readerFrame.srcdoc = '';
+  readerFrame.removeAttribute('srcdoc');
   readerStatus.hidden = false;
   state.activeChapter = null;
 }
@@ -294,6 +310,12 @@ window.addEventListener('appinstalled', () => {
 });
 window.addEventListener('online', updateConnectionStatus);
 window.addEventListener('offline', updateConnectionStatus);
+window.addEventListener('pageshow', (event) => {
+  if (!event.persisted) return;
+  state.annualHtmlPromise = null;
+  if (reader.open) closeReader();
+  updateContinueCard();
+});
 
 if ('serviceWorker' in navigator) {
   window.addEventListener('load', () => navigator.serviceWorker.register('./sw.js', { scope: './' }).catch(console.error));
@@ -302,4 +324,3 @@ if ('serviceWorker' in navigator) {
 render();
 updateContinueCard();
 updateConnectionStatus();
-loadAnnualPage().catch(() => {});
