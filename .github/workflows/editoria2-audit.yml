@@ -7,6 +7,12 @@ on:
       - 'editoria2/**'
       - 'alunos/**'
       - '.github/workflows/editoria2-audit.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'editoria2/**'
+      - 'alunos/**'
+      - '.github/workflows/editoria2-audit.yml'
   workflow_dispatch:
 
 permissions:
