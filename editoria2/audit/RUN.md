@@ -1,0 +1,1 @@
+Executar auditoria comparativa da Editoria 2.
