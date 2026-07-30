@@ -1,0 +1,1 @@
+A pasta /editoria2/ é um ambiente comparativo. Não substitui /alunos/.

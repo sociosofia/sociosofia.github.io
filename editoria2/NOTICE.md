@@ -1,0 +1,1 @@
+Ambiente comparativo da nova Área do Estudante. A área oficial em /alunos/ permanece intacta.
