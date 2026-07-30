@@ -44,7 +44,9 @@ jobs:
           sleep 3
 
       - name: Executar testes comparativos
-        run: node editoria2/audit/audit.mjs
+        run: |
+          node editoria2/audit/audit.mjs
+          node editoria2/audit/current-chapter.mjs
 
       - name: Publicar relatórios e capturas
         if: always()
