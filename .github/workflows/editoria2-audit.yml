@@ -1,0 +1,50 @@
+name: Auditoria comparativa Editoria 2
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'editoria2/**'
+      - 'alunos/**'
+      - '.github/workflows/editoria2-audit.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Baixar repositório
+        uses: actions/checkout@v4
+
+      - name: Configurar Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Instalar ferramentas de auditoria
+        run: |
+          npm init -y
+          npm install playwright @axe-core/playwright
+          npx playwright install --with-deps chromium
+
+      - name: Iniciar servidor local
+        run: |
+          python3 -m http.server 8000 > /tmp/sociosofia-server.log 2>&1 &
+          echo $! > /tmp/sociosofia-server.pid
+          sleep 3
+
+      - name: Executar testes comparativos
+        run: node editoria2/audit/audit.mjs
+
+      - name: Publicar relatórios e capturas
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: editoria2-audit
+          path: editoria2/audit/output/
+          if-no-files-found: warn
+          retention-days: 14
