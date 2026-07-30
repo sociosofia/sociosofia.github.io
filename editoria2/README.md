@@ -13,15 +13,27 @@ Comparar a área atual com uma nova versão baseada em:
 - correspondência explícita com o material didático e suas páginas;
 - movimentos de compreensão do capítulo;
 - entidades canônicas reutilizáveis;
-- navegação entre movimentos;
+- navegação anual, por etapa, capítulo e movimento;
+- busca entre capítulos, perguntas, conceitos e autores;
+- retomada do último movimento visitado;
 - trilhas adicionadas apenas posteriormente, quando houver autor ou autora, repertório e dado ou evidência verificável.
+
+## Unidade de produção
+
+Após a validação dos protótipos, a unidade de produção passa a ser:
+
+```text
+um componente completo de um ano
+```
+
+O lote deve ser revisto como conjunto antes do início do componente seguinte.
 
 ## Fluxo de trabalho
 
 ```text
 conteúdo atual + material didático
 → reconstrução dos movimentos
-→ implementação na Editoria 2
+→ implementação anual na Editoria 2
 → comparação com /alunos/
 → registro de ganhos e perdas
 → correções
@@ -38,7 +50,8 @@ conteúdo atual + material didático
 - legibilidade;
 - continuidade entre capítulos;
 - preservação de autores, conceitos, repertórios e dados já existentes;
-- facilidade de manutenção e reutilização;
+- funcionamento das fichas reutilizáveis em capítulos diferentes;
+- facilidade de manutenção;
 - instalação e comportamento como PWA;
 - eventuais perdas da estrutura anterior.
 
@@ -49,10 +62,29 @@ conteúdo atual + material didático
 - `aprovado para integração` — passou pela revisão editorial e funcional;
 - `publicado` — integrado à área oficial após confirmação explícita.
 
-## Situação inicial
+## Lote 01 — Sociologia — 2º ano
 
-- branch: `editoria2`;
+- instituição: SESI Rio Claro;
+- edição: SESI-SP, 3ª edição, 2026;
+- etapas: 3;
+- capítulos: 6;
+- movimentos: 36;
+- fichas reutilizáveis iniciais: 19;
+- trilhas públicas: nenhuma neste lote;
 - área oficial preservada: `/alunos/`;
-- primeiro recorte de implementação: Sociologia, 2º ano, capítulo 2;
-- nenhuma alteração automática da página inicial;
-- nenhuma substituição autorizada.
+- página inicial do site: não alterada;
+- estado: `em desenvolvimento`, pronta para primeira comparação funcional.
+
+## Arquivos
+
+- `index.html` — casca da aplicação comparativa;
+- `styles.css` — identidade visual e responsividade;
+- `app.js` — capítulos, movimentos, fichas, busca e retomada.
+
+## Restrições vigentes
+
+- não substituir `/alunos/`;
+- não criar link na página inicial;
+- não tratar a branch como publicação aprovada;
+- não ativar trilhas incompletas;
+- não remover funções da área antiga sem comparação explícita.
