@@ -21,6 +21,7 @@
     <p>Carregando Filosofia — 2º ano…</p>
     <div class="loader" aria-hidden="true"></div>
   </main>
+  <script src="../accessibility-patch.js"></script>
   <script>
     (async()=>{
       try{
@@ -29,7 +30,8 @@
         const parts=await Promise.all(files.map(async file=>{const response=await fetch(file,{cache:"force-cache"});if(!response.ok)throw new Error(`Falha ao carregar ${file}`);return(await response.text()).trim()}));
         const raw=atob(parts.join(""));const bytes=Uint8Array.from(raw,c=>c.charCodeAt(0));
         const stream=new Blob([bytes]).stream().pipeThrough(new DecompressionStream("gzip"));
-        const page=await new Response(stream).text();
+        let page=await new Response(stream).text();
+        page=window.applySociosofiaAccessibilityPatch?.(page)||page;
         document.open();document.write(page);document.close();
       }catch(error){
         console.error(error);
