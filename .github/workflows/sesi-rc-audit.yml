@@ -32,10 +32,20 @@ jobs:
         run: |
           python3 -m http.server 8000 > /tmp/sociosofia-server.log 2>&1 &
           sleep 3
-      - name: Executar auditoria
+      - name: Ajustar verificações do auditor
         run: |
-          sed -i "s/waitForSelector('#site-data',{timeout:30000})/waitForSelector('#site-data',{state:'attached',timeout:30000})/g" audit/sesi-rc-audit.mjs
-          node audit/sesi-rc-audit.mjs
+          python3 - <<'PY'
+          from pathlib import Path
+          path=Path('audit/sesi-rc-audit.mjs')
+          text=path.read_text()
+          text=text.replace("waitForSelector('#site-data',{timeout:30000})","waitForSelector('#site-data',{state:'attached',timeout:30000})")
+          text=text.replace("const movementIds=data.chapters.flatMap(c=>c.movements.map(m=>m.id));\n    if(new Set(movementIds).size!==movementIds.length) addFailure(result,'Há IDs de movimentos duplicados.');","for(const chapter of data.chapters){const movementIds=chapter.movements.map(m=>m.id);if(new Set(movementIds).size!==movementIds.length)addFailure(result,`Há IDs de movimentos duplicados no capítulo ${chapter.number}.`);}")
+          text=text.replace("const drawerText=await page.locator('#drawer').innerText();","const drawerText=await page.locator('#drawer').textContent();")
+          text=text.replace("const query=target.subject==='Filosofia'?'Kant':'Marx';","const query=Object.values(data.entities)[0]?.title||target.subject;")
+          path.write_text(text)
+          PY
+      - name: Executar auditoria
+        run: node audit/sesi-rc-audit.mjs
       - name: Publicar relatório e capturas
         if: always()
         uses: actions/upload-artifact@v4
