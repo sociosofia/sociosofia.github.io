@@ -1,0 +1,43 @@
+name: Auditoria de fechamento SESI Rio Claro
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'alunos/**'
+      - 'audit/**'
+      - '.github/workflows/sesi-rc-audit.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Baixar repositório
+        uses: actions/checkout@v4
+      - name: Configurar Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Instalar ferramentas
+        run: |
+          npm init -y
+          npm install playwright @axe-core/playwright
+          npx playwright install --with-deps chromium
+      - name: Iniciar servidor local
+        run: |
+          python3 -m http.server 8000 > /tmp/sociosofia-server.log 2>&1 &
+          sleep 3
+      - name: Executar auditoria
+        run: node audit/sesi-rc-audit.mjs
+      - name: Publicar relatório e capturas
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: auditoria-sesi-rio-claro
+          path: audit/output/
+          retention-days: 14
