@@ -1,0 +1,42 @@
+name: Corrigir acessibilidade SESI Rio Claro
+
+on:
+  push:
+    branches: [acessibilidade-sesi-rc]
+    paths:
+      - 'scripts/fix-sesi-accessibility.mjs'
+      - '.github/workflows/fix-sesi-accessibility.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  fix:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Baixar repositório
+        uses: actions/checkout@v4
+        with:
+          ref: acessibilidade-sesi-rc
+
+      - name: Configurar Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Aplicar correções preservando o conteúdo pedagógico
+        run: node scripts/fix-sesi-accessibility.mjs
+
+      - name: Registrar arquivos corrigidos
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add alunos/filosofia-1ano alunos/sociologia-1ano alunos/sociologia-2ano alunos/filosofia-2ano
+          if git diff --cached --quiet; then
+            echo "Nenhuma alteração necessária."
+          else
+            git commit -m "Corrigir contraste e foco das gavetas do SESI"
+            git push origin HEAD:acessibilidade-sesi-rc
+          fi
