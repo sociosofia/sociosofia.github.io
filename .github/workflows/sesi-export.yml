@@ -1,0 +1,34 @@
+name: Exportar Área do Estudante SESI
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - '.github/workflows/sesi-export.yml'
+      - 'alunos/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  export:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Baixar repositório
+        uses: actions/checkout@v4
+
+      - name: Preparar pacote
+        run: |
+          mkdir -p export
+          cp -R alunos export/alunos
+          if [ -f manifest.webmanifest ]; then cp manifest.webmanifest export/; fi
+          if [ -f sw.js ]; then cp sw.js export/; fi
+          find export -maxdepth 3 -type f -print
+
+      - name: Publicar pacote
+        uses: actions/upload-artifact@v4
+        with:
+          name: sociosofia-area-estudante-atual
+          path: export/
+          retention-days: 7
