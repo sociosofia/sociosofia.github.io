@@ -33,7 +33,9 @@ jobs:
           python3 -m http.server 8000 > /tmp/sociosofia-server.log 2>&1 &
           sleep 3
       - name: Executar auditoria
-        run: node audit/sesi-rc-audit.mjs
+        run: |
+          sed -i "s/waitForSelector('#site-data',{timeout:30000})/waitForSelector('#site-data',{state:'attached',timeout:30000})/g" audit/sesi-rc-audit.mjs
+          node audit/sesi-rc-audit.mjs
       - name: Publicar relatório e capturas
         if: always()
         uses: actions/upload-artifact@v4
