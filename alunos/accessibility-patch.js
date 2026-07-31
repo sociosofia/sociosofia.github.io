@@ -14,7 +14,9 @@
 
     html = html
       .replaceAll('color:var(--terra)', 'color:var(--terra-text)')
-      .replaceAll('color: var(--terra)', 'color: var(--terra-text)');
+      .replaceAll('color: var(--terra)', 'color: var(--terra-text)')
+      .replaceAll('.next-card .eyebrow{color:var(--yellow)}', '.next-card .eyebrow{color:var(--soft-yellow)}')
+      .replaceAll('background:rgba(255,255,255,.12);color:white', 'background:rgba(0,0,0,.10);color:white');
 
     html = html.replace(
       /<aside class="drawer"([^>]*?)aria-hidden="true"([^>]*?)>/,
