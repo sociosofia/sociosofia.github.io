@@ -9,6 +9,7 @@ on:
       - 'data/temas.json'
       - 'publication-contract.mjs'
       - 'scripts/validate-publicacoes.mjs'
+      - 'scripts/test-publication-contract.mjs'
       - '.github/workflows/validate-publicacoes.yml'
   pull_request:
     branches:
@@ -18,6 +19,7 @@ on:
       - 'data/temas.json'
       - 'publication-contract.mjs'
       - 'scripts/validate-publicacoes.mjs'
+      - 'scripts/test-publication-contract.mjs'
       - '.github/workflows/validate-publicacoes.yml'
   workflow_dispatch:
 
@@ -36,5 +38,8 @@ jobs:
         run: |
           node --check publication-contract.mjs
           node --check scripts/validate-publicacoes.mjs
+          node --check scripts/test-publication-contract.mjs
       - name: Validar publicações e temas
         run: node scripts/validate-publicacoes.mjs
+      - name: Testar bloqueios editoriais
+        run: node scripts/test-publication-contract.mjs
