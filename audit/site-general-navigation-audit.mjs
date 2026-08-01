@@ -30,6 +30,7 @@ await page.waitForURL(/index\.html#temas$/);
 
 await page.goto(base+'editoria2/',{waitUntil:'domcontentloaded'});
 await page.waitForURL(/alunos\/sociologia-2ano\/$/);
+assert(!page.url().includes('editoria2'),'O ambiente comparativo ainda permanece como destino público.');
 
 await page.goto(base+'repertorio.html?id=DAD-0009',{waitUntil:'domcontentloaded'});
 await page.waitForSelector('.detail-hero h1');
