@@ -1,0 +1,40 @@
+name: Validar publicações públicas
+
+on:
+  push:
+    branches:
+      - contrato-automacao-publicacao-v1
+    paths:
+      - 'data/publicacoes.json'
+      - 'data/temas.json'
+      - 'publication-contract.mjs'
+      - 'scripts/validate-publicacoes.mjs'
+      - '.github/workflows/validate-publicacoes.yml'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'data/publicacoes.json'
+      - 'data/temas.json'
+      - 'publication-contract.mjs'
+      - 'scripts/validate-publicacoes.mjs'
+      - '.github/workflows/validate-publicacoes.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Verificar sintaxe
+        run: |
+          node --check publication-contract.mjs
+          node --check scripts/validate-publicacoes.mjs
+      - name: Validar publicações e temas
+        run: node scripts/validate-publicacoes.mjs
