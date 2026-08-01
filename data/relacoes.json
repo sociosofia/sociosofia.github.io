@@ -1,0 +1,62 @@
+{
+  "versao_modelo": "publica-0.1",
+  "relacoes": [
+    {
+      "id": "REL-alienacao-evi-trabalho-plataformas",
+      "tipo": "REL",
+      "entidades": [
+        {
+          "entidade_id": "CON-alienacao",
+          "tipo_entidade": "CON"
+        },
+        {
+          "entidade_id": "EVI-trabalho-plataformas-brasil",
+          "tipo_entidade": "EVI"
+        }
+      ],
+      "projecao_publica": {
+        "rotulo_curto": "Dos números para uma pergunta sobre controle",
+        "resumo": "Os indicadores tornam observáveis dimensões do trabalho que o conceito ajuda a transformar em perguntas sobre controle, autonomia e atividade."
+      },
+      "status": "validado"
+    },
+    {
+      "id": "REL-alienacao-vidas-entregues",
+      "tipo": "REL",
+      "entidades": [
+        {
+          "entidade_id": "CON-alienacao",
+          "tipo_entidade": "CON"
+        },
+        {
+          "entidade_id": "CUL-0014",
+          "tipo_entidade": "REP"
+        }
+      ],
+      "projecao_publica": {
+        "rotulo_curto": "Da ferramenta teórica para a experiência",
+        "resumo": "Alienação oferece uma possibilidade de leitura para as tensões apresentadas em Vidas Entregues. O documentário aproxima o conceito de trabalhadores que interpretam suas próprias experiências."
+      },
+      "status": "validado"
+    },
+    {
+      "id": "REL-vidas-entregues-evi-trabalho-plataformas",
+      "tipo": "REL",
+      "entidades": [
+        {
+          "entidade_id": "CUL-0014",
+          "tipo_entidade": "REP"
+        },
+        {
+          "entidade_id": "EVI-trabalho-plataformas-brasil",
+          "tipo_entidade": "EVI"
+        }
+      ],
+      "projecao_publica": {
+        "rotulo_curto": "Da experiência localizada para a escala social",
+        "resumo": "A obra aproxima experiências situadas, enquanto a evidência amplia a escala de observação e permite comparar jornada, renda, informalidade e proteção social."
+      },
+      "status": "validado"
+    }
+  ]
+}
