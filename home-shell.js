@@ -5,7 +5,7 @@ export function buildShell(){
     <div class="section-heading">
       <p class="eyebrow">Três portas de entrada</p>
       <h2>Escolha por onde começar</h2>
-      <p>Comece por um dado, por uma ferramenta de interpretação ou por uma obra cultural. Cada vértice abre seus próprios subtemas e conexões.</p>
+      <p>Comece por um dado, por um conceito ou por um repertório cultural. Cada vértice abre caminhos e conexões diferentes.</p>
     </div>
 
     <div class="entry-elo">
@@ -16,9 +16,9 @@ export function buildShell(){
           <line x1="105" y1="330" x2="395" y2="330"></line>
         </svg>
 
-        ${entryNode("dados","Dado","contador-dados",dataIcon())}
-        ${entryNode("conceitos","Conceito","contador-conceitos",conceptIcon())}
-        ${entryNode("cultura","Repertório","contador-cultura",cultureIcon())}
+        ${entryNode("dados","Dado",dataIcon())}
+        ${entryNode("conceitos","Conceito",conceptIcon())}
+        ${entryNode("cultura","Repertório",cultureIcon())}
       </div>
 
       <p class="entry-help">Toque em um vértice para abrir. Toque novamente no mesmo vértice para fechar.</p>
@@ -29,7 +29,7 @@ export function buildShell(){
           <header class="entry-panel-heading">
             <span class="entry-panel-label">Conceito</span>
             <h3>Conceitos, temas, autores e autoras</h3>
-            <p>Escolha uma ferramenta de interpretação e veja suas conexões com os repertórios disponíveis.</p>
+            <p>Escolha um conceito, tema, autor ou autora e veja as conexões disponíveis.</p>
           </header>
           <div class="entity-toolbar">
             <div class="entity-tabs">
@@ -115,8 +115,8 @@ export function buildShell(){
   <section id="repertorios" class="section container search-results-section" hidden><div class="section-heading split"><div><p class="eyebrow">Busca integrada</p><h2>Resultados</h2><p id="resumo-busca"></p></div><button id="limpar-busca" class="button ghost">Limpar busca</button></div><div id="lista-resultados" class="card-grid"></div><p id="sem-resultados" class="empty-state" hidden>Nenhum repertório encontrado.</p></section>`;
 }
 
-function entryNode(id,label,countId,icon){
-  return `<button class="entry-node" type="button" data-entry-portal="${id}" aria-expanded="false" aria-controls="painel-${id}"><span class="entry-node-disc" aria-hidden="true">${icon}</span><span class="entry-node-title">${label}</span><span class="entry-node-count" id="${countId}"></span></button>`;
+function entryNode(id,label,icon){
+  return `<button class="entry-node" type="button" data-entry-portal="${id}" aria-expanded="false" aria-controls="painel-${id}"><span class="entry-node-disc" aria-hidden="true">${icon}</span><span class="entry-node-title">${label}</span></button>`;
 }
 
 function repertoryPanel(id,label,title,description){
