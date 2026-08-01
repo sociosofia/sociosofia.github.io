@@ -12,6 +12,17 @@ on:
       - 'detail-paths-v1.css'
       - 'audit/detail-identity-audit.mjs'
       - '.github/workflows/detail-identity-audit.yml'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'repertorio.html'
+      - 'detail.js'
+      - 'detail-boot.js'
+      - 'detail-identity-v1.css'
+      - 'detail-paths-v1.css'
+      - 'audit/detail-identity-audit.mjs'
+      - '.github/workflows/detail-identity-audit.yml'
   workflow_dispatch:
 
 permissions:
