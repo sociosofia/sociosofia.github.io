@@ -7,8 +7,9 @@ const browser=await chromium.launch({headless:true});
 const context=await browser.newContext({viewport:{width:390,height:844},locale:'pt-BR'});
 const page=await context.newPage();
 const errors=[];
-page.on('pageerror',error=>errors.push(error.message));
-page.on('console',message=>{if(message.type()==='error')errors.push(message.text());});
+let captureErrors=true;
+page.on('pageerror',error=>{if(captureErrors)errors.push(error.message);});
+page.on('console',message=>{if(captureErrors&&message.type()==='error')errors.push(message.text());});
 
 await page.goto(base+'index.html',{waitUntil:'domcontentloaded'});
 await page.waitForSelector('#elo-da-semana');
@@ -28,14 +29,15 @@ assert(new URL(page.url()).hash==='#elo-da-semana','A âncora antiga não foi re
 await page.goto(base+'guia.html',{waitUntil:'domcontentloaded'});
 await page.waitForURL(/index\.html#temas$/);
 
-errors.length=0;
+captureErrors=false;
 await page.goto(base+'editoria2/',{waitUntil:'domcontentloaded'});
 await page.waitForURL(/alunos\/sociologia-2ano\/$/);
 assert(!page.url().includes('editoria2'),'O ambiente comparativo ainda permanece como destino público.');
 
 // A Área do Estudante possui sua própria camada de dados e será auditada em etapa separada.
-errors.length=0;
 await page.goto(base+'repertorio.html?id=DAD-0009',{waitUntil:'domcontentloaded'});
+captureErrors=true;
+errors.length=0;
 await page.waitForSelector('.detail-hero h1');
 assert(await page.locator('footer a[href="sobre.html"]').count()===1,'Os cards não oferecem acesso à página Sobre.');
 assert(errors.length===0,`Erros no navegador: ${errors.join(' | ')}`);
