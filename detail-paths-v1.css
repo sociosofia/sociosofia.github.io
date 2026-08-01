@@ -1,0 +1,112 @@
+/* Caminhos de exploração dos cards individuais. */
+
+.entity-paths {
+  border: 1px solid rgba(31, 31, 31, 0.1) !important;
+  background: rgba(255, 253, 248, 0.86) !important;
+}
+
+.entity-paths-head {
+  max-width: 760px;
+  margin-bottom: 1.15rem;
+}
+
+.entity-paths-head .eyebrow {
+  margin-bottom: 0.42rem;
+  color: var(--primary);
+}
+
+.entity-paths-head p {
+  color: var(--muted);
+  font-size: 0.93rem;
+}
+
+.entity-path-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0;
+  border: 1px solid rgba(31, 31, 31, 0.1);
+  border-radius: 17px;
+  overflow: hidden;
+}
+
+.entity-path-group {
+  min-width: 0;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.28);
+}
+
+.entity-path-group + .entity-path-group {
+  border-left: 1px solid rgba(31, 31, 31, 0.1);
+}
+
+.entity-path-group h3 {
+  margin: 0 0 0.68rem;
+  color: var(--text);
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 0.94rem;
+  font-weight: 750;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+}
+
+.entity-path-group ul {
+  display: grid;
+  gap: 0;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.entity-path-group li + li {
+  border-top: 1px solid rgba(31, 31, 31, 0.075);
+}
+
+.entity-path-group a {
+  display: block;
+  padding: 0.58rem 0;
+  color: var(--text);
+  font-size: 0.86rem;
+  font-weight: 650;
+  line-height: 1.35;
+  text-decoration: none;
+}
+
+.entity-path-group a:hover,
+.entity-path-group a:focus-visible {
+  color: var(--primary);
+}
+
+.entity-path-group.is-empty p {
+  color: var(--muted);
+  font-size: 0.84rem;
+  line-height: 1.5;
+}
+
+.entity-paths .keyword-group {
+  margin-top: 1.1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(31, 31, 31, 0.09);
+}
+
+.entity-paths .keyword-list li {
+  border: 0;
+  border-radius: 8px;
+  background: rgba(31, 31, 31, 0.04);
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.detail-back {
+  margin: 1.65rem 0 0;
+}
+
+@media (max-width: 800px) {
+  .entity-path-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .entity-path-group + .entity-path-group {
+    border-left: 0;
+    border-top: 1px solid rgba(31, 31, 31, 0.1);
+  }
+}
