@@ -1,0 +1,183 @@
+/* Núcleo relacional v1 — ajustes aprovados para a home e o primeiro Elo.
+   Esta camada não altera a Área do Estudante nem o aplicativo. */
+
+/* Home: o vértice superior mantém o rótulo acima do círculo. */
+.entry-node-count {
+  display: none !important;
+}
+
+.entry-node[data-entry-portal="dados"] .entry-node-title {
+  order: -1;
+  margin: 0 0 0.62rem;
+}
+
+.entry-node[data-entry-portal="dados"] .entry-node-disc {
+  order: 0;
+}
+
+/* Subtemas: lista editorial, não nuvem de cápsulas. */
+.topic-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0;
+  max-width: 900px;
+  margin: 0;
+  border-top: 1px solid var(--line);
+}
+
+.topic-button {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  min-height: 58px;
+  margin: 0;
+  padding: 0.8rem 0.95rem;
+  border: 0 !important;
+  border-right: 1px solid var(--line) !important;
+  border-bottom: 1px solid var(--line) !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  color: var(--text) !important;
+  box-shadow: none !important;
+  font-size: 0.96rem;
+  font-weight: 620;
+  line-height: 1.28;
+  text-align: left;
+}
+
+.topic-button:nth-child(even) {
+  border-right: 0 !important;
+}
+
+.topic-button:hover,
+.topic-button:focus-visible {
+  background: rgba(81, 66, 95, 0.045) !important;
+}
+
+.topic-button.active {
+  background: rgba(81, 66, 95, 0.075) !important;
+  color: var(--primary) !important;
+  box-shadow: inset 3px 0 0 var(--primary) !important;
+}
+
+/* Conceitos, temas e autores: controles regulares e legíveis. */
+.entity-tabs {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.entity-tab {
+  min-height: 43px;
+  padding: 0.65rem 0.9rem;
+  border-radius: 10px !important;
+  font-size: 0.9rem;
+}
+
+.entity-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0;
+  margin-top: 1rem;
+  border-top: 1px solid var(--line);
+}
+
+.entity-chip {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  min-height: 50px;
+  margin: 0;
+  padding: 0.68rem 0.9rem;
+  border: 0 !important;
+  border-right: 1px solid var(--line) !important;
+  border-bottom: 1px solid var(--line) !important;
+  border-radius: 0 !important;
+  background: transparent !important;
+  color: var(--text) !important;
+  box-shadow: none !important;
+  font-size: 0.92rem;
+  font-weight: 620;
+  line-height: 1.25;
+  text-align: left;
+}
+
+.entity-chip:nth-child(even) {
+  border-right: 0 !important;
+}
+
+.entity-chip:hover,
+.entity-chip:focus-visible {
+  background: rgba(81, 66, 95, 0.045) !important;
+}
+
+.entity-chip.active {
+  background: rgba(81, 66, 95, 0.075) !important;
+  color: var(--primary) !important;
+  box-shadow: inset 3px 0 0 var(--primary) !important;
+}
+
+/* Elo: o recurso de retomada automática fica suspenso até haver percursos longos. */
+.elo-resume {
+  display: none !important;
+}
+
+/* Entidades canônicas clicáveis dentro do Elo. */
+.elo-panel-title a,
+.elo-callout a,
+.elo-entity-link {
+  color: inherit;
+  text-decoration-color: rgba(91, 46, 145, 0.32);
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.14em;
+}
+
+.elo-panel-title a:hover,
+.elo-callout a:hover,
+.elo-entity-link:hover {
+  color: var(--elo-purple);
+  text-decoration-color: currentColor;
+}
+
+.elo-entity-note {
+  margin: 0.55rem 0 0;
+  color: var(--elo-muted);
+  font-size: 0.84rem;
+}
+
+.elo-entity-note a {
+  color: var(--elo-purple);
+  font-weight: 700;
+}
+
+@media (max-width: 700px) {
+  .entry-node[data-entry-portal="dados"] .entry-node-title {
+    margin-bottom: 0.52rem;
+  }
+
+  .topic-grid,
+  .entity-list {
+    grid-template-columns: 1fr;
+  }
+
+  .topic-button,
+  .entity-chip,
+  .topic-button:nth-child(even),
+  .entity-chip:nth-child(even) {
+    border-right: 0 !important;
+  }
+
+  .topic-button {
+    min-height: 54px;
+    padding: 0.78rem 0.72rem;
+    font-size: 0.94rem;
+  }
+
+  .entity-chip {
+    min-height: 48px;
+    padding: 0.7rem 0.72rem;
+  }
+}
