@@ -1,0 +1,54 @@
+name: Auditoria do núcleo relacional v1
+
+on:
+  push:
+    branches:
+      - nucleo-elos-cards-v1
+    paths:
+      - 'home-shell.js'
+      - 'home.js'
+      - 'boot.js'
+      - 'elo.html'
+      - 'nucleo-v1.css'
+      - 'nucleo-elo.js'
+      - 'data/elos.json'
+      - 'audit/nucleo-v1-audit.mjs'
+      - '.github/workflows/nucleo-v1-audit.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  testar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Instalar Playwright
+        run: |
+          npm init -y >/dev/null 2>&1
+          npm install playwright@1.54.2
+          npx playwright install --with-deps chromium
+      - name: Validar sintaxe
+        run: |
+          node --check home.js
+          node --check home-shell.js
+          node --check nucleo-elo.js
+          node -e "JSON.parse(require('fs').readFileSync('data/elos.json','utf8'))"
+      - name: Iniciar servidor
+        run: |
+          python3 -m http.server 8000 >/tmp/sociosofia-http.log 2>&1 &
+          sleep 3
+      - name: Auditar interface
+        run: node audit/nucleo-v1-audit.mjs
+      - name: Publicar capturas
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: auditoria-nucleo-v1
+          path: audit/output/nucleo-v1/
+          retention-days: 14
