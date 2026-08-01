@@ -1,7 +1,15 @@
 import {esc,entityEntry,entityLinks,entityMatches,entityUrl,itemEntityNames,keywordList,relationCard} from './site-shared.js';
 
-export function card(i){
-  return `<article class="card" data-type="${esc(i.tipo)}"><span class="tag">${esc(i.tipo||'Repertório')}</span><h3><a class="card-title-link" href="repertorio.html?id=${encodeURIComponent(i.id)}">${esc(i.titulo)}</a></h3>${i.subtitulo?`<p class="card-subtitle">${esc(i.subtitulo)}</p>`:''}<p class="card-summary">${esc(i.resumo||i.resumo_obra||'')}</p><div class="card-meta"><span>${i.bloco==='dados'?'Dados e informações':'Repertório cultural'}</span>${i.subtema?`<span>•</span><span>${esc(i.subtema)}</span>`:''}</div>${entityLinks(i,['conceito','autor'])}${keywordList(i,5)}<div class="card-actions"><a class="read-more" href="repertorio.html?id=${encodeURIComponent(i.id)}">Abrir</a></div></article>`;
+export function card(i,context={}){
+  const url=repertoryUrl(i.id,context);
+  return `<article class="card" data-type="${esc(i.tipo)}"><span class="tag">${esc(i.tipo||'Repertório')}</span><h3><a class="card-title-link" href="${url}">${esc(i.titulo)}</a></h3>${i.subtitulo?`<p class="card-subtitle">${esc(i.subtitulo)}</p>`:''}<p class="card-summary">${esc(i.resumo||i.resumo_obra||'')}</p><div class="card-meta"><span>${i.bloco==='dados'?'Dados e informações':'Repertório cultural'}</span>${i.subtema?`<span>•</span><span>${esc(i.subtema)}</span>`:''}</div>${entityLinks(i,['conceito','autor'])}${keywordList(i,5)}<div class="card-actions"><a class="read-more" href="${url}">Abrir</a></div></article>`;
+}
+
+function repertoryUrl(id,context={}){
+  const params=new URLSearchParams({id});
+  if(context.busca)params.set('busca',context.busca);
+  if(context.origem)params.set('origem',context.origem);
+  return `repertorio.html?${params.toString()}`;
 }
 
 export function feature(i,meta={}){
@@ -28,7 +36,7 @@ function defaultSummary(tipo,nome,n){
   const total=`${n} repertório${n===1?'':'s'}`;
   if(tipo==='autor')return `${nome} aparece como referência teórica em ${total}.`;
   if(tipo==='tema')return `Este tema reúne ${total} e permite comparar diferentes abordagens do assunto.`;
-  return `${nome} ajuda a interpretar ${total} por meio de uma ferramenta conceitual comum.`;
+  return `${nome} é um conceito relacionado a ${total} e pode abrir diferentes caminhos de interpretação.`;
 }
 
 function section(titulo,itens){return `<section class="relation-section"><h3>${titulo}</h3>${itens.length?`<div class="relation-grid">${itens.slice(0,8).map(relationCard).join('')}</div>`:'<p class="portal-prompt">Ainda não há repertórios relacionados nesta seção.</p>'}</section>`;}
