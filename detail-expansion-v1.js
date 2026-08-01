@@ -12,7 +12,7 @@ for(const group of document.querySelectorAll('.entity-path-group, .continuity-ve
   details.className='detail-more-paths';
 
   const summary=document.createElement('summary');
-  const closedLabel=`Ver mais ${hiddenItems.length} caminho${hiddenItems.length===1?'':'s'}`;
+  const closedLabel=`Descobrir mais ${hiddenItems.length} caminho${hiddenItems.length===1?'':'s'}`;
   const openLabel='Recolher caminhos';
   summary.textContent=closedLabel;
 
