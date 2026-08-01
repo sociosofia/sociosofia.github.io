@@ -4,16 +4,9 @@ on:
   push:
     branches:
       - nucleo-elos-cards-v1
-    paths:
-      - 'home-shell.js'
-      - 'home.js'
-      - 'boot.js'
-      - 'elo.html'
-      - 'nucleo-v1.css'
-      - 'nucleo-elo.js'
-      - 'data/elos.json'
-      - 'audit/nucleo-v1-audit.mjs'
-      - '.github/workflows/nucleo-v1-audit.yml'
+  pull_request:
+    branches:
+      - main
   workflow_dispatch:
 
 permissions:
