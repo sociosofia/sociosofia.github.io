@@ -1,0 +1,75 @@
+{
+  "versao": "1.0",
+  "temas": [
+    {
+      "id": "educacao",
+      "nome_publico": "Juventude, educação e escola",
+      "status_taxonomico": "estavel",
+      "aliases": ["Educação e juventudes", "Juventude e escola"],
+      "palavras_descoberta": ["juventude", "jovem", "adolescência", "educação", "escola", "docente", "professor", "bullying", "infância"]
+    },
+    {
+      "id": "trabalho",
+      "nome_publico": "Trabalho e desigualdade",
+      "status_taxonomico": "estavel",
+      "aliases": ["Trabalho, renda e desigualdade"],
+      "palavras_descoberta": ["trabalho", "desigualdade", "pobreza", "precarização", "classe", "renda", "exploração", "alienação", "meritocracia"]
+    },
+    {
+      "id": "racismo",
+      "nome_publico": "Raça, racismo e relações étnico-raciais",
+      "status_taxonomico": "estavel",
+      "aliases": ["Raça e racismo", "Relações étnico-raciais"],
+      "palavras_descoberta": ["racismo", "racial", "raça", "negro", "negra", "branquitude", "colonial", "escravidão", "eugenia", "quilombola", "indígena"]
+    },
+    {
+      "id": "genero",
+      "nome_publico": "Gênero, sexualidade e corpo",
+      "status_taxonomico": "estavel",
+      "aliases": ["Gênero e sexualidade", "Gênero, corpo e sexualidade"],
+      "palavras_descoberta": ["gênero", "mulher", "feminismo", "sexualidade", "LGBTQIA+", "masculinidade", "corpo", "heteronormatividade", "patriarcado"]
+    },
+    {
+      "id": "tecnologia",
+      "nome_publico": "Tecnologia, mídia e vida digital",
+      "status_taxonomico": "estavel",
+      "aliases": ["Tecnologia, algoritmos e vida digital"],
+      "palavras_descoberta": ["tecnologia", "digital", "algoritmo", "inteligência artificial", "mídia", "rede social", "internet", "vigilância", "virtual"]
+    },
+    {
+      "id": "politica",
+      "nome_publico": "Política, democracia e cidadania",
+      "status_taxonomico": "estavel",
+      "aliases": ["Democracia e cidadania"],
+      "palavras_descoberta": ["política", "democracia", "cidadania", "Estado", "poder", "governo", "direito", "participação", "militarização"]
+    },
+    {
+      "id": "cultura",
+      "nome_publico": "Cultura, identidade e diferenças",
+      "status_taxonomico": "estavel",
+      "aliases": ["Cultura, indústria cultural e mídia"],
+      "palavras_descoberta": ["cultura", "identidade", "diferença", "alteridade", "etnocentrismo", "indústria cultural", "representação", "pertencimento"]
+    },
+    {
+      "id": "violencia",
+      "nome_publico": "Violência, direitos humanos e justiça",
+      "status_taxonomico": "estavel",
+      "aliases": ["Direitos humanos, violência e justiça"],
+      "palavras_descoberta": ["violência", "justiça", "crime", "prisão", "polícia", "letalidade", "direitos humanos", "guerra", "controle", "punição"]
+    },
+    {
+      "id": "territorio",
+      "nome_publico": "Meio ambiente, território e sociedade",
+      "status_taxonomico": "estavel",
+      "aliases": ["Meio ambiente e território"],
+      "palavras_descoberta": ["meio ambiente", "território", "cidade", "campo", "clima", "natureza", "sustentabilidade", "moradia", "mobilidade", "desastre"]
+    },
+    {
+      "id": "saude",
+      "nome_publico": "Saúde, cuidado e bem-estar",
+      "status_taxonomico": "provisorio",
+      "aliases": ["Saúde e cuidado"],
+      "palavras_descoberta": ["saúde", "cuidado", "sofrimento", "ansiedade", "depressão", "saúde mental", "doença", "medicalização", "bem-estar"]
+    }
+  ]
+}

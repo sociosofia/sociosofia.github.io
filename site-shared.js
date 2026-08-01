@@ -1,16 +1,19 @@
 export const CULTURA = "Séries, filmes, livros e músicas";
 
-export const TEMAS = [
-  ["educacao","Juventude, educação e escola",["juventude","jovem","adolesc","educa","escola","docente","professor","bullying","infância"]],
-  ["trabalho","Trabalho e desigualdade",["trabalho","desigual","pobreza","precar","classe","renda","explora","alienação","meritocracia"]],
-  ["racismo","Raça, racismo e relações étnico-raciais",["racismo","racial","raça","negro","negra","branquitude","colonial","escrav","eugen","quilomb","indígen"]],
-  ["genero","Gênero, sexualidade e corpo",["gênero","mulher","femin","sexual","lgbt","masculin","corpo","heteronorm","patriarc"]],
-  ["tecnologia","Tecnologia, mídia e vida digital",["tecnologia","digital","algorit","inteligência artificial","mídia","rede social","internet","vigilância","virtual"]],
-  ["politica","Política, democracia e cidadania",["política","democracia","cidadania","estado","poder","governo","direito","participação","militarização"]],
-  ["cultura","Cultura, identidade e diferenças",["cultura","identidade","diferença","alteridade","etnocentr","indústria cultural","representação","pertencimento"]],
-  ["violencia","Violência, direitos humanos e justiça",["violência","justiça","crime","prisão","polícia","letalidade","direitos humanos","guerra","controle","punição"]],
-  ["saude","Saúde, cuidado e bem-estar",["saúde","cuidado","sofrimento","ansiedade","depress","mental","doença","medical","bem-estar"]]
-].map(([id,nome,palavras])=>({id,nome,palavras}));
+const FALLBACK_THEMES=[
+  {id:"educacao",nome:"Juventude, educação e escola",palavras:["juventude","jovem","adolesc","educa","escola","docente","professor","bullying","infância"]},
+  {id:"trabalho",nome:"Trabalho e desigualdade",palavras:["trabalho","desigual","pobreza","precar","classe","renda","explora","alienação","meritocracia"]},
+  {id:"racismo",nome:"Raça, racismo e relações étnico-raciais",palavras:["racismo","racial","raça","negro","negra","branquitude","colonial","escrav","eugen","quilomb","indígen"]},
+  {id:"genero",nome:"Gênero, sexualidade e corpo",palavras:["gênero","mulher","femin","sexual","lgbt","masculin","corpo","heteronorm","patriarc"]},
+  {id:"tecnologia",nome:"Tecnologia, mídia e vida digital",palavras:["tecnologia","digital","algorit","inteligência artificial","mídia","rede social","internet","vigilância","virtual"]},
+  {id:"politica",nome:"Política, democracia e cidadania",palavras:["política","democracia","cidadania","estado","poder","governo","direito","participação","militarização"]},
+  {id:"cultura",nome:"Cultura, identidade e diferenças",palavras:["cultura","identidade","diferença","alteridade","etnocentr","indústria cultural","representação","pertencimento"]},
+  {id:"violencia",nome:"Violência, direitos humanos e justiça",palavras:["violência","justiça","crime","prisão","polícia","letalidade","direitos humanos","guerra","controle","punição"]},
+  {id:"territorio",nome:"Meio ambiente, território e sociedade",palavras:["meio ambiente","território","cidade","campo","clima","natureza","sustentabilidade","moradia","mobilidade","desastre"]},
+  {id:"saude",nome:"Saúde, cuidado e bem-estar",palavras:["saúde","cuidado","sofrimento","ansiedade","depress","mental","doença","medical","bem-estar"]}
+];
+
+export let TEMAS=FALLBACK_THEMES.map(theme=>({...theme}));
 
 export const norm = v => String(v||"").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"");
 export const esc = v => String(v??"").replaceAll("&","&amp;").replaceAll("<","&lt;").replaceAll(">","&gt;").replaceAll('"',"&quot;").replaceAll("'","&#039;");
@@ -19,6 +22,7 @@ export const uniq = a => [...new Set(a.filter(Boolean))].sort((x,y)=>x.localeCom
 
 const EMPTY_REGISTRY={conceito:[],tema:[],autor:[]};
 let entityRegistry=EMPTY_REGISTRY;
+let themesLoaded=false;
 
 function normalizeRegistry(raw={}){
   const out={conceito:[],tema:[],autor:[]};
@@ -26,6 +30,29 @@ function normalizeRegistry(raw={}){
     out[tipo]=list(raw[tipo]).map(entry=>typeof entry==='string'?{nome:entry}:{...entry,nome:entry.nome||entry.titulo}).filter(entry=>entry.nome);
   });
   return out;
+}
+
+export async function loadThemeRegistry(){
+  if(themesLoaded)return TEMAS;
+  themesLoaded=true;
+  try{
+    const response=await fetch('data/temas.json',{cache:'no-store'});
+    if(!response.ok)throw new Error('Não foi possível carregar os temas canônicos');
+    const raw=await response.json();
+    const loaded=(Array.isArray(raw?.temas)?raw.temas:[])
+      .filter(theme=>theme?.id&&theme?.nome_publico)
+      .map(theme=>({
+        id:theme.id,
+        nome:theme.nome_publico,
+        aliases:list(theme.aliases),
+        palavras:list(theme.palavras_descoberta),
+        status_taxonomico:theme.status_taxonomico||'estavel'
+      }));
+    if(loaded.length)TEMAS=loaded;
+  }catch(error){
+    console.warn(error);
+  }
+  return TEMAS;
 }
 
 export async function loadEntityRegistry(){
@@ -45,11 +72,24 @@ export function entityEntry(tipo,nome){return (entityRegistry[tipo]||[]).find(e=
 export function isRegisteredEntity(tipo,nome){return Boolean(entityEntry(tipo,nome));}
 
 export function normalizeItem(i){
-  const categoria=i.categoria||i.editoria||"Notícias, dados e informações";
-  return {...i,categoria,editoria:i.editoria||categoria,bloco:categoria===CULTURA?"cultura":"dados",conceitos:list(i.conceitos),autores:list(i.autores),tags:list(i.tags),palavras_chave:list(i.palavras_chave||i.tags)};
+  const tema_ids=list(i.tema_ids);
+  const primaryTheme=TEMAS.find(theme=>theme.id===tema_ids[0]);
+  const categoria=i.categoria||primaryTheme?.nome||i.editoria||"Notícias, dados e informações";
+  return {
+    ...i,
+    tema_ids,
+    categoria,
+    editoria:i.editoria||categoria,
+    bloco:categoria===CULTURA?"cultura":"dados",
+    conceitos:list(i.conceitos),
+    autores:list(i.autores),
+    tags:list(i.tags),
+    palavras_chave:list(i.palavras_chave||i.tags)
+  };
 }
 
 export async function loadItems(){
+  await loadThemeRegistry();
   const r=await fetch("data/repertorios.json");
   if(!r.ok) throw new Error("Não foi possível carregar os repertórios");
   return (await r.json()).map(normalizeItem).filter(i=>i.status!=="arquivado");
@@ -67,12 +107,26 @@ export async function loadHighlights(){
   }
 }
 
-export function text(i){
-  return norm([i.titulo,i.subtitulo,i.resumo,i.resumo_obra,i.leitura_sociosofia,i.ancoragem_teorica,i.categoria,i.subtema,i.tipo,i.dado,i.ideia,i.conexoes,i.fonte_nome,...i.conceitos,...i.autores,...i.tags].join(" "));
+function themeText(i){
+  return list(i.tema_ids).flatMap(id=>{
+    const theme=TEMAS.find(entry=>entry.id===id);
+    return theme?[theme.nome,...list(theme.aliases)]:[id];
+  });
 }
 
-export function inTheme(i,t){const s=text(i);return t.palavras.some(p=>s.includes(norm(p)));}
-export function themeIds(i){return TEMAS.filter(t=>inTheme(i,t)).map(t=>t.id);}
+export function text(i){
+  return norm([i.titulo,i.subtitulo,i.resumo,i.resumo_obra,i.leitura_sociosofia,i.ancoragem_teorica,i.categoria,i.subtema,i.tipo,i.dado,i.contextualizacao,i.interpretacao_sociosofia,i.ideia,i.conexoes,i.fonte_nome,...themeText(i),...i.conceitos,...i.autores,...i.tags].join(" "));
+}
+
+export function inTheme(i,t){
+  if(list(i.tema_ids).includes(t.id))return true;
+  const s=text(i);
+  return list(t.palavras).some(p=>s.includes(norm(p)));
+}
+export function themeIds(i){
+  const explicit=list(i.tema_ids).filter(id=>TEMAS.some(theme=>theme.id===id));
+  return explicit.length?explicit:TEMAS.filter(t=>inTheme(i,t)).map(t=>t.id);
+}
 const overlap=(a,b)=>a.filter(x=>b.includes(x)).length;
 
 export function entityMatches(i,tipo,nome){
