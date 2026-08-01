@@ -1,0 +1,49 @@
+name: CI temporário do contrato de publicações
+
+on:
+  pull_request:
+    branches:
+      - ci-contrato-publicacao-v1
+
+permissions:
+  contents: read
+
+jobs:
+  validar-estrutura:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Verificar sintaxe
+        run: |
+          node --check publication-contract.mjs
+          node --check scripts/validate-publicacoes.mjs
+          node --check scripts/test-publication-contract.mjs
+      - name: Validar publicações e temas
+        run: node scripts/validate-publicacoes.mjs
+      - name: Testar bloqueios editoriais
+        run: node scripts/test-publication-contract.mjs
+
+  auditar-interface:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Instalar navegador de teste
+        run: |
+          npm init -y >/dev/null 2>&1
+          npm install playwright@1.54.2
+          npx playwright install --with-deps chromium
+      - name: Verificar sintaxe
+        run: node --check audit/publication-contract-browser.mjs
+      - name: Iniciar servidor
+        run: |
+          python3 -m http.server 8000 >/tmp/sociosofia-http.log 2>&1 &
+          sleep 3
+      - name: Auditar renderização
+        run: node audit/publication-contract-browser.mjs
