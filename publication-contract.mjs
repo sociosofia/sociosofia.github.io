@@ -127,7 +127,7 @@ export function normalizePublication(item,themeMap=new Map()){
   return {
     ...item,
     tema_ids:temaIds,
-    categoria:cleanText(item.categoria)||cleanText(primaryTheme?.nome_publico)||'Notícias, dados e informações',
+    categoria:cleanText(primaryTheme?.nome_publico)||cleanText(item.categoria)||'Notícias, dados e informações',
     editoria:cleanText(item.editoria)||'Notícias, dados e informações',
     resumo,
     contextualizacao,
