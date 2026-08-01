@@ -1,18 +1,23 @@
-import {TEMAS,loadItems,loadEntityRegistry,loadHighlights,inTheme,text,norm,esc,entityNames} from './site-shared.js';
+import {TEMAS,loadItems,loadEntityRegistry,inTheme,text,norm,esc,entityNames,itemEntityNames,uniq} from './site-shared.js';
 import {buildShell} from './home-shell.js';
-import {card,feature,previousHighlight,entityDetail} from './home-cards.js';
+import {card,entityDetail} from './home-cards.js';
 
 buildShell();
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
-let items=[],highlights={atual:null,anteriores:[]},state={tema:{dados:null,cultura:null},tipo:'conceito',entidade:''};
+let items=[];
+const state={
+  tema:{dados:null,cultura:null},
+  tipo:'conceito',
+  entidade:'',
+  search:{query:'',current:null,dados:[],cultura:[],conceitos:[],temas:[],autores:[]}
+};
 
 init();
 async function init(){
   menu();events();
   try{
-    const [loadedItems,loadedHighlights]=await Promise.all([loadItems(),loadHighlights(),loadEntityRegistry()]);
+    const [loadedItems]=await Promise.all([loadItems(),loadEntityRegistry()]);
     items=loadedItems;
-    highlights=loadedHighlights;
     renderAll();params();
   }catch(e){
     ['#lista-dados','#lista-cultura'].forEach(s=>$(s).innerHTML='<p class="empty-state">Não foi possível carregar os repertórios.</p>');
@@ -47,26 +52,25 @@ function events(){
 
   $('#temas').addEventListener('keydown',e=>{if(e.key==='Escape')setPortal('',false,false);});
   $('#busca-entidades').addEventListener('input',renderEntities);
-  $('.search-box')?.addEventListener('submit',e=>{e.preventDefault();search($('#busca').value);});
-  $$('[data-chip],[data-search]').forEach(b=>b.addEventListener('click',()=>{const q=b.dataset.chip||b.dataset.search;$('#busca').value=q;search(q);}));
-  $('#limpar-busca').addEventListener('click',()=>{$('#busca').value='';$('#repertorios').hidden=true;});
+  $('.keyword-search-box')?.addEventListener('submit',e=>{e.preventDefault();search($('#busca').value);});
+
+  $('#repertorios').addEventListener('click',e=>{
+    const trigger=e.target.closest('[data-search-portal]');
+    if(trigger){
+      if(trigger.disabled||trigger.getAttribute('aria-disabled')==='true')return;
+      const key=trigger.dataset.searchPortal;
+      setSearchPortal(state.search.current===key?null:key,true);
+      return;
+    }
+    if(e.target.closest('#limpar-busca'))clearSearch();
+  });
+
+  $('#repertorios').addEventListener('keydown',e=>{if(e.key==='Escape')setSearchPortal(null,false);});
 }
 
 function renderAll(){
-  renderWeekly();
   ['dados','cultura'].forEach(b=>{renderThemes(b);renderPortal(b);});
   renderEntities();
-}
-
-function renderWeekly(){
-  const currentMeta=highlights.atual||{};
-  const current=items.find(i=>i.id===currentMeta.id)||items.find(i=>i.destaque)||items[0];
-  $('#repertorio-semana').innerHTML=feature(current,currentMeta);
-
-  const previous=(highlights.anteriores||[]).map(meta=>({meta,item:items.find(i=>i.id===meta.id)})).filter(x=>x.item);
-  const section=$('#destaques-anteriores');
-  section.hidden=previous.length===0;
-  $('#lista-destaques-anteriores').innerHTML=previous.map(({item,meta})=>previousHighlight(item,meta)).join('');
 }
 
 function togglePortal(bloco){
@@ -119,19 +123,122 @@ function renderEntities(){
 function promptEntity(){$('#detalhe-entidade').innerHTML='<p class="portal-prompt">Escolha um conceito, tema, autor ou autora para ver suas conexões disponíveis.</p>';}
 function selectEntity(tipo,nome){state.tipo=tipo;state.entidade=nome;setPortal('conceitos',true,false);$$('[data-entity-type]').forEach(x=>x.classList.toggle('active',x.dataset.entityType===tipo));renderEntities();$('#detalhe-entidade').innerHTML=entityDetail(items,tipo,nome);$('#detalhe-entidade').scrollIntoView({behavior:'smooth',block:'nearest'});}
 
-function search(q,scroll=true){
-  const s=norm(q.trim()),out=items.filter(i=>!s||text(i).includes(s));$('#repertorios').hidden=false;
-  $('#resumo-busca').textContent=q.trim()?`${out.length} resultado${out.length===1?'':'s'} para “${q.trim()}”.`:`${out.length} repertórios disponíveis.`;
-  $('#lista-resultados').innerHTML=out.map(card).join('');$('#sem-resultados').hidden=out.length>0;if(scroll)$('#repertorios').scrollIntoView({behavior:'smooth'});
+function search(rawQuery,scroll=true){
+  const query=String(rawQuery||'').trim();
+  if(!query){clearSearch();$('#busca').focus();return;}
+
+  const s=norm(query);
+  const matchedItems=items.filter(i=>text(i).includes(s));
+  state.search={
+    query,
+    current:null,
+    dados:matchedItems.filter(i=>i.bloco==='dados'),
+    cultura:matchedItems.filter(i=>i.bloco==='cultura'),
+    conceitos:searchEntities('conceito',matchedItems,s),
+    temas:searchEntities('tema',matchedItems,s),
+    autores:searchEntities('autor',matchedItems,s)
+  };
+
+  $('#repertorios').hidden=false;
+  $('#resumo-busca').textContent=`Resultados para “${query}”, organizados pelas três portas do Sociosofia.`;
+  renderSearchNodes();
+  renderSearchPanels();
+  setSearchPortal(null,false);
+
+  const url=new URL(location.href);
+  url.searchParams.set('busca',query);
+  url.searchParams.delete('origem');
+  url.hash='repertorios';
+  history.replaceState({},'',url);
+
+  if(scroll)$('#repertorios').scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+function searchEntities(tipo,matchedItems,queryNorm){
+  const direct=entityNames(items,tipo).filter(nome=>norm(nome).includes(queryNorm));
+  const contextual=matchedItems.flatMap(item=>itemEntityNames(item,tipo));
+  return uniq([...direct,...contextual]);
+}
+
+function renderSearchNodes(){
+  const totals={
+    dados:state.search.dados.length,
+    conceitos:state.search.conceitos.length+state.search.temas.length+state.search.autores.length,
+    cultura:state.search.cultura.length
+  };
+
+  $$('[data-search-portal]').forEach(button=>{
+    const key=button.dataset.searchPortal,total=totals[key]||0,status=button.querySelector('.search-vertex-status');
+    button.disabled=total===0;
+    button.setAttribute('aria-disabled',String(total===0));
+    button.classList.toggle('is-empty',total===0);
+    status.textContent=total===0?'Sem resultados':'';
+  });
+}
+
+function renderSearchPanels(){
+  $('#search-results-dados').innerHTML=resultCards(state.search.dados,'dados');
+  $('#search-results-cultura').innerHTML=resultCards(state.search.cultura,'cultura');
+  $('#search-results-conceitos').innerHTML=conceptualResults();
+}
+
+function resultCards(results,origin){
+  if(!results.length)return '<p class="empty-state">Nenhum resultado neste vértice.</p>';
+  return `<p class="search-branch-summary">${results.length} resultado${results.length===1?'':'s'}.</p><div class="card-grid">${results.map(item=>card(item,{busca:state.search.query,origem:origin})).join('')}</div>`;
+}
+
+function conceptualResults(){
+  const groups=[
+    ['conceito','Conceitos',state.search.conceitos],
+    ['tema','Temas',state.search.temas],
+    ['autor','Autores e autoras',state.search.autores]
+  ].filter(([, ,values])=>values.length);
+  if(!groups.length)return '<p class="empty-state">Nenhum resultado neste vértice.</p>';
+  return groups.map(([tipo,titulo,values])=>`
+    <section class="search-entity-group">
+      <h5>${titulo}</h5>
+      <ul class="search-entity-list">
+        ${values.map(nome=>`<li><a href="${entitySearchUrl(tipo,nome)}">${esc(nome)}</a></li>`).join('')}
+      </ul>
+    </section>
+  `).join('');
+}
+
+function entitySearchUrl(tipo,nome){
+  const params=new URLSearchParams({tipo,entidade:nome,busca:state.search.query,origem:'conceitos'});
+  return `index.html?${params.toString()}#temas`;
+}
+
+function setSearchPortal(key,scroll=true){
+  state.search.current=key;
+  $$('[data-search-portal]').forEach(button=>button.setAttribute('aria-expanded',String(button.dataset.searchPortal===key)));
+  $$('[data-search-panel]').forEach(panel=>{panel.hidden=panel.dataset.searchPanel!==key;});
+  $('#search-help').hidden=Boolean(key);
+  if(key&&scroll){
+    const panel=$(`[data-search-panel="${key}"]`);
+    requestAnimationFrame(()=>panel?.scrollIntoView({behavior:'smooth',block:'nearest'}));
+  }
+}
+
+function clearSearch(){
+  state.search={query:'',current:null,dados:[],cultura:[],conceitos:[],temas:[],autores:[]};
+  $('#busca').value='';
+  $('#repertorios').hidden=true;
+  setSearchPortal(null,false);
+  const url=new URL(location.href);
+  url.searchParams.delete('busca');
+  url.searchParams.delete('origem');
+  if(url.hash==='#repertorios')url.hash='';
+  history.replaceState({},'',url);
 }
 
 function params(){
   const p=new URLSearchParams(location.search),entity=p.get('entidade'),entityType=p.get('tipo'),c=p.get('conceito'),a=p.get('autor'),b=p.get('bloco'),t=p.get('tema'),q=p.get('busca')||p.get('tag');
+  if(q){$('#busca').value=q;search(q,false);}
   if(entity&&['conceito','tema','autor'].includes(entityType)){selectEntity(entityType,entity);return;}
   if(c||a){selectEntity(c?'conceito':'autor',c||a);return;}
   if(['dados','cultura','conceitos'].includes(b)){
     setPortal(b,true,false);
     if(t&&b!=='conceitos'){state.tema[b]=t;renderThemes(b);renderPortal(b);}
   }
-  if(q){$('#busca').value=q;search(q,false);}
 }
