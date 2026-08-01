@@ -1,0 +1,20 @@
+/* Refinamentos da auditoria visual da home v2. */
+.entry-node-title {
+  margin-top: 0.68rem;
+  line-height: 1.18;
+}
+
+.entry-node-count {
+  margin-top: 0.2rem;
+  line-height: 1.15;
+}
+
+@media (max-width: 700px) {
+  .entry-node-title {
+    margin-top: 0.62rem;
+  }
+
+  .entry-node-count {
+    margin-top: 0.16rem;
+  }
+}

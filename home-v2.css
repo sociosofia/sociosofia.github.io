@@ -1,0 +1,491 @@
+/* Home v2 — triângulo de entrada, sobriedade cromática e hierarquia editorial.
+   Esta camada atua apenas na página inicial. A página do Elo permanece intacta. */
+
+body {
+  --primary: #51425f;
+  --secondary: #9a6653;
+  --support: #4d6d6e;
+  --marker: #c8ae6d;
+  --text: #292724;
+  --muted: #706a62;
+  --graphite: #383532;
+  --line: rgba(41, 39, 36, 0.12);
+  --shadow: 0 8px 24px rgba(41, 39, 36, 0.045);
+  background: #f7f1e8;
+}
+
+/* Mais respiro antes da marca e um cabeçalho menos comprimido. */
+.identity-nav {
+  min-height: auto;
+  padding-top: clamp(0.9rem, 2.4vw, 1.35rem);
+  padding-bottom: 0.8rem;
+}
+
+.site-header {
+  padding-bottom: clamp(2.9rem, 6vw, 4.1rem);
+  background: var(--bg);
+}
+
+.hero {
+  padding-top: clamp(3.3rem, 7vw, 5rem);
+}
+
+.hero h1 {
+  max-width: 800px;
+  font-size: clamp(2.25rem, 4.6vw, 3.95rem);
+}
+
+.hero-text {
+  max-width: 690px;
+}
+
+/* A cor vira sinal, não preenchimento permanente. */
+.eyebrow,
+.hero .eyebrow,
+.site-header .eyebrow {
+  color: #746b61;
+  font-size: 0.72rem;
+  letter-spacing: 0.11em;
+}
+
+.section {
+  padding: clamp(2.5rem, 5.4vw, 3.8rem) 0;
+}
+
+.section-heading {
+  margin-bottom: 1.35rem;
+}
+
+.section-heading h2 {
+  color: var(--text);
+  font-size: clamp(1.65rem, 2.8vw, 2.3rem);
+  font-weight: 650;
+  letter-spacing: -0.03em;
+}
+
+.section-heading p:not(.eyebrow) {
+  max-width: 720px;
+  color: var(--muted);
+}
+
+.section-entry {
+  padding-top: clamp(3rem, 6vw, 4.4rem);
+}
+
+.section-entry .section-heading {
+  max-width: 760px;
+  margin-inline: auto;
+  text-align: center;
+}
+
+/* Triângulo de entrada da home. */
+.entry-elo {
+  max-width: 1040px;
+  margin-inline: auto;
+}
+
+.entry-map {
+  position: relative;
+  width: min(100%, 590px);
+  aspect-ratio: 500 / 425;
+  margin: 1.4rem auto 0;
+}
+
+.entry-lines {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.entry-lines line {
+  stroke: #b5ab9e;
+  stroke-width: 1.6;
+  vector-effect: non-scaling-stroke;
+}
+
+.entry-node {
+  --node-color: var(--support);
+  position: absolute;
+  z-index: 1;
+  display: grid;
+  justify-items: center;
+  width: 170px;
+  border: 0;
+  background: transparent;
+  color: var(--text);
+  padding: 0;
+  text-align: center;
+}
+
+.entry-node[data-entry-portal="dados"] {
+  --node-color: var(--support);
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+}
+
+.entry-node[data-entry-portal="conceitos"] {
+  --node-color: var(--primary);
+  left: 3%;
+  bottom: 0;
+}
+
+.entry-node[data-entry-portal="cultura"] {
+  --node-color: var(--secondary);
+  right: 3%;
+  bottom: 0;
+}
+
+.entry-node-disc {
+  display: grid;
+  place-items: center;
+  width: 84px;
+  height: 84px;
+  border: 1px solid color-mix(in srgb, var(--node-color) 62%, white);
+  border-radius: 50%;
+  background: var(--node-color);
+  color: #fffdf8;
+  box-shadow: 0 7px 18px rgba(41, 39, 36, 0.08);
+  transition: transform 160ms ease, box-shadow 160ms ease;
+}
+
+.entry-node-disc svg {
+  width: 43px;
+  height: 43px;
+}
+
+.entry-node:hover .entry-node-disc,
+.entry-node:focus-visible .entry-node-disc {
+  transform: translateY(-2px);
+  box-shadow: 0 9px 22px rgba(41, 39, 36, 0.12);
+}
+
+.entry-node[aria-expanded="true"] .entry-node-disc {
+  box-shadow:
+    0 8px 20px rgba(41, 39, 36, 0.1),
+    0 0 0 7px color-mix(in srgb, var(--node-color) 13%, transparent);
+}
+
+.entry-node-title {
+  margin-top: 0.55rem;
+  font-size: 0.96rem;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+}
+
+.entry-node-count {
+  margin-top: 0.12rem;
+  color: var(--muted);
+  font-size: 0.74rem;
+  font-weight: 600;
+}
+
+.entry-help {
+  margin: 1.1rem auto 0;
+  color: var(--muted);
+  text-align: center;
+  font-size: 0.84rem;
+}
+
+.entry-panel-stack {
+  margin-top: 1.55rem;
+}
+
+.entry-panel[hidden] {
+  display: none !important;
+}
+
+.entry-panel {
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: rgba(255, 253, 248, 0.78);
+  box-shadow: var(--shadow);
+  padding: clamp(1.25rem, 3vw, 1.8rem);
+}
+
+.entry-panel-heading {
+  max-width: 760px;
+  margin-bottom: 1.15rem;
+}
+
+.entry-panel-label {
+  display: block;
+  margin-bottom: 0.3rem;
+  color: var(--muted);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.entry-panel[data-portal="dados"] .entry-panel-label {
+  color: var(--support);
+}
+
+.entry-panel[data-portal="conceitos"] .entry-panel-label {
+  color: var(--primary);
+}
+
+.entry-panel[data-portal="cultura"] .entry-panel-label {
+  color: var(--secondary);
+}
+
+.entry-panel-heading h3 {
+  margin: 0;
+  color: var(--text);
+  font-size: clamp(1.3rem, 2.5vw, 1.7rem);
+  font-weight: 650;
+}
+
+.entry-panel-heading p {
+  margin: 0.45rem 0 0;
+  color: var(--muted);
+}
+
+/* Subtemas e controles mais discretos. */
+.topic-grid,
+.entity-tabs,
+.entity-list,
+.quick-links,
+.inline-links,
+.keyword-list {
+  gap: 0.5rem;
+}
+
+.topic-button,
+.entity-tab,
+.entity-chip,
+.chip,
+.keyword-search-section .chip {
+  border: 1px solid var(--line);
+  background: rgba(255, 253, 248, 0.72);
+  color: #514b45;
+  box-shadow: none;
+  font-weight: 650;
+}
+
+.topic-button:hover,
+.topic-button.active,
+.entity-tab:hover,
+.entity-tab.active,
+.entity-chip:hover,
+.entity-chip.active,
+.chip:hover,
+.chip.active,
+.keyword-search-section .chip:hover,
+.keyword-search-section .chip.active {
+  border-color: rgba(81, 66, 95, 0.24);
+  background: rgba(81, 66, 95, 0.075);
+  color: var(--primary);
+}
+
+.topic-button small {
+  opacity: 0.62;
+}
+
+.entity-search-label input,
+.search-box {
+  border-color: var(--line);
+  background: rgba(255, 253, 248, 0.84);
+  box-shadow: none;
+}
+
+.search-box button,
+.button {
+  background: #383532;
+  color: #fffdf8;
+  font-weight: 700;
+}
+
+.search-box button:hover,
+.button:hover {
+  background: var(--primary);
+  color: #fffdf8;
+}
+
+.button.ghost {
+  border-color: var(--line);
+  background: transparent;
+  color: var(--primary);
+}
+
+/* Cards e destaques: papel, linha e tipografia; menos faixas coloridas. */
+.card,
+.feature-card,
+.detail-card,
+.prose-card,
+.previous-highlight-card,
+.relation-card,
+.elo-home-card {
+  border-color: var(--line);
+  background: rgba(255, 253, 248, 0.8);
+  box-shadow: var(--shadow);
+}
+
+.card,
+.card[data-type="filme"],
+.card[data-type="série"],
+.card[data-type="cultura"],
+.card[data-type="notícia"],
+.card[data-type="conceito"] {
+  border-top: 1px solid var(--line);
+}
+
+.card:hover,
+.previous-highlight-card:hover,
+.relation-card:hover,
+.elo-home-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 28px rgba(41, 39, 36, 0.07);
+}
+
+.card h3,
+.feature-card h3,
+.previous-highlight-card strong,
+.portal-result-heading h3,
+.entity-detail-header h3,
+.relation-section h3 {
+  color: var(--text);
+  font-weight: 650;
+}
+
+.card-title-link,
+.read-more,
+.relation-card strong,
+.inline-links a {
+  color: var(--primary);
+}
+
+.card-title-link:hover,
+.read-more:hover {
+  color: #6b536f;
+}
+
+.tag {
+  border: 1px solid rgba(41, 39, 36, 0.1);
+  background: rgba(41, 39, 36, 0.045);
+  color: #625b54;
+  font-size: 0.7rem;
+  font-weight: 750;
+}
+
+.feature-card {
+  border-left: 1px solid var(--line);
+  gap: 1.55rem;
+}
+
+.weekly-context {
+  border-left: 3px solid #b89d60;
+  background: rgba(200, 174, 109, 0.09);
+}
+
+.weekly-context strong {
+  color: #74623a;
+}
+
+.previous-highlight-card,
+.relation-card,
+.relation-card.cultural {
+  border-left: 1px solid var(--line);
+}
+
+.keyword-list li {
+  background: transparent;
+  color: var(--muted);
+}
+
+.inline-links a {
+  border: 1px solid var(--line);
+  background: rgba(255, 253, 248, 0.72);
+  font-weight: 650;
+}
+
+.inline-links a:hover {
+  border-color: rgba(81, 66, 95, 0.24);
+  background: rgba(81, 66, 95, 0.075);
+  color: var(--primary);
+}
+
+.elo-home-section {
+  padding-top: 0.5rem;
+}
+
+.elo-home-label {
+  color: var(--primary);
+}
+
+.site-footer {
+  background: #2f2c29;
+}
+
+@media (max-width: 700px) {
+  .identity-nav {
+    padding-top: 0.8rem;
+    padding-bottom: 0.65rem;
+  }
+
+  .hero {
+    padding-top: 2.9rem;
+  }
+
+  .entry-map {
+    width: min(100%, 430px);
+    aspect-ratio: 500 / 445;
+  }
+
+  .entry-node {
+    width: 120px;
+  }
+
+  .entry-node[data-entry-portal="conceitos"] {
+    left: 0;
+  }
+
+  .entry-node[data-entry-portal="cultura"] {
+    right: 0;
+  }
+
+  .entry-node-disc {
+    width: 68px;
+    height: 68px;
+  }
+
+  .entry-node-disc svg {
+    width: 35px;
+    height: 35px;
+  }
+
+  .entry-node-title {
+    font-size: 0.88rem;
+  }
+
+  .entry-node-count {
+    font-size: 0.68rem;
+  }
+
+  .entry-panel {
+    border-radius: 17px;
+  }
+}
+
+@media (max-width: 390px) {
+  .entry-map {
+    aspect-ratio: 500 / 470;
+  }
+
+  .entry-node {
+    width: 104px;
+  }
+
+  .entry-node-disc {
+    width: 62px;
+    height: 62px;
+  }
+
+  .entry-node-title {
+    font-size: 0.82rem;
+  }
+}
