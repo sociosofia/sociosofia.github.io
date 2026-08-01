@@ -1,0 +1,225 @@
+/* Página Sobre — identidade editorial integrada ao Sociosofia. */
+
+.about-page {
+  background: var(--bg);
+}
+
+.about-page .site-header.compact {
+  padding-bottom: 0;
+}
+
+.about-shell {
+  width: min(calc(100% - 32px), 1040px);
+  padding: clamp(1.6rem, 5vw, 3rem) 0 clamp(4rem, 8vw, 6rem);
+}
+
+.about-breadcrumb {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin: 0 0 1.35rem;
+  color: var(--muted);
+  font-size: 0.84rem;
+}
+
+.about-breadcrumb a {
+  color: var(--muted);
+  text-decoration: none;
+}
+
+.about-breadcrumb a:hover,
+.about-breadcrumb a:focus-visible {
+  color: var(--primary);
+}
+
+.about-intro {
+  padding: clamp(1.5rem, 4vw, 2.5rem);
+  border: 1px solid rgba(31, 31, 31, 0.11);
+  border-radius: 24px;
+  background: rgba(255, 253, 248, 0.86);
+  box-shadow: 0 12px 34px rgba(31, 31, 31, 0.05);
+}
+
+.about-intro .eyebrow {
+  color: var(--primary);
+}
+
+.about-intro h1 {
+  max-width: 780px;
+  margin: 0.45rem 0 0;
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: clamp(2.25rem, 6vw, 4rem);
+  font-weight: 750;
+  line-height: 1.02;
+  letter-spacing: -0.045em;
+}
+
+.about-lead {
+  max-width: 800px;
+  margin: 1.05rem 0 0;
+  color: #46413d;
+  font-size: clamp(1.05rem, 2vw, 1.24rem);
+  line-height: 1.65;
+}
+
+.about-section {
+  margin-top: clamp(2.2rem, 5vw, 3.6rem);
+}
+
+.about-section > header {
+  max-width: 790px;
+  margin-bottom: 1.25rem;
+}
+
+.about-section h2 {
+  margin: 0 0 0.6rem;
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: clamp(1.55rem, 3vw, 2.25rem);
+  font-weight: 730;
+  letter-spacing: -0.035em;
+}
+
+.about-section header p,
+.about-section > p {
+  color: var(--muted);
+  line-height: 1.72;
+}
+
+.about-doors {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0;
+  border: 1px solid rgba(31, 31, 31, 0.1);
+  border-radius: 20px;
+  overflow: hidden;
+  background: rgba(255, 253, 248, 0.72);
+}
+
+.about-door {
+  min-width: 0;
+  padding: 1.3rem;
+  border-top: 4px solid var(--support);
+}
+
+.about-door + .about-door {
+  border-left: 1px solid rgba(31, 31, 31, 0.1);
+}
+
+.about-door.concept {
+  border-top-color: var(--primary);
+}
+
+.about-door.culture {
+  border-top-color: var(--secondary);
+}
+
+.about-door span {
+  display: block;
+  margin-bottom: 0.42rem;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.about-door.data span { color: var(--support); }
+.about-door.concept span { color: var(--primary); }
+.about-door.culture span { color: var(--secondary); }
+
+.about-door h3 {
+  margin: 0 0 0.55rem;
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 1.12rem;
+  font-weight: 720;
+}
+
+.about-door p {
+  margin: 0;
+  color: #514c47;
+  font-size: 0.93rem;
+  line-height: 1.62;
+}
+
+.about-note {
+  padding: clamp(1.25rem, 3vw, 1.7rem);
+  border-left: 4px solid var(--primary);
+  border-radius: 0 17px 17px 0;
+  background: rgba(91, 46, 145, 0.045);
+}
+
+.about-note h3 {
+  margin: 0 0 0.55rem;
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: 1.18rem;
+  font-weight: 720;
+}
+
+.about-note p {
+  margin: 0;
+  color: #48433f;
+  line-height: 1.72;
+}
+
+.about-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin-top: 1.5rem;
+}
+
+.about-actions a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  border: 1px solid rgba(91, 46, 145, 0.28);
+  border-radius: 999px;
+  padding: 0.68rem 1rem;
+  color: var(--primary);
+  font-size: 0.88rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.about-actions a.primary {
+  border-color: var(--primary);
+  background: var(--primary);
+  color: var(--paper);
+}
+
+.about-actions a:hover,
+.about-actions a:focus-visible {
+  border-color: var(--primary);
+  background: rgba(91, 46, 145, 0.08);
+  color: var(--primary);
+}
+
+.about-actions a.primary:hover,
+.about-actions a.primary:focus-visible {
+  background: #4d257b;
+  color: var(--paper);
+}
+
+@media (max-width: 760px) {
+  .about-doors {
+    grid-template-columns: 1fr;
+  }
+
+  .about-door + .about-door {
+    border-left: 0;
+    border-top-width: 4px;
+  }
+}
+
+@media (max-width: 560px) {
+  .about-shell {
+    width: min(calc(100% - 24px), 1040px);
+    padding-top: 1.25rem;
+  }
+
+  .about-intro {
+    padding: 1.2rem;
+    border-radius: 19px;
+  }
+}
