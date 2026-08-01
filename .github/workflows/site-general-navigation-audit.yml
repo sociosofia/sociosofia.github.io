@@ -14,6 +14,19 @@ on:
       - 'site-navigation-v1.css'
       - 'audit/site-general-navigation-audit.mjs'
       - '.github/workflows/site-general-navigation-audit.yml'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'index.html'
+      - 'sobre.html'
+      - 'repertorio.html'
+      - 'guia.html'
+      - 'editoria2/index.html'
+      - 'about-v1.css'
+      - 'site-navigation-v1.css'
+      - 'audit/site-general-navigation-audit.mjs'
+      - '.github/workflows/site-general-navigation-audit.yml'
   workflow_dispatch:
 
 permissions:
