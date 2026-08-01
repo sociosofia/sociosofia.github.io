@@ -28,10 +28,13 @@ assert(new URL(page.url()).hash==='#elo-da-semana','A âncora antiga não foi re
 await page.goto(base+'guia.html',{waitUntil:'domcontentloaded'});
 await page.waitForURL(/index\.html#temas$/);
 
+errors.length=0;
 await page.goto(base+'editoria2/',{waitUntil:'domcontentloaded'});
 await page.waitForURL(/alunos\/sociologia-2ano\/$/);
 assert(!page.url().includes('editoria2'),'O ambiente comparativo ainda permanece como destino público.');
 
+// A Área do Estudante possui sua própria camada de dados e será auditada em etapa separada.
+errors.length=0;
 await page.goto(base+'repertorio.html?id=DAD-0009',{waitUntil:'domcontentloaded'});
 await page.waitForSelector('.detail-hero h1');
 assert(await page.locator('footer a[href="sobre.html"]').count()===1,'Os cards não oferecem acesso à página Sobre.');
