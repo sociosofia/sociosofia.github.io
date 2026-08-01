@@ -1,5 +1,5 @@
 await import('./publication-feed.js');
-for(const href of ['structure.css','search-network-v1.css','detail-identity-v1.css']){
+for(const href of ['structure.css','search-network-v1.css','detail-identity-v1.css','detail-paths-v1.css']){
   const css=document.createElement('link');
   css.rel='stylesheet';
   css.href=href;
