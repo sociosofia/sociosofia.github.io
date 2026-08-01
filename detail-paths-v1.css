@@ -1,5 +1,9 @@
 /* Caminhos de exploração dos cards individuais. */
 
+.detail-hero h1 {
+  color: var(--text);
+}
+
 .entity-paths {
   border: 1px solid rgba(31, 31, 31, 0.1) !important;
   background: rgba(255, 253, 248, 0.86) !important;
@@ -49,7 +53,8 @@
   letter-spacing: -0.02em;
 }
 
-.entity-path-group ul {
+.entity-path-group ul,
+.detail-more-list {
   display: grid;
   gap: 0;
   margin: 0;
@@ -57,11 +62,13 @@
   list-style: none;
 }
 
-.entity-path-group li + li {
+.entity-path-group li + li,
+.detail-more-list li + li {
   border-top: 1px solid rgba(31, 31, 31, 0.075);
 }
 
-.entity-path-group a {
+.entity-path-group a,
+.detail-more-list a {
   display: block;
   padding: 0.58rem 0;
   color: var(--text);
@@ -72,7 +79,9 @@
 }
 
 .entity-path-group a:hover,
-.entity-path-group a:focus-visible {
+.entity-path-group a:focus-visible,
+.detail-more-list a:hover,
+.detail-more-list a:focus-visible {
   color: var(--primary);
 }
 
@@ -94,6 +103,43 @@
   background: rgba(31, 31, 31, 0.04);
   color: var(--muted);
   font-weight: 600;
+}
+
+.detail-more-paths {
+  margin-top: 0.35rem;
+  border-top: 1px solid rgba(31, 31, 31, 0.085);
+}
+
+.detail-more-paths summary {
+  cursor: pointer;
+  padding: 0.72rem 0 0.18rem;
+  color: var(--primary);
+  font-size: 0.79rem;
+  font-weight: 750;
+  line-height: 1.35;
+  list-style-position: outside;
+}
+
+.detail-more-paths summary:hover,
+.detail-more-paths summary:focus-visible {
+  color: var(--secondary);
+}
+
+.detail-more-paths[open] summary {
+  margin-bottom: 0.25rem;
+}
+
+.continuity-vertex .detail-more-list a {
+  display: grid;
+  gap: 0.1rem;
+}
+
+.continuity-vertex .detail-more-list small {
+  color: var(--muted);
+  font-size: 0.66rem;
+  font-weight: 650;
+  letter-spacing: 0.045em;
+  text-transform: uppercase;
 }
 
 .detail-back {
