@@ -1,0 +1,35 @@
+/* Respiro vertical das páginas individuais. */
+
+.detail-page .site-header.compact {
+  padding-top: clamp(0.8rem, 2.4vw, 1.25rem);
+}
+
+.detail-page .identity-nav {
+  min-height: 84px;
+}
+
+.detail-page .detail-shell {
+  padding-top: clamp(2.1rem, 5vw, 3.35rem);
+}
+
+.detail-page .detail-breadcrumb {
+  margin-bottom: clamp(1.45rem, 3vw, 2rem);
+}
+
+@media (max-width: 560px) {
+  .detail-page .site-header.compact {
+    padding-top: 0.7rem;
+  }
+
+  .detail-page .identity-nav {
+    min-height: 76px;
+  }
+
+  .detail-page .detail-shell {
+    padding-top: 1.6rem;
+  }
+
+  .detail-page .detail-breadcrumb {
+    margin-bottom: 1.35rem;
+  }
+}
