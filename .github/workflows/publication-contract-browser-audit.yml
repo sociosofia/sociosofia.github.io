@@ -3,6 +3,7 @@ name: Auditar contrato no site
 on:
   push:
     branches:
+      - main
       - contrato-automacao-publicacao-v1
     paths:
       - 'data/publicacoes.json'
