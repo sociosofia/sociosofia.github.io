@@ -6,3 +6,4 @@ for(const href of ['structure.css','search-network-v1.css','detail-identity-v1.c
   document.head.appendChild(css);
 }
 await import('./detail.js');
+await import('./detail-expansion-v1.js');
