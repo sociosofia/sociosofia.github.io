@@ -3,39 +3,119 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Sobre o projeto Sociosofia." />
+  <meta name="description" content="Conheça o Sociosofia, uma revista digital de repertórios para estudantes do ensino médio." />
+  <meta name="theme-color" content="#F7F1E8" />
   <title>Sobre | Sociosofia</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700;9..144,800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="student-header.css" />
+  <link rel="stylesheet" href="identity-v1.css" />
+  <link rel="stylesheet" href="about-v1.css" />
 </head>
-<body>
+<body class="about-page">
   <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
   <header class="site-header compact">
-    <nav class="nav container" aria-label="Menu principal">
-      <a class="brand" href="index.html"><span class="brand-mark" aria-hidden="true">S</span><span>Sociosofia</span></a>
-      <ul class="nav-list always-visible">
-        <li><a href="index.html">Início</a></li>
-        <li><a href="index.html#temas">Temas</a></li>
-        <li><a href="index.html#repertorios">Repertórios</a></li>
-        <li><a href="sobre.html" aria-current="page">Sobre</a></li>
-      </ul>
+    <nav class="nav container simple-nav identity-nav" aria-label="Cabeçalho principal">
+      <a class="brand" href="index.html" aria-label="Página inicial do Sociosofia">
+        <span class="brand-name">Sociosofia</span>
+        <svg class="mini-elo" viewBox="0 0 36 32" aria-hidden="true">
+          <path d="M18 5 L6 26 L30 26 Z" fill="none" stroke="#A99B88" stroke-width="1.4" />
+          <circle cx="18" cy="5" r="4.6" fill="#2F6F73" />
+          <circle cx="6" cy="26" r="4.6" fill="#5B2E91" />
+          <circle cx="30" cy="26" r="4.6" fill="#D95D39" />
+        </svg>
+      </a>
+      <div class="header-actions">
+        <a class="explore-elo-link" href="index.html#temas">Explorar o acervo</a>
+        <a class="student-area-link" href="alunos/">Área do Estudante</a>
+      </div>
     </nav>
   </header>
 
-  <main id="conteudo" class="container page-shell">
-    <article class="prose-card">
-      <p class="eyebrow">Sobre o projeto</p>
-      <h1>Sociosofia</h1>
-      <p>O Sociosofia nasceu da ideia de aproximar Sociologia e Filosofia da vida cotidiana dos estudantes. O projeto reúne dados, repertórios culturais e conceitos para mostrar que pensar social e filosoficamente não é decorar autores, mas aprender a olhar para o mundo com mais cuidado, estranhamento e profundidade.</p>
-      <p>O site funciona como uma biblioteca viva. Em cada repertório, você encontra a fonte original, a data, uma explicação do contexto e conexões com conceitos, autores e obras culturais. A navegação parte de temas e problemas do presente, aproximando Sociologia e Filosofia.</p>
+  <main id="conteudo" class="container about-shell">
+    <nav class="about-breadcrumb" aria-label="Localização">
+      <a href="index.html">Início</a>
+      <span aria-hidden="true">›</span>
+      <span aria-current="page">Sobre</span>
+    </nav>
 
-      <h2>Como explorar</h2>
-      <p>Você pode começar por dados e pesquisas, por filmes e outras obras culturais ou por conceitos, temas e autores. Os repertórios podem apoiar estudos, redações, debates, seminários e aulas.</p>
+    <article>
+      <header class="about-intro">
+        <p class="eyebrow">Sobre o projeto</p>
+        <h1>Repertórios para pensar o mundo</h1>
+        <p class="about-lead">O Sociosofia aproxima Sociologia e Filosofia da vida cotidiana dos estudantes. Reúne dados verificáveis, conceitos e repertórios culturais para ajudar a formular perguntas, comparar interpretações e compreender problemas do presente.</p>
+      </header>
+
+      <section class="about-section" aria-labelledby="portas-title">
+        <header>
+          <h2 id="portas-title">Três portas, muitos caminhos</h2>
+          <p>Você pode começar por qualquer uma das três entradas. Depois do primeiro card, outras conexões permanecem abertas.</p>
+        </header>
+        <div class="about-doors">
+          <article class="about-door data">
+            <span>Dado</span>
+            <h3>Observar algo verificável</h3>
+            <p>Pesquisas, estatísticas e documentos ajudam a dimensionar situações e a distinguir impressão, evidência e interpretação.</p>
+          </article>
+          <article class="about-door concept">
+            <span>Conceito</span>
+            <h3>Construir uma lente de análise</h3>
+            <p>Conceitos, temas e autores oferecem ferramentas para nomear relações, formular problemas e comparar perspectivas.</p>
+          </article>
+          <article class="about-door culture">
+            <span>Repertório</span>
+            <h3>Tornar problemas visíveis e sensíveis</h3>
+            <p>Filmes, séries, músicas, livros e outras obras culturais abrem experiências, imagens e conflitos para a reflexão.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="about-section" aria-labelledby="elo-title">
+        <header>
+          <h2 id="elo-title">O que é um Elo</h2>
+          <p>Um Elo reúne um dado, um conceito e um repertório cultural em torno de uma pergunta. Ele não encerra o assunto: oferece uma composição possível e conduz a outras entradas da rede.</p>
+        </header>
+        <div class="about-note">
+          <h3>A curadoria propõe relações, mas não decide todas elas</h3>
+          <p>Ao navegar, você pode encontrar aproximações previstas pelo Sociosofia e também conexões inesperadas. Comparar, discordar, retornar e escolher outro caminho fazem parte da experiência.</p>
+        </div>
+      </section>
+
+      <section class="about-section" aria-labelledby="cards-title">
+        <header>
+          <h2 id="cards-title">Cards que funcionam como pontos de partida</h2>
+          <p>Cada card procura explicar seu argumento principal, indicar a fonte quando necessário e oferecer caminhos para aprofundar. Links e expansões ajudam a continuar, mas não substituem o que o texto precisa esclarecer.</p>
+        </header>
+      </section>
+
+      <section class="about-section" aria-labelledby="usos-title">
+        <header>
+          <h2 id="usos-title">Para estudar, escrever, debater e ensinar</h2>
+          <p>Os materiais podem apoiar redações, seminários, debates, projetos e aulas. O objetivo não é entregar uma interpretação pronta, mas ampliar o repertório e qualificar as perguntas.</p>
+        </header>
+        <div class="about-actions">
+          <a class="primary" href="index.html#temas">Escolher uma porta de entrada</a>
+          <a href="index.html#elo-da-semana">Explorar o Elo da semana</a>
+          <a href="alunos/">Ir para a Área do Estudante</a>
+        </div>
+      </section>
     </article>
   </main>
 
-  <footer class="site-footer"><div class="container"><p>Sociosofia — repertórios para pensar o mundo.</p></div></footer>
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <strong>Sociosofia</strong>
+        <p>Sociologia e Filosofia para pensar o presente com cuidado, estranhamento e profundidade.</p>
+      </div>
+      <div>
+        <strong>Navegação</strong>
+        <p class="footer-links"><a href="index.html">Início</a><a href="index.html#temas">Explorar</a><a href="index.html#elo-da-semana">Elo da semana</a></p>
+      </div>
+    </div>
+  </footer>
 </body>
 </html>
