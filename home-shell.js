@@ -5,7 +5,7 @@ export function buildShell(){
     <div class="section-heading">
       <p class="eyebrow">Três portas de entrada</p>
       <h2>Escolha por onde começar</h2>
-      <p>Comece por um dado, por um conceito ou por um repertório cultural. Cada vértice abre caminhos e conexões diferentes.</p>
+      <p>Comece por um dado, por um conceito ou por um repertório cultural. Cada vértice organiza uma entrada, mas mantém abertas as demais conexões.</p>
     </div>
 
     <div class="entry-elo">
@@ -52,7 +52,7 @@ export function buildShell(){
     </div>
   </section>
 
-  <section id="elo-em-destaque" class="elo-home-section container" aria-labelledby="titulo-elo-em-destaque">
+  <section id="elo-da-semana" class="elo-home-section container" aria-labelledby="titulo-elo-da-semana">
     <a class="elo-home-card" href="elo.html?id=ELO-trabalho-plataformas-controle">
       <svg class="elo-home-symbol" viewBox="0 0 90 78" aria-hidden="true">
         <path d="M45 8 L12 66 L78 66 Z" fill="none" stroke="#A99B88" stroke-width="2" />
@@ -61,9 +61,9 @@ export function buildShell(){
         <circle cx="78" cy="66" r="8" fill="#D95D39" />
       </svg>
       <span class="elo-home-copy">
-        <span class="elo-home-label">Elo em destaque</span>
-        <h2 id="titulo-elo-em-destaque">Quem controla o trabalho por aplicativos?</h2>
-        <p>Um percurso entre um dado sobre trabalho por plataformas, o conceito de alienação e o documentário <em>Vidas Entregues</em>.</p>
+        <span class="elo-home-label">Elo da semana</span>
+        <h2 id="titulo-elo-da-semana">Quem controla o trabalho por aplicativos?</h2>
+        <p>Um assunto explorado por meio de um dado, um conceito e um repertório cultural.</p>
       </span>
       <span class="elo-home-action">
         Explorar o elo
@@ -75,48 +75,54 @@ export function buildShell(){
   <section class="section keyword-search-section container" aria-labelledby="titulo-palavras-chave">
     <div class="section-heading">
       <p class="eyebrow">Outra forma de explorar</p>
-      <h2 id="titulo-palavras-chave">Ou busque por palavras-chave</h2>
-      <p>Depois de conhecer a estrutura do Sociosofia, você pode ir diretamente a um tema, conceito, autor, obra ou assunto de interesse.</p>
+      <h2 id="titulo-palavras-chave">Busque por uma palavra-chave</h2>
+      <p>Pesquise um tema, problema, autor, conceito, dado ou obra. Os resultados serão organizados pelas três portas do Sociosofia.</p>
     </div>
-    <form class="search-box keyword-search-box" role="search" aria-label="Busca de repertórios por palavra-chave">
-      <label for="busca" class="sr-only">Buscar repertórios</label>
-      <input id="busca" type="search" placeholder="Busque por tema, conceito, autor, filme ou atualidade..." autocomplete="off" />
+    <form class="search-box keyword-search-box" role="search" aria-label="Busca integrada do Sociosofia">
+      <label for="busca" class="sr-only">Buscar no Sociosofia</label>
+      <input id="busca" type="search" placeholder="Ex.: racismo, juventude, trabalho, democracia..." autocomplete="off" />
       <button type="submit">
         <svg aria-hidden="true" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-4.4-4.4"></path></svg>
         <span>Buscar</span>
       </button>
     </form>
-    <p class="keyword-shortcuts-label">Atalhos por tipo de repertório</p>
-    <div class="quick-links keyword-shortcuts" aria-label="Atalhos para busca rápida">
-      <button class="chip" data-chip="notícias">Notícias</button>
-      <button class="chip" data-chip="dados">Dados</button>
-      <button class="chip" data-chip="pesquisa">Pesquisas</button>
-      <button class="chip" data-chip="filmes">Filmes</button>
-      <button class="chip" data-chip="livros">Livros</button>
-    </div>
-  </section>
 
-  <section class="section section-feature container" aria-labelledby="titulo-repertorio-semana">
-    <div class="section-heading weekly-heading">
-      <p class="eyebrow">Repertório da semana</p>
-      <h2 id="titulo-repertorio-semana">Para pensar o presente</h2>
-      <p>Um repertório ligado a um acontecimento recente, conectado a conceitos, autores e outras leituras.</p>
-    </div>
-    <div id="repertorio-semana" class="feature-card"></div>
-    <section id="destaques-anteriores" class="previous-highlights" aria-labelledby="titulo-destaques-anteriores" hidden>
-      <div class="previous-highlights-heading">
-        <h3 id="titulo-destaques-anteriores">Destaques anteriores</h3>
-        <p>Repertórios que estiveram em evidência nas semanas anteriores.</p>
+    <section id="repertorios" class="search-vertex-results" hidden aria-live="polite">
+      <div class="search-results-heading">
+        <div>
+          <p class="eyebrow">Busca integrada</p>
+          <h3>Resultados</h3>
+          <p id="resumo-busca"></p>
+        </div>
+        <button id="limpar-busca" class="button ghost" type="button">Limpar busca</button>
       </div>
-      <div id="lista-destaques-anteriores" class="previous-highlights-grid"></div>
-    </section>
-  </section>
 
-  <section id="repertorios" class="section container search-results-section" hidden><div class="section-heading split"><div><p class="eyebrow">Busca integrada</p><h2>Resultados</h2><p id="resumo-busca"></p></div><button id="limpar-busca" class="button ghost">Limpar busca</button></div><div id="lista-resultados" class="card-grid"></div><p id="sem-resultados" class="empty-state" hidden>Nenhum repertório encontrado.</p></section>`;
+      <div class="search-vertex-row" role="group" aria-label="Escolha um tipo de resultado">
+        ${searchNode("dados","Dado",dataIcon())}
+        ${searchNode("conceitos","Conceito",conceptIcon())}
+        ${searchNode("cultura","Repertório",cultureIcon())}
+      </div>
+      <p class="search-vertex-help" id="search-help">Escolha um círculo para abrir os resultados daquele vértice.</p>
+
+      <div class="search-branch-stack">
+        ${searchPanel("dados","left","Dado","Dados encontrados")}
+        ${searchPanel("conceitos","center","Conceito","Conceitos, temas, autores e autoras encontrados")}
+        ${searchPanel("cultura","right","Repertório","Repertórios culturais encontrados")}
+      </div>
+    </section>
+  </section>`;
 }
 
 function entryNode(id,label,icon){
   return `<button class="entry-node" type="button" data-entry-portal="${id}" aria-expanded="false" aria-controls="painel-${id}"><span class="entry-node-disc" aria-hidden="true">${icon}</span><span class="entry-node-title">${label}</span></button>`;
+}
+
+function searchNode(id,label,icon){
+  return `<button class="search-vertex-node" type="button" data-search-portal="${id}" aria-expanded="false" aria-controls="search-panel-${id}"><span class="search-vertex-disc" aria-hidden="true">${icon}</span><span class="search-vertex-title">${label}</span><span class="search-vertex-status" aria-live="polite"></span></button>`;
+}
+
+function searchPanel(id,direction,label,title){
+  return `<article class="search-branch search-branch-${direction}" id="search-panel-${id}" data-search-panel="${id}" hidden><header><span class="search-branch-label">${label}</span><h4>${title}</h4></header><div id="search-results-${id}" class="search-branch-content"></div></article>`;
 }
 
 function repertoryPanel(id,label,title,description){
