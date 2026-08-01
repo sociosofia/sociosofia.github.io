@@ -1,5 +1,5 @@
 {
-  "versao_modelo": "0.1",
+  "versao_modelo": "0.2",
   "elos": [
     {
       "id": "ELO-trabalho-plataformas-controle",
@@ -70,34 +70,36 @@
           "rotulo": "Conceito",
           "titulo_curto": "Alienação",
           "titulo": "Alienação",
-          "subtitulo": "Quando quem realiza o trabalho não controla integralmente sua atividade e seus resultados.",
+          "subtitulo": "Uma forma de separação produzida no trabalho entre quem trabalha, sua atividade, o produto e as relações sociais.",
           "blocos": [
             {
               "tipo": "texto",
-              "titulo": "O que o conceito permite perguntar",
+              "titulo": "O que é alienação",
               "paragrafos": [
-                "Alienação ajuda a investigar quem controla o produto, quem define a atividade, o que acontece com as capacidades de quem trabalha e que relações de cooperação, concorrência e poder são formadas.",
-                "Neste elo, o conceito funciona como ferramenta para formular perguntas sobre controle, atividade e relações de trabalho."
+                "Na análise de Marx, alienação é uma forma de separação produzida no trabalho. Quem trabalha pode perder o controle sobre o que produz, sobre como realiza a atividade, sobre o desenvolvimento de suas capacidades e sobre as relações que estabelece com outras pessoas.",
+                "O conceito não significa apenas desconhecer uma situação ou sentir-se insatisfeito. Ele descreve relações sociais em que a atividade e seus resultados podem se apresentar como forças externas a quem os produz."
               ]
-            },
-            {
-              "tipo": "destaque",
-              "rotulo": "Autor em destaque",
-              "titulo": "Karl Marx",
-              "paragrafos": [
-                "Marx desenvolveu uma formulação central da alienação do trabalho nos Manuscritos econômico-filosóficos de 1844. O recorte deste elo enfatiza o trabalho estranhado e o controle da atividade."
-              ],
-              "entidade_id": "AUT-karl-marx"
             },
             {
               "tipo": "lista_simples",
               "titulo": "Quatro dimensões para investigar",
               "itens": [
-                "relação com o produto do trabalho;",
-                "controle da própria atividade;",
-                "desenvolvimento das capacidades humanas;",
-                "relações entre as pessoas no trabalho."
+                "a relação de quem trabalha com o produto de seu trabalho;",
+                "o controle sobre a própria atividade;",
+                "o desenvolvimento das capacidades humanas;",
+                "as relações entre as pessoas no trabalho."
               ]
+            },
+            {
+              "tipo": "destaque",
+              "rotulo": "Autor relacionado",
+              "titulo": "Karl Marx",
+              "paragrafos": [
+                "Marx desenvolveu uma formulação central da alienação do trabalho nos Manuscritos econômico-filosóficos de 1844. O recorte deste Elo enfatiza o trabalho estranhado e o controle da atividade."
+              ],
+              "entidade_id": "AUT-karl-marx",
+              "entidade_tipo": "autor",
+              "entidade_nome": "Karl Marx"
             }
           ]
         },
