@@ -1,0 +1,39 @@
+/* Navegação compartilhada do site geral. */
+
+.site-footer {
+  border-top: 1px solid rgba(31, 31, 31, 0.1);
+  background: rgba(255, 253, 248, 0.68);
+  color: var(--text);
+}
+
+.site-footer p {
+  color: var(--muted);
+}
+
+.footer-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem 0.85rem;
+  margin-top: 0.55rem !important;
+}
+
+.footer-links a {
+  color: var(--text);
+  font-size: 0.88rem;
+  font-weight: 650;
+  text-decoration: none;
+}
+
+.footer-links a:hover,
+.footer-links a:focus-visible {
+  color: var(--primary);
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+@media (max-width: 620px) {
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+}
