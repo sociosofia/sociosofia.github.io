@@ -19,6 +19,8 @@ if(!Storage.prototype.__sociosofiaEloPersistenceSuspended){
 }
 
 document.getElementById('resumeBanner')?.remove();
+const exploreLink=document.querySelector('.explore-elo-link');
+if(exploreLink)exploreLink.href='index.html#elo-da-semana';
 window.addEventListener('pagehide',clearSavedEloState);
 
 const entityRoutes={
