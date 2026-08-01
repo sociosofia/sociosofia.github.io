@@ -34,5 +34,116 @@
       "PNAD Contínua",
       "desigualdade"
     ]
+  },
+  {
+    "id": "DAD-0009",
+    "codigo_publicacao": "R002-C01",
+    "evi_id": "EVI-datasenado-violencia-mulher-2025",
+    "editoria": "Notícias, dados e informações",
+    "categoria": "Gênero e sexualidade",
+    "subtema": "Violência de gênero e direitos",
+    "titulo": "3,7 milhões de brasileiras sofreram violência doméstica ou familiar em um ano",
+    "subtitulo": "A estimativa corresponde a 4% das mulheres com 16 anos ou mais",
+    "tipo": "Pesquisa nacional",
+    "resumo": "Na Pesquisa Nacional de Violência contra a Mulher de 2025, 3,7 milhões de brasileiras — 4% das mulheres com 16 anos ou mais — declararam ter sofrido violência doméstica ou familiar nos doze meses anteriores. O levantamento entrevistou 21.641 mulheres em todas as unidades da Federação. A escala do problema ajuda a compreender que a violência contra a mulher não é apenas um conflito privado, mas uma questão social que envolve relações de gênero, proteção institucional e garantia de direitos.",
+    "dado": "Em 2025, 3,7 milhões de brasileiras, equivalentes a 4% das mulheres com 16 anos ou mais, declararam ter sofrido violência doméstica ou familiar nos doze meses anteriores à pesquisa.",
+    "questao": "Por que a violência contra a mulher deve ser tratada como problema social e público, e não apenas como conflito privado?",
+    "conexoes": "Violência de gênero, patriarcado, naturalização da violência, cidadania, direitos humanos e políticas de proteção.",
+    "conceitos": [
+      "Violência de gênero",
+      "Patriarcado",
+      "Cidadania",
+      "Direitos humanos"
+    ],
+    "autores": [],
+    "fonte_nome": "DataSenado — Pesquisa Nacional de Violência contra a Mulher 2025",
+    "fonte_url": "https://www12.senado.leg.br/institucional/datasenado/publicacaodatasenado?id=pesquisa-nacional-de-violencia-contra-a-mulher-datasenado-2025",
+    "ano_data": "2025",
+    "confiabilidade": "Alta; pesquisa probabilística nacional do DataSenado com 21.641 mulheres",
+    "fonte_status": "conferida",
+    "nivel": "Básico",
+    "status": "publicado",
+    "destaque": false,
+    "tags": [
+      "gênero",
+      "violência contra a mulher",
+      "violência doméstica",
+      "patriarcado",
+      "direitos humanos"
+    ]
+  },
+  {
+    "id": "DAD-0010",
+    "codigo_publicacao": "R002-C02",
+    "evi_id": "EVI-mte-mmulheres-desigualdade-salarial-2026-s1",
+    "editoria": "Notícias, dados e informações",
+    "categoria": "Gênero e sexualidade",
+    "subtema": "Desigualdade salarial e trabalho",
+    "titulo": "Nas grandes empresas analisadas, mulheres receberam em média 21,3% menos que homens",
+    "subtitulo": "O indicador reúne cerca de 53,5 mil estabelecimentos privados com cem ou mais empregados",
+    "tipo": "Dados do trabalho",
+    "resumo": "O 5º Relatório de Transparência Salarial apontou que a remuneração média das mulheres foi 21,3% menor que a dos homens nos estabelecimentos analisados. A base reúne cerca de 53,5 mil estabelecimentos privados com cem ou mais vínculos ativos. A diferença é agregada: não significa que toda mulher receba menos que um homem na mesma função, mas ajuda a observar desigualdades de acesso a ocupações, promoções, posições de chefia e setores mais bem remunerados.",
+    "dado": "No 5º Relatório de Transparência Salarial, a remuneração média das mulheres foi 21,3% menor que a dos homens nos cerca de 53,5 mil estabelecimentos privados analisados.",
+    "questao": "Como a distribuição desigual entre cargos, setores e posições de chefia contribui para a diferença média de remuneração entre mulheres e homens?",
+    "conexoes": "Desigualdade salarial, divisão sexual do trabalho, segregação ocupacional, teto de vidro, autonomia econômica e interseccionalidade.",
+    "conceitos": [
+      "Desigualdade salarial",
+      "Divisão sexual do trabalho",
+      "Segregação ocupacional",
+      "Interseccionalidade"
+    ],
+    "autores": [],
+    "fonte_nome": "Ministério das Mulheres e Ministério do Trabalho e Emprego — 5º Relatório de Transparência Salarial",
+    "fonte_url": "https://www.gov.br/mulheres/pt-br/central-de-conteudos/noticias/2026/abril/emprego-feminino-avanca-e-politicas-de-igualdade-salarial-se-ampliam-aponta-5o-relatorio-de-transparencia-salarial-1",
+    "ano_data": "2026",
+    "confiabilidade": "Alta; dados administrativos oficiais, com escopo restrito a estabelecimentos privados de maior porte",
+    "fonte_status": "conferida",
+    "nivel": "Intermediário",
+    "status": "publicado",
+    "destaque": false,
+    "tags": [
+      "gênero",
+      "trabalho",
+      "desigualdade salarial",
+      "divisão sexual do trabalho",
+      "teto de vidro"
+    ]
+  },
+  {
+    "id": "DAD-0011",
+    "codigo_publicacao": "R002-C03",
+    "evi_id": "EVI-ibge-trabalho-domestico-cuidados-genero-2022",
+    "editoria": "Notícias, dados e informações",
+    "categoria": "Gênero e sexualidade",
+    "subtema": "Trabalho doméstico, cuidado e desigualdade de tempo",
+    "titulo": "Mulheres dedicaram quase o dobro do tempo de homens ao cuidado e aos afazeres domésticos",
+    "subtitulo": "Em 2022, foram 21,3 horas semanais entre elas e 11,7 horas entre eles",
+    "tipo": "Dado oficial",
+    "resumo": "Em 2022, mulheres de 14 anos ou mais dedicaram, em média, 21,3 horas semanais a afazeres domésticos e cuidados de pessoas; entre os homens, foram 11,7 horas. O indicador reúne atividades realizadas sem remuneração direta. Esse trabalho mantém casas e pessoas, mas costuma permanecer invisível e desigualmente distribuído, reduzindo o tempo disponível para estudo, trabalho remunerado, descanso e participação pública.",
+    "dado": "Em 2022, mulheres de 14 anos ou mais dedicaram, em média, 21,3 horas semanais a afazeres domésticos e cuidados; homens dedicaram 11,7 horas.",
+    "questao": "O que muda na vida social quando o trabalho doméstico e de cuidado é distribuído de forma desigual entre mulheres e homens?",
+    "conexoes": "Trabalho de cuidado, divisão sexual do trabalho, reprodução social, dupla jornada, desigualdade de tempo e políticas públicas de cuidado.",
+    "conceitos": [
+      "Trabalho de cuidado",
+      "Divisão sexual do trabalho",
+      "Reprodução social",
+      "Desigualdade de tempo"
+    ],
+    "autores": [],
+    "fonte_nome": "IBGE — Estatísticas de Gênero: Indicadores Sociais das Mulheres no Brasil, 3ª edição",
+    "fonte_url": "https://educa.ibge.gov.br/jovens/materias-especiais/22052-as-mulheres-do-brasil",
+    "ano_data": "2024; dados de 2022",
+    "confiabilidade": "Alta; estatística oficial do IBGE baseada na PNAD Contínua",
+    "fonte_status": "conferida",
+    "nivel": "Básico",
+    "status": "publicado",
+    "destaque": false,
+    "tags": [
+      "gênero",
+      "trabalho de cuidado",
+      "trabalho doméstico",
+      "dupla jornada",
+      "desigualdade de tempo"
+    ]
   }
 ]
