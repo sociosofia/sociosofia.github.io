@@ -18,18 +18,21 @@ window.fetch=async function publicationAwareFetch(input,init){
       nativeFetch('data/temas.json',{cache:'no-store'})
     ]);
 
-    if(publicationResponse.ok){
-      const data=await publicationResponse.json();
-      const themeRegistry=themesResponse.ok?await themesResponse.json():{temas:[]};
-      const themeMap=themeMapFromRegistry(themeRegistry);
-      const validation=validatePublicationCollection(data,{themeIds:new Set(themeMap.keys())});
+    if(!publicationResponse.ok)throw new Error('A base de publicações não pôde ser carregada.');
+    if(!themesResponse.ok)throw new Error('O registro canônico de temas não pôde ser carregado.');
 
-      if(validation.errors.length){
-        console.error('Publicações rejeitadas pelo contrato técnico:',validation.errors);
-      }
+    const data=await publicationResponse.json();
+    const themeRegistry=await themesResponse.json();
+    const themeMap=themeMapFromRegistry(themeRegistry);
+    if(!themeMap.size)throw new Error('O registro canônico de temas está vazio.');
 
-      publicacoes=validation.valid.map(item=>normalizePublication(item,themeMap));
+    const validation=validatePublicationCollection(data,{themeIds:new Set(themeMap.keys())});
+
+    if(validation.errors.length){
+      console.error('Publicações rejeitadas pelo contrato técnico:',validation.errors);
     }
+
+    publicacoes=validation.valid.map(item=>normalizePublication(item,themeMap));
   }catch(error){
     console.warn('Não foi possível carregar as publicações aprovadas.',error);
   }
