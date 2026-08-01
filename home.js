@@ -53,11 +53,6 @@ function events(){
 }
 
 function renderAll(){
-  const d=items.filter(i=>i.bloco==='dados'),c=items.filter(i=>i.bloco==='cultura');
-  $('#contador-dados').textContent=`${d.length} entrada${d.length===1?'':'s'}`;
-  $('#contador-cultura').textContent=`${c.length} entrada${c.length===1?'':'s'}`;
-  const entityCount=['conceito','tema','autor'].reduce((sum,tipo)=>sum+entityNames(items,tipo).length,0);
-  $('#contador-conceitos').textContent=`${entityCount} entrada${entityCount===1?'':'s'}`;
   renderWeekly();
   ['dados','cultura'].forEach(b=>{renderThemes(b);renderPortal(b);});
   renderEntities();
@@ -101,9 +96,9 @@ function renderThemes(bloco){
   const buttons=[];
   TEMAS.forEach(t=>{
     const n=base.filter(i=>inTheme(i,t)).length;
-    if(n)buttons.push(`<button class="topic-button ${sel===t.id?'active':''}" data-theme="${t.id}">${esc(t.nome)} <small>${n}</small></button>`);
+    if(n)buttons.push(`<button class="topic-button ${sel===t.id?'active':''}" data-theme="${t.id}">${esc(t.nome)}</button>`);
   });
-  buttons.push(`<button class="topic-button ${sel===''?'active':''}" data-theme="">Ver todos <small>${base.length}</small></button>`);
+  buttons.push(`<button class="topic-button ${sel===''?'active':''}" data-theme="">Ver todos</button>`);
   el.innerHTML=buttons.join('');
 }
 
@@ -121,7 +116,7 @@ function renderEntities(){
   $('#lista-entidades').innerHTML=names.map(n=>`<button class="entity-chip ${state.entidade===n?'active':''}" data-entity-type="${state.tipo}" data-entity-name="${esc(n)}">${esc(n)}</button>`).join('')||'<p class="portal-prompt">Nenhuma entrada encontrada.</p>';
 }
 
-function promptEntity(){$('#detalhe-entidade').innerHTML='<p class="portal-prompt">Escolha uma entrada para ver suas conexões com os repertórios disponíveis.</p>';}
+function promptEntity(){$('#detalhe-entidade').innerHTML='<p class="portal-prompt">Escolha um conceito, tema, autor ou autora para ver suas conexões disponíveis.</p>';}
 function selectEntity(tipo,nome){state.tipo=tipo;state.entidade=nome;setPortal('conceitos',true,false);$$('[data-entity-type]').forEach(x=>x.classList.toggle('active',x.dataset.entityType===tipo));renderEntities();$('#detalhe-entidade').innerHTML=entityDetail(items,tipo,nome);$('#detalhe-entidade').scrollIntoView({behavior:'smooth',block:'nearest'});}
 
 function search(q,scroll=true){
