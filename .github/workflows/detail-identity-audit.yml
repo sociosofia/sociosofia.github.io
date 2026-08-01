@@ -8,6 +8,7 @@ on:
       - 'repertorio.html'
       - 'detail.js'
       - 'detail-boot.js'
+      - 'detail-expansion-v1.js'
       - 'detail-identity-v1.css'
       - 'detail-paths-v1.css'
       - 'audit/detail-identity-audit.mjs'
@@ -19,6 +20,7 @@ on:
       - 'repertorio.html'
       - 'detail.js'
       - 'detail-boot.js'
+      - 'detail-expansion-v1.js'
       - 'detail-identity-v1.css'
       - 'detail-paths-v1.css'
       - 'audit/detail-identity-audit.mjs'
@@ -46,6 +48,7 @@ jobs:
         run: |
           node --check detail.js
           node --check detail-boot.js
+          node --check detail-expansion-v1.js
           node --check audit/detail-identity-audit.mjs
       - name: Iniciar servidor
         run: |
