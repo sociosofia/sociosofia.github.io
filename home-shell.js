@@ -1,12 +1,56 @@
 export function buildShell(){
   const main=document.querySelector("#conteudo");
   main.innerHTML=`
-  <section id="temas" class="section section-entry container"><div class="section-heading"><p class="eyebrow">Três portas de entrada</p><h2>Escolha por onde começar</h2><p>Você pode começar por um dado, por uma obra cultural ou por uma ferramenta de interpretação e circular entre os três blocos.</p></div>
-  <div class="portal-list">
-    ${portal("dados","01","Dados, notícias, artigos e pesquisas","Informações verificáveis para compreender como os problemas aparecem na realidade.")}
-    ${portal("cultura","02","Filmes, séries e outros repertórios culturais","Obras que tornam os problemas visíveis, sensíveis e discutíveis.")}
-    <article class="portal-card" data-portal="conceitos"><button class="portal-toggle" type="button" aria-expanded="false"><span class="portal-number">03</span><span class="portal-copy"><strong>Conceitos, temas, autores e autoras</strong><small>Ideias e referências que ajudam a interpretar repertórios e construir argumentos.</small></span><span id="contador-conceitos" class="portal-count"></span><span class="portal-arrow">⌄</span></button><div class="portal-panel" hidden><div class="entity-toolbar"><div class="entity-tabs"><button class="entity-tab active" data-entity-type="conceito">Conceitos</button><button class="entity-tab" data-entity-type="tema">Temas</button><button class="entity-tab" data-entity-type="autor">Autores e autoras</button></div><label class="entity-search-label"><span class="sr-only">Filtrar lista</span><input id="busca-entidades" type="search" placeholder="Filtrar esta lista..."></label></div><div id="lista-entidades" class="entity-list"></div><div id="detalhe-entidade" class="entity-detail"><p class="portal-prompt">Escolha uma entrada para ver suas conexões com os repertórios disponíveis.</p></div></div></article>
-  </div></section>
+  <section id="temas" class="section section-entry container">
+    <div class="section-heading">
+      <p class="eyebrow">Três portas de entrada</p>
+      <h2>Escolha por onde começar</h2>
+      <p>Comece por um dado, por uma ferramenta de interpretação ou por uma obra cultural. Cada vértice abre seus próprios subtemas e conexões.</p>
+    </div>
+
+    <div class="entry-elo">
+      <div class="entry-map" role="group" aria-label="Escolha uma porta de entrada">
+        <svg class="entry-lines" viewBox="0 0 500 425" aria-hidden="true">
+          <line x1="250" y1="60" x2="105" y2="330"></line>
+          <line x1="250" y1="60" x2="395" y2="330"></line>
+          <line x1="105" y1="330" x2="395" y2="330"></line>
+        </svg>
+
+        ${entryNode("dados","Dado","contador-dados",dataIcon())}
+        ${entryNode("conceitos","Conceito","contador-conceitos",conceptIcon())}
+        ${entryNode("cultura","Repertório","contador-cultura",cultureIcon())}
+      </div>
+
+      <p class="entry-help">Toque em um vértice para abrir. Toque novamente no mesmo vértice para fechar.</p>
+
+      <div class="entry-panel-stack">
+        ${repertoryPanel("dados","Dado","Pesquisas, notícias e dados","Escolha um subtema para ver informações verificáveis e leituras do presente.")}
+        <article class="entry-panel" id="painel-conceitos" data-portal="conceitos" hidden>
+          <header class="entry-panel-heading">
+            <span class="entry-panel-label">Conceito</span>
+            <h3>Conceitos, temas, autores e autoras</h3>
+            <p>Escolha uma ferramenta de interpretação e veja suas conexões com os repertórios disponíveis.</p>
+          </header>
+          <div class="entity-toolbar">
+            <div class="entity-tabs">
+              <button class="entity-tab active" data-entity-type="conceito">Conceitos</button>
+              <button class="entity-tab" data-entity-type="tema">Temas</button>
+              <button class="entity-tab" data-entity-type="autor">Autores e autoras</button>
+            </div>
+            <label class="entity-search-label">
+              <span class="sr-only">Filtrar lista</span>
+              <input id="busca-entidades" type="search" placeholder="Filtrar esta lista...">
+            </label>
+          </div>
+          <div id="lista-entidades" class="entity-list"></div>
+          <div id="detalhe-entidade" class="entity-detail">
+            <p class="portal-prompt">Escolha uma entrada para ver suas conexões com os repertórios disponíveis.</p>
+          </div>
+        </article>
+        ${repertoryPanel("cultura","Repertório","Filmes, séries e outros repertórios culturais","Escolha um subtema para encontrar obras que tornam os problemas visíveis, sensíveis e discutíveis.")}
+      </div>
+    </div>
+  </section>
 
   <section id="elo-em-destaque" class="elo-home-section container" aria-labelledby="titulo-elo-em-destaque">
     <a class="elo-home-card" href="elo.html?id=ELO-trabalho-plataformas-controle">
@@ -71,4 +115,22 @@ export function buildShell(){
   <section id="repertorios" class="section container search-results-section" hidden><div class="section-heading split"><div><p class="eyebrow">Busca integrada</p><h2>Resultados</h2><p id="resumo-busca"></p></div><button id="limpar-busca" class="button ghost">Limpar busca</button></div><div id="lista-resultados" class="card-grid"></div><p id="sem-resultados" class="empty-state" hidden>Nenhum repertório encontrado.</p></section>`;
 }
 
-function portal(id,n,titulo,descricao){return `<article class="portal-card" data-portal="${id}"><button class="portal-toggle" type="button" aria-expanded="false"><span class="portal-number">${n}</span><span class="portal-copy"><strong>${titulo}</strong><small>${descricao}</small></span><span id="contador-${id}" class="portal-count"></span><span class="portal-arrow">⌄</span></button><div class="portal-panel" hidden><div class="portal-intro"><h3>Escolha um tema</h3></div><div id="temas-${id}" class="topic-grid"></div><div id="lista-${id}" class="portal-content"></div></div></article>`;}
+function entryNode(id,label,countId,icon){
+  return `<button class="entry-node" type="button" data-entry-portal="${id}" aria-expanded="false" aria-controls="painel-${id}"><span class="entry-node-disc" aria-hidden="true">${icon}</span><span class="entry-node-title">${label}</span><span class="entry-node-count" id="${countId}"></span></button>`;
+}
+
+function repertoryPanel(id,label,title,description){
+  return `<article class="entry-panel" id="painel-${id}" data-portal="${id}" hidden><header class="entry-panel-heading"><span class="entry-panel-label">${label}</span><h3>${title}</h3><p>${description}</p></header><div id="temas-${id}" class="topic-grid"></div><div id="lista-${id}" class="portal-content"></div></article>`;
+}
+
+function dataIcon(){
+  return `<svg viewBox="0 0 48 48" fill="none"><circle cx="15" cy="15" r="6.2" stroke="currentColor" stroke-width="3"/><circle cx="33" cy="33" r="6.2" stroke="currentColor" stroke-width="3"/><path d="M34 12L14 36" stroke="currentColor" stroke-width="3.4" stroke-linecap="round"/></svg>`;
+}
+
+function conceptIcon(){
+  return `<svg viewBox="0 0 48 48" fill="none"><path d="M8 13.5C14.5 11.4 19.2 12.2 24 16V38C19.2 34.2 14.5 33.4 8 35.5V13.5Z" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"/><path d="M40 13.5C33.5 11.4 28.8 12.2 24 16V38C28.8 34.2 33.5 33.4 40 35.5V13.5Z" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"/><path d="M31.5 7.5L39.8 15.8" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/></svg>`;
+}
+
+function cultureIcon(){
+  return `<svg viewBox="0 0 48 48" fill="none"><path d="M8 18H40V39H8V18Z" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"/><path d="M8 18L12 9H43L39 18H8Z" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"/><path d="M17 9L13 18M27 9L23 18M37 9L33 18" stroke="currentColor" stroke-width="2.2"/><path d="M20 25.5L31 31L20 36.5V25.5Z" fill="currentColor"/></svg>`;
+}
