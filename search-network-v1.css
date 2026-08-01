@@ -1,0 +1,367 @@
+/* Busca triangular e continuidade contextual.
+   O triângulo orienta a entrada; a rede mantém a navegação aberta. */
+
+.search-vertex-results {
+  margin-top: 2rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--line);
+}
+
+.search-results-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.search-results-heading h3 {
+  margin: 0.2rem 0 0;
+  color: var(--text);
+  font-size: clamp(1.45rem, 3vw, 2rem);
+}
+
+.search-results-heading p:last-child {
+  margin: 0.45rem 0 0;
+  color: var(--muted);
+}
+
+.search-vertex-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  align-items: start;
+  width: min(100%, 760px);
+  margin: 2rem auto 0;
+}
+
+.search-vertex-node {
+  --search-color: var(--support);
+  display: grid;
+  justify-items: center;
+  gap: 0.45rem;
+  border: 0;
+  background: transparent;
+  color: var(--text);
+  cursor: pointer;
+  font: inherit;
+  text-align: center;
+}
+
+.search-vertex-node[data-search-portal="dados"] { --search-color: var(--support); }
+.search-vertex-node[data-search-portal="conceitos"] { --search-color: var(--primary); }
+.search-vertex-node[data-search-portal="cultura"] { --search-color: var(--secondary); }
+
+.search-vertex-disc {
+  display: grid;
+  place-items: center;
+  width: 76px;
+  height: 76px;
+  border-radius: 50%;
+  background: var(--search-color);
+  color: #fffdf8;
+  box-shadow: 0 7px 18px rgba(41,39,36,.08);
+  transition: transform 160ms ease, box-shadow 160ms ease, opacity 160ms ease;
+}
+
+.search-vertex-disc svg {
+  width: 38px;
+  height: 38px;
+}
+
+.search-vertex-title {
+  font-size: 0.92rem;
+  font-weight: 720;
+}
+
+.search-vertex-status {
+  min-height: 1em;
+  color: var(--muted);
+  font-size: 0.72rem;
+}
+
+.search-vertex-node:hover .search-vertex-disc,
+.search-vertex-node:focus-visible .search-vertex-disc {
+  transform: translateY(-2px);
+}
+
+.search-vertex-node[aria-expanded="true"] .search-vertex-disc {
+  box-shadow: 0 7px 18px rgba(41,39,36,.08), 0 0 0 8px color-mix(in srgb, var(--search-color) 14%, transparent);
+}
+
+.search-vertex-node.is-empty {
+  cursor: default;
+}
+
+.search-vertex-node.is-empty .search-vertex-disc {
+  opacity: 0.28;
+  filter: grayscale(.35);
+}
+
+.search-vertex-help {
+  margin: 1rem auto 0;
+  color: var(--muted);
+  text-align: center;
+  font-size: 0.84rem;
+}
+
+.search-branch-stack {
+  position: relative;
+  margin-top: 2rem;
+}
+
+.search-branch[hidden] {
+  display: none !important;
+}
+
+.search-branch {
+  --branch-color: var(--support);
+  position: relative;
+  width: min(86%, 900px);
+  padding: clamp(1rem, 3vw, 1.5rem);
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--branch-color);
+  border-radius: 18px;
+  background: rgba(255,253,248,.86);
+  box-shadow: 0 12px 30px rgba(41,39,36,.055);
+}
+
+.search-branch[data-search-panel="dados"] { --branch-color: var(--support); }
+.search-branch[data-search-panel="conceitos"] { --branch-color: var(--primary); }
+.search-branch[data-search-panel="cultura"] { --branch-color: var(--secondary); }
+
+.search-branch-left { margin-right: auto; }
+.search-branch-center { margin-inline: auto; }
+.search-branch-right { margin-left: auto; }
+
+.search-branch::before {
+  content: "";
+  position: absolute;
+  top: -34px;
+  width: 1px;
+  height: 30px;
+  background: var(--branch-color);
+}
+
+.search-branch-left::before { left: 16.666%; }
+.search-branch-center::before { left: 50%; }
+.search-branch-right::before { left: 83.333%; }
+
+.search-branch header {
+  margin-bottom: 1rem;
+}
+
+.search-branch-label {
+  color: var(--branch-color);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: .09em;
+  text-transform: uppercase;
+}
+
+.search-branch h4 {
+  margin: .25rem 0 0;
+  color: var(--text);
+  font-size: clamp(1.2rem, 2.3vw, 1.55rem);
+}
+
+.search-branch-summary {
+  margin: 0 0 1rem;
+  color: var(--muted);
+  font-size: .86rem;
+}
+
+.search-branch[data-search-panel="dados"] .card-title-link,
+.search-branch[data-search-panel="dados"] .read-more { color: var(--support); }
+.search-branch[data-search-panel="conceitos"] a { color: var(--primary); }
+.search-branch[data-search-panel="cultura"] .card-title-link,
+.search-branch[data-search-panel="cultura"] .read-more { color: var(--secondary); }
+
+.search-entity-group + .search-entity-group {
+  margin-top: 1.4rem;
+}
+
+.search-entity-group h5 {
+  margin: 0 0 .55rem;
+  color: var(--text);
+  font-size: 1rem;
+}
+
+.search-entity-list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  margin: 0;
+  padding: 0;
+  border-top: 1px solid var(--line);
+  list-style: none;
+}
+
+.search-entity-list li {
+  border-right: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.search-entity-list li:nth-child(even) {
+  border-right: 0;
+}
+
+.search-entity-list a {
+  display: block;
+  min-height: 48px;
+  padding: .72rem .8rem;
+  color: var(--primary);
+  font-weight: 650;
+  text-decoration: none;
+}
+
+.search-entity-list a:hover,
+.search-entity-list a:focus-visible {
+  background: rgba(91,46,145,.055);
+}
+
+.search-continuity {
+  margin-top: 2rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--line);
+}
+
+.search-continuity-head {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1.25rem;
+}
+
+.search-continuity-head h2 {
+  margin: .25rem 0 0;
+}
+
+.search-continuity-head p {
+  max-width: 760px;
+  color: var(--muted);
+}
+
+.continuity-vertices {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0,1fr));
+  gap: 1rem;
+  margin-top: 1.4rem;
+}
+
+.continuity-vertex {
+  --continuity-color: var(--support);
+  padding: 1rem;
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--continuity-color);
+  border-radius: 14px;
+  background: rgba(255,253,248,.72);
+}
+
+.continuity-dados { --continuity-color: var(--support); }
+.continuity-conceitos { --continuity-color: var(--primary); }
+.continuity-cultura { --continuity-color: var(--secondary); }
+
+.continuity-vertex > span {
+  color: var(--continuity-color);
+  font-size: .68rem;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.continuity-vertex h3 {
+  margin: .35rem 0 .75rem;
+  color: var(--text);
+  font-size: 1rem;
+}
+
+.continuity-vertex ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.continuity-vertex li + li {
+  border-top: 1px solid var(--line);
+}
+
+.continuity-vertex a {
+  display: block;
+  padding: .65rem 0;
+  color: var(--text);
+  font-weight: 620;
+  text-decoration: none;
+}
+
+.continuity-vertex a:hover,
+.continuity-vertex a:focus-visible {
+  color: var(--continuity-color);
+}
+
+.continuity-vertex small {
+  display: block;
+  margin-bottom: .12rem;
+  color: var(--muted);
+  font-size: .68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.relation-disclaimer {
+  max-width: 760px;
+  color: var(--muted);
+  font-size: .86rem;
+}
+
+@media (max-width: 700px) {
+  .search-results-heading,
+  .search-continuity-head {
+    display: block;
+  }
+
+  .search-results-heading .button,
+  .search-continuity-head .button {
+    margin-top: 1rem;
+  }
+
+  .search-vertex-row {
+    gap: .25rem;
+  }
+
+  .search-vertex-disc {
+    width: 62px;
+    height: 62px;
+  }
+
+  .search-vertex-disc svg {
+    width: 31px;
+    height: 31px;
+  }
+
+  .search-vertex-title {
+    font-size: .8rem;
+  }
+
+  .search-vertex-status {
+    font-size: .64rem;
+  }
+
+  .search-branch {
+    width: 100%;
+    padding: 1rem .85rem;
+  }
+
+  .search-entity-list,
+  .continuity-vertices {
+    grid-template-columns: 1fr;
+  }
+
+  .search-entity-list li,
+  .search-entity-list li:nth-child(even) {
+    border-right: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .search-vertex-disc {
+    transition: none;
+  }
+}
