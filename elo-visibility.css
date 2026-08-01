@@ -1,0 +1,5 @@
+/* Garante que os estados fechados permaneçam fora do fluxo visual e da navegação. */
+.elo-panel-empty[hidden],
+.elo-panel-inner[hidden] {
+  display: none !important;
+}
