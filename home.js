@@ -4,7 +4,7 @@ import {card,feature,previousHighlight,entityDetail} from './home-cards.js';
 
 buildShell();
 const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
-let items=[],highlights={atual:null,anteriores:[]},state={tema:{dados:'',cultura:''},tipo:'conceito',entidade:''};
+let items=[],highlights={atual:null,anteriores:[]},state={tema:{dados:null,cultura:null},tipo:'conceito',entidade:''};
 
 init();
 async function init(){
@@ -24,11 +24,20 @@ function menu(){const b=$('.nav-toggle'),l=$('#menu-principal');b?.addEventListe
 
 function events(){
   $('#temas').addEventListener('click',e=>{
-    const toggle=e.target.closest('.portal-toggle');if(toggle){open(toggle.closest('[data-portal]').dataset.portal);return;}
-    const t=e.target.closest('[data-theme]');if(t){const b=t.closest('[data-portal]').dataset.portal;state.tema[b]=t.dataset.theme;renderThemes(b);renderPortal(b);return;}
-    const tab=e.target.closest('[data-entity-type]');if(tab){state.tipo=tab.dataset.entityType;state.entidade='';$$('[data-entity-type]').forEach(x=>x.classList.toggle('active',x===tab));$('#busca-entidades').value='';renderEntities();promptEntity();return;}
-    const ent=e.target.closest('[data-entity-name]');if(ent)selectEntity(ent.dataset.entityType,ent.dataset.entityName);
+    const toggle=e.target.closest('[data-entry-portal]');
+    if(toggle){togglePortal(toggle.dataset.entryPortal);return;}
+
+    const t=e.target.closest('[data-theme]');
+    if(t){const b=t.closest('[data-portal]').dataset.portal;state.tema[b]=t.dataset.theme;renderThemes(b);renderPortal(b);return;}
+
+    const tab=e.target.closest('[data-entity-type]');
+    if(tab){state.tipo=tab.dataset.entityType;state.entidade='';$$('[data-entity-type]').forEach(x=>x.classList.toggle('active',x===tab));$('#busca-entidades').value='';renderEntities();promptEntity();return;}
+
+    const ent=e.target.closest('[data-entity-name]');
+    if(ent)selectEntity(ent.dataset.entityType,ent.dataset.entityName);
   });
+
+  $('#temas').addEventListener('keydown',e=>{if(e.key==='Escape')setPortal('',false,false);});
   $('#busca-entidades').addEventListener('input',renderEntities);
   $('.search-box')?.addEventListener('submit',e=>{e.preventDefault();search($('#busca').value);});
   $$('[data-chip],[data-search]').forEach(b=>b.addEventListener('click',()=>{const q=b.dataset.chip||b.dataset.search;$('#busca').value=q;search(q);}));
@@ -37,8 +46,8 @@ function events(){
 
 function renderAll(){
   const d=items.filter(i=>i.bloco==='dados'),c=items.filter(i=>i.bloco==='cultura');
-  $('#contador-dados').textContent=`${d.length} repertório${d.length===1?'':'s'}`;
-  $('#contador-cultura').textContent=`${c.length} repertório${c.length===1?'':'s'}`;
+  $('#contador-dados').textContent=`${d.length} entrada${d.length===1?'':'s'}`;
+  $('#contador-cultura').textContent=`${c.length} entrada${c.length===1?'':'s'}`;
   const entityCount=['conceito','tema','autor'].reduce((sum,tipo)=>sum+entityNames(items,tipo).length,0);
   $('#contador-conceitos').textContent=`${entityCount} entrada${entityCount===1?'':'s'}`;
   renderWeekly();
@@ -57,22 +66,46 @@ function renderWeekly(){
   $('#lista-destaques-anteriores').innerHTML=previous.map(({item,meta})=>previousHighlight(item,meta)).join('');
 }
 
-function open(bloco,scroll=true){
-  $$('[data-portal]').forEach(p=>{const on=p.dataset.portal===bloco;p.querySelector('.portal-toggle').setAttribute('aria-expanded',String(on));p.querySelector('.portal-panel').hidden=!on;});
-  if(scroll)$(`[data-portal="${bloco}"]`).scrollIntoView({behavior:'smooth',block:'start'});
+function togglePortal(bloco){
+  const trigger=$(`[data-entry-portal="${bloco}"]`);
+  const isOpen=trigger?.getAttribute('aria-expanded')==='true';
+  setPortal(bloco,!isOpen,true);
+}
+
+function setPortal(bloco,expanded=true,scroll=true){
+  $$('[data-entry-portal]').forEach(button=>{
+    const on=expanded&&button.dataset.entryPortal===bloco;
+    button.setAttribute('aria-expanded',String(on));
+  });
+
+  $$('.entry-panel[data-portal]').forEach(panel=>{
+    panel.hidden=!(expanded&&panel.dataset.portal===bloco);
+  });
+
+  if(expanded&&scroll){
+    const panel=$(`.entry-panel[data-portal="${bloco}"]`);
+    requestAnimationFrame(()=>panel?.scrollIntoView({behavior:'smooth',block:'nearest'}));
+  }
 }
 
 function renderThemes(bloco){
   const base=items.filter(i=>i.bloco===bloco),el=$(`#temas-${bloco}`),sel=state.tema[bloco];
-  const buttons=[`<button class="topic-button ${!sel?'active':''}" data-theme="">Todos <small>${base.length}</small></button>`];
-  TEMAS.forEach(t=>{const n=base.filter(i=>inTheme(i,t)).length;if(n)buttons.push(`<button class="topic-button ${sel===t.id?'active':''}" data-theme="${t.id}">${esc(t.nome)} <small>${n}</small></button>`);});
+  const buttons=[];
+  TEMAS.forEach(t=>{
+    const n=base.filter(i=>inTheme(i,t)).length;
+    if(n)buttons.push(`<button class="topic-button ${sel===t.id?'active':''}" data-theme="${t.id}">${esc(t.nome)} <small>${n}</small></button>`);
+  });
+  buttons.push(`<button class="topic-button ${sel===''?'active':''}" data-theme="">Ver todos <small>${base.length}</small></button>`);
   el.innerHTML=buttons.join('');
 }
 
 function renderPortal(bloco){
-  const sel=state.tema[bloco],base=items.filter(i=>i.bloco===bloco),out=sel?base.filter(i=>inTheme(i,TEMAS.find(t=>t.id===sel))):base;
+  const sel=state.tema[bloco],base=items.filter(i=>i.bloco===bloco),target=$(`#lista-${bloco}`);
+  if(sel===null){target.innerHTML='<p class="portal-prompt">Escolha um subtema para abrir os repertórios relacionados.</p>';return;}
+
+  const out=sel?base.filter(i=>inTheme(i,TEMAS.find(t=>t.id===sel))):base;
   const titulo=sel?TEMAS.find(t=>t.id===sel)?.nome:'Todos os repertórios';
-  $(`#lista-${bloco}`).innerHTML=`<div class="portal-result-heading"><h3>${esc(titulo)}</h3><p>${out.length} resultado${out.length===1?'':'s'}</p></div>${out.length?`<div class="card-grid">${out.map(card).join('')}</div>`:'<p class="empty-state">Ainda não há repertórios neste tema.</p>'}`;
+  target.innerHTML=`<div class="portal-result-heading"><h3>${esc(titulo)}</h3><p>${out.length} resultado${out.length===1?'':'s'}</p></div>${out.length?`<div class="card-grid">${out.map(card).join('')}</div>`:'<p class="empty-state">Ainda não há repertórios neste tema.</p>'}`;
 }
 
 function renderEntities(){
@@ -81,7 +114,7 @@ function renderEntities(){
 }
 
 function promptEntity(){$('#detalhe-entidade').innerHTML='<p class="portal-prompt">Escolha uma entrada para ver suas conexões com os repertórios disponíveis.</p>';}
-function selectEntity(tipo,nome){state.tipo=tipo;state.entidade=nome;open('conceitos',false);$$('[data-entity-type]').forEach(x=>x.classList.toggle('active',x.dataset.entityType===tipo));renderEntities();$('#detalhe-entidade').innerHTML=entityDetail(items,tipo,nome);$('#detalhe-entidade').scrollIntoView({behavior:'smooth',block:'nearest'});}
+function selectEntity(tipo,nome){state.tipo=tipo;state.entidade=nome;setPortal('conceitos',true,false);$$('[data-entity-type]').forEach(x=>x.classList.toggle('active',x.dataset.entityType===tipo));renderEntities();$('#detalhe-entidade').innerHTML=entityDetail(items,tipo,nome);$('#detalhe-entidade').scrollIntoView({behavior:'smooth',block:'nearest'});}
 
 function search(q,scroll=true){
   const s=norm(q.trim()),out=items.filter(i=>!s||text(i).includes(s));$('#repertorios').hidden=false;
@@ -93,6 +126,9 @@ function params(){
   const p=new URLSearchParams(location.search),entity=p.get('entidade'),entityType=p.get('tipo'),c=p.get('conceito'),a=p.get('autor'),b=p.get('bloco'),t=p.get('tema'),q=p.get('busca')||p.get('tag');
   if(entity&&['conceito','tema','autor'].includes(entityType)){selectEntity(entityType,entity);return;}
   if(c||a){selectEntity(c?'conceito':'autor',c||a);return;}
-  if(['dados','cultura','conceitos'].includes(b)){open(b,false);if(t&&b!=='conceitos'){state.tema[b]=t;renderThemes(b);renderPortal(b);}}
+  if(['dados','cultura','conceitos'].includes(b)){
+    setPortal(b,true,false);
+    if(t&&b!=='conceitos'){state.tema[b]=t;renderThemes(b);renderPortal(b);}
+  }
   if(q){$('#busca').value=q;search(q,false);}
 }
