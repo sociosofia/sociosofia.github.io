@@ -33,6 +33,7 @@ function heroSummary(i,cultural){
   const summary=String(i.resumo||'').trim();
   const work=String(i.resumo_obra||'').trim();
   if(!summary)return '';
+  if(!cultural&&(i.contextualizacao||i.interpretacao_sociosofia))return '';
   if(cultural&&work&&norm(summary)===norm(work))return '';
   return `<p>${esc(summary)}</p>`;
 }
