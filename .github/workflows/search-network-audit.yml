@@ -14,6 +14,19 @@ on:
       - 'search-network-v1.css'
       - 'audit/search-network-audit.mjs'
       - '.github/workflows/search-network-audit.yml'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'home-shell.js'
+      - 'home.js'
+      - 'home-cards.js'
+      - 'detail.js'
+      - 'boot.js'
+      - 'detail-boot.js'
+      - 'search-network-v1.css'
+      - 'audit/search-network-audit.mjs'
+      - '.github/workflows/search-network-audit.yml'
   workflow_dispatch:
 
 permissions:
