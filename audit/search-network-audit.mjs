@@ -15,8 +15,9 @@ page.on('console',message=>{if(message.type()==='error')errors.push(message.text
 function assert(condition,message){if(!condition)throw new Error(message);}
 
 await page.goto(base+'index.html',{waitUntil:'domcontentloaded'});
+await page.waitForSelector('#elo-da-semana',{timeout:30000});
 await page.waitForSelector('#busca',{timeout:30000});
-await page.waitForTimeout(1000);
+await page.waitForTimeout(700);
 
 const bodyText=await page.locator('body').innerText();
 assert(bodyText.includes('Elo da semana'),'A home não apresenta Elo da semana.');
