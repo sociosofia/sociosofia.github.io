@@ -1,0 +1,310 @@
+/* Identidade visual v1 — integração do Elo Sociosofia.
+   Camada aditiva: preserva a estrutura existente e pode ser removida sem afetar o conteúdo. */
+
+:root {
+  --shadow: 0 10px 28px rgba(31, 31, 31, 0.065);
+  --radius-lg: 22px;
+  --radius-md: 17px;
+}
+
+body {
+  background: var(--bg);
+}
+
+body::before {
+  display: none;
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.035em;
+}
+
+h1 {
+  font-size: clamp(2.35rem, 5vw, 4.35rem);
+}
+
+h2 {
+  font-size: clamp(1.75rem, 3.2vw, 2.65rem);
+}
+
+h3 {
+  font-size: 1.3rem;
+}
+
+.site-header {
+  overflow: visible;
+  padding: 0 0 clamp(2.8rem, 7vw, 4.8rem);
+  border-bottom: 1px solid rgba(31, 31, 31, 0.1);
+  background:
+    radial-gradient(circle at 14% 18%, rgba(242, 193, 78, 0.11), transparent 23rem),
+    var(--bg);
+  color: var(--text);
+}
+
+.site-header::after {
+  display: none;
+}
+
+.site-header.compact {
+  padding-bottom: 0;
+}
+
+.identity-nav {
+  min-height: 76px;
+  border-bottom: 1px solid rgba(31, 31, 31, 0.08);
+}
+
+.brand {
+  gap: 0.72rem;
+  color: var(--text);
+  font-weight: 600;
+}
+
+.brand:hover {
+  color: var(--primary);
+}
+
+.brand-name {
+  font-family: "Fraunces", Georgia, serif;
+  font-size: clamp(1.7rem, 3vw, 2.08rem);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.035em;
+}
+
+.mini-elo {
+  display: block;
+  width: 35px;
+  height: 31px;
+  flex: 0 0 auto;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+}
+
+.explore-elo-link,
+.student-area-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  border-radius: 999px;
+  padding: 0.58rem 0.84rem;
+  text-decoration: none;
+  font-size: 0.88rem;
+  font-weight: 650;
+  line-height: 1;
+  white-space: nowrap;
+}
+
+.explore-elo-link {
+  color: var(--text);
+}
+
+.explore-elo-link:hover,
+.explore-elo-link:focus-visible {
+  background: rgba(91, 46, 145, 0.08);
+  color: var(--primary);
+}
+
+.student-area-link {
+  border: 1px solid rgba(91, 46, 145, 0.35);
+  background: transparent;
+  color: var(--primary);
+}
+
+.student-area-link:hover,
+.student-area-link:focus-visible {
+  border-color: var(--primary);
+  background: var(--primary);
+  color: var(--paper);
+}
+
+.hero {
+  max-width: 920px;
+  padding: clamp(3.2rem, 8vw, 5.8rem) 0 0;
+}
+
+.hero h1 {
+  max-width: 850px;
+  font-family: "Fraunces", Georgia, serif;
+  font-weight: 600;
+  line-height: 1.02;
+  letter-spacing: -0.042em;
+}
+
+.hero .eyebrow,
+.site-header .eyebrow {
+  color: var(--secondary);
+}
+
+.hero-text {
+  max-width: 720px;
+  color: #4D4944;
+  font-size: clamp(1.02rem, 1.8vw, 1.18rem);
+}
+
+.portal-copy strong,
+.previous-highlight-card strong,
+.feature-card h3 {
+  font-family: "Inter", system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+}
+
+.portal-copy strong {
+  font-size: clamp(1.2rem, 2.4vw, 1.68rem);
+}
+
+.feature-card,
+.detail-card,
+.prose-card,
+.portal-card {
+  box-shadow: var(--shadow);
+}
+
+.section {
+  padding: clamp(2.7rem, 6vw, 4.35rem) 0;
+}
+
+/* Elo em destaque na página inicial */
+.elo-home-section {
+  padding-top: 0;
+  padding-bottom: clamp(2.6rem, 6vw, 4.2rem);
+}
+
+.elo-home-card {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: center;
+  gap: clamp(1rem, 3vw, 1.65rem);
+  border: 1px solid rgba(31, 31, 31, 0.12);
+  border-radius: var(--radius-lg);
+  background: rgba(255, 253, 248, 0.84);
+  box-shadow: var(--shadow);
+  padding: clamp(1.25rem, 3vw, 1.8rem);
+  color: var(--text);
+  text-decoration: none;
+}
+
+.elo-home-card:hover {
+  border-color: rgba(91, 46, 145, 0.28);
+  color: var(--text);
+  transform: translateY(-2px);
+}
+
+.elo-home-symbol {
+  width: 86px;
+  height: 76px;
+  display: block;
+}
+
+.elo-home-copy {
+  min-width: 0;
+}
+
+.elo-home-label {
+  display: block;
+  margin-bottom: 0.38rem;
+  color: var(--primary);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+.elo-home-copy h2 {
+  margin: 0;
+  max-width: 720px;
+  font-size: clamp(1.45rem, 3vw, 2.15rem);
+}
+
+.elo-home-copy p {
+  margin: 0.55rem 0 0;
+  max-width: 760px;
+  color: var(--muted);
+  font-size: 0.94rem;
+}
+
+.elo-home-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  color: var(--primary);
+  font-size: 0.88rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.elo-home-action svg {
+  width: 18px;
+  height: 18px;
+}
+
+@media (max-width: 700px) {
+  .identity-nav {
+    min-height: 68px;
+  }
+
+  .brand {
+    gap: 0.52rem;
+  }
+
+  .mini-elo {
+    width: 31px;
+    height: 28px;
+  }
+
+  .brand-name {
+    font-size: 1.42rem;
+  }
+
+  .explore-elo-link {
+    display: none;
+  }
+
+  .student-area-link {
+    min-height: 38px;
+    padding: 0.54rem 0.7rem;
+    font-size: 0.78rem;
+  }
+
+  .hero {
+    padding-top: 2.8rem;
+  }
+
+  .elo-home-card {
+    grid-template-columns: auto minmax(0, 1fr);
+  }
+
+  .elo-home-symbol {
+    width: 65px;
+    height: 58px;
+  }
+
+  .elo-home-action {
+    grid-column: 2;
+  }
+}
+
+@media (max-width: 390px) {
+  .brand-name {
+    font-size: 1.25rem;
+  }
+
+  .mini-elo {
+    width: 28px;
+  }
+
+  .student-area-link {
+    padding-inline: 0.62rem;
+  }
+}
