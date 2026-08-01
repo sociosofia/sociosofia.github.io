@@ -1,0 +1,54 @@
+name: Auditoria da busca triangular
+
+on:
+  push:
+    branches:
+      - nucleo-elos-cards-v1
+    paths:
+      - 'home-shell.js'
+      - 'home.js'
+      - 'home-cards.js'
+      - 'detail.js'
+      - 'boot.js'
+      - 'detail-boot.js'
+      - 'search-network-v1.css'
+      - 'audit/search-network-audit.mjs'
+      - '.github/workflows/search-network-audit.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  testar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Instalar Playwright
+        run: |
+          npm init -y >/dev/null 2>&1
+          npm install playwright@1.54.2
+          npx playwright install --with-deps chromium
+      - name: Validar sintaxe
+        run: |
+          node --check home-shell.js
+          node --check home.js
+          node --check home-cards.js
+          node --check detail.js
+      - name: Iniciar servidor
+        run: |
+          python3 -m http.server 8000 >/tmp/sociosofia-http.log 2>&1 &
+          sleep 3
+      - name: Auditar busca e continuidade
+        run: node audit/search-network-audit.mjs
+      - name: Publicar capturas
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: auditoria-busca-triangular
+          path: audit/output/search-network/
+          retention-days: 14
