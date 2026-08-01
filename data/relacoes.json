@@ -1,5 +1,5 @@
 {
-  "versao_modelo": "0.2",
+  "versao_modelo": "publica-0.1",
   "relacoes": [
     {
       "id": "REL-alienacao-evi-trabalho-plataformas",
@@ -14,32 +14,11 @@
           "tipo_entidade": "EVI"
         }
       ],
-      "identidade_relacional": {
-        "familia": "conceitual_empirica",
-        "recorte": "Aplicação contemporânea da dimensão do controle da atividade ao trabalho mediado por plataformas digitais."
-      },
-      "semantica": {
-        "funcao_geral": "orienta_e_delimita",
-        "perspectivas": {
-          "CON-alienacao__EVI-trabalho-plataformas-brasil": {
-            "funcao": "orienta_perguntas",
-            "texto": "O conceito orienta perguntas sobre quem define preço, prazo, pagamento, acesso às tarefas, ritmo, avaliação e distribuição dos riscos."
-          },
-          "EVI-trabalho-plataformas-brasil__CON-alienacao": {
-            "funcao": "sustenta_e_delimita",
-            "texto": "A evidência torna observáveis dimensões do trabalho que permitem testar e limitar uma aplicação contemporânea do conceito."
-          }
-        },
-        "justificativa": "Indicadores sobre jornada, rendimento, informalidade, proteção previdenciária e influência das plataformas permitem formular perguntas concretas sobre o controle da atividade.",
-        "limites": "A pesquisa não mede alienação diretamente e não estabelece, por si só, exploração, subordinação jurídica ou vínculo empregatício."
-      },
       "projecao_publica": {
         "rotulo_curto": "Dos números para uma pergunta sobre controle",
         "resumo": "Os indicadores tornam observáveis dimensões do trabalho que o conceito ajuda a transformar em perguntas sobre controle, autonomia e atividade."
       },
-      "editorial": {
-        "status": "validado"
-      }
+      "status": "validado"
     },
     {
       "id": "REL-alienacao-vidas-entregues",
@@ -54,32 +33,11 @@
           "tipo_entidade": "REP"
         }
       ],
-      "identidade_relacional": {
-        "familia": "interpretativa",
-        "recorte": "Tensões entre autonomia, controle, propriedade, risco e sentido do trabalho na experiência apresentada pelo documentário."
-      },
-      "semantica": {
-        "funcao_geral": "oferece_chave_e_tensiona",
-        "perspectivas": {
-          "CON-alienacao__CUL-0014": {
-            "funcao": "oferece_chave_de_leitura",
-            "texto": "Alienação oferece perguntas sobre quem controla o processo, as condições e os resultados do trabalho."
-          },
-          "CUL-0014__CON-alienacao": {
-            "funcao": "aproxima_da_experiencia",
-            "texto": "O documentário torna visíveis experiências em que flexibilidade formal e controle efetivo aparecem em tensão."
-          }
-        },
-        "justificativa": "A obra acompanha trabalhadores que descrevem escolhas, necessidades, custos e riscos, permitindo relacionar experiências concretas a perguntas sobre o controle da atividade.",
-        "limites": "A obra não esgota o conceito, não representa todos os trabalhadores por plataformas e não funciona como comprovação da teoria."
-      },
       "projecao_publica": {
         "rotulo_curto": "Da ferramenta teórica para a experiência",
         "resumo": "Alienação oferece uma possibilidade de leitura para as tensões apresentadas em Vidas Entregues. O documentário aproxima o conceito de trabalhadores que interpretam suas próprias experiências."
       },
-      "editorial": {
-        "status": "validado"
-      }
+      "status": "validado"
     },
     {
       "id": "REL-vidas-entregues-evi-trabalho-plataformas",
@@ -94,32 +52,11 @@
           "tipo_entidade": "EVI"
         }
       ],
-      "identidade_relacional": {
-        "familia": "cultural_empirica",
-        "recorte": "Relação entre experiências de entregadores de bicicleta apresentadas no Rio de Janeiro em 2019 e dados nacionais sobre trabalho por plataformas referentes ao terceiro trimestre de 2024."
-      },
-      "semantica": {
-        "funcao_geral": "aproxima_e_dimensiona",
-        "perspectivas": {
-          "CUL-0014__EVI-trabalho-plataformas-brasil": {
-            "funcao": "aproxima_da_experiencia",
-            "texto": "A obra aproxima o estudante de razões, custos, riscos e dependências narrados por trabalhadores."
-          },
-          "EVI-trabalho-plataformas-brasil__CUL-0014": {
-            "funcao": "dimensiona_e_atualiza",
-            "texto": "A evidência nacional amplia a escala de observação e permite comparar jornada, rendimento, informalidade, proteção social e influência das plataformas."
-          }
-        },
-        "justificativa": "Experiência narrada e dimensionamento empírico se complementam sem que uma fonte substitua a outra.",
-        "limites": "O documentário não é amostra estatística; a pesquisa nacional não reproduz trajetórias individuais nem se restringe aos entregadores retratados."
-      },
       "projecao_publica": {
         "rotulo_curto": "Da experiência localizada para a escala social",
         "resumo": "A obra aproxima experiências situadas, enquanto a evidência amplia a escala de observação e permite comparar jornada, renda, informalidade e proteção social."
       },
-      "editorial": {
-        "status": "validado"
-      }
+      "status": "validado"
     }
   ]
 }
