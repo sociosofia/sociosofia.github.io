@@ -1,6 +1,7 @@
 import { chromium } from 'playwright';
 import { promises as fs } from 'node:fs';
 
+// Auditoria temporária da integração visual dos cards.
 const base='http://127.0.0.1:8000/';
 const out='audit/output/detail-identity';
 await fs.mkdir(out,{recursive:true});
