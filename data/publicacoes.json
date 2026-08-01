@@ -1,0 +1,38 @@
+[
+  {
+    "id": "DAD-0008",
+    "codigo_publicacao": "R001-C01",
+    "evi_id": "EVI-ibge-pnad-informalidade-2026-t1",
+    "editoria": "Notícias, dados e informações",
+    "categoria": "Notícias, dados e informações",
+    "subtema": "Trabalho, informalidade e proteção social",
+    "titulo": "Informalidade no Brasil no 1º trimestre de 2026",
+    "subtitulo": "Mais de um terço da população ocupada estava em trabalhos informais",
+    "tipo": "Dado oficial",
+    "resumo": "No 1º trimestre de 2026, a informalidade alcançou 37,3% da população ocupada no Brasil. A PNAD Contínua também registrou 25,5% de trabalhadores por conta própria e taxa composta de subutilização de 14,3%. Os indicadores ajudam a distinguir ocupação, emprego formal, trabalho por conta própria e proteção social, sem tratar todas as experiências de trabalho informal como iguais.",
+    "dado": "No 1º trimestre de 2026, 37,3% da população ocupada estava em trabalhos informais; 25,5% trabalhavam por conta própria; e a taxa composta de subutilização da força de trabalho foi de 14,3%.",
+    "questao": "Ter uma ocupação significa necessariamente possuir vínculo formal e proteção social?",
+    "conexoes": "Trabalho, informalidade, precarização, proteção social, cidadania e desigualdade estrutural.",
+    "conceitos": [
+      "Precarização",
+      "Cidadania",
+      "Desigualdade estrutural"
+    ],
+    "autores": [],
+    "fonte_nome": "IBGE — PNAD Contínua Trimestral, 1º trimestre de 2026",
+    "fonte_url": "https://agenciadenoticias.ibge.gov.br/agencia-sala-de-imprensa/2013-agencia-de-noticias/releases/46676-pnad-continua-trimestral-desocupacao-sobe-em-15-das-27-ufs-no-1-trimestre-de-2026",
+    "ano_data": "2026",
+    "confiabilidade": "Alta; estatística amostral oficial do IBGE",
+    "fonte_status": "conferida",
+    "nivel": "Básico",
+    "status": "publicado",
+    "destaque": false,
+    "tags": [
+      "trabalho",
+      "informalidade",
+      "proteção social",
+      "PNAD Contínua",
+      "desigualdade"
+    ]
+  }
+]
