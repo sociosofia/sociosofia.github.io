@@ -2,7 +2,8 @@
 
 **Status:** proposta técnica para validação de Luiz  
 **Escopo:** projeções públicas de dados derivadas de evidências canônicas EVI  
-**Arquivo público:** `data/publicacoes.json`
+**Arquivo público:** `data/publicacoes.json`  
+**Esquema legível por máquina:** `schemas/card-dados-publico-v1.schema.json`
 
 ## 1. Separação de camadas
 
@@ -68,6 +69,8 @@ Cada projeção pública precisa registrar:
 
 `questao` é recomendada e exibida quando aprovada, mas não substitui o dado, a contextualização ou a interpretação.
 
+O site valida a forma do `evi_id`. A existência efetiva da evidência e seu status editorial devem ser confirmados pela base interna da automação antes da inserção, pois os metadados completos da EVI não são expostos no repositório público.
+
 ## 4. Regras do card público
 
 O card deve funcionar sozinho. Sua sequência é:
@@ -80,6 +83,8 @@ título
 → pergunta para continuar pensando, quando houver
 → fonte original e data
 ```
+
+Dado e contextualização cumprem funções diferentes. A contextualização informa alcance, universo, período, método ou limite necessário, sem simplesmente repetir a afirmação empírica.
 
 Conceitos indispensáveis à compreensão precisam ser explicados no próprio texto. Links, autores, conceitos relacionados e Elos aprofundam a leitura, mas não corrigem uma explicação insuficiente.
 
@@ -95,6 +100,8 @@ Exemplo:
 "tema_ids": ["genero", "trabalho"]
 ```
 
+O primeiro ID define o rótulo temático principal exibido publicamente. Os demais preservam pertencimentos adicionais e permitem que o card apareça em outras entradas relevantes.
+
 Aliases ajudam a reconciliar rótulos históricos. O site pode continuar usando palavras-chave para descoberta e serendipidade, mas a pertença editorial principal não depende mais de coincidência textual.
 
 ## 6. Compatibilidade e legado
@@ -108,7 +115,8 @@ O carregador público:
 - não exibe conteúdos `em_ajuste`, `rascunho`, `em_revisao` ou `arquivado`;
 - impede IDs e códigos de publicação duplicados;
 - rejeita `tema_ids` inexistentes;
-- exige fonte original e aprovação humana.
+- exige fonte original e aprovação humana;
+- recusa todas as projeções novas quando o registro canônico de temas não pode ser conferido.
 
 ## 7. Registros vigentes
 
@@ -125,7 +133,7 @@ R001–C02, sobre salário digno, permanece fora de `data/publicacoes.json` e n�
 
 Depois da aprovação explícita de Luiz, a automação deverá entregar um único objeto compatível com este contrato. Antes de gravá-lo, deverá:
 
-1. verificar se o `evi_id` já existe;
+1. verificar na base interna se o `evi_id` existe e está apto a gerar projeção pública;
 2. distinguir novo card, atualização ou duplicata;
 3. atribuir `tema_ids` válidos;
 4. garantir unicidade de `id` e `codigo_publicacao`;
@@ -135,3 +143,33 @@ Depois da aprovação explícita de Luiz, a automação deverá entregar um úni
 8. confirmar a renderização pública.
 
 A automação não cria RELs, conceitos, autores ou Elos automaticamente. Pode propor conexões para revisão editorial separada.
+
+## 9. Rotina de inserção
+
+A rotina segura é:
+
+```bash
+node scripts/inserir-publicacao.mjs caminho/do/card.json
+```
+
+Sem opções adicionais, ela opera em modo de simulação: valida o card e não escreve nada.
+
+Depois da aprovação e da simulação bem-sucedida:
+
+```bash
+node scripts/inserir-publicacao.mjs caminho/do/card.json --write
+```
+
+A opção `--write` somente grava quando o conjunto completo permanece válido. O arquivo é reordenado por ID, sem alterar o conteúdo dos demais registros.
+
+## 10. Verificações permanentes
+
+O repositório mantém:
+
+- validação do contrato e dos temas;
+- teste de bloqueio para `em_ajuste`;
+- teste de IDs, códigos e temas duplicados ou inválidos;
+- teste da rotina de inserção em modo de simulação;
+- auditoria em navegador da navegação temática e das seções públicas do card.
+
+Essas verificações são executadas quando os arquivos do contrato ou das publicações mudam e também no primeiro merge desta estrutura à `main`.
