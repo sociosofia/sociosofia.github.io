@@ -2,7 +2,14 @@ import {esc,entityEntry,entityLinks,entityMatches,entityUrl,itemEntityNames,keyw
 
 export function card(i,context={}){
   const url=repertoryUrl(i.id,context);
-  return `<article class="card" data-type="${esc(i.tipo)}"><span class="tag">${esc(i.tipo||'Repertório')}</span><h3><a class="card-title-link" href="${url}">${esc(i.titulo)}</a></h3>${i.subtitulo?`<p class="card-subtitle">${esc(i.subtitulo)}</p>`:''}<p class="card-summary">${esc(i.resumo||i.resumo_obra||'')}</p><div class="card-meta"><span>${i.bloco==='dados'?'Dados e informações':'Repertório cultural'}</span>${i.subtema?`<span>•</span><span>${esc(i.subtema)}</span>`:''}</div>${entityLinks(i,['conceito','autor'])}${keywordList(i,5)}<div class="card-actions"><a class="read-more" href="${url}">Abrir</a></div></article>`;
+  return `<article class="card" data-type="${esc(i.tipo)}"><span class="tag">${esc(i.tipo||'Repertório')}</span><h3><a class="card-title-link" href="${url}">${esc(i.titulo)}</a></h3>${i.subtitulo?`<p class="card-subtitle">${esc(i.subtitulo)}</p>`:''}<p class="card-summary">${esc(i.resumo||i.resumo_obra||'')}</p><div class="card-meta"><span>${i.bloco==='dados'?'Dados e informações':'Repertório cultural'}</span>${i.subtema?`<span>•</span><span>${esc(i.subtema)}</span>`:''}</div>${context.busca?contextEntityLinks(i,context):entityLinks(i,['conceito','autor'])}${keywordList(i,5)}<div class="card-actions"><a class="read-more" href="${url}">Abrir</a></div></article>`;
+}
+
+function contextEntityLinks(i,context){
+  const links=[];
+  ['conceito','autor'].forEach(tipo=>itemEntityNames(i,tipo).forEach(nome=>links.push({tipo,nome})));
+  if(!links.length)return '';
+  return `<div class="entity-links"><span>Conexões</span><ul class="inline-links">${links.slice(0,7).map(({tipo,nome})=>{const params=new URLSearchParams({tipo,entidade:nome,busca:context.busca,origem:context.origem||''});return `<li><a href="index.html?${params.toString()}#temas">${esc(nome)}</a></li>`;}).join('')}</ul></div>`;
 }
 
 function repertoryUrl(id,context={}){
