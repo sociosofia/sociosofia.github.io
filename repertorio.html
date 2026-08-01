@@ -3,38 +3,58 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Página de repertório do Sociosofia." />
-  <title>Repertório | Sociosofia</title>
+  <meta name="description" content="Card do acervo Sociosofia: dados, conceitos e repertórios para continuar pensando." />
+  <meta name="theme-color" content="#F7F1E8" />
+  <title>Card | Sociosofia</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700;9..144,800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="student-header.css" />
+  <link rel="stylesheet" href="identity-v1.css" />
 </head>
-<body>
+<body class="detail-page">
   <a class="skip-link" href="#conteudo">Pular para o conteúdo</a>
+
   <header class="site-header compact">
-    <nav class="nav container" aria-label="Menu principal">
+    <nav class="nav container simple-nav identity-nav" aria-label="Cabeçalho principal">
       <a class="brand" href="index.html" aria-label="Página inicial do Sociosofia">
-        <span class="brand-mark" aria-hidden="true">S</span>
-        <span>Sociosofia</span>
+        <span class="brand-name">Sociosofia</span>
+        <svg class="mini-elo" viewBox="0 0 36 32" aria-hidden="true">
+          <path d="M18 5 L6 26 L30 26 Z" fill="none" stroke="#A99B88" stroke-width="1.4" />
+          <circle cx="18" cy="5" r="4.6" fill="#2F6F73" />
+          <circle cx="6" cy="26" r="4.6" fill="#5B2E91" />
+          <circle cx="30" cy="26" r="4.6" fill="#D95D39" />
+        </svg>
       </a>
-      <ul class="nav-list always-visible">
-        <li><a href="index.html">Início</a></li>
-        <li><a href="index.html#temas">Temas</a></li>
-        <li><a href="index.html#repertorios">Repertórios</a></li>
-        <li><a href="sobre.html">Sobre</a></li>
-      </ul>
+      <div class="header-actions">
+        <a class="explore-elo-link" href="index.html#temas">Explorar o acervo</a>
+        <a class="student-area-link" href="alunos/">Área do Estudante</a>
+      </div>
     </nav>
   </header>
 
   <main id="conteudo" class="container detail-shell">
-    <p class="breadcrumb"><a href="index.html">Início</a> › <a href="index.html#repertorios">Repertórios</a> › <span id="breadcrumb-atual">Carregando...</span></p>
+    <nav class="detail-breadcrumb" aria-label="Localização">
+      <a href="index.html">Início</a>
+      <span aria-hidden="true">›</span>
+      <a href="index.html#temas">Explorar</a>
+      <span aria-hidden="true">›</span>
+      <span id="breadcrumb-atual" aria-current="page">Carregando...</span>
+    </nav>
     <article id="repertorio-detalhe" class="detail-card" aria-live="polite"></article>
   </main>
 
-  <footer class="site-footer">
-    <div class="container">
-      <p>Sociosofia — repertórios para pensar o mundo.</p>
+  <footer class="site-footer detail-footer">
+    <div class="container footer-grid">
+      <div>
+        <strong>Sociosofia</strong>
+        <p>Uma entrada pode levar a caminhos que ainda não estavam previstos.</p>
+      </div>
+      <div>
+        <strong>Continue explorando</strong>
+        <p>Compare dados, conceitos, autores e repertórios e construa suas próprias relações.</p>
+      </div>
     </div>
   </footer>
 
