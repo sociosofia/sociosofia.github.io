@@ -19,6 +19,7 @@ async function audit(viewport,name){
 
   await page.goto(base+'repertorio.html?id=DAD-0009&busca=viol%C3%AAncia&origem=dados',{waitUntil:'domcontentloaded'});
   await page.waitForSelector('.detail-hero h1',{timeout:30000});
+  await page.waitForSelector('.detail-more-paths',{timeout:30000});
   assert(await page.locator('#repertorio-detalhe').getAttribute('data-kind')==='dados','O card de dado não recebeu sua identidade semântica.');
   const dataText=await page.locator('#repertorio-detalhe').innerText();
   assert(dataText.includes('Dado'),'O título canônico Dado não aparece.');
@@ -28,6 +29,13 @@ async function audit(viewport,name){
   assert(dataText.includes('Outros caminhos para “violência”'),'A continuidade da busca não aparece.');
   assert(!dataText.includes('Temas relacionados'),'A antiga repetição de blocos ainda aparece.');
   assert(await page.locator('.brand-name').innerText()==='Sociosofia','O cabeçalho minimalista não foi aplicado.');
+
+  const more=page.locator('.detail-more-paths').first();
+  assert(!(await more.getAttribute('open')),'Os caminhos adicionais deveriam iniciar recolhidos.');
+  await more.locator('summary').click();
+  assert(await more.getAttribute('open')!==null,'Os caminhos adicionais não abriram.');
+  await more.locator('summary').click();
+  assert(await more.getAttribute('open')===null,'Os caminhos adicionais não fecharam no segundo clique.');
   await page.screenshot({path:`${out}/${name}-dado.png`,fullPage:true});
 
   await page.goto(base+'repertorio.html?id=CUL-0014',{waitUntil:'domcontentloaded'});
