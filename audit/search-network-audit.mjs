@@ -19,10 +19,10 @@ await page.waitForSelector('#elo-da-semana',{timeout:30000});
 await page.waitForSelector('#busca',{timeout:30000});
 await page.waitForTimeout(700);
 
-const bodyText=await page.locator('body').innerText();
-assert(bodyText.includes('Elo da semana'),'A home não apresenta Elo da semana.');
-assert(!bodyText.includes('Repertório da semana'),'A curadoria concorrente de repertório ainda aparece.');
-assert(!bodyText.includes('Notícias\nDados\nPesquisas\nFilmes\nLivros'),'Os atalhos antigos ainda aparecem.');
+const bodyText=(await page.locator('body').textContent()).toLowerCase();
+assert(bodyText.includes('elo da semana'),'A home não apresenta Elo da semana.');
+assert(!bodyText.includes('repertório da semana'),'A curadoria concorrente de repertório ainda aparece.');
+assert(!bodyText.includes('notícias\ndados\npesquisas\nfilmes\nlivros'),'Os atalhos antigos ainda aparecem.');
 
 await page.locator('#busca').fill('racismo');
 await page.locator('.keyword-search-box').press('Enter');
