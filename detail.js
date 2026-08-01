@@ -66,7 +66,7 @@ function searchContinuity(current,items){
       <div>
         <span class="eyebrow">Continue pela busca inicial</span>
         <h2 id="continue-search-title">Outros caminhos para “${esc(searchTerm)}”</h2>
-        <p>Estes resultados preservam o assunto que trouxe você até este card. Eles são resultados contextuais da busca e não significam, por si só, uma relação editorial já validada.</p>
+        <p>Estas aproximações preservam o assunto que trouxe você até este card. Algumas retomam relações já conhecidas; outras podem sugerir conexões novas e abrir percursos que o Sociosofia não previu.</p>
       </div>
       <a class="button ghost" href="index.html?busca=${encodeURIComponent(searchTerm)}#repertorios">Voltar aos três vértices</a>
     </header>
@@ -97,7 +97,7 @@ function contextItemLink(item,origin){
 
 function automaticSuggestions(cultural,suggestions){
   if(!suggestions.length)return '';
-  return `<section class="detail-section detail-section-wide detail-relations"><h2>${cultural?'Outros dados por proximidade temática':'Outros repertórios por proximidade temática'}</h2><p class="relation-disclaimer">Sugestões calculadas por temas, palavras-chave e entidades em comum. Não substituem relações editoriais validadas.</p><div class="relation-grid">${suggestions.map(item=>relationCardWithContext(item)).join('')}</div></section>`;
+  return `<section class="detail-section detail-section-wide detail-relations"><h2>${cultural?'Outros dados para continuar pensando':'Outros repertórios para continuar pensando'}</h2><p class="relation-disclaimer">Aproximações sugeridas por temas, palavras-chave e entidades em comum. Explore, compare e construa suas próprias relações: estes caminhos não esgotam as leituras possíveis.</p><div class="relation-grid">${suggestions.map(item=>relationCardWithContext(item)).join('')}</div></section>`;
 }
 
 function relationCardWithContext(item){
