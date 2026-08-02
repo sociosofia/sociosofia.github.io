@@ -1,0 +1,33 @@
+{
+  "versao": "1.0",
+  "lote": "legado-lote1-v1",
+  "status": "aprovado",
+  "aprovado_por": "Luiz Jácomo",
+  "data_aprovacao": "2026-08-02",
+  "itens": [
+    {
+      "id": "DAD-0004",
+      "decisao": "aprovar_migracao"
+    },
+    {
+      "id": "DAD-0007",
+      "decisao": "aprovar_migracao"
+    },
+    {
+      "id": "CUL-0003",
+      "decisao": "aprovar_migracao"
+    }
+  ],
+  "regras": [
+    "Preservar IDs e endereços públicos.",
+    "Retirar os três IDs do estado publicado_legado somente quando as projeções canônicas estiverem presentes.",
+    "Não criar REL, conceito, autor ou Elo automaticamente.",
+    "Preservar os textos anteriores em histórico interno."
+  ],
+  "origem_editorial": {
+    "propostas": "data/propostas-migracao-legado-lote1-v1.json",
+    "documento": "docs/piloto-migracao-legado-lote1-v1.md",
+    "pr_aprovacao": 42,
+    "commit_aprovacao": "dbbca9339ffeca726b07654a1975486227dfbdf3"
+  }
+}
