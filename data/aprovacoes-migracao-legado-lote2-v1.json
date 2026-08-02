@@ -1,0 +1,34 @@
+{
+  "versao": "1.0",
+  "lote": "legado-lote2-v1",
+  "status": "aprovado",
+  "aprovado_por": "Luiz Jácomo",
+  "data_aprovacao": "2026-08-02",
+  "itens": [
+    {
+      "id": "DAD-0002",
+      "decisao": "aprovar_migracao"
+    },
+    {
+      "id": "DAD-0006",
+      "decisao": "aprovar_migracao",
+      "ajuste_aprovado": "Pesquisa mostra que apenas 14% dos responsáveis leem para as crianças ao menos três vezes por semana"
+    },
+    {
+      "id": "CUL-0001",
+      "decisao": "aprovar_migracao"
+    }
+  ],
+  "regras": [
+    "Preservar IDs e endereços públicos.",
+    "Retirar os três IDs do estado publicado_legado somente quando as projeções canônicas estiverem presentes.",
+    "Não criar REL, conceito, autor ou Elo automaticamente.",
+    "Preservar os textos anteriores em histórico interno.",
+    "Manter no corpo de DAD-0006 a limitação territorial do IELS, sem antecipá-la no título."
+  ],
+  "origem_editorial": {
+    "propostas": "data/propostas-migracao-legado-lote2-v1.json",
+    "documento": "docs/piloto-migracao-legado-lote2-v1.md",
+    "pr_aprovacao": 44
+  }
+}
