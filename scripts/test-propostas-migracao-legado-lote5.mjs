@@ -12,7 +12,7 @@ const [proposals,themes,legacy,repertorios,publicacoes,cultural]=await Promise.a
   read('data/repertorios-canonicos.json')
 ]);
 
-assert(proposals.status==='em_revisao','O quinto lote deve permanecer em revisão até decisão explícita de Luiz.');
+assert(proposals.status==='aprovado','O quinto lote deve registrar a aprovação editorial de Luiz.');
 assert(Array.isArray(proposals.propostas)&&proposals.propostas.length===3,'O quinto lote deve conter exatamente três propostas.');
 
 const expected=['CUL-0007','CUL-0008','CUL-0009'];
@@ -31,7 +31,7 @@ assert(cultural.length===5,'O quinto lote editorial não deve alterar os cinco r
 
 for(const item of proposals.propostas){
   assert(item.estado_publico_preservado==='publicado_legado',`${item.id} perdeu a preservação transitória.`);
-  assert(item.status_editorial_proposto==='em_revisao',`${item.id} não está em revisão.`);
+  assert(item.status_editorial_proposto==='aprovado',`${item.id} não registra aprovação editorial.`);
   assert(legacyIds.has(item.id),`${item.id} não permanece no registro publicado_legado.`);
   assert(repertoryMap.has(item.id),`${item.id} não existe no acervo legado.`);
   assert(!canonicalIds.has(item.id),`${item.id} já entrou em base canônica e seria duplicado.`);
@@ -69,6 +69,6 @@ assert(!serialized.includes('relacao_validada'),'O quinto lote criou relação v
 assert(!serialized.includes('r001-c02'),'R001-C02 não pode reaparecer no lote.');
 assert(!serialized.includes('salário digno'),'O card de salário digno não pode aparecer no lote.');
 
-console.log('Quinto trio cultural validado e mantido fora das bases canônicas.');
+console.log('Quinto trio cultural aprovado e mantido fora das bases canônicas.');
 
 async function read(path){return JSON.parse(await readFile(new URL(path,root),'utf8'));}
