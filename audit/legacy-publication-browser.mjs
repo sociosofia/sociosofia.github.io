@@ -18,13 +18,13 @@ const snapshot=await page.evaluate(async()=>{
 
 const legacy=snapshot.filter(item=>item.status_publicacao==='publicado_legado');
 const current=snapshot.filter(item=>item.status_publicacao==='publicado');
-assert(legacy.length===21,`Esperados 21 itens publicado_legado; encontrados ${legacy.length}.`);
-assert(current.length===17,`Esperadas 17 publicações canônicas; encontradas ${current.length}.`);
+assert(legacy.length===18,`Esperados 18 itens publicado_legado; encontrados ${legacy.length}.`);
+assert(current.length===20,`Esperadas 20 publicações canônicas; encontradas ${current.length}.`);
 assert(snapshot.length===38,`A fachada pública deveria conter 38 itens; encontrou ${snapshot.length}.`);
 assert(new Set(snapshot.map(item=>item.id)).size===38,'A fachada pública contém IDs duplicados.');
 assert(legacy.every(item=>item.id.startsWith('CUL-')),'Nenhum card DAD deveria permanecer no legado.');
 
-for(const id of ['DAD-0004','DAD-0007','CUL-0003','DAD-0002','DAD-0006','CUL-0001','DAD-0001','DAD-0005','CUL-0002','DAD-0003','CUL-0004','CUL-0005']){
+for(const id of ['DAD-0004','DAD-0007','CUL-0003','DAD-0002','DAD-0006','CUL-0001','DAD-0001','DAD-0005','CUL-0002','DAD-0003','CUL-0004','CUL-0005','CUL-0007','CUL-0008','CUL-0009']){
   const matches=snapshot.filter(item=>item.id===id);
   assert(matches.length===1,`${id} deveria aparecer exatamente uma vez.`);
   assert(matches[0].status_publicacao==='publicado',`${id} não foi promovido ao estado canônico publicado.`);
@@ -43,10 +43,13 @@ await verifyCulturalCard('CUL-0001',['Coringa: sofrimento, humilhação e espet�
 await verifyCulturalCard('CUL-0002',['Corra!: admiração, apropriação e controle do corpo negro','Não tratá-la como documentário','Estados Unidos','Brasil']);
 await verifyCulturalCard('CUL-0004',['O Show de Truman: vigilância, espetáculo e realidade fabricada','consentimento','Não apresentar o filme como profecia literal','Que diferença existe entre compartilhar a própria vida']);
 await verifyCulturalCard('CUL-0005',['Menino 23: eugenia, trabalho forçado e apagamento histórico','cinquenta meninos negros','reconstrução documental mediada','história nacional de escravização e racismo']);
+await verifyCulturalCard('CUL-0007',['Black Mirror — San Junípero: corpo, memória e a promessa de continuar vivendo','dimensão amorosa e queer','Não apresentar a transferência de consciência como fato científico','Uma existência digital seria continuação da mesma pessoa']);
+await verifyCulturalCard('CUL-0008',['Black Mirror — The Entire History of You: quando lembrar se torna vigiar','Transformar a experiência em arquivo não elimina a interpretação','controle coercitivo','Rever tudo tornaria uma relação mais verdadeira']);
+await verifyCulturalCard('CUL-0009',['Black Mirror — Fifteen Million Merits: trabalho, consumo e revolta transformada em espetáculo','contestação em produto','alegoria','humilhação','O que acontece com a crítica social']);
 
 assert(errors.length===0,`Erros no navegador: ${errors.join(' | ')}`);
 await browser.close();
-console.log('Auditoria dos quatro lotes migrados concluída.');
+console.log('Auditoria dos cinco lotes migrados concluída.');
 
 async function verifyDataCard(id,expectedTexts){
   await page.goto(base+`repertorio.html?id=${id}`,{waitUntil:'networkidle'});
