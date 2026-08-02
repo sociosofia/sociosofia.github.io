@@ -11,6 +11,7 @@ page.on('pageerror',error=>errors.push(error.message));
 page.on('console',message=>{if(message.type()==='error')errors.push(message.text());});
 
 await page.goto(base+'index.html',{waitUntil:'networkidle'});
+await page.waitForSelector('[data-theme="genero"]',{state:'attached'});
 await page.locator('[data-entry-portal="dados"]').click();
 await page.waitForSelector('#painel-dados:not([hidden])');
 const genderButton=page.locator('[data-theme="genero"]');
