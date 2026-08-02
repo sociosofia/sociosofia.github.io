@@ -10,9 +10,9 @@ const themeIds=new Set(themeMapFromRegistry(themes).keys());
 
 const valid=validateRepertoryCollection(repertorios,{themeIds});
 assert(valid.errors.length===0,'O repertório cultural vigente deveria passar no contrato.');
-assert(valid.valid.length===2,'A base cultural canônica deve conter dois registros após o segundo lote.');
+assert(valid.valid.length===3,'A base cultural canônica deve conter três registros após o terceiro lote.');
 
-for(const id of ['CUL-0001','CUL-0003']){
+for(const id of ['CUL-0001','CUL-0002','CUL-0003']){
   const item=repertorios.find(entry=>entry.id===id);
   assert(item,`${id} não está na base cultural canônica.`);
   assert(Array.isArray(item.autores)&&item.autores.length===0,`${id} contém relação autoral automática.`);
@@ -21,6 +21,11 @@ for(const id of ['CUL-0001','CUL-0003']){
 const joker=repertorios.find(item=>item.id==='CUL-0001');
 assert(joker.origem_migracao?.lote==='legado-lote2-v1','CUL-0001 não registra a origem do segundo lote.');
 assert(joker.cuidado_pedagogico?.includes('Não usar o filme como evidência'),'CUL-0001 perdeu o cuidado pedagógico aprovado.');
+
+const getOut=repertorios.find(item=>item.id==='CUL-0002');
+assert(getOut.origem_migracao?.lote==='legado-lote3-v1','CUL-0002 não registra a origem do terceiro lote.');
+assert(getOut.cuidado_pedagogico?.includes('Não tratá-la como documentário'),'CUL-0002 perdeu o cuidado pedagógico aprovado.');
+assert(getOut.cuidado_pedagogico?.includes('Estados Unidos')&&getOut.cuidado_pedagogico?.includes('Brasil'),'CUL-0002 perdeu a distinção entre contextos raciais.');
 
 const adjusting=structuredClone(repertorios);
 adjusting[0].status='em_ajuste';
@@ -42,4 +47,4 @@ duplicate.push(structuredClone(repertorios[0]));
 const duplicateResult=validateRepertoryCollection(duplicate,{themeIds});
 assert(duplicateResult.errors.some(error=>error.includes('id duplicado')),'Um ID cultural duplicado não foi bloqueado.');
 
-console.log('Bloqueios do contrato cultural e dois repertórios canônicos confirmados.');
+console.log('Bloqueios do contrato cultural e três repertórios canônicos confirmados.');
