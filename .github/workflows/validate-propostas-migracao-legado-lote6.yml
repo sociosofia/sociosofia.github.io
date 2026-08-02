@@ -6,6 +6,7 @@ on:
       - migracao-editorial-legado-lote6-v1
     paths:
       - 'data/propostas-migracao-legado-lote6-v1.json'
+      - 'data/propostas-migracao-legado-lote6-ampliacao-v1.json'
       - 'data/publicacao-legado.json'
       - 'data/repertorios.json'
       - 'data/publicacoes.json'
@@ -18,6 +19,7 @@ on:
       - main
     paths:
       - 'data/propostas-migracao-legado-lote6-v1.json'
+      - 'data/propostas-migracao-legado-lote6-ampliacao-v1.json'
       - 'data/publicacao-legado.json'
       - 'data/repertorios.json'
       - 'data/publicacoes.json'
@@ -42,5 +44,6 @@ jobs:
         run: |
           node --check scripts/test-propostas-migracao-legado-lote6.mjs
           node -e "JSON.parse(require('fs').readFileSync('data/propostas-migracao-legado-lote6-v1.json','utf8'))"
-      - name: Validar sexto trio cultural
+          node -e "JSON.parse(require('fs').readFileSync('data/propostas-migracao-legado-lote6-ampliacao-v1.json','utf8'))"
+      - name: Validar sexto lote cultural ampliado
         run: node scripts/test-propostas-migracao-legado-lote6.mjs
