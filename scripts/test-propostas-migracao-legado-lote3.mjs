@@ -4,32 +4,36 @@ function assert(condition,message){if(!condition)throw new Error(message);}
 
 const root=new URL('../',import.meta.url);
 const proposals=await read('data/propostas-migracao-legado-lote3-v1.json');
+const approval=await read('data/aprovacoes-migracao-legado-lote3-v1.json');
 const themes=await read('data/temas.json');
 const legacy=await read('data/publicacao-legado.json');
 const repertorios=await read('data/repertorios.json');
 const publicacoes=await read('data/publicacoes.json');
 const culturais=await read('data/repertorios-canonicos.json');
 
-assert(proposals.status==='em_revisao','O terceiro lote deve permanecer em revisão até decisão explícita de Luiz.');
+assert(proposals.status==='aprovado','O terceiro lote deve registrar a aprovação editorial de Luiz.');
+assert(approval.status==='aprovado'&&approval.aprovado_por==='Luiz Jácomo','A aprovação nominal do terceiro lote não foi registrada.');
 assert(Array.isArray(proposals.propostas)&&proposals.propostas.length===3,'O terceiro lote deve conter exatamente três propostas.');
 
 const expected=['DAD-0001','DAD-0005','CUL-0002'];
 const actual=proposals.propostas.map(item=>item.id);
 assert(JSON.stringify(actual)===JSON.stringify(expected),'Os IDs ou sua ordem foram alterados.');
 assert(new Set(actual).size===actual.length,'Há IDs duplicados no terceiro lote.');
+assert(JSON.stringify((approval.itens||[]).map(item=>item.id))===JSON.stringify(expected),'A aprovação não cobre exatamente o terceiro trio.');
+assert(approval.itens.every(item=>item.decisao==='aprovar_migracao'),'Há item sem autorização de migração.');
 
 const themeIds=new Set((themes.temas||[]).map(theme=>theme.id));
 const legacyIds=new Set(legacy.ids||[]);
 const repertoryMap=new Map(repertorios.map(item=>[item.id,item]));
 const canonicalIds=new Set([...publicacoes,...culturais].map(item=>item.id));
 
-assert(legacy.ids.length===27,'O terceiro lote não deve alterar os 27 itens ainda publicados como legado.');
-assert(publicacoes.length===9,'O terceiro lote não deve alterar os nove dados canônicos vigentes.');
-assert(culturais.length===2,'O terceiro lote não deve alterar os dois repertórios culturais canônicos vigentes.');
+assert(legacy.ids.length===27,'A aprovação editorial não deve alterar os 27 itens ainda publicados como legado.');
+assert(publicacoes.length===9,'A aprovação editorial não deve alterar os nove dados canônicos vigentes.');
+assert(culturais.length===2,'A aprovação editorial não deve alterar os dois repertórios culturais canônicos vigentes.');
 
 for(const item of proposals.propostas){
   assert(item.estado_publico_preservado==='publicado_legado',`${item.id} perdeu a preservação transitória.`);
-  assert(item.status_editorial_proposto==='em_revisao',`${item.id} não está em revisão.`);
+  assert(item.status_editorial_proposto==='aprovado',`${item.id} não está aprovado editorialmente.`);
   assert(legacyIds.has(item.id),`${item.id} não permanece no registro publicado_legado.`);
   assert(repertoryMap.has(item.id),`${item.id} não existe no acervo legado.`);
   assert(!canonicalIds.has(item.id),`${item.id} já entrou em base canônica e seria duplicado.`);
@@ -75,7 +79,7 @@ assert(!serialized.includes('relacao_validada'),'O terceiro lote criou relação
 assert(!serialized.includes('r001-c02'),'R001-C02 não pode reaparecer no lote.');
 assert(!serialized.includes('salário digno'),'O card de salário digno não pode aparecer no lote.');
 
-console.log('Terceiro trio editorial validado e mantido fora das bases canônicas.');
+console.log('Terceiro trio editorial aprovado, validado e mantido fora das bases canônicas.');
 
 async function read(path){
   return JSON.parse(await readFile(new URL(path,root),'utf8'));
