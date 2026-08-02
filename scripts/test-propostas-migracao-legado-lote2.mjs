@@ -4,19 +4,23 @@ function assert(condition,message){if(!condition)throw new Error(message);}
 
 const root=new URL('../',import.meta.url);
 const proposals=await read('data/propostas-migracao-legado-lote2-v1.json');
+const approval=await read('data/aprovacoes-migracao-legado-lote2-v1.json');
 const themes=await read('data/temas.json');
 const legacy=await read('data/publicacao-legado.json');
 const repertorios=await read('data/repertorios.json');
 const publicacoes=await read('data/publicacoes.json');
 const culturais=await read('data/repertorios-canonicos.json');
 
-assert(proposals.status==='em_revisao','O segundo lote editorial deve permanecer em revisão até a migração pública separada.');
+assert(proposals.status==='aprovado','O segundo lote editorial precisa registrar a aprovação de Luiz.');
+assert(approval.status==='aprovado'&&approval.aprovado_por==='Luiz Jácomo','A aprovação nominal do segundo lote não foi registrada.');
 assert(Array.isArray(proposals.propostas)&&proposals.propostas.length===3,'O segundo lote deve conter exatamente três propostas.');
 
 const expected=['DAD-0002','DAD-0006','CUL-0001'];
 const actual=proposals.propostas.map(item=>item.id);
 assert(JSON.stringify(actual)===JSON.stringify(expected),'Os IDs ou sua ordem foram alterados.');
 assert(new Set(actual).size===actual.length,'Há IDs duplicados nas propostas.');
+assert(JSON.stringify(approval.itens.map(item=>item.id))===JSON.stringify(expected),'A aprovação não corresponde exatamente ao segundo trio.');
+assert(approval.itens.every(item=>item.decisao==='aprovar_migracao'),'Há item sem autorização de migração.');
 
 const themeIds=new Set((themes.temas||[]).map(theme=>theme.id));
 const legacyIds=new Set(legacy.ids||[]);
@@ -25,7 +29,7 @@ const canonicalIds=new Set([...publicacoes,...culturais].map(item=>item.id));
 
 for(const item of proposals.propostas){
   assert(item.estado_publico_preservado==='publicado_legado',`${item.id} perdeu a preservação transitória.`);
-  assert(item.status_editorial_proposto==='em_revisao',`${item.id} não está em revisão técnica antes da migração.`);
+  assert(item.status_editorial_proposto==='aprovado',`${item.id} não está aprovado editorialmente.`);
   assert(legacyIds.has(item.id),`${item.id} não está no registro publicado_legado.`);
   assert(repertoryMap.has(item.id),`${item.id} não existe no acervo legado.`);
   assert(!canonicalIds.has(item.id),`${item.id} já existe em base canônica e seria duplicado.`);
@@ -56,6 +60,7 @@ assert(mental.contextualizacao.includes('não constituem diagnóstico clínico')
 const iels=proposals.propostas.find(item=>item.id==='DAD-0006');
 assert(iels.titulo==='Pesquisa mostra que apenas 14% dos responsáveis leem para as crianças ao menos três vezes por semana','DAD-0006 perdeu o título editorial aprovado por Luiz.');
 assert(!iels.titulo.includes('recorte brasileiro'),'DAD-0006 voltou a antecipar a metodologia no título.');
+assert(approval.itens.find(item=>item.id==='DAD-0006')?.ajuste_aprovado===iels.titulo,'A aprovação do ajuste de DAD-0006 não coincide com o título registrado.');
 assert(iels.dado.includes('14%')&&iels.dado.includes('54%'),'DAD-0006 perdeu a comparação central.');
 for(const state of ['Ceará','Pará','São Paulo'])assert(iels.contextualizacao.includes(state),`DAD-0006 não registra ${state}.`);
 assert(iels.contextualizacao.includes('não para o Brasil inteiro'),'DAD-0006 não limita a abrangência territorial.');
@@ -65,7 +70,7 @@ const joker=proposals.propostas.find(item=>item.id==='CUL-0001');
 assert(joker.cuidado_pedagogico.includes('Não usar o filme como evidência'),'CUL-0001 perdeu o cuidado pedagógico central.');
 assert(joker.leitura_sociosofia.includes('nem provam que pessoas em sofrimento mental sejam violentas'),'CUL-0001 voltou a associar sofrimento mental e violência de forma automática.');
 
-console.log('Segundo trio editorial validado, com título do DAD-0006 aprovado e publicação ainda bloqueada.');
+console.log('Segundo trio editorial aprovado, validado e mantido fora da publicação canônica.');
 
 async function read(path){
   return JSON.parse(await readFile(new URL(path,root),'utf8'));
