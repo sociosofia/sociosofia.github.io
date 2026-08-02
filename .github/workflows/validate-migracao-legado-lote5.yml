@@ -1,0 +1,40 @@
+name: Validar quinto lote migrado
+
+on:
+  push:
+    branches:
+      - publicar-migracao-legado-lote5-v1
+    paths:
+      - 'data/historico-migracao-legado-lote5-v1.json'
+      - 'data/publicacao-legado.json'
+      - 'data/repertorios-canonicos.json'
+      - 'scripts/test-migracao-legado-lote5.mjs'
+      - '.github/workflows/validate-migracao-legado-lote5.yml'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'data/historico-migracao-legado-lote5-v1.json'
+      - 'data/publicacao-legado.json'
+      - 'data/repertorios-canonicos.json'
+      - 'scripts/test-migracao-legado-lote5.mjs'
+      - '.github/workflows/validate-migracao-legado-lote5.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Verificar sintaxe e JSON
+        run: |
+          node --check scripts/test-migracao-legado-lote5.mjs
+          node -e "JSON.parse(require('fs').readFileSync('data/historico-migracao-legado-lote5-v1.json','utf8'))"
+      - name: Validar migração do quinto lote
+        run: node scripts/test-migracao-legado-lote5.mjs
