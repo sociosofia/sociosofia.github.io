@@ -1,0 +1,133 @@
+{
+  "versao": "1.0",
+  "lote": "legado-lote1-v1",
+  "base_antes_migracao": "dbbca9339ffeca726b07654a1975486227dfbdf3",
+  "descricao": "Cópia integral dos três registros públicos legados antes de sua substituição pelas projeções canônicas aprovadas.",
+  "registros": [
+    {
+      "id": "DAD-0004",
+      "editoria": "Notícias, dados e informações",
+      "categoria": "Notícias, dados e informações",
+      "subtema": "Adolescência e saúde mental",
+      "titulo": "Adolescência e início dos transtornos mentais",
+      "subtitulo": "Um estudo sobre idade de início dos transtornos e a importância da prevenção precoce",
+      "tipo": "Artigo acadêmico",
+      "resumo": "Artigo publicado no JAMA Psychiatry analisou a idade de início de transtornos mentais em dados do National Comorbidity Survey Replication, nos Estados Unidos. O estudo é importante para discutir por que adolescência e juventude são períodos sensíveis para políticas de saúde mental. A informação, porém, deve ser apresentada com cuidado: trata-se de pesquisa norte-americana, com metodologia e população específicas, e não de um dado direto sobre o Brasil.",
+      "dado": "O artigo afirma que metade dos casos ao longo da vida começa até os 14 anos e três quartos até os 24 anos, considerando os transtornos analisados no estudo.",
+      "questao": "O que muda nas políticas de escola e saúde quando entendemos a adolescência como período decisivo para prevenção e cuidado?",
+      "conexoes": "Adolescência, saúde mental, prevenção, escola, juventude, políticas públicas e cuidado.",
+      "conceitos": [
+        "Adolescência",
+        "Saúde mental",
+        "Prevenção",
+        "Cuidado",
+        "Política pública"
+      ],
+      "autores": [
+        "Émile Durkheim",
+        "Michel Foucault",
+        "Byung-Chul Han",
+        "Paulo Freire"
+      ],
+      "fonte_nome": "JAMA Psychiatry — Lifetime Prevalence and Age-of-Onset Distributions of DSM-IV Disorders in the National Comorbidity Survey Replication",
+      "fonte_url": "https://jamanetwork.com/journals/jamapsychiatry/fullarticle/208678",
+      "ano_data": "2005",
+      "confiabilidade": "Alta, com ressalva de contexto norte-americano",
+      "fonte_status": "conferida com ressalva",
+      "tempo_leitura": "3 min",
+      "nivel": "Intermediário",
+      "status": "aguardando revisão",
+      "destaque": false,
+      "tags": [
+        "saúde mental",
+        "adolescência",
+        "juventude",
+        "prevenção",
+        "escola"
+      ]
+    },
+    {
+      "id": "DAD-0007",
+      "editoria": "Notícias, dados e informações",
+      "categoria": "Notícias, dados e informações",
+      "subtema": "Militarização escolar e política educacional",
+      "titulo": "Escolas cívico-militares e militarização da educação",
+      "subtitulo": "Expansão do modelo cívico-militar e seus impactos sobre a escola pública",
+      "tipo": "Nota técnica/pesquisa",
+      "resumo": "Nota técnica produzida pela Campanha Nacional pelo Direito à Educação, com base em levantamento associado à Faculdade de Educação da USP e ao Censo Escolar, discute a expansão das escolas militarizadas no Brasil. O repertório ajuda a deslocar o tema do campo puramente ideológico para perguntas sobre financiamento, gestão, currículo, disciplina, direito à educação e possíveis efeitos da presença de militares na organização cotidiana das escolas públicas.",
+      "dado": "A nota técnica registra 1.578 escolas militarizadas no país e aponta crescimento de 595% em relação a 2019, a partir de cruzamentos com o Censo Escolar 2025.",
+      "questao": "O que muda na concepção de escola pública quando modelos militarizados passam a organizar gestão, disciplina e financiamento educacional?",
+      "conexoes": "Política educacional, militarização, escola pública, gestão, disciplina, democracia, direitos educacionais e Estado.",
+      "conceitos": [
+        "Militarização",
+        "Escola pública",
+        "Estado",
+        "Disciplina",
+        "Democracia"
+      ],
+      "autores": [
+        "Michel Foucault",
+        "Hannah Arendt",
+        "Paulo Freire",
+        "Pierre Bourdieu"
+      ],
+      "fonte_nome": "Campanha Nacional pelo Direito à Educação — Nota técnica Base Militar",
+      "fonte_url": "https://media.campanha.org.br/acervo/documentos/NT_BASE_MILIT.pdf",
+      "ano_data": "2026",
+      "confiabilidade": "Alta/média; nota técnica com base em dados públicos e pesquisa acadêmica",
+      "fonte_status": "conferida",
+      "tempo_leitura": "4 min",
+      "nivel": "Intermediário",
+      "status": "aguardando revisão",
+      "destaque": false,
+      "tags": [
+        "militarização",
+        "escola pública",
+        "educação",
+        "política educacional",
+        "democracia"
+      ]
+    },
+    {
+      "id": "CUL-0003",
+      "editoria": "Séries, filmes, livros e músicas",
+      "categoria": "Séries, filmes, livros e músicas",
+      "tipo": "Filme",
+      "subtema": "Tecnologia, subjetividade e afetos",
+      "titulo": "Her: solidão, desejo e vínculos digitais",
+      "subtitulo": "Tecnologia, subjetividade e afetos",
+      "resumo": "A obra acompanha Theodore, um homem solitário que desenvolve uma relação afetiva com Samantha, um sistema operacional dotado de inteligência artificial. A narrativa questiona os limites entre presença, projeção, intimidade e mediação tecnológica.",
+      "resumo_obra": "A obra acompanha Theodore, um homem solitário que desenvolve uma relação afetiva com Samantha, um sistema operacional dotado de inteligência artificial. A narrativa questiona os limites entre presença, projeção, intimidade e mediação tecnológica.",
+      "leitura_sociosofia": "Her permite discutir como os vínculos afetivos podem ser reorganizados por tecnologias que prometem escuta, personalização e disponibilidade permanente. A relação entre Theodore e Samantha abre uma reflexão sobre a solidão contemporânea: talvez o problema não seja apenas desejar companhia, mas desejar uma forma de encontro sem conflito, sem opacidade e sem a imprevisibilidade do outro.",
+      "ancoragem_teorica": "Byung-Chul Han, para pensar solidão, transparência, desempenho emocional e fragilidade dos vínculos contemporâneos.",
+      "conceitos": [
+        "Solidão",
+        "Inteligência artificial",
+        "Subjetividade",
+        "Desejo",
+        "Hiperconectividade",
+        "Intimidade mediada"
+      ],
+      "autores": [
+        "Byung-Chul Han"
+      ],
+      "fonte_nome": "Her, filme de Spike Jonze, 2013",
+      "fonte_url": "",
+      "ano_data": "2013",
+      "confiabilidade": "Repertório cultural",
+      "fonte_status": "obra identificada",
+      "tempo_leitura": "3 min",
+      "nivel": "Básico",
+      "status": "rascunho",
+      "destaque": false,
+      "tags": [
+        "tecnologia",
+        "inteligência artificial",
+        "Byung-Chul Han",
+        "solidão",
+        "subjetividade",
+        "Her"
+      ]
+    }
+  ]
+}

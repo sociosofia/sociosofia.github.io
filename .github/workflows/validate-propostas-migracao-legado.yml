@@ -1,27 +1,44 @@
-name: Validar propostas de migração do legado
+name: Validar migração editorial do legado
 
 on:
   push:
     branches:
       - migracao-editorial-legado-lote1-v1
+      - publicar-migracao-legado-lote1-v1
     paths:
       - 'data/propostas-migracao-legado-lote1-v1.json'
+      - 'data/aprovacoes-migracao-legado-lote1-v1.json'
+      - 'data/historico-migracao-legado-lote1-v1.json'
       - 'data/publicacao-legado.json'
       - 'data/repertorios.json'
+      - 'data/repertorios-canonicos.json'
       - 'data/publicacoes.json'
       - 'data/temas.json'
+      - 'repertory-contract.mjs'
+      - 'schemas/card-repertorio-publico-v1.schema.json'
+      - 'scripts/validate-repertorios-canonicos.mjs'
+      - 'scripts/test-repertory-contract.mjs'
       - 'scripts/test-propostas-migracao-legado-lote1.mjs'
+      - 'scripts/test-migracao-legado-lote1.mjs'
       - '.github/workflows/validate-propostas-migracao-legado.yml'
   pull_request:
     branches:
       - main
     paths:
       - 'data/propostas-migracao-legado-lote1-v1.json'
+      - 'data/aprovacoes-migracao-legado-lote1-v1.json'
+      - 'data/historico-migracao-legado-lote1-v1.json'
       - 'data/publicacao-legado.json'
       - 'data/repertorios.json'
+      - 'data/repertorios-canonicos.json'
       - 'data/publicacoes.json'
       - 'data/temas.json'
+      - 'repertory-contract.mjs'
+      - 'schemas/card-repertorio-publico-v1.schema.json'
+      - 'scripts/validate-repertorios-canonicos.mjs'
+      - 'scripts/test-repertory-contract.mjs'
       - 'scripts/test-propostas-migracao-legado-lote1.mjs'
+      - 'scripts/test-migracao-legado-lote1.mjs'
       - '.github/workflows/validate-propostas-migracao-legado.yml'
   workflow_dispatch:
 
@@ -36,9 +53,23 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: '20'
-      - name: Verificar sintaxe
+      - name: Verificar sintaxe e JSON
         run: |
+          node --check repertory-contract.mjs
+          node --check scripts/validate-repertorios-canonicos.mjs
+          node --check scripts/test-repertory-contract.mjs
           node --check scripts/test-propostas-migracao-legado-lote1.mjs
+          node --check scripts/test-migracao-legado-lote1.mjs
+          node -e "JSON.parse(require('fs').readFileSync('schemas/card-repertorio-publico-v1.schema.json','utf8'))"
+          node -e "JSON.parse(require('fs').readFileSync('data/repertorios-canonicos.json','utf8'))"
           node -e "JSON.parse(require('fs').readFileSync('data/propostas-migracao-legado-lote1-v1.json','utf8'))"
-      - name: Validar trio editorial
+          node -e "JSON.parse(require('fs').readFileSync('data/aprovacoes-migracao-legado-lote1-v1.json','utf8'))"
+          node -e "JSON.parse(require('fs').readFileSync('data/historico-migracao-legado-lote1-v1.json','utf8'))"
+      - name: Validar contrato cultural
+        run: |
+          node scripts/validate-repertorios-canonicos.mjs
+          node scripts/test-repertory-contract.mjs
+      - name: Validar propostas e aprovação
         run: node scripts/test-propostas-migracao-legado-lote1.mjs
+      - name: Validar migração publicada
+        run: node scripts/test-migracao-legado-lote1.mjs

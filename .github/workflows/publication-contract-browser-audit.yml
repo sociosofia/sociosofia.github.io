@@ -6,12 +6,15 @@ on:
       - main
       - contrato-automacao-publicacao-v1
       - portao-publicado-legado-v1
+      - publicar-migracao-legado-lote1-v1
     paths:
       - 'data/publicacoes.json'
       - 'data/repertorios.json'
+      - 'data/repertorios-canonicos.json'
       - 'data/publicacao-legado.json'
       - 'data/temas.json'
       - 'publication-contract.mjs'
+      - 'repertory-contract.mjs'
       - 'publication-feed.js'
       - 'site-shared.js'
       - 'detail.js'
@@ -24,9 +27,11 @@ on:
     paths:
       - 'data/publicacoes.json'
       - 'data/repertorios.json'
+      - 'data/repertorios-canonicos.json'
       - 'data/publicacao-legado.json'
       - 'data/temas.json'
       - 'publication-contract.mjs'
+      - 'repertory-contract.mjs'
       - 'publication-feed.js'
       - 'site-shared.js'
       - 'detail.js'
@@ -53,6 +58,8 @@ jobs:
           npx playwright install --with-deps chromium
       - name: Verificar sintaxe
         run: |
+          node --check repertory-contract.mjs
+          node --check publication-feed.js
           node --check audit/publication-contract-browser.mjs
           node --check audit/legacy-publication-browser.mjs
       - name: Iniciar servidor
@@ -61,5 +68,5 @@ jobs:
           sleep 3
       - name: Auditar renderização canônica
         run: node audit/publication-contract-browser.mjs
-      - name: Auditar fachada pública do legado
+      - name: Auditar primeiro lote migrado
         run: node audit/legacy-publication-browser.mjs
