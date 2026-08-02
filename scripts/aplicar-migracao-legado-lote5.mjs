@@ -111,3 +111,5 @@ console.log('Quinto lote aplicado: 18 legados, 12 dados e 8 repertórios cultura
 function assert(condition,message){if(!condition)throw new Error(message);}
 async function read(path){return JSON.parse(await readFile(new URL(path,root),'utf8'));}
 async function write(path,value){await writeFile(new URL(path,root),JSON.stringify(value,null,2)+'\n');}
+
+// Commit de disparo: o workflow já existe no histórico da branch.
