@@ -10,9 +10,9 @@ const themeIds=new Set(themeMapFromRegistry(themes).keys());
 
 const valid=validateRepertoryCollection(repertorios,{themeIds});
 assert(valid.errors.length===0,'O repertório cultural vigente deveria passar no contrato.');
-assert(valid.valid.length===3,'A base cultural canônica deve conter três registros após o terceiro lote.');
+assert(valid.valid.length===5,'A base cultural canônica deve conter cinco registros após o quarto lote.');
 
-for(const id of ['CUL-0001','CUL-0002','CUL-0003']){
+for(const id of ['CUL-0001','CUL-0002','CUL-0003','CUL-0004','CUL-0005']){
   const item=repertorios.find(entry=>entry.id===id);
   assert(item,`${id} não está na base cultural canônica.`);
   assert(Array.isArray(item.autores)&&item.autores.length===0,`${id} contém relação autoral automática.`);
@@ -26,6 +26,16 @@ const getOut=repertorios.find(item=>item.id==='CUL-0002');
 assert(getOut.origem_migracao?.lote==='legado-lote3-v1','CUL-0002 não registra a origem do terceiro lote.');
 assert(getOut.cuidado_pedagogico?.includes('Não tratá-la como documentário'),'CUL-0002 perdeu o cuidado pedagógico aprovado.');
 assert(getOut.cuidado_pedagogico?.includes('Estados Unidos')&&getOut.cuidado_pedagogico?.includes('Brasil'),'CUL-0002 perdeu a distinção entre contextos raciais.');
+
+const truman=repertorios.find(item=>item.id==='CUL-0004');
+assert(truman.origem_migracao?.lote==='legado-lote4-v1','CUL-0004 não registra a origem do quarto lote.');
+assert(truman.leitura_sociosofia.includes('consentimento'),'CUL-0004 perdeu o eixo do consentimento.');
+assert(truman.cuidado_pedagogico.includes('Não apresentar o filme como profecia literal'),'CUL-0004 perdeu o cuidado contra leitura profética.');
+
+const menino=repertorios.find(item=>item.id==='CUL-0005');
+assert(menino.origem_migracao?.lote==='legado-lote4-v1','CUL-0005 não registra a origem do quarto lote.');
+assert(menino.cuidado_pedagogico.includes('reconstrução documental mediada'),'CUL-0005 perdeu a mediação documental.');
+assert(menino.cuidado_pedagogico.includes('história nacional de escravização e racismo'),'CUL-0005 perdeu o cuidado contra externalização do racismo brasileiro.');
 
 const adjusting=structuredClone(repertorios);
 adjusting[0].status='em_ajuste';
@@ -47,4 +57,4 @@ duplicate.push(structuredClone(repertorios[0]));
 const duplicateResult=validateRepertoryCollection(duplicate,{themeIds});
 assert(duplicateResult.errors.some(error=>error.includes('id duplicado')),'Um ID cultural duplicado não foi bloqueado.');
 
-console.log('Bloqueios do contrato cultural e três repertórios canônicos confirmados.');
+console.log('Bloqueios do contrato cultural e cinco repertórios canônicos confirmados.');
