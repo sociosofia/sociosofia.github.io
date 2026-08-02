@@ -70,7 +70,7 @@ Também era necessário:
 
 ### Proposta
 
-**Título:** No IELS, 14% das famílias brasileiras liam para as crianças ao menos três vezes por semana
+**Título:** No recorte brasileiro do IELS, 14% dos responsáveis liam para as crianças ao menos três vezes por semana
 
 **Dado:** No IELS 2025, 14% dos responsáveis do recorte brasileiro relataram ler livros para as crianças entre três e sete vezes por semana, diante de 54% na média internacional do estudo.
 
