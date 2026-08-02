@@ -1,0 +1,24 @@
+{
+  "versao": "1.0",
+  "lote": "legado-lote5-v1",
+  "status": "aprovado",
+  "aprovado_por": "Luiz Jácomo",
+  "data_aprovacao": "2026-08-02",
+  "autoriza_migracao_tecnica": true,
+  "nao_autoriza_relacoes_automaticas": true,
+  "itens": [
+    {
+      "id": "CUL-0007",
+      "status": "aprovado"
+    },
+    {
+      "id": "CUL-0008",
+      "status": "aprovado"
+    },
+    {
+      "id": "CUL-0009",
+      "status": "aprovado"
+    }
+  ],
+  "observacao": "A aprovação editorial autoriza a preparação da migração técnica em branch separada. Não autoriza REL, ficha de autor, conceito ou Elo automático."
+}
