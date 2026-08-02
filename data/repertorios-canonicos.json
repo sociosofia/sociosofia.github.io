@@ -1,0 +1,62 @@
+[
+  {
+    "versao_contrato": "1.0",
+    "modelo_publico": "card_repertorio_v1",
+    "id": "CUL-0003",
+    "tema_ids": [
+      "tecnologia",
+      "cultura"
+    ],
+    "editoria": "Séries, filmes, livros e músicas",
+    "categoria": "Séries, filmes, livros e músicas",
+    "subtema": "Tecnologia, intimidade e vínculos",
+    "titulo": "Her: intimidade, projeção e vínculos mediados por tecnologia",
+    "subtitulo": "O romance com um sistema operacional abre perguntas sobre conexão, conflito e desejo",
+    "tipo": "Filme",
+    "resumo": "Theodore desenvolve uma relação afetiva com Samantha, um sistema operacional personalizado. A obra permite discutir inteligência artificial, solidão e intimidade sem reduzir o vínculo digital a uma simples oposição entre relação real e relação falsa.",
+    "resumo_obra": "Em um futuro próximo, Theodore trabalha escrevendo cartas pessoais para outras pessoas e vive um período de isolamento após o fim de seu casamento. Ao instalar um sistema operacional capaz de aprender e conversar, ele conhece Samantha e passa a construir com ela uma relação afetiva. O filme acompanha esse vínculo sem revelar aqui seus desdobramentos finais.",
+    "leitura_sociosofia": "Her não apresenta a tecnologia apenas como causa de isolamento. Samantha oferece escuta, surpresa e transformação, mas também é uma presença desenhada para aprender preferências e responder de modo personalizado. A questão central deixa de ser se o afeto é verdadeiro ou falso e passa a ser como desejo, conflito e alteridade se reorganizam quando a relação é mediada por uma tecnologia sempre disponível e adaptável.",
+    "ancoragem_teorica": "Hipótese de leitura editorial: Byung-Chul Han pode ajudar a pensar a busca por relações com menos opacidade e conflito; Sherry Turkle pode contribuir para discutir intimidade mediada e companhia tecnológica. Nenhuma dessas referências é explícita no filme e ambas permanecem como relações a validar.",
+    "conceitos": [
+      "Intimidade mediada",
+      "Personalização",
+      "Alteridade",
+      "Solidão"
+    ],
+    "autores": [],
+    "autores_possiveis": [
+      "Byung-Chul Han",
+      "Sherry Turkle"
+    ],
+    "relacoes_pendentes": [
+      "Validar separadamente qualquer REL com autores ou conceitos; a ancoragem teórica é uma hipótese editorial."
+    ],
+    "fonte_nome": "Her, filme escrito e dirigido por Spike Jonze, 2013",
+    "fonte_url": "https://www.oscars.org/events/her-2013",
+    "ano_data": "2013",
+    "confiabilidade": "Repertório cultural; metadados e créditos conferidos.",
+    "fonte_status": "obra e créditos conferidos",
+    "nivel": "Básico",
+    "status": "publicado",
+    "aprovacao": {
+      "status": "aprovado",
+      "aprovado_por": "Luiz Jácomo",
+      "data": "2026-08-02"
+    },
+    "origem_migracao": {
+      "lote": "legado-lote1-v1",
+      "id_legado": "CUL-0003",
+      "historico_ref": "data/historico-migracao-legado-lote1-v1.json",
+      "aprovacao_ref": "data/aprovacoes-migracao-legado-lote1-v1.json"
+    },
+    "destaque": false,
+    "tags": [
+      "tecnologia",
+      "inteligência artificial",
+      "intimidade",
+      "solidão",
+      "alteridade",
+      "Her"
+    ]
+  }
+]
