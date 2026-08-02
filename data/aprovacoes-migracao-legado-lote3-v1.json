@@ -1,0 +1,24 @@
+{
+  "versao": "1.0",
+  "lote": "legado-lote3-v1",
+  "status": "aprovado",
+  "aprovado_por": "Luiz Jácomo",
+  "data_aprovacao": "2026-08-02",
+  "origem_decisao": "Conversa do projeto Sociosofia",
+  "comando": "Aprovados. Podemos seguir.",
+  "itens": [
+    {
+      "id": "DAD-0001",
+      "decisao": "aprovar_migracao"
+    },
+    {
+      "id": "DAD-0005",
+      "decisao": "aprovar_migracao"
+    },
+    {
+      "id": "CUL-0002",
+      "decisao": "aprovar_migracao"
+    }
+  ],
+  "efeito": "Autoriza o registro editorial e a preparação, em branch separada, da migração pública dos três itens. A publicação somente ocorre após as validações técnicas do lote."
+}
