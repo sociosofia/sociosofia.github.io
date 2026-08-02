@@ -29,9 +29,9 @@ assert(approvals.status==='aprovado'&&approvals.aprovado_por==='Luiz Jácomo','O
 assert(JSON.stringify(proposals.propostas.map(item=>item.id))===JSON.stringify(migrated),'As propostas não correspondem exatamente ao segundo trio.');
 assert(JSON.stringify(approvals.itens.map(item=>item.id))===JSON.stringify(migrated),'A aprovação não corresponde exatamente ao segundo trio.');
 
-assert(legacy.ids.length===27,'O estado publicado_legado deve conter 27 itens após o segundo lote.');
-assert(legacy.ids.filter(id=>id.startsWith('DAD-')).length===3,'Devem permanecer 3 cards DAD no legado.');
-assert(legacy.ids.filter(id=>id.startsWith('CUL-')).length===24,'Devem permanecer 24 cards CUL no legado.');
+assert(legacy.ids.length===24,'O estado publicado_legado deve conter 24 itens após o terceiro lote.');
+assert(legacy.ids.filter(id=>id.startsWith('DAD-')).length===1,'Deve permanecer 1 card DAD no legado.');
+assert(legacy.ids.filter(id=>id.startsWith('CUL-')).length===23,'Devem permanecer 23 cards CUL no legado.');
 for(const id of migrated)assert(!legacyIds.has(id),`${id} ainda aparece como publicado_legado.`);
 
 const migratedRegistry=new Map((legacy.migrados||[]).map(item=>[item.id,item]));
@@ -49,10 +49,10 @@ assert([...dataIds].filter(id=>culturalIds.has(id)).length===0,'Há IDs duplicad
 
 const dataValidation=validatePublicationCollection(publicacoes,{themeIds});
 assert(dataValidation.errors.length===0,'A base canônica de dados falhou no contrato: '+dataValidation.errors.join(' | '));
-assert(dataValidation.valid.length===9,'A base de dados deve conter nove publicações canônicas.');
+assert(dataValidation.valid.length===11,'A base de dados deve conter onze publicações canônicas.');
 const culturalValidation=validateRepertoryCollection(cultural,{themeIds});
 assert(culturalValidation.errors.length===0,'A base cultural falhou no contrato: '+culturalValidation.errors.join(' | '));
-assert(culturalValidation.valid.length===2,'A base cultural deve conter dois repertórios canônicos.');
+assert(culturalValidation.valid.length===3,'A base cultural deve conter três repertórios canônicos.');
 
 const mental=publicacoes.find(item=>item.id==='DAD-0002');
 assert(mental.codigo_publicacao==='R000-C02','DAD-0002 não usa o código reservado de migração.');
@@ -99,7 +99,7 @@ const serialized=JSON.stringify({publicacoes,cultural}).toLowerCase();
 assert(!serialized.includes('r001-c02'),'R001-C02 apareceu durante a migração.');
 assert(!serialized.includes('salário digno'),'O card de salário digno apareceu durante a migração.');
 
-console.log('Segundo lote migrado com histórico, aprovação, limites metodológicos e total público preservados.');
+console.log('Segundo lote continua íntegro após a migração do terceiro lote.');
 
 async function read(path){
   return JSON.parse(await readFile(new URL(path,root),'utf8'));
