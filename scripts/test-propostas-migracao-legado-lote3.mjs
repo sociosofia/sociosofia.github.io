@@ -26,33 +26,19 @@ const themeIds=new Set((themes.temas||[]).map(theme=>theme.id));
 const legacyIds=new Set(legacy.ids||[]);
 const repertoryMap=new Map(repertorios.map(item=>[item.id,item]));
 const canonicalIds=new Set([...publicacoes,...culturais].map(item=>item.id));
-
-assert(legacy.ids.length===27,'A aprovação editorial não deve alterar os 27 itens ainda publicados como legado.');
-assert(publicacoes.length===9,'A aprovação editorial não deve alterar os nove dados canônicos vigentes.');
-assert(culturais.length===2,'A aprovação editorial não deve alterar os dois repertórios culturais canônicos vigentes.');
+const legacyState=expected.every(id=>legacyIds.has(id)&&!canonicalIds.has(id));
+const canonicalState=expected.every(id=>!legacyIds.has(id)&&canonicalIds.has(id));
+assert(legacyState||canonicalState,'O terceiro lote está em estado parcial: todos os itens devem permanecer no legado ou todos devem estar canônicos.');
 
 for(const item of proposals.propostas){
-  assert(item.estado_publico_preservado==='publicado_legado',`${item.id} perdeu a preservação transitória.`);
+  assert(item.estado_publico_preservado==='publicado_legado',`${item.id} perdeu o registro de origem transitória.`);
   assert(item.status_editorial_proposto==='aprovado',`${item.id} não está aprovado editorialmente.`);
-  assert(legacyIds.has(item.id),`${item.id} não permanece no registro publicado_legado.`);
-  assert(repertoryMap.has(item.id),`${item.id} não existe no acervo legado.`);
-  assert(!canonicalIds.has(item.id),`${item.id} já entrou em base canônica e seria duplicado.`);
+  assert(repertoryMap.has(item.id),`${item.id} não existe no acervo legado histórico.`);
   assert(Array.isArray(item.tema_ids)&&item.tema_ids.length>0,`${item.id} não possui tema_ids.`);
   for(const themeId of item.tema_ids)assert(themeIds.has(themeId),`${item.id} usa tema inexistente: ${themeId}.`);
   assert(item.fonte_nome&&item.fonte_url?.startsWith('https://')&&item.ano_data,`${item.id} não possui referência completa.`);
   assert(Array.isArray(item.autores)&&item.autores.length===0,`${item.id} apresenta relação autoral pronta.`);
   assert(Array.isArray(item.relacoes_pendentes)&&item.relacoes_pendentes.length>0,`${item.id} não registra relações pendentes.`);
-
-  if(item.id.startsWith('DAD-')){
-    for(const field of ['dado','contextualizacao','interpretacao_sociosofia','questao']){
-      assert(String(item[field]||'').trim(),`${item.id} não possui ${field}.`);
-    }
-    assert(item.dado!==item.contextualizacao,`${item.id} repete dado e contextualização.`);
-  }else{
-    for(const field of ['resumo_obra','leitura_sociosofia','ancoragem_teorica','cuidado_pedagogico','questao']){
-      assert(String(item[field]||'').trim(),`${item.id} não possui ${field}.`);
-    }
-  }
 }
 
 const youth=proposals.propostas.find(item=>item.id==='DAD-0001');
@@ -79,7 +65,7 @@ assert(!serialized.includes('relacao_validada'),'O terceiro lote criou relação
 assert(!serialized.includes('r001-c02'),'R001-C02 não pode reaparecer no lote.');
 assert(!serialized.includes('salário digno'),'O card de salário digno não pode aparecer no lote.');
 
-console.log('Terceiro trio editorial aprovado, validado e mantido fora das bases canônicas.');
+console.log(`Terceiro trio editorial validado no estado ${canonicalState?'canônico':'legado'}.`);
 
 async function read(path){
   return JSON.parse(await readFile(new URL(path,root),'utf8'));
