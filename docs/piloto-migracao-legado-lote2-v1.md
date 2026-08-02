@@ -70,7 +70,9 @@ Também era necessário:
 
 ### Proposta
 
-**Título:** No recorte brasileiro do IELS, 14% dos responsáveis liam para as crianças ao menos três vezes por semana
+**Título:** Pesquisa mostra que apenas 14% dos responsáveis leem para as crianças ao menos três vezes por semana
+
+O título destaca o dado principal. A abrangência territorial e os limites metodológicos aparecem na contextualização, sem enfraquecer a chamada pública.
 
 **Dado:** No IELS 2025, 14% dos responsáveis do recorte brasileiro relataram ler livros para as crianças entre três e sete vezes por semana, diante de 54% na média internacional do estudo.
 
@@ -124,12 +126,10 @@ Também era necessário:
 - nenhum card fora deste lote é tocado;
 - R001–C02 continua fora da publicação.
 
-## 7. Decisão editorial esperada
+## 7. Decisão editorial de Luiz
 
-A revisão pode aprovar ou devolver para ajuste cada item separadamente:
+- `DAD-0002`: aprovado editorialmente;
+- `DAD-0006`: aprovado com correção do título para destacar o dado e deslocar a metodologia para a contextualização;
+- `CUL-0001`: aprovado editorialmente.
 
-1. `DAD-0002`;
-2. `DAD-0006`;
-3. `CUL-0001`.
-
-A aprovação editorial não publica automaticamente os textos. A migração pública, caso aprovada, ocorrerá em PR separado.
+A aprovação editorial não publica automaticamente os textos. A migração pública ocorrerá em PR separado.
