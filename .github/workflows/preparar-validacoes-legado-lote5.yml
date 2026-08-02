@@ -6,6 +6,7 @@ on:
       - publicar-migracao-legado-lote5-v1
     paths:
       - 'scripts/preparar-validacoes-legado-lote5.mjs'
+      - 'scripts/disparar-validacoes-lote5.txt'
 
 permissions:
   contents: write
