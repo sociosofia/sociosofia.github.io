@@ -188,5 +188,133 @@
       "alteridade",
       "Her"
     ]
+  },
+  {
+    "versao_contrato": "1.0",
+    "modelo_publico": "card_repertorio_v1",
+    "id": "CUL-0004",
+    "tema_ids": [
+      "tecnologia",
+      "cultura",
+      "politica"
+    ],
+    "editoria": "Séries, filmes, livros e músicas",
+    "categoria": "Séries, filmes, livros e músicas",
+    "subtema": "Vigilância, espetáculo e fabricação da realidade",
+    "titulo": "O Show de Truman: vigilância, espetáculo e realidade fabricada",
+    "subtitulo": "A vida de um homem é transformada em produto sem que ele saiba ou consinta",
+    "tipo": "Filme",
+    "resumo": "Truman Burbank vive em uma cidade aparentemente comum, mas sua rotina inteira é organizada e transmitida como um programa de televisão. O filme permite discutir vigilância, fabricação da realidade, consumo da intimidade e poder da mídia. O problema ético central não é apenas estar visível: Truman não conhece o dispositivo que o observa nem consentiu em transformar sua existência em entretenimento.",
+    "resumo_obra": "Truman Burbank leva uma vida tranquila em Seahaven, sem saber que a cidade é um enorme cenário e que as pessoas ao seu redor interpretam papéis em um programa transmitido continuamente. Pequenas falhas na rotina fazem com que ele comece a desconfiar do mundo organizado ao seu redor.",
+    "leitura_sociosofia": "A obra mostra como imagens, cenários, publicidade e relações encenadas podem produzir uma realidade social aparentemente natural. A vida de Truman é convertida em mercadoria, e seu comportamento é conduzido pela administração do medo, dos afetos e das informações disponíveis. O filme ajuda a pensar vigilância e exposição digital, mas sua força está sobretudo na pergunta sobre consentimento: compartilhar a própria vida não é o mesmo que ter a intimidade capturada e comercializada por outros.",
+    "ancoragem_teorica": "Hipóteses de leitura: Guy Debord pode ajudar a pensar a transformação da experiência em espetáculo; Michel Foucault, a vigilância e a condução dos comportamentos. Nenhuma dessas referências aparece explicitamente no filme e ambas exigem validação relacional separada.",
+    "cuidado_pedagogico": "Não apresentar o filme como profecia literal das redes sociais nem como prova de que toda experiência mediada é falsa. Convém distinguir exposição voluntária, vigilância sem consentimento, publicidade, curadoria algorítmica e controle total da informação.",
+    "questao": "Que diferença existe entre compartilhar a própria vida e ter a vida transformada em produto sem consentimento?",
+    "conceitos": [
+      "Sociedade do espetáculo",
+      "Vigilância",
+      "Consentimento",
+      "Mercantilização da intimidade",
+      "Realidade fabricada"
+    ],
+    "autores": [],
+    "autores_possiveis": [
+      "Guy Debord",
+      "Michel Foucault"
+    ],
+    "relacoes_pendentes": [
+      "Validar separadamente qualquer REL com Debord ou Foucault; as referências são hipóteses editoriais, não vínculos já demonstrados."
+    ],
+    "fonte_nome": "Paramount Pictures — The Truman Show, filme dirigido por Peter Weir",
+    "fonte_url": "https://www.paramountpictures.com/movies/the-truman-show",
+    "ano_data": "1998",
+    "confiabilidade": "Repertório cultural; ano, direção, roteiro e sinopse conferidos na página oficial da Paramount Pictures.",
+    "fonte_status": "obra e créditos conferidos",
+    "nivel": "Básico",
+    "status": "publicado",
+    "aprovacao": {
+      "status": "aprovado",
+      "aprovado_por": "Luiz Jácomo",
+      "data": "2026-08-02"
+    },
+    "origem_migracao": {
+      "lote": "legado-lote4-v1",
+      "id_legado": "CUL-0004",
+      "historico_ref": "data/historico-migracao-legado-lote4-v1.json",
+      "aprovacao_ref": "data/aprovacoes-migracao-legado-lote4-v1.json"
+    },
+    "destaque": false,
+    "tags": [
+      "mídia",
+      "vigilância",
+      "espetáculo",
+      "consentimento",
+      "intimidade",
+      "O Show de Truman"
+    ]
+  },
+  {
+    "versao_contrato": "1.0",
+    "modelo_publico": "card_repertorio_v1",
+    "id": "CUL-0005",
+    "tema_ids": [
+      "racismo",
+      "violencia",
+      "cultura"
+    ],
+    "editoria": "Séries, filmes, livros e músicas",
+    "categoria": "Séries, filmes, livros e músicas",
+    "subtema": "Eugenia, exploração da infância e memória histórica",
+    "titulo": "Menino 23: eugenia, trabalho forçado e apagamento histórico",
+    "subtitulo": "O documentário reconstrói a história de meninos negros explorados em uma fazenda ligada a simpatizantes do nazismo",
+    "tipo": "Documentário",
+    "resumo": "A partir da descoberta de tijolos marcados com suásticas, o documentário acompanha a investigação sobre meninos negros retirados de um orfanato e levados para uma fazenda no interior paulista, onde foram identificados por números e submetidos a trabalho forçado. A obra permite discutir eugenia, racismo, infância, poder das elites e os mecanismos que produzem esquecimento histórico.",
+    "resumo_obra": "O historiador Sidney Aguilar investiga tijolos com símbolos nazistas encontrados em uma fazenda do interior de São Paulo. A pesquisa conduz à história de cinquenta meninos negros retirados de um orfanato no Rio de Janeiro nos anos 1930. Sobreviventes e familiares ajudam a reconstruir as experiências de exploração, numeração e violência vividas naquele espaço.",
+    "leitura_sociosofia": "Menino 23 mostra que ideias racistas e eugenistas não permaneceram apenas em livros ou discursos: elas organizaram instituições, trabalhos, infâncias e destinos. O documentário também permite perguntar por que certas violências são lembradas enquanto outras desaparecem da narrativa nacional. O vínculo de integrantes da elite com o nazismo importa, mas não deve ocultar as raízes brasileiras do racismo, da exploração de crianças negras e da desigualdade de poder.",
+    "ancoragem_teorica": "Hipóteses de leitura: Abdias do Nascimento pode contribuir para analisar apagamento e violência racial no Brasil; Kabengele Munanga, a construção histórica do racismo e das ideologias de hierarquização. Nenhuma relação é automática e ambas precisam de REL específica.",
+    "cuidado_pedagogico": "A obra contém violência racial, exploração infantil, trabalho forçado e símbolos nazistas. Deve ser tratada como reconstrução documental mediada por investigação, entrevistas e montagem, não como síntese completa da eugenia brasileira. Evitar transformar o nazismo em explicação externa que apague a longa história nacional de escravização e racismo.",
+    "questao": "Por que certas violências praticadas contra crianças negras foram apagadas da memória nacional?",
+    "conceitos": [
+      "Eugenia",
+      "Racismo científico",
+      "Trabalho forçado",
+      "Infância",
+      "Memória social"
+    ],
+    "autores": [],
+    "autores_possiveis": [
+      "Abdias do Nascimento",
+      "Kabengele Munanga"
+    ],
+    "relacoes_pendentes": [
+      "Validar separadamente qualquer REL com Abdias do Nascimento ou Kabengele Munanga; as referências são hipóteses editoriais."
+    ],
+    "fonte_nome": "Globo Filmes — Menino 23, documentário dirigido por Belisario Franca",
+    "fonte_url": "https://gshow.globo.com/cultura-pop/filmes/globo-filmes/generos/documentario/menino23.ghtml",
+    "ano_data": "2016",
+    "confiabilidade": "Repertório cultural; ficha técnica e sinopse conferidas em página da coprodutora Globo Filmes. Afirmações históricas devem ser aprofundadas com as fontes mobilizadas pelo documentário e pesquisa especializada.",
+    "fonte_status": "obra e créditos conferidos",
+    "nivel": "Intermediário",
+    "status": "publicado",
+    "aprovacao": {
+      "status": "aprovado",
+      "aprovado_por": "Luiz Jácomo",
+      "data": "2026-08-02"
+    },
+    "origem_migracao": {
+      "lote": "legado-lote4-v1",
+      "id_legado": "CUL-0005",
+      "historico_ref": "data/historico-migracao-legado-lote4-v1.json",
+      "aprovacao_ref": "data/aprovacoes-migracao-legado-lote4-v1.json"
+    },
+    "destaque": false,
+    "tags": [
+      "eugenia",
+      "racismo científico",
+      "infância",
+      "trabalho forçado",
+      "memória",
+      "Menino 23"
+    ]
   }
 ]

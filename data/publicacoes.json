@@ -126,6 +126,73 @@
   {
     "versao_contrato": "1.0",
     "modelo_publico": "card_dados_v1",
+    "id": "DAD-0003",
+    "codigo_publicacao": "R000-C03",
+    "codigo_migracao": "MIG-L04-DAD-0003",
+    "evi_id": "EVI-gepem-convivencia-medo-alunos-sp-2022",
+    "tema_ids": [
+      "educacao",
+      "violencia",
+      "saude"
+    ],
+    "editoria": "Notícias, dados e informações",
+    "categoria": "Juventude, educação e escola",
+    "subtema": "Convivência escolar, medo e violência entre estudantes",
+    "titulo": "18% dos estudantes ouvidos disseram sentir medo frequente de outros alunos",
+    "subtitulo": "Pesquisa com 945.481 estudantes dos anos finais do ensino fundamental examinou a convivência na rede estadual paulista",
+    "tipo": "Artigo acadêmico e pesquisa educacional",
+    "resumo": "Em pesquisa realizada com 945.481 estudantes dos anos finais do ensino fundamental da rede estadual paulista, 18% disseram sentir medo frequente de outros alunos. O indicador ajuda a discutir por que convivência, pertencimento e proteção fazem parte do direito à educação. Ele não permite explicar sozinho as causas do medo nem identificar cada situação como bullying, mas mostra que aprender também depende da qualidade das relações vividas na escola.",
+    "dado": "Entre 945.481 estudantes dos anos finais do ensino fundamental da rede estadual paulista, 18% disseram sentir medo frequente de outros alunos.",
+    "contextualizacao": "O resultado é apresentado no artigo A convivência nas escolas: desafios e possibilidades, publicado em 2025 na revista Estudos Avançados por pesquisadoras e pesquisador vinculados ao GEPEM/Unesp-Unicamp. A pesquisa de referência foi realizada em 2022 com 945.481 estudantes dos anos finais do ensino fundamental da rede estadual paulista. O percentual reúne respostas de quem declarou sentir medo todos os dias da semana ou uma ou mais vezes por semana, considerando os três meses anteriores. O levantamento descreve o universo participante e não demonstra, por si só, a causa de cada medo nem autoriza classificar todas as experiências como bullying.",
+    "interpretacao_sociosofia": "Quando estudantes temem os próprios colegas, a convivência deixa de ser um tema periférico. Medo, ameaça e exclusão podem limitar participação, circulação, expressão e aprendizagem. A resposta institucional não deve se reduzir à punição posterior: envolve escuta, regras legítimas, participação estudantil, formação de adultos e redes de apoio capazes de prevenir violências e reconhecer diferenças entre conflito, incivilidade e intimidação sistemática.",
+    "questao": "O que uma escola precisa mudar quando parte dos estudantes teme os próprios colegas?",
+    "conexoes": "Convivência escolar, bullying, violência entre pares, pertencimento, clima escolar, proteção e direito à educação.",
+    "conceitos": [
+      "Convivência escolar",
+      "Bullying",
+      "Violência entre pares",
+      "Pertencimento",
+      "Clima escolar"
+    ],
+    "autores": [],
+    "autores_possiveis": [
+      "Paulo Freire",
+      "Axel Honneth"
+    ],
+    "relacoes_pendentes": [
+      "Paulo Freire e Axel Honneth podem abrir leituras sobre diálogo, reconhecimento e participação, mas nenhuma relação autoral deve ser publicada sem REL específica."
+    ],
+    "fonte_nome": "Vinha, Nunes, Tognetta e Aragão — A convivência nas escolas: desafios e possibilidades, Estudos Avançados",
+    "fonte_url": "https://www.scielo.br/j/ea/a/Tk68VH7cK7RmWgBYGW7qqmb/",
+    "ano_data": "Artigo publicado em 2025; pesquisa de referência realizada em 2022",
+    "confiabilidade": "Alta para o artigo acadêmico e o universo pesquisado; o indicador não deve ser generalizado automaticamente para todas as redes escolares.",
+    "fonte_status": "artigo acadêmico original conferido; reportagem do Porvir preservada apenas como fonte de descoberta",
+    "nivel": "Básico",
+    "status": "publicado",
+    "aprovacao": {
+      "status": "aprovado",
+      "aprovado_por": "Luiz Jácomo",
+      "data": "2026-08-02"
+    },
+    "origem_migracao": {
+      "lote": "legado-lote4-v1",
+      "id_legado": "DAD-0003",
+      "historico_ref": "data/historico-migracao-legado-lote4-v1.json",
+      "aprovacao_ref": "data/aprovacoes-migracao-legado-lote4-v1.json"
+    },
+    "destaque": false,
+    "tags": [
+      "convivência escolar",
+      "medo",
+      "bullying",
+      "violência escolar",
+      "pertencimento",
+      "educação pública"
+    ]
+  },
+  {
+    "versao_contrato": "1.0",
+    "modelo_publico": "card_dados_v1",
     "id": "DAD-0004",
     "codigo_publicacao": "R000-C04",
     "codigo_migracao": "MIG-L01-DAD-0004",
