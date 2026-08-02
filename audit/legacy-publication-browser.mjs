@@ -18,94 +18,35 @@ const snapshot=await page.evaluate(async()=>{
 
 const legacy=snapshot.filter(item=>item.status_publicacao==='publicado_legado');
 const current=snapshot.filter(item=>item.status_publicacao==='publicado');
-assert(legacy.length===24,`Esperados 24 itens publicado_legado; encontrados ${legacy.length}.`);
-assert(current.length===14,`Esperadas 14 publicações canônicas; encontradas ${current.length}.`);
+assert(legacy.length===21,`Esperados 21 itens publicado_legado; encontrados ${legacy.length}.`);
+assert(current.length===17,`Esperadas 17 publicações canônicas; encontradas ${current.length}.`);
 assert(snapshot.length===38,`A fachada pública deveria conter 38 itens; encontrou ${snapshot.length}.`);
 assert(new Set(snapshot.map(item=>item.id)).size===38,'A fachada pública contém IDs duplicados.');
-assert(legacy.filter(item=>item.id.startsWith('DAD-')).length===1,'O conjunto legado deveria conter 1 card DAD.');
-assert(legacy.filter(item=>item.id.startsWith('CUL-')).length===23,'O conjunto legado deveria conter 23 cards CUL.');
+assert(legacy.every(item=>item.id.startsWith('CUL-')),'Nenhum card DAD deveria permanecer no legado.');
 
-for(const id of ['DAD-0004','DAD-0007','CUL-0003','DAD-0002','DAD-0006','CUL-0001','DAD-0001','DAD-0005','CUL-0002']){
+for(const id of ['DAD-0004','DAD-0007','CUL-0003','DAD-0002','DAD-0006','CUL-0001','DAD-0001','DAD-0005','CUL-0002','DAD-0003','CUL-0004','CUL-0005']){
   const matches=snapshot.filter(item=>item.id===id);
   assert(matches.length===1,`${id} deveria aparecer exatamente uma vez.`);
   assert(matches[0].status_publicacao==='publicado',`${id} não foi promovido ao estado canônico publicado.`);
 }
 
-await verifyDataCard('DAD-0004',[
-  'Metade dos casos analisados teve início até os 14 anos',
-  '9.282 adultos',
-  'medicalização automática',
-  'Como escola e serviços de saúde podem agir precocemente'
-]);
+await verifyDataCard('DAD-0004',['Metade dos casos analisados teve início até os 14 anos','9.282 adultos','medicalização automática']);
+await verifyDataCard('DAD-0007',['Brasil tinha 1.578 escolas militarizadas em maio de 2026','mais de 600 pedidos de acesso à informação','gestão democrática']);
+await verifyDataCard('DAD-0002',['64% dos estudantes ouvidos relataram sobrecarga e cansaço','educação básica privada','autorrelatados']);
+await verifyDataCard('DAD-0006',['Pesquisa mostra que apenas 14% dos responsáveis leem para as crianças ao menos três vezes por semana','Ceará, Pará e São Paulo','não para o Brasil inteiro']);
+await verifyDataCard('DAD-0001',['Sete em cada dez jovens fora da escola sem concluir a educação básica eram negros','7,9 milhões de jovens','PNAD Contínua 2025']);
+await verifyDataCard('DAD-0005',['Cansaço e desgaste foram apontados por 83% dos docentes ouvidos como fatores de adoecimento','2.597 respostas','2.215 respostas']);
+await verifyDataCard('DAD-0003',['18% dos estudantes ouvidos disseram sentir medo frequente de outros alunos','945.481 estudantes dos anos finais do ensino fundamental','três meses anteriores','O que uma escola precisa mudar quando parte dos estudantes teme os próprios colegas?']);
 
-await verifyDataCard('DAD-0007',[
-  'Brasil tinha 1.578 escolas militarizadas em maio de 2026',
-  'mais de 600 pedidos de acesso à informação',
-  'gestão democrática',
-  'Uma escola pública oferece escolha real'
-]);
-
-await verifyDataCard('DAD-0002',[
-  '64% dos estudantes ouvidos relataram sobrecarga e cansaço',
-  'educação básica privada',
-  'autorrelatados',
-  'não constituem diagnóstico clínico',
-  'Quando o sofrimento escolar deve ser tratado como problema individual'
-]);
-
-await verifyDataCard('DAD-0006',[
-  'Pesquisa mostra que apenas 14% dos responsáveis leem para as crianças ao menos três vezes por semana',
-  'Ceará, Pará e São Paulo',
-  'não para o Brasil inteiro',
-  'não deve ser usada para culpar famílias',
-  'Como ampliar experiências de leitura na primeira infância'
-]);
-
-await verifyDataCard('DAD-0001',[
-  'Sete em cada dez jovens fora da escola sem concluir a educação básica eram negros',
-  '7,9 milhões de jovens',
-  'PNAD Contínua 2025',
-  'não pode ser explicado por raça como característica individual',
-  'O que o predomínio de jovens negros'
-]);
-
-await verifyDataCard('DAD-0005',[
-  'Cansaço e desgaste foram apontados por 83% dos docentes ouvidos como fatores de adoecimento',
-  '2.597 respostas',
-  '2.215 respostas',
-  'voluntária e não aleatória',
-  'não constituem diagnóstico clínico',
-  'não transforma estudantes ou famílias em culpados'
-]);
-
-await verifyCulturalCard('CUL-0003',[
-  'Her: intimidade, projeção e vínculos mediados por tecnologia',
-  'sempre disponível e adaptável',
-  'Sherry Turkle',
-  'Nenhuma dessas referências é explícita no filme'
-]);
-
-await verifyCulturalCard('CUL-0001',[
-  'Coringa: sofrimento, humilhação e espetáculo da violência',
-  'não anulam responsabilidade',
-  'nem provam que pessoas em sofrimento mental sejam violentas',
-  'Erving Goffman',
-  'Não usar o filme como evidência de que transtorno mental causa violência'
-]);
-
-await verifyCulturalCard('CUL-0002',[
-  'Corra!: admiração, apropriação e controle do corpo negro',
-  'não aparece apenas como rejeição explícita',
-  'Frantz Fanon',
-  'Não tratá-la como documentário',
-  'Estados Unidos',
-  'Brasil',
-  'Como o racismo pode operar por meio da admiração'
-]);
+await verifyCulturalCard('CUL-0003',['Her: intimidade, projeção e vínculos mediados por tecnologia','sempre disponível e adaptável','Sherry Turkle']);
+await verifyCulturalCard('CUL-0001',['Coringa: sofrimento, humilhação e espetáculo da violência','não anulam responsabilidade','Não usar o filme como evidência']);
+await verifyCulturalCard('CUL-0002',['Corra!: admiração, apropriação e controle do corpo negro','Não tratá-la como documentário','Estados Unidos','Brasil']);
+await verifyCulturalCard('CUL-0004',['O Show de Truman: vigilância, espetáculo e realidade fabricada','consentimento','Não apresentar o filme como profecia literal','Que diferença existe entre compartilhar a própria vida']);
+await verifyCulturalCard('CUL-0005',['Menino 23: eugenia, trabalho forçado e apagamento histórico','cinquenta meninos negros','reconstrução documental mediada','história nacional de escravização e racismo']);
 
 assert(errors.length===0,`Erros no navegador: ${errors.join(' | ')}`);
 await browser.close();
-console.log('Auditoria dos três lotes migrados concluída.');
+console.log('Auditoria dos quatro lotes migrados concluída.');
 
 async function verifyDataCard(id,expectedTexts){
   await page.goto(base+`repertorio.html?id=${id}`,{waitUntil:'networkidle'});
@@ -114,9 +55,7 @@ async function verifyDataCard(id,expectedTexts){
     assert(headings.includes(expected),`${id} não renderizou a seção ${expected}.`);
   }
   const body=await page.locator('body').innerText();
-  for(const expected of expectedTexts){
-    assert(body.includes(expected),`${id} não exibiu o trecho esperado: ${expected}`);
-  }
+  for(const expected of expectedTexts)assert(body.includes(expected),`${id} não exibiu o trecho esperado: ${expected}`);
   assert(await page.locator('.detail-sidebar a').count()===1,`${id} não exibe a fonte como link.`);
 }
 
@@ -127,8 +66,6 @@ async function verifyCulturalCard(id,expectedTexts){
     assert(headings.includes(expected),`${id} não renderizou a seção ${expected}.`);
   }
   const body=await page.locator('body').innerText();
-  for(const expected of expectedTexts){
-    assert(body.includes(expected),`${id} não exibiu o trecho esperado: ${expected}`);
-  }
+  for(const expected of expectedTexts)assert(body.includes(expected),`${id} não exibiu o trecho esperado: ${expected}`);
   assert(await page.locator('.detail-sidebar a').count()===1,`${id} não exibe a referência da obra como link.`);
 }
