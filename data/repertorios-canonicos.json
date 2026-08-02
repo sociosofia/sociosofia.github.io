@@ -2,6 +2,70 @@
   {
     "versao_contrato": "1.0",
     "modelo_publico": "card_repertorio_v1",
+    "id": "CUL-0001",
+    "tema_ids": [
+      "saude",
+      "violencia"
+    ],
+    "editoria": "Séries, filmes, livros e músicas",
+    "categoria": "Séries, filmes, livros e músicas",
+    "subtema": "Sofrimento, humilhação e espetáculo da violência",
+    "titulo": "Coringa: sofrimento, humilhação e espetáculo da violência",
+    "subtitulo": "O filme permite discutir abandono social sem transformar sofrimento mental em explicação automática para a violência",
+    "tipo": "Filme",
+    "resumo": "Arthur Fleck vive em uma cidade marcada por desigualdade, precariedade e perda de vínculos. Sua trajetória abre perguntas sobre humilhação, reconhecimento e violência, mas exige cuidado para que sofrimento psíquico não seja tratado como sinônimo de periculosidade.",
+    "resumo_obra": "Arthur Fleck trabalha como palhaço e tenta construir uma carreira artística enquanto enfrenta isolamento, dificuldades materiais e sucessivas experiências de humilhação. O filme acompanha sua transformação em meio a uma cidade socialmente fraturada, sem que essa narrativa deva ser tomada como descrição clínica ou explicação geral da violência.",
+    "leitura_sociosofia": "A força de Coringa está em aproximar sofrimento individual e condições sociais sem permitir uma conclusão simples. Desigualdade, precariedade, abandono institucional e busca por reconhecimento compõem o ambiente da narrativa, mas não anulam responsabilidade nem provam que pessoas em sofrimento mental sejam violentas. O filme também mostra como a violência pode ser convertida em imagem pública, identificação coletiva e espetáculo.",
+    "ancoragem_teorica": "Hipóteses de leitura editorial: Erving Goffman pode ajudar a discutir estigma e identidade deteriorada; Axel Honneth, experiências de desrespeito e reconhecimento; Michel Foucault, instituições, normalização e medicalização. Nenhuma dessas referências é explícita na obra e todas permanecem como relações a validar.",
+    "cuidado_pedagogico": "Não usar o filme como evidência de que transtorno mental causa violência. Distinguir sofrimento psíquico, construção ficcional do personagem, responsabilidade individual e condições sociais.",
+    "questao": "Como relacionar sofrimento individual e condições sociais sem transformar um deles em explicação total da violência?",
+    "conceitos": [
+      "Estigma",
+      "Reconhecimento",
+      "Humilhação social",
+      "Violência",
+      "Espetáculo"
+    ],
+    "autores": [],
+    "autores_possiveis": [
+      "Erving Goffman",
+      "Axel Honneth",
+      "Michel Foucault"
+    ],
+    "relacoes_pendentes": [
+      "Validar separadamente qualquer REL com autores ou conceitos; as referências teóricas são hipóteses editoriais."
+    ],
+    "fonte_nome": "Coringa, filme dirigido por Todd Phillips, 2019",
+    "fonte_url": "https://www.oscars.org/oscars/ceremonies/2020",
+    "ano_data": "2019",
+    "confiabilidade": "Repertório cultural; obra, direção e ano conferidos.",
+    "fonte_status": "obra e créditos conferidos",
+    "nivel": "Intermediário",
+    "status": "publicado",
+    "aprovacao": {
+      "status": "aprovado",
+      "aprovado_por": "Luiz Jácomo",
+      "data": "2026-08-02"
+    },
+    "origem_migracao": {
+      "lote": "legado-lote2-v1",
+      "id_legado": "CUL-0001",
+      "historico_ref": "data/historico-migracao-legado-lote2-v1.json",
+      "aprovacao_ref": "data/aprovacoes-migracao-legado-lote2-v1.json"
+    },
+    "destaque": false,
+    "tags": [
+      "Coringa",
+      "sofrimento",
+      "estigma",
+      "humilhação social",
+      "violência",
+      "espetáculo"
+    ]
+  },
+  {
+    "versao_contrato": "1.0",
+    "modelo_publico": "card_repertorio_v1",
     "id": "CUL-0003",
     "tema_ids": [
       "tecnologia",
