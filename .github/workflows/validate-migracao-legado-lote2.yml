@@ -1,0 +1,59 @@
+name: Validar segundo lote migrado
+
+on:
+  push:
+    branches:
+      - publicar-migracao-legado-lote2-v1
+    paths:
+      - 'data/propostas-migracao-legado-lote2-v1.json'
+      - 'data/aprovacoes-migracao-legado-lote2-v1.json'
+      - 'data/historico-migracao-legado-lote2-v1.json'
+      - 'data/publicacao-legado.json'
+      - 'data/repertorios.json'
+      - 'data/repertorios-canonicos.json'
+      - 'data/publicacoes.json'
+      - 'data/temas.json'
+      - 'publication-contract.mjs'
+      - 'repertory-contract.mjs'
+      - 'scripts/test-migracao-legado-lote2.mjs'
+      - '.github/workflows/validate-migracao-legado-lote2.yml'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'data/propostas-migracao-legado-lote2-v1.json'
+      - 'data/aprovacoes-migracao-legado-lote2-v1.json'
+      - 'data/historico-migracao-legado-lote2-v1.json'
+      - 'data/publicacao-legado.json'
+      - 'data/repertorios.json'
+      - 'data/repertorios-canonicos.json'
+      - 'data/publicacoes.json'
+      - 'data/temas.json'
+      - 'publication-contract.mjs'
+      - 'repertory-contract.mjs'
+      - 'scripts/test-migracao-legado-lote2.mjs'
+      - '.github/workflows/validate-migracao-legado-lote2.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Verificar sintaxe e JSON
+        run: |
+          node --check scripts/test-migracao-legado-lote2.mjs
+          node -e "JSON.parse(require('fs').readFileSync('data/propostas-migracao-legado-lote2-v1.json','utf8'))"
+          node -e "JSON.parse(require('fs').readFileSync('data/aprovacoes-migracao-legado-lote2-v1.json','utf8'))"
+          node -e "JSON.parse(require('fs').readFileSync('data/historico-migracao-legado-lote2-v1.json','utf8'))"
+          node -e "JSON.parse(require('fs').readFileSync('data/publicacao-legado.json','utf8'))"
+          node -e "JSON.parse(require('fs').readFileSync('data/publicacoes.json','utf8'))"
+          node -e "JSON.parse(require('fs').readFileSync('data/repertorios-canonicos.json','utf8'))"
+      - name: Validar migração do segundo lote
+        run: node scripts/test-migracao-legado-lote2.mjs

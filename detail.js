@@ -53,7 +53,9 @@ function sidebar(i,cultural){
 function culture(i){
   return section('A obra',i.resumo_obra||i.resumo)
     +section('Leitura Sociosofia',i.leitura_sociosofia)
-    +section('Ancoragem teórica',i.ancoragem_teorica);
+    +section('Ancoragem teórica',i.ancoragem_teorica)
+    +section('Cuidado pedagógico',i.cuidado_pedagogico)
+    +section('Para continuar pensando',i.questao);
 }
 
 function data(i){
