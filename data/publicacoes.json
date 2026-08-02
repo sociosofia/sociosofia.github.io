@@ -2,6 +2,72 @@
   {
     "versao_contrato": "1.0",
     "modelo_publico": "card_dados_v1",
+    "id": "DAD-0001",
+    "codigo_publicacao": "R000-C01",
+    "codigo_migracao": "MIG-L03-DAD-0001",
+    "evi_id": "EVI-juventudes-minorizadas-pnad-educacao-raca-2025",
+    "tema_ids": [
+      "educacao",
+      "racismo"
+    ],
+    "editoria": "Notícias, dados e informações",
+    "categoria": "Juventude, educação e escola",
+    "subtema": "Desigualdade racial e conclusão da educação básica",
+    "titulo": "Sete em cada dez jovens fora da escola sem concluir a educação básica eram negros",
+    "subtitulo": "Estudo sobre juventudes minorizadas reuniu evidências de desigualdade nas trajetórias escolares",
+    "tipo": "Pesquisa e relatório institucional",
+    "resumo": "A coletânea Juventudes Brasileiras Minorizadas informa que 7,9 milhões de jovens de 15 a 29 anos estavam fora da escola sem concluir a educação básica em 2025. Entre eles, sete em cada dez eram negros. O dado ajuda a discutir como raça, renda, território, necessidade de trabalhar e acesso desigual a direitos atravessam as trajetórias escolares, sem transformar a exclusão em escolha ou fracasso individual.",
+    "dado": "Segundo a coletânea, 7,9 milhões de jovens de 15 a 29 anos estavam fora da escola sem concluir a educação básica em 2025; sete em cada dez eram negros.",
+    "contextualizacao": "A publicação foi lançada em 2026 pela Fundação Roberto Marinho, Itaú Educação e Trabalho e IEDE, em parceria com a iniciativa 1MiO/UNICEF. O indicador foi apresentado com base na PNAD Contínua 2025. A coletânea combina análise de dados, revisão de literatura e relatos de jovens para examinar treze perfis de juventudes submetidas a barreiras históricas. O número central descreve desigualdade no conjunto analisado, mas não explica sozinho por que cada jovem interrompeu sua trajetória escolar.",
+    "interpretacao_sociosofia": "O predomínio de jovens negros entre aqueles que não concluíram a educação básica não pode ser explicado por raça como característica individual. Ele aponta para desigualdades estruturais que distribuem de modo diferente renda, tempo, transporte, segurança, oportunidades escolares, reconhecimento e necessidade de ingresso precoce no trabalho. A leitura sociológica desloca a pergunta do suposto desinteresse juvenil para as condições sociais que tornam algumas trajetórias muito mais difíceis que outras.",
+    "questao": "O que o predomínio de jovens negros entre os que não concluíram a educação básica revela sobre a distribuição das oportunidades escolares?",
+    "conexoes": "Juventude, desigualdade racial, racismo estrutural, exclusão escolar, território, pobreza e direito à educação.",
+    "conceitos": [
+      "Desigualdade racial",
+      "Racismo estrutural",
+      "Exclusão escolar",
+      "Juventude",
+      "Direito à educação"
+    ],
+    "autores": [],
+    "autores_possiveis": [
+      "Nilma Lino Gomes",
+      "Pierre Bourdieu"
+    ],
+    "relacoes_pendentes": [
+      "Nilma Lino Gomes e Pierre Bourdieu podem abrir leituras sobre relações raciais e desigualdades escolares, mas nenhuma relação autoral deve ser publicada automaticamente."
+    ],
+    "fonte_nome": "Fundação Roberto Marinho, Itaú Educação e Trabalho, IEDE e 1MiO/UNICEF — Juventudes Brasileiras Minorizadas",
+    "fonte_url": "https://futura.frm.org.br/conteudo/mobilizacao-social/publicacao/juventudes-brasileiras-minorizadas",
+    "ano_data": "2026; indicador baseado na PNAD Contínua 2025",
+    "confiabilidade": "Alta para a síntese institucional e a análise apresentada; o indicador deve ser atribuído à coletânea, que utiliza a PNAD Contínua como base.",
+    "fonte_status": "conferida em página institucional",
+    "nivel": "Intermediário",
+    "status": "publicado",
+    "aprovacao": {
+      "status": "aprovado",
+      "aprovado_por": "Luiz Jácomo",
+      "data": "2026-08-02"
+    },
+    "origem_migracao": {
+      "lote": "legado-lote3-v1",
+      "id_legado": "DAD-0001",
+      "historico_ref": "data/historico-migracao-legado-lote3-v1.json",
+      "aprovacao_ref": "data/aprovacoes-migracao-legado-lote3-v1.json"
+    },
+    "destaque": false,
+    "tags": [
+      "juventude",
+      "educação",
+      "desigualdade racial",
+      "racismo estrutural",
+      "exclusão escolar",
+      "PNAD Contínua"
+    ]
+  },
+  {
+    "versao_contrato": "1.0",
+    "modelo_publico": "card_dados_v1",
     "id": "DAD-0002",
     "codigo_publicacao": "R000-C02",
     "codigo_migracao": "MIG-L02-DAD-0002",
@@ -113,6 +179,73 @@
       "prevenção",
       "cuidado",
       "medicalização"
+    ]
+  },
+  {
+    "versao_contrato": "1.0",
+    "modelo_publico": "card_dados_v1",
+    "id": "DAD-0005",
+    "codigo_publicacao": "R000-C05",
+    "codigo_migracao": "MIG-L03-DAD-0005",
+    "evi_id": "EVI-sinte-sc-saude-docente-2025",
+    "tema_ids": [
+      "trabalho",
+      "educacao",
+      "saude"
+    ],
+    "editoria": "Notícias, dados e informações",
+    "categoria": "Trabalho e desigualdade",
+    "subtema": "Trabalho docente, saúde e organização institucional",
+    "titulo": "Cansaço e desgaste foram apontados por 83% dos docentes ouvidos como fatores de adoecimento",
+    "subtitulo": "Pesquisa na rede estadual de Santa Catarina relacionou saúde docente e condições de trabalho",
+    "tipo": "Relatório técnico",
+    "resumo": "Na 5ª Pesquisa de Saúde Docente de Santa Catarina, 83% dos participantes apontaram cansaço ou desgaste físico e emocional entre os fatores que contribuem ou podem contribuir para o adoecimento no trabalho. O resultado não deve ser lido como diagnóstico clínico nem generalizado sem ressalvas, mas ajuda a discutir como carga de trabalho, relações profissionais, estrutura escolar e insegurança contratual participam do sofrimento docente.",
+    "dado": "Na pesquisa, 83% dos docentes ouvidos apontaram cansaço ou desgaste físico e emocional entre os fatores que contribuem ou podem vir a contribuir para o adoecimento no trabalho.",
+    "contextualizacao": "O levantamento foi realizado por questionário online autoadministrado, distribuído pelos canais do SINTE-SC entre 30 de outubro e 13 de dezembro de 2024. Foram recebidas 2.597 respostas; após exclusões necessárias à pós-estratificação, a análise utilizou 2.215 respostas de docentes ativos. A participação foi voluntária e não aleatória. Os resultados foram ponderados por sexo, região, faixa etária e cor ou raça com referência no Censo Escolar de 2023. Os fatores apresentados no gráfico são não excludentes e não constituem diagnóstico clínico.",
+    "interpretacao_sociosofia": "O dado permite tratar a saúde docente como questão de trabalho, e não apenas como capacidade individual de suportar pressão. Jornada, estrutura, segurança do vínculo, relações com direção, colegas, famílias e estudantes compõem o ambiente profissional. Isso não transforma estudantes ou famílias em culpados pelo adoecimento: a pergunta sociológica é como a instituição organiza recursos, responsabilidades, conflitos, apoio e proteção para todos os envolvidos.",
+    "questao": "O que muda quando o adoecimento docente é analisado como problema de organização do trabalho, e não apenas de resistência individual?",
+    "conexoes": "Trabalho docente, adoecimento ocupacional, condições de trabalho, precarização, cuidado institucional e saúde mental.",
+    "conceitos": [
+      "Trabalho docente",
+      "Adoecimento ocupacional",
+      "Condições de trabalho",
+      "Precarização",
+      "Cuidado institucional"
+    ],
+    "autores": [],
+    "autores_possiveis": [
+      "Christophe Dejours",
+      "Ricardo Antunes"
+    ],
+    "relacoes_pendentes": [
+      "Christophe Dejours e Ricardo Antunes podem contribuir para leituras sobre sofrimento e organização do trabalho, mas exigem RELs justificadas separadamente."
+    ],
+    "fonte_nome": "SINTE-SC, NIPP/UFSC e NECIP/UFSC — 5ª Pesquisa de Saúde Docente da Rede Pública Estadual de Santa Catarina",
+    "fonte_url": "https://sinte-sc.org.br/files/1081/5a-Pesquisa-de-Saude-Docente-completo-com-faltas.pdf",
+    "ano_data": "Relatório publicado em 2025; coleta realizada em 2024",
+    "confiabilidade": "Alta para o relatório técnico e o recorte estudado, com ressalva de amostragem voluntária e pós-estratificada.",
+    "fonte_status": "relatório técnico conferido",
+    "nivel": "Intermediário",
+    "status": "publicado",
+    "aprovacao": {
+      "status": "aprovado",
+      "aprovado_por": "Luiz Jácomo",
+      "data": "2026-08-02"
+    },
+    "origem_migracao": {
+      "lote": "legado-lote3-v1",
+      "id_legado": "DAD-0005",
+      "historico_ref": "data/historico-migracao-legado-lote3-v1.json",
+      "aprovacao_ref": "data/aprovacoes-migracao-legado-lote3-v1.json"
+    },
+    "destaque": false,
+    "tags": [
+      "trabalho docente",
+      "saúde mental",
+      "adoecimento ocupacional",
+      "condições de trabalho",
+      "educação pública",
+      "Santa Catarina"
     ]
   },
   {
