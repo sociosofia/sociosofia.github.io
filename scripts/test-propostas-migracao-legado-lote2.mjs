@@ -61,7 +61,7 @@ assert(iels.interpretacao_sociosofia.includes('não deve ser usada para culpar f
 
 const joker=proposals.propostas.find(item=>item.id==='CUL-0001');
 assert(joker.cuidado_pedagogico.includes('Não usar o filme como evidência'),'CUL-0001 perdeu o cuidado pedagógico central.');
-assert(joker.leitura_sociosofia.includes('não provam que pessoas em sofrimento mental sejam violentas'),'CUL-0001 voltou a associar sofrimento mental e violência de forma automática.');
+assert(joker.leitura_sociosofia.includes('nem provam que pessoas em sofrimento mental sejam violentas'),'CUL-0001 voltou a associar sofrimento mental e violência de forma automática.');
 
 console.log('Segundo trio editorial validado e mantido fora da publicação canônica.');
 
