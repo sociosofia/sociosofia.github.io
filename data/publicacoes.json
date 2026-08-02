@@ -5,7 +5,9 @@
     "id": "DAD-0008",
     "codigo_publicacao": "R001-C01",
     "evi_id": "EVI-ibge-pnad-informalidade-2026-t1",
-    "tema_ids": ["trabalho"],
+    "tema_ids": [
+      "trabalho"
+    ],
     "editoria": "Notícias, dados e informações",
     "categoria": "Trabalho e desigualdade",
     "subtema": "Trabalho, informalidade e proteção social",
@@ -18,7 +20,11 @@
     "interpretacao_sociosofia": "Os indicadores ajudam a distinguir ocupação, emprego formal, trabalho por conta própria e proteção social, sem tratar todas as experiências de trabalho informal como iguais.",
     "questao": "Ter uma ocupação significa necessariamente possuir vínculo formal e proteção social?",
     "conexoes": "Trabalho, informalidade, precarização, proteção social, cidadania e desigualdade estrutural.",
-    "conceitos": ["Precarização", "Cidadania", "Desigualdade estrutural"],
+    "conceitos": [
+      "Precarização",
+      "Cidadania",
+      "Desigualdade estrutural"
+    ],
     "autores": [],
     "fonte_nome": "IBGE — PNAD Contínua Trimestral, 1º trimestre de 2026",
     "fonte_url": "https://agenciadenoticias.ibge.gov.br/agencia-sala-de-imprensa/2013-agencia-de-noticias/releases/46676-pnad-continua-trimestral-desocupacao-sobe-em-15-das-27-ufs-no-1-trimestre-de-2026",
@@ -27,9 +33,18 @@
     "fonte_status": "conferida",
     "nivel": "Básico",
     "status": "publicado",
-    "aprovacao": {"status": "aprovado", "aprovado_por": "Luiz Jácomo"},
+    "aprovacao": {
+      "status": "aprovado",
+      "aprovado_por": "Luiz Jácomo"
+    },
     "destaque": false,
-    "tags": ["trabalho", "informalidade", "proteção social", "PNAD Contínua", "desigualdade"]
+    "tags": [
+      "trabalho",
+      "informalidade",
+      "proteção social",
+      "PNAD Contínua",
+      "desigualdade"
+    ]
   },
   {
     "versao_contrato": "1.0",
@@ -37,7 +52,10 @@
     "id": "DAD-0009",
     "codigo_publicacao": "R002-C01",
     "evi_id": "EVI-datasenado-violencia-mulher-2025",
-    "tema_ids": ["genero", "violencia"],
+    "tema_ids": [
+      "genero",
+      "violencia"
+    ],
     "editoria": "Notícias, dados e informações",
     "categoria": "Gênero, sexualidade e corpo",
     "subtema": "Violência de gênero e direitos",
@@ -50,7 +68,12 @@
     "interpretacao_sociosofia": "A escala do problema ajuda a compreender que a violência contra a mulher não é apenas um conflito privado, mas uma questão social que envolve relações de gênero, proteção institucional e garantia de direitos.",
     "questao": "Por que a violência contra a mulher deve ser tratada como problema social e público, e não apenas como conflito privado?",
     "conexoes": "Violência de gênero, patriarcado, naturalização da violência, cidadania, direitos humanos e políticas de proteção.",
-    "conceitos": ["Violência de gênero", "Patriarcado", "Cidadania", "Direitos humanos"],
+    "conceitos": [
+      "Violência de gênero",
+      "Patriarcado",
+      "Cidadania",
+      "Direitos humanos"
+    ],
     "autores": [],
     "fonte_nome": "DataSenado — Pesquisa Nacional de Violência contra a Mulher 2025",
     "fonte_url": "https://www12.senado.leg.br/institucional/datasenado/publicacaodatasenado?id=pesquisa-nacional-de-violencia-contra-a-mulher-datasenado-2025",
@@ -59,9 +82,18 @@
     "fonte_status": "conferida",
     "nivel": "Básico",
     "status": "publicado",
-    "aprovacao": {"status": "aprovado", "aprovado_por": "Luiz Jácomo"},
+    "aprovacao": {
+      "status": "aprovado",
+      "aprovado_por": "Luiz Jácomo"
+    },
     "destaque": false,
-    "tags": ["gênero", "violência contra a mulher", "violência doméstica", "patriarcado", "direitos humanos"]
+    "tags": [
+      "gênero",
+      "violência contra a mulher",
+      "violência doméstica",
+      "patriarcado",
+      "direitos humanos"
+    ]
   },
   {
     "versao_contrato": "1.0",
@@ -69,7 +101,10 @@
     "id": "DAD-0010",
     "codigo_publicacao": "R002-C02",
     "evi_id": "EVI-mte-mmulheres-desigualdade-salarial-2026-s1",
-    "tema_ids": ["genero", "trabalho"],
+    "tema_ids": [
+      "genero",
+      "trabalho"
+    ],
     "editoria": "Notícias, dados e informações",
     "categoria": "Gênero, sexualidade e corpo",
     "subtema": "Desigualdade salarial e trabalho",
@@ -82,7 +117,12 @@
     "interpretacao_sociosofia": "A diferença é agregada: não significa que toda mulher receba menos que um homem na mesma função, mas ajuda a observar desigualdades de acesso a ocupações, promoções, posições de chefia e setores mais bem remunerados.",
     "questao": "Como a distribuição desigual entre cargos, setores e posições de chefia contribui para a diferença média de remuneração entre mulheres e homens?",
     "conexoes": "Desigualdade salarial, divisão sexual do trabalho, segregação ocupacional, teto de vidro, autonomia econômica e interseccionalidade.",
-    "conceitos": ["Desigualdade salarial", "Divisão sexual do trabalho", "Segregação ocupacional", "Interseccionalidade"],
+    "conceitos": [
+      "Desigualdade salarial",
+      "Divisão sexual do trabalho",
+      "Segregação ocupacional",
+      "Interseccionalidade"
+    ],
     "autores": [],
     "fonte_nome": "Ministério das Mulheres e Ministério do Trabalho e Emprego — 5º Relatório de Transparência Salarial",
     "fonte_url": "https://www.gov.br/mulheres/pt-br/central-de-conteudos/noticias/2026/abril/emprego-feminino-avanca-e-politicas-de-igualdade-salarial-se-ampliam-aponta-5o-relatorio-de-transparencia-salarial-1",
@@ -91,9 +131,18 @@
     "fonte_status": "conferida",
     "nivel": "Intermediário",
     "status": "publicado",
-    "aprovacao": {"status": "aprovado", "aprovado_por": "Luiz Jácomo"},
+    "aprovacao": {
+      "status": "aprovado",
+      "aprovado_por": "Luiz Jácomo"
+    },
     "destaque": false,
-    "tags": ["gênero", "trabalho", "desigualdade salarial", "divisão sexual do trabalho", "teto de vidro"]
+    "tags": [
+      "gênero",
+      "trabalho",
+      "desigualdade salarial",
+      "divisão sexual do trabalho",
+      "teto de vidro"
+    ]
   },
   {
     "versao_contrato": "1.0",
@@ -101,7 +150,10 @@
     "id": "DAD-0011",
     "codigo_publicacao": "R002-C03",
     "evi_id": "EVI-ibge-trabalho-domestico-cuidados-genero-2022",
-    "tema_ids": ["genero", "trabalho"],
+    "tema_ids": [
+      "genero",
+      "trabalho"
+    ],
     "editoria": "Notícias, dados e informações",
     "categoria": "Gênero, sexualidade e corpo",
     "subtema": "Trabalho doméstico, cuidado e desigualdade de tempo",
@@ -114,7 +166,12 @@
     "interpretacao_sociosofia": "Esse trabalho mantém casas e pessoas, mas costuma permanecer invisível e desigualmente distribuído, reduzindo o tempo disponível para estudo, trabalho remunerado, descanso e participação pública.",
     "questao": "O que muda na vida social quando o trabalho doméstico e de cuidado é distribuído de forma desigual entre mulheres e homens?",
     "conexoes": "Trabalho de cuidado, divisão sexual do trabalho, reprodução social, dupla jornada, desigualdade de tempo e políticas públicas de cuidado.",
-    "conceitos": ["Trabalho de cuidado", "Divisão sexual do trabalho", "Reprodução social", "Desigualdade de tempo"],
+    "conceitos": [
+      "Trabalho de cuidado",
+      "Divisão sexual do trabalho",
+      "Reprodução social",
+      "Desigualdade de tempo"
+    ],
     "autores": [],
     "fonte_nome": "IBGE — Estatísticas de Gênero: Indicadores Sociais das Mulheres no Brasil, 3ª edição",
     "fonte_url": "https://educa.ibge.gov.br/jovens/materias-especiais/22052-as-mulheres-do-brasil",
@@ -123,8 +180,67 @@
     "fonte_status": "conferida",
     "nivel": "Básico",
     "status": "publicado",
-    "aprovacao": {"status": "aprovado", "aprovado_por": "Luiz Jácomo"},
+    "aprovacao": {
+      "status": "aprovado",
+      "aprovado_por": "Luiz Jácomo"
+    },
     "destaque": false,
-    "tags": ["gênero", "trabalho de cuidado", "trabalho doméstico", "dupla jornada", "desigualdade de tempo"]
+    "tags": [
+      "gênero",
+      "trabalho de cuidado",
+      "trabalho doméstico",
+      "dupla jornada",
+      "desigualdade de tempo"
+    ]
+  },
+  {
+    "versao_contrato": "1.0",
+    "modelo_publico": "card_dados_v1",
+    "id": "DAD-0012",
+    "codigo_publicacao": "R003-C01",
+    "evi_id": "EVI-ibge-pnad-educacao-jovens-2025",
+    "tema_ids": [
+      "educacao",
+      "trabalho"
+    ],
+    "editoria": "Notícias, dados e informações",
+    "categoria": "Juventude, educação e escola",
+    "subtema": "Juventude, educação, qualificação e trabalho",
+    "titulo": "Em 2025, 17,5% dos jovens estavam fora do trabalho, do estudo e da qualificação",
+    "subtitulo": "O indicador considera pessoas de 15 a 29 anos que reuniam as três condições",
+    "tipo": "Dado oficial",
+    "resumo": "Em 2025, 17,5% das pessoas de 15 a 29 anos no Brasil não estavam ocupadas, não frequentavam o ensino regular e não faziam curso de qualificação profissional. O dado não descreve um grupo homogêneo nem autoriza tratar esses jovens como desinteressados: ele ajuda a investigar dificuldades na passagem entre escola, qualificação e trabalho.",
+    "dado": "Em 2025, 17,5% das pessoas de 15 a 29 anos no Brasil não estavam ocupadas, não frequentavam o ensino regular e não faziam curso de qualificação profissional.",
+    "contextualizacao": "O Brasil tinha 46,6 milhões de pessoas nessa faixa etária. O resultado vem do módulo anual de Educação da PNAD Contínua, pesquisa domiciliar integrada por amostragem probabilística. O indicador reúne três condições simultâneas e não identifica, sozinho, o motivo da situação de cada jovem.",
+    "interpretacao_sociosofia": "O dado não descreve um grupo homogêneo e não autoriza tratar esses jovens como desinteressados. Ele permite investigar dificuldades na passagem entre escola, qualificação e trabalho, além das desigualdades que condicionam essa transição.",
+    "questao": "Estar fora do trabalho e do estudo é sempre uma escolha individual?",
+    "conexoes": "Juventude, transição entre escola e trabalho, desigualdade de oportunidades, qualificação profissional e inclusão social.",
+    "conceitos": [
+      "Juventude",
+      "Transição escola–trabalho",
+      "Desigualdade de oportunidades",
+      "Inclusão social"
+    ],
+    "autores": [],
+    "fonte_nome": "IBGE — PNAD Contínua: Educação 2025",
+    "fonte_url": "https://www.ibge.gov.br/estatisticas/sociais/populacao/17270-pnad-continua.html?edicao=40313",
+    "ano_data": "Publicação em 2026; dados de 2025",
+    "confiabilidade": "Alta; pesquisa domiciliar oficial por amostragem probabilística do IBGE",
+    "fonte_status": "conferida",
+    "nivel": "Básico",
+    "status": "publicado",
+    "aprovacao": {
+      "status": "aprovado",
+      "aprovado_por": "Luiz Jácomo"
+    },
+    "destaque": false,
+    "tags": [
+      "juventude",
+      "educação",
+      "trabalho",
+      "qualificação profissional",
+      "desigualdade de oportunidades",
+      "PNAD Contínua"
+    ]
   }
 ]
