@@ -61,7 +61,7 @@ const menino=proposals.propostas.find(item=>item.id==='CUL-0005');
 for(const field of ['resumo_obra','leitura_sociosofia','ancoragem_teorica','cuidado_pedagogico','questao'])assert(menino[field],`CUL-0005 não possui ${field}.`);
 assert(menino.titulo==='Menino 23: eugenia, trabalho forçado e apagamento histórico','CUL-0005 perdeu o título proposto.');
 assert(menino.resumo_obra.includes('cinquenta meninos negros'),'CUL-0005 perdeu o recorte histórico central.');
-assert(menino.cuidado_pedagogico.includes('raízes brasileiras'),'CUL-0005 voltou a externalizar o racismo brasileiro no nazismo.');
+assert(menino.cuidado_pedagogico.includes('explicação externa')&&menino.cuidado_pedagogico.includes('história nacional'),'CUL-0005 voltou a externalizar o racismo brasileiro no nazismo.');
 assert(menino.cuidado_pedagogico.includes('reconstrução documental mediada'),'CUL-0005 apresenta o documentário como registro transparente e completo.');
 
 const serialized=JSON.stringify(proposals).toLowerCase();
