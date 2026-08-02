@@ -1,0 +1,141 @@
+{
+  "versao": "1.0",
+  "lote": "legado-lote5-v1",
+  "data_migracao": "2026-08-02",
+  "aprovado_por": "Luiz Jácomo",
+  "itens": [
+    {
+      "id": "CUL-0007",
+      "registro_anterior": {
+        "id": "CUL-0007",
+        "editoria": "Séries, filmes, livros e músicas",
+        "categoria": "Séries, filmes, livros e músicas",
+        "tipo": "Episódio",
+        "subtema": "Tecnologia, subjetividade e vida digital",
+        "titulo": "Black Mirror: San Junípero: vida digital, corpo e promessa de eternidade",
+        "subtitulo": "Tecnologia, subjetividade e vida digital",
+        "resumo": "O episódio apresenta um ambiente digital em que consciências humanas podem continuar existindo para além dos limites do corpo biológico. A narrativa articula amor, memória, envelhecimento, morte e desejo de permanência.",
+        "resumo_obra": "O episódio apresenta um ambiente digital em que consciências humanas podem continuar existindo para além dos limites do corpo biológico. A narrativa articula amor, memória, envelhecimento, morte e desejo de permanência.",
+        "leitura_sociosofia": "San Junípero permite discutir a promessa contemporânea de superar o corpo, a doença e a morte por meio da tecnologia. Ao mesmo tempo em que o ambiente digital aparece como libertação, ele também abre uma reflexão sobre identidade, simulação e dependência técnica. A obra torna sensível uma pergunta filosófica antiga: o que resta de nós quando a experiência se separa do corpo?",
+        "ancoragem_teorica": "Platão, para aproximar a oposição entre corpo, aparência e permanência ideal da promessa contemporânea de uma vida digital.",
+        "conceitos": [
+          "Corpo",
+          "Alma",
+          "Simulação",
+          "Memória",
+          "Vida digital",
+          "Hiperconectividade",
+          "Pós-humanismo"
+        ],
+        "autores": [
+          "Platão"
+        ],
+        "fonte_nome": "Black Mirror, episódio San Junípero, 2016",
+        "fonte_url": "",
+        "ano_data": "2016",
+        "confiabilidade": "Repertório cultural",
+        "fonte_status": "obra identificada",
+        "tempo_leitura": "3 min",
+        "nivel": "Básico",
+        "status": "rascunho",
+        "destaque": false,
+        "tags": [
+          "tecnologia",
+          "vida digital",
+          "Platão",
+          "corpo",
+          "memória",
+          "Black Mirror"
+        ]
+      }
+    },
+    {
+      "id": "CUL-0008",
+      "registro_anterior": {
+        "id": "CUL-0008",
+        "editoria": "Séries, filmes, livros e músicas",
+        "categoria": "Séries, filmes, livros e músicas",
+        "tipo": "Episódio",
+        "subtema": "Tecnologia, memória e controle",
+        "titulo": "Black Mirror: The Entire History of You: memória, vigilância e intimidade",
+        "subtitulo": "Tecnologia, memória e controle",
+        "resumo": "O episódio apresenta uma tecnologia capaz de gravar e reproduzir integralmente as experiências vividas. Com isso, relações afetivas passam a ser atravessadas pela possibilidade de rever, investigar e disputar o passado o tempo todo.",
+        "resumo_obra": "O episódio apresenta uma tecnologia capaz de gravar e reproduzir integralmente as experiências vividas. Com isso, relações afetivas passam a ser atravessadas pela possibilidade de rever, investigar e disputar o passado o tempo todo.",
+        "leitura_sociosofia": "A obra ajuda a pensar os efeitos de transformar a memória em arquivo permanente. Quando tudo pode ser revisto, a lembrança deixa de ser apenas experiência subjetiva e se aproxima de uma forma de vigilância. O episódio mostra como a busca por controle total sobre o passado pode corroer a confiança, a intimidade e a possibilidade de convivência.",
+        "ancoragem_teorica": "Michel Foucault, para pensar vigilância, controle dos corpos e internalização do olhar fiscalizador.",
+        "conceitos": [
+          "Memória",
+          "Vigilância",
+          "Intimidade",
+          "Controle",
+          "Subjetividade",
+          "Arquivo digital"
+        ],
+        "autores": [
+          "Michel Foucault"
+        ],
+        "fonte_nome": "Black Mirror, episódio The Entire History of You, 2011",
+        "fonte_url": "",
+        "ano_data": "2011",
+        "confiabilidade": "Repertório cultural",
+        "fonte_status": "obra identificada",
+        "tempo_leitura": "3 min",
+        "nivel": "Básico",
+        "status": "rascunho",
+        "destaque": false,
+        "tags": [
+          "memória",
+          "vigilância",
+          "Foucault",
+          "tecnologia",
+          "intimidade",
+          "Black Mirror"
+        ]
+      }
+    },
+    {
+      "id": "CUL-0009",
+      "registro_anterior": {
+        "id": "CUL-0009",
+        "editoria": "Séries, filmes, livros e músicas",
+        "categoria": "Séries, filmes, livros e músicas",
+        "tipo": "Episódio",
+        "subtema": "Indústria cultural, trabalho e sociedade do desempenho",
+        "titulo": "Black Mirror: Fifteen Million Merits: espetáculo, trabalho e alienação",
+        "subtitulo": "Indústria cultural, trabalho e sociedade do desempenho",
+        "resumo": "O episódio apresenta uma sociedade em que as pessoas pedalam diariamente para acumular méritos, consumir imagens e tentar alguma forma de ascensão social. A vida cotidiana é mediada por telas, pontuações, publicidade e entretenimento constante.",
+        "resumo_obra": "O episódio apresenta uma sociedade em que as pessoas pedalam diariamente para acumular méritos, consumir imagens e tentar alguma forma de ascensão social. A vida cotidiana é mediada por telas, pontuações, publicidade e entretenimento constante.",
+        "leitura_sociosofia": "A obra permite pensar a relação entre trabalho repetitivo, consumo e espetáculo. Mesmo a revolta contra o sistema pode ser transformada em produto, performance e entretenimento. O episódio ajuda a observar como a crítica social pode ser capturada pela própria lógica que pretendia contestar.",
+        "ancoragem_teorica": "Theodor Adorno e Max Horkheimer, para pensar indústria cultural, padronização do entretenimento e transformação da cultura em mercadoria.",
+        "conceitos": [
+          "Indústria cultural",
+          "Alienação",
+          "Espetáculo",
+          "Mercadoria",
+          "Desempenho",
+          "Consumo"
+        ],
+        "autores": [
+          "Theodor Adorno e Max Horkheimer"
+        ],
+        "fonte_nome": "Black Mirror, episódio Fifteen Million Merits, 2011",
+        "fonte_url": "",
+        "ano_data": "2011",
+        "confiabilidade": "Repertório cultural",
+        "fonte_status": "obra identificada",
+        "tempo_leitura": "3 min",
+        "nivel": "Básico",
+        "status": "rascunho",
+        "destaque": false,
+        "tags": [
+          "indústria cultural",
+          "alienação",
+          "Adorno",
+          "Horkheimer",
+          "espetáculo",
+          "Black Mirror"
+        ]
+      }
+    }
+  ]
+}
