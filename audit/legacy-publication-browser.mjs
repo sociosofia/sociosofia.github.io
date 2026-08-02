@@ -18,14 +18,14 @@ const snapshot=await page.evaluate(async()=>{
 
 const legacy=snapshot.filter(item=>item.status_publicacao==='publicado_legado');
 const current=snapshot.filter(item=>item.status_publicacao==='publicado');
-assert(legacy.length===27,`Esperados 27 itens publicado_legado; encontrados ${legacy.length}.`);
-assert(current.length===11,`Esperadas 11 publicações canônicas; encontradas ${current.length}.`);
+assert(legacy.length===24,`Esperados 24 itens publicado_legado; encontrados ${legacy.length}.`);
+assert(current.length===14,`Esperadas 14 publicações canônicas; encontradas ${current.length}.`);
 assert(snapshot.length===38,`A fachada pública deveria conter 38 itens; encontrou ${snapshot.length}.`);
 assert(new Set(snapshot.map(item=>item.id)).size===38,'A fachada pública contém IDs duplicados.');
-assert(legacy.filter(item=>item.id.startsWith('DAD-')).length===3,'O conjunto legado deveria conter 3 cards DAD.');
-assert(legacy.filter(item=>item.id.startsWith('CUL-')).length===24,'O conjunto legado deveria conter 24 cards CUL.');
+assert(legacy.filter(item=>item.id.startsWith('DAD-')).length===1,'O conjunto legado deveria conter 1 card DAD.');
+assert(legacy.filter(item=>item.id.startsWith('CUL-')).length===23,'O conjunto legado deveria conter 23 cards CUL.');
 
-for(const id of ['DAD-0004','DAD-0007','CUL-0003','DAD-0002','DAD-0006','CUL-0001']){
+for(const id of ['DAD-0004','DAD-0007','CUL-0003','DAD-0002','DAD-0006','CUL-0001','DAD-0001','DAD-0005','CUL-0002']){
   const matches=snapshot.filter(item=>item.id===id);
   assert(matches.length===1,`${id} deveria aparecer exatamente uma vez.`);
   assert(matches[0].status_publicacao==='publicado',`${id} não foi promovido ao estado canônico publicado.`);
@@ -61,6 +61,23 @@ await verifyDataCard('DAD-0006',[
   'Como ampliar experiências de leitura na primeira infância'
 ]);
 
+await verifyDataCard('DAD-0001',[
+  'Sete em cada dez jovens fora da escola sem concluir a educação básica eram negros',
+  '7,9 milhões de jovens',
+  'PNAD Contínua 2025',
+  'não pode ser explicado por raça como característica individual',
+  'O que o predomínio de jovens negros'
+]);
+
+await verifyDataCard('DAD-0005',[
+  'Cansaço e desgaste foram apontados por 83% dos docentes ouvidos como fatores de adoecimento',
+  '2.597 respostas',
+  '2.215 respostas',
+  'voluntária e não aleatória',
+  'não constituem diagnóstico clínico',
+  'não transforma estudantes ou famílias em culpados'
+]);
+
 await verifyCulturalCard('CUL-0003',[
   'Her: intimidade, projeção e vínculos mediados por tecnologia',
   'sempre disponível e adaptável',
@@ -76,9 +93,19 @@ await verifyCulturalCard('CUL-0001',[
   'Não usar o filme como evidência de que transtorno mental causa violência'
 ]);
 
+await verifyCulturalCard('CUL-0002',[
+  'Corra!: admiração, apropriação e controle do corpo negro',
+  'não aparece apenas como rejeição explícita',
+  'Frantz Fanon',
+  'Não tratá-la como documentário',
+  'Estados Unidos',
+  'Brasil',
+  'Como o racismo pode operar por meio da admiração'
+]);
+
 assert(errors.length===0,`Erros no navegador: ${errors.join(' | ')}`);
 await browser.close();
-console.log('Auditoria dos dois lotes migrados concluída.');
+console.log('Auditoria dos três lotes migrados concluída.');
 
 async function verifyDataCard(id,expectedTexts){
   await page.goto(base+`repertorio.html?id=${id}`,{waitUntil:'networkidle'});

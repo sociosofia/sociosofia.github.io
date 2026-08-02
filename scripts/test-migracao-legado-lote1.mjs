@@ -39,11 +39,11 @@ assert(history.registros.length===3,'O histórico do primeiro lote deve preserva
 
 const dataValidation=validatePublicationCollection(publicacoes,{themeIds});
 assert(dataValidation.errors.length===0,'A base canônica de dados falhou no contrato: '+dataValidation.errors.join(' | '));
-assert(dataValidation.valid.length===9,'A base canônica de dados deve conter nove publicações após dois lotes.');
+assert(dataValidation.valid.length===11,'A base canônica de dados deve conter onze publicações após três lotes.');
 
 const culturalValidation=validateRepertoryCollection(cultural,{themeIds});
 assert(culturalValidation.errors.length===0,'A base canônica cultural falhou no contrato: '+culturalValidation.errors.join(' | '));
-assert(culturalValidation.valid.length===2,'A base cultural deve conter dois repertórios após dois lotes.');
+assert(culturalValidation.valid.length===3,'A base cultural deve conter três repertórios após três lotes.');
 
 for(const id of ['DAD-0004','DAD-0007']){
   const item=publicacoes.find(entry=>entry.id===id);
@@ -63,7 +63,7 @@ const serialized=JSON.stringify({publicacoes,cultural}).toLowerCase();
 assert(!serialized.includes('r001-c02'),'R001-C02 apareceu durante as migrações.');
 assert(!serialized.includes('salário digno'),'O card de salário digno apareceu durante as migrações.');
 
-console.log('Primeiro lote continua íntegro após a migração do segundo lote.');
+console.log('Primeiro lote continua íntegro após a migração do terceiro lote.');
 
 async function read(path){
   return JSON.parse(await readFile(new URL(path,root),'utf8'));
