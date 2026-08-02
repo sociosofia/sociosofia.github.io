@@ -12,7 +12,7 @@ const themeIds=new Set(themeMap.keys());
 
 const valid=validatePublicationCollection(publications,{themeIds});
 assert(valid.errors.length===0,'Os registros vigentes deveriam passar no contrato.');
-assert(valid.valid.length===9,'A base pública deve conter exatamente nove registros de dados após o segundo lote de migração.');
+assert(valid.valid.length===11,'A base pública deve conter exatamente onze registros de dados após o terceiro lote de migração.');
 assert(publications.every(item=>item.dado!==item.contextualizacao),'Dado e contextualização não podem ser cópias idênticas.');
 
 const genderCard=normalizePublication(publications.find(item=>item.id==='DAD-0009'),themeMap);
@@ -30,6 +30,14 @@ for(const id of ['DAD-0002','DAD-0006']){
   assert(migrated,`${id} não está na base canônica.`);
   assert(migrated.codigo_publicacao.startsWith('R000-'),`${id} não usa a faixa reservada à migração.`);
   assert(migrated.origem_migracao?.lote==='legado-lote2-v1',`${id} não registra sua origem de migração.`);
+}
+
+for(const id of ['DAD-0001','DAD-0005']){
+  const migrated=publications.find(item=>item.id===id);
+  assert(migrated,`${id} não está na base canônica.`);
+  assert(migrated.codigo_publicacao.startsWith('R000-'),`${id} não usa a faixa reservada à migração.`);
+  assert(migrated.origem_migracao?.lote==='legado-lote3-v1',`${id} não registra sua origem de migração.`);
+  assert(Array.isArray(migrated.autores)&&migrated.autores.length===0,`${id} criou relação autoral automática.`);
 }
 
 const iels=publications.find(item=>item.id==='DAD-0006');
@@ -60,4 +68,4 @@ const serialized=JSON.stringify(publications).toLowerCase();
 assert(!serialized.includes('r001-c02'),'R001-C02 não pode estar na base pública.');
 assert(!serialized.includes('salário digno'),'O card do salário digno não pode estar na base pública.');
 
-console.log('Bloqueios, dois lotes de migração e campos canônicos confirmados.');
+console.log('Bloqueios, três lotes de migração e campos canônicos confirmados.');
