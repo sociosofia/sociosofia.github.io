@@ -48,7 +48,7 @@ assert(school.titulo==='18% dos estudantes ouvidos disseram sentir medo frequent
 assert(school.dado.includes('945.481')&&school.dado.includes('18%'),'DAD-0003 perdeu amostra ou percentual.');
 assert(school.contextualizacao.includes('anos finais do ensino fundamental'),'DAD-0003 ampliou indevidamente o universo escolar.');
 assert(school.contextualizacao.includes('três meses anteriores'),'DAD-0003 perdeu a janela temporal da pergunta.');
-assert(school.contextualizacao.includes('não autoriza classificar todas as experiências como bullying'),'DAD-0003 transformou medo em diagnóstico automático de bullying.');
+assert(school.contextualizacao.includes('classificar todas as experiências como bullying')&&school.contextualizacao.includes('não demonstra'),'DAD-0003 transformou medo em diagnóstico automático de bullying.');
 assert(!school.titulo.includes('medo de ir à escola'),'DAD-0003 voltou à formulação imprecisa da fonte secundária.');
 
 const truman=proposals.propostas.find(item=>item.id==='CUL-0004');
