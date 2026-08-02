@@ -1,8 +1,8 @@
 # Quinto lote editorial do acervo legado — v1
 
-**Status:** em revisão  
+**Status:** aprovado editorialmente  
 **Escopo:** `CUL-0007`, `CUL-0008` e `CUL-0009`  
-**Publicação:** bloqueada até nova aprovação explícita de Luiz
+**Publicação:** bloqueada até a migração técnica separada
 
 ## 1. Critério do lote
 
@@ -14,11 +14,11 @@ O agrupamento temático permite testar o modelo cultural em três problemas dife
 - memória registrada, intimidade e vigilância;
 - trabalho, consumo e captura mercantil da crítica.
 
-Nenhuma proposta substitui o texto público nesta etapa.
+As três propostas foram aprovadas por Luiz Jácomo. Nenhuma substitui o texto público nesta etapa; a migração técnica ocorrerá em branch e PR separados.
 
 ## 2. CUL-0007 — San Junípero
 
-**Título proposto:** Black Mirror — San Junípero: corpo, memória e a promessa de continuar vivendo
+**Título aprovado:** Black Mirror — San Junípero: corpo, memória e a promessa de continuar vivendo
 
 A nova versão preserva amor, memória e vida digital, mas evita três reduções:
 
@@ -30,7 +30,7 @@ Platão e Donna Haraway permanecem hipóteses editoriais, sem REL automática.
 
 ## 3. CUL-0008 — The Entire History of You
 
-**Título proposto:** Black Mirror — The Entire History of You: quando lembrar se torna vigiar
+**Título aprovado:** Black Mirror — The Entire History of You: quando lembrar se torna vigiar
 
 A leitura distingue memória, registro e interpretação. O episódio não prova que uma gravação ofereça verdade completa nem que novas tecnologias produzam inevitavelmente ciúme ou controle coercitivo.
 
@@ -38,7 +38,7 @@ Michel Foucault e Paul Ricoeur permanecem possibilidades de leitura, sem víncul
 
 ## 4. CUL-0009 — Fifteen Million Merits
 
-**Título proposto:** Black Mirror — Fifteen Million Merits: trabalho, consumo e revolta transformada em espetáculo
+**Título aprovado:** Black Mirror — Fifteen Million Merits: trabalho, consumo e revolta transformada em espetáculo
 
 A proposta articula trabalho repetitivo, méritos, consumo, publicidade e captura da crítica. O episódio é tratado como alegoria, não como descrição completa do capitalismo ou previsão literal.
 
@@ -62,12 +62,6 @@ As obras e os eixos centrais foram conferidos em páginas oficiais da Netflix e 
 - a Área do Estudante, o app e o Google Drive não são alterados;
 - `R001-C02` e o card de salário digno continuam fora da base pública.
 
-## 7. Decisão esperada
+## 7. Decisão registrada
 
-A revisão pode aprovar ou devolver separadamente:
-
-- `CUL-0007`;
-- `CUL-0008`;
-- `CUL-0009`.
-
-A aprovação editorial não publica automaticamente os cards. A migração pública será feita em branch e PR separados.
+Luiz Jácomo aprovou `CUL-0007`, `CUL-0008` e `CUL-0009` em 02/08/2026. A aprovação editorial não publicou automaticamente os cards. A migração pública será feita em branch e PR separados, sem criação automática de REL, ficha de autor, conceito ou Elo.
