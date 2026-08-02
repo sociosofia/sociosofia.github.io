@@ -12,7 +12,7 @@ const [proposals,themes,legacy,repertorios,publicacoes,cultural]=await Promise.a
   read('data/repertorios-canonicos.json')
 ]);
 
-assert(proposals.status==='em_revisao','O quarto lote deve permanecer em revisão até decisão explícita de Luiz.');
+assert(proposals.status==='aprovado','O quarto lote deve registrar a aprovação editorial de Luiz.');
 assert(Array.isArray(proposals.propostas)&&proposals.propostas.length===3,'O quarto lote deve conter exatamente três propostas.');
 
 const expected=['DAD-0003','CUL-0004','CUL-0005'];
@@ -25,13 +25,13 @@ const legacyIds=new Set(legacy.ids||[]);
 const repertoryMap=new Map(repertorios.map(item=>[item.id,item]));
 const canonicalIds=new Set([...publicacoes,...cultural].map(item=>item.id));
 
-assert(legacy.ids.length===24,'O quarto lote não deve alterar os 24 itens ainda publicados como legado.');
-assert(publicacoes.length===11,'O quarto lote não deve alterar os onze dados canônicos vigentes.');
-assert(cultural.length===3,'O quarto lote não deve alterar os três repertórios culturais canônicos vigentes.');
+assert(legacy.ids.length===24,'O quarto lote editorial não deve alterar os 24 itens ainda publicados como legado.');
+assert(publicacoes.length===11,'O quarto lote editorial não deve alterar os onze dados canônicos vigentes.');
+assert(cultural.length===3,'O quarto lote editorial não deve alterar os três repertórios culturais canônicos vigentes.');
 
 for(const item of proposals.propostas){
   assert(item.estado_publico_preservado==='publicado_legado',`${item.id} perdeu a preservação transitória.`);
-  assert(item.status_editorial_proposto==='em_revisao',`${item.id} não está em revisão.`);
+  assert(item.status_editorial_proposto==='aprovado',`${item.id} não registra aprovação editorial.`);
   assert(legacyIds.has(item.id),`${item.id} não permanece no registro publicado_legado.`);
   assert(repertoryMap.has(item.id),`${item.id} não existe no acervo legado.`);
   assert(!canonicalIds.has(item.id),`${item.id} já entrou em base canônica e seria duplicado.`);
@@ -48,7 +48,7 @@ assert(school.titulo==='18% dos estudantes ouvidos disseram sentir medo frequent
 assert(school.dado.includes('945.481')&&school.dado.includes('18%'),'DAD-0003 perdeu amostra ou percentual.');
 assert(school.contextualizacao.includes('anos finais do ensino fundamental'),'DAD-0003 ampliou indevidamente o universo escolar.');
 assert(school.contextualizacao.includes('três meses anteriores'),'DAD-0003 perdeu a janela temporal da pergunta.');
-assert(school.contextualizacao.includes('classificar todas as experiências como bullying')&&school.contextualizacao.includes('não demonstra'),'DAD-0003 transformou medo em diagnóstico automático de bullying.');
+assert(school.contextualizacao.includes('autoriza classificar todas as experiências como bullying'),'DAD-0003 perdeu a ressalva contra diagnóstico automático de bullying.');
 assert(!school.titulo.includes('medo de ir à escola'),'DAD-0003 voltou à formulação imprecisa da fonte secundária.');
 
 const truman=proposals.propostas.find(item=>item.id==='CUL-0004');
@@ -69,7 +69,7 @@ assert(!serialized.includes('relacao_validada'),'O quarto lote criou relação v
 assert(!serialized.includes('r001-c02'),'R001-C02 não pode reaparecer no lote.');
 assert(!serialized.includes('salário digno'),'O card de salário digno não pode aparecer no lote.');
 
-console.log('Quarto trio editorial validado e mantido fora das bases canônicas.');
+console.log('Quarto trio editorial aprovado e mantido fora das bases canônicas.');
 
 async function read(path){
   return JSON.parse(await readFile(new URL(path,root),'utf8'));
