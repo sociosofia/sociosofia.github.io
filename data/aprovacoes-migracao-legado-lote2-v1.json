@@ -5,19 +5,9 @@
   "aprovado_por": "Luiz Jácomo",
   "data_aprovacao": "2026-08-02",
   "itens": [
-    {
-      "id": "DAD-0002",
-      "decisao": "aprovar_migracao"
-    },
-    {
-      "id": "DAD-0006",
-      "decisao": "aprovar_migracao",
-      "ajuste_aprovado": "Pesquisa mostra que apenas 14% dos responsáveis leem para as crianças ao menos três vezes por semana"
-    },
-    {
-      "id": "CUL-0001",
-      "decisao": "aprovar_migracao"
-    }
+    {"id": "DAD-0002", "decisao": "aprovar_migracao"},
+    {"id": "DAD-0006", "decisao": "aprovar_migracao", "ajuste_aprovado": "Pesquisa mostra que apenas 14% dos responsáveis leem para as crianças ao menos três vezes por semana"},
+    {"id": "CUL-0001", "decisao": "aprovar_migracao"}
   ],
   "regras": [
     "Preservar IDs e endereços públicos.",
