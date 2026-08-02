@@ -1,8 +1,7 @@
 # Piloto de migração do acervo legado — lote 2 v1
 
-**Status:** proposta em revisão  
-**Escopo:** `DAD-0002`, `DAD-0006` e `CUL-0001`  
-**Publicação:** bloqueada até nova aprovação explícita de Luiz
+**Status:** aprovado editorialmente; publicação ainda bloqueada  
+**Escopo:** `DAD-0002`, `DAD-0006` e `CUL-0001`
 
 ## 1. Diretrizes e fontes consultadas
 
@@ -27,19 +26,7 @@ O primeiro lote testou dois ajustes de dados e um repertório cultural. O segund
 
 Nenhum dos textos vigentes é alterado nesta etapa.
 
-## 3. DAD-0002 — antes e depois
-
-### Diagnóstico do legado
-
-O card antigo apresentava principalmente o tamanho da amostra. Isso informava a pesquisa, mas não oferecia um dado central capaz de sustentar o card. Também era necessário deixar visíveis:
-
-- o recorte exclusivo da educação básica privada;
-- o caráter autorrelatado das respostas;
-- a metodologia institucional própria;
-- a diferença entre sofrimento percebido e diagnóstico clínico;
-- a impossibilidade de generalizar o resultado para toda a educação básica brasileira.
-
-### Proposta
+## 3. DAD-0002 — versão aprovada
 
 **Título:** 64% dos estudantes ouvidos relataram sobrecarga e cansaço
 
@@ -55,24 +42,11 @@ O card antigo apresentava principalmente o tamanho da amostra. Isso informava a 
 
 **Relações pendentes:** Durkheim, Freire, Byung-Chul Han e Bauman deixam de aparecer como associações prontas.
 
-## 4. DAD-0006 — antes e depois
-
-### Diagnóstico do legado
-
-O card anterior apresentava os percentuais como dados de “famílias brasileiras”, o que podia sugerir representatividade nacional. A verificação da metodologia mostrou que o recorte brasileiro do IELS é representativo apenas para Ceará, Pará e São Paulo.
-
-Também era necessário:
-
-- trocar a formulação vaga “três dias ou mais” pela categoria usada na divulgação: entre três e sete vezes por semana;
-- distinguir associação de causalidade;
-- evitar que a menor frequência de leitura seja apresentada como falha moral das famílias;
-- reconhecer a participação de tempo, trabalho, acesso a livros, escolaridade e redes de apoio.
-
-### Proposta
+## 4. DAD-0006 — versão aprovada com correção de título
 
 **Título:** Pesquisa mostra que apenas 14% dos responsáveis leem para as crianças ao menos três vezes por semana
 
-O título destaca o dado principal. A abrangência territorial e os limites metodológicos aparecem na contextualização, sem enfraquecer a chamada pública.
+O título destaca o achado principal. A abrangência territorial e os limites metodológicos aparecem na contextualização, sem antecipar a metodologia na chamada pública.
 
 **Dado:** No IELS 2025, 14% dos responsáveis do recorte brasileiro relataram ler livros para as crianças entre três e sete vezes por semana, diante de 54% na média internacional do estudo.
 
@@ -86,21 +60,7 @@ O título destaca o dado principal. A abrangência territorial e os limites meto
 
 **Relações pendentes:** Bourdieu e Lahire permanecem como possibilidades a validar, não vínculos automáticos.
 
-## 5. CUL-0001 — antes e depois
-
-### Diagnóstico do legado
-
-A versão anterior relacionava sofrimento, abandono e violência de forma excessivamente linear. Em um material voltado ao ensino médio, essa formulação poderia reforçar a ideia equivocada de que pessoas em sofrimento mental são naturalmente perigosas.
-
-Também era necessário:
-
-- separar descrição da obra e interpretação Sociosofia;
-- evitar que o contexto social funcione como explicação total ou absolvição do personagem;
-- incluir a dimensão pública e espetacular da violência na narrativa;
-- registrar um cuidado pedagógico explícito;
-- tratar autores como hipóteses editoriais.
-
-### Proposta
+## 5. CUL-0001 — versão aprovada
 
 **Título:** *Coringa*: sofrimento, humilhação e espetáculo da violência
 
