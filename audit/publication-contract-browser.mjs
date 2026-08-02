@@ -11,11 +11,11 @@ page.on('pageerror',error=>errors.push(error.message));
 page.on('console',message=>{if(message.type()==='error')errors.push(message.text());});
 
 await page.goto(base+'index.html',{waitUntil:'networkidle'});
-await page.waitForSelector('[data-theme="genero"]',{state:'attached'});
+const genderButton=page.locator('#temas-dados [data-theme="genero"]');
+await genderButton.waitFor({state:'attached'});
 await page.locator('[data-entry-portal="dados"]').click();
 await page.waitForSelector('#painel-dados:not([hidden])');
-const genderButton=page.locator('[data-theme="genero"]');
-assert(await genderButton.count()===1,'O tema canônico genero não apareceu na navegação de dados.');
+assert(await genderButton.count()===1,'O tema canônico genero não apareceu uma única vez no painel de dados.');
 assert((await genderButton.innerText()).trim()==='Gênero, sexualidade e corpo','O tema genero não usa o rótulo público canônico.');
 await genderButton.click();
 await page.waitForSelector('#lista-dados .card');
