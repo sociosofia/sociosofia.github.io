@@ -5,26 +5,33 @@ on:
     branches:
       - main
       - contrato-automacao-publicacao-v1
+      - portao-publicado-legado-v1
     paths:
       - 'data/publicacoes.json'
+      - 'data/repertorios.json'
+      - 'data/publicacao-legado.json'
       - 'data/temas.json'
       - 'publication-contract.mjs'
       - 'publication-feed.js'
       - 'site-shared.js'
       - 'detail.js'
       - 'audit/publication-contract-browser.mjs'
+      - 'audit/legacy-publication-browser.mjs'
       - '.github/workflows/publication-contract-browser-audit.yml'
   pull_request:
     branches:
       - main
     paths:
       - 'data/publicacoes.json'
+      - 'data/repertorios.json'
+      - 'data/publicacao-legado.json'
       - 'data/temas.json'
       - 'publication-contract.mjs'
       - 'publication-feed.js'
       - 'site-shared.js'
       - 'detail.js'
       - 'audit/publication-contract-browser.mjs'
+      - 'audit/legacy-publication-browser.mjs'
       - '.github/workflows/publication-contract-browser-audit.yml'
 
 permissions:
@@ -45,10 +52,14 @@ jobs:
           npm install playwright@1.54.2
           npx playwright install --with-deps chromium
       - name: Verificar sintaxe
-        run: node --check audit/publication-contract-browser.mjs
+        run: |
+          node --check audit/publication-contract-browser.mjs
+          node --check audit/legacy-publication-browser.mjs
       - name: Iniciar servidor
         run: |
           python3 -m http.server 8000 >/tmp/sociosofia-http.log 2>&1 &
           sleep 3
-      - name: Auditar renderização
+      - name: Auditar renderização canônica
         run: node audit/publication-contract-browser.mjs
+      - name: Auditar fachada pública do legado
+        run: node audit/legacy-publication-browser.mjs
