@@ -35,10 +35,10 @@ for(const id of expected){
   assert(historyIds.has(id),`${id} não possui cópia histórica do quarto lote.`);
 }
 
-assert(legacy.ids.length===21,'O legado deve conter 21 itens após o quarto lote.');
+assert(legacy.ids.length===18,'O legado deve conter 18 itens após o quinto lote.');
 assert(legacy.ids.every(id=>id.startsWith('CUL-')),'Nenhum DAD deve permanecer no legado.');
 assert(publicacoes.length===12&&dataIds.has('DAD-0003'),'DAD-0003 não chegou à base de dados canônica.');
-assert(cultural.length===5&&culturalIds.has('CUL-0004')&&culturalIds.has('CUL-0005'),'Os repertórios do quarto lote não chegaram à base cultural.');
+assert(cultural.length===8&&culturalIds.has('CUL-0004')&&culturalIds.has('CUL-0005'),'Os repertórios do quarto lote não permanecem na base cultural.');
 assert([...dataIds].filter(id=>culturalIds.has(id)).length===0,'Há IDs duplicados entre as bases canônicas.');
 
 const themeIds=new Set(themeMapFromRegistry(themes).keys());
@@ -76,5 +76,5 @@ const serialized=JSON.stringify({publicacoes,cultural}).toLowerCase();
 assert(!serialized.includes('r001-c02'),'R001-C02 apareceu durante a migração.');
 assert(!serialized.includes('salário digno'),'O card de salário digno apareceu durante a migração.');
 
-console.log('Quarto lote migrado com histórico, aprovação, contratos e total público preservados.');
+console.log('Quarto lote continua íntegro após a migração do quinto lote.');
 async function read(path){return JSON.parse(await readFile(new URL(path,root),'utf8'));}
