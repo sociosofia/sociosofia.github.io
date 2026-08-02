@@ -1,0 +1,46 @@
+name: Validar propostas do sexto lote legado
+
+on:
+  push:
+    branches:
+      - migracao-editorial-legado-lote6-v1
+    paths:
+      - 'data/propostas-migracao-legado-lote6-v1.json'
+      - 'data/publicacao-legado.json'
+      - 'data/repertorios.json'
+      - 'data/publicacoes.json'
+      - 'data/repertorios-canonicos.json'
+      - 'data/temas.json'
+      - 'scripts/test-propostas-migracao-legado-lote6.mjs'
+      - '.github/workflows/validate-propostas-migracao-legado-lote6.yml'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'data/propostas-migracao-legado-lote6-v1.json'
+      - 'data/publicacao-legado.json'
+      - 'data/repertorios.json'
+      - 'data/publicacoes.json'
+      - 'data/repertorios-canonicos.json'
+      - 'data/temas.json'
+      - 'scripts/test-propostas-migracao-legado-lote6.mjs'
+      - '.github/workflows/validate-propostas-migracao-legado-lote6.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Verificar sintaxe e JSON
+        run: |
+          node --check scripts/test-propostas-migracao-legado-lote6.mjs
+          node -e "JSON.parse(require('fs').readFileSync('data/propostas-migracao-legado-lote6-v1.json','utf8'))"
+      - name: Validar sexto trio cultural
+        run: node scripts/test-propostas-migracao-legado-lote6.mjs
