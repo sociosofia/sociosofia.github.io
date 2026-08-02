@@ -2,6 +2,64 @@
   {
     "versao_contrato": "1.0",
     "modelo_publico": "card_dados_v1",
+    "id": "DAD-0002",
+    "codigo_publicacao": "R000-C02",
+    "codigo_migracao": "MIG-L02-DAD-0002",
+    "evi_id": "EVI-educbank-saude-mental-educacao-privada-2025",
+    "tema_ids": [
+      "saude",
+      "educacao"
+    ],
+    "editoria": "Notícias, dados e informações",
+    "categoria": "Saúde, cuidado e bem-estar",
+    "subtema": "Saúde mental, pertencimento e experiência escolar",
+    "titulo": "64% dos estudantes ouvidos relataram sobrecarga e cansaço",
+    "subtitulo": "A pesquisa reúne percepções de estudantes da educação básica privada sobre impactos na saúde mental",
+    "tipo": "Pesquisa institucional",
+    "resumo": "Em uma pesquisa voltada à educação básica privada, 64% dos estudantes ouvidos afirmaram sentir sobrecarga e cansaço em níveis que afetavam sua saúde mental. O resultado ajuda a discutir pertencimento, pressão e cuidado institucional, mas não representa automaticamente todos os estudantes brasileiros nem substitui avaliação clínica.",
+    "dado": "Na pesquisa do Instituto Educbank com o Great Place to Study, 64% dos estudantes ouvidos afirmaram sentir-se sobrecarregados e cansados em níveis que impactavam sua saúde mental.",
+    "contextualizacao": "O levantamento ouviu mais de 18 mil estudantes, educadores e responsáveis da educação básica privada. A coleta ocorreu entre novembro de 2024 e maio de 2025 e empregou metodologia própria de escuta e clima escolar. Os resultados são autorrelatados, referem-se ao universo participante e não constituem diagnóstico clínico nem estimativa para toda a educação básica brasileira.",
+    "interpretacao_sociosofia": "Cansaço, pressão e falta de pertencimento não são apenas estados individuais: também podem revelar como tempos, cobranças, relações e formas de acolhimento são organizados na escola. A leitura sociológica desloca a pergunta de como cada estudante deve suportar a pressão para como a instituição pode prevenir sofrimento e construir vínculos.",
+    "questao": "Quando o sofrimento escolar deve ser tratado como problema individual e quando revela a forma como a instituição organiza tempo, cobrança e pertencimento?",
+    "conexoes": "Saúde mental, pertencimento, experiência escolar, cuidado institucional, sobrecarga, juventude e socialização.",
+    "conceitos": [
+      "Saúde mental",
+      "Pertencimento",
+      "Cuidado institucional",
+      "Socialização"
+    ],
+    "autores": [],
+    "fonte_nome": "Instituto Educbank e Great Place to Study — Crise silenciosa de saúde mental na educação básica privada",
+    "fonte_url": "https://conteudos.educbank.com.br/saude-mental-na-educacao-basica-privada",
+    "ano_data": "2025; coleta entre novembro de 2024 e maio de 2025",
+    "confiabilidade": "Média/alta para as percepções do universo participante; metodologia institucional própria e recorte restrito à educação básica privada.",
+    "fonte_status": "página oficial e relatório original identificados, com ressalva de representatividade",
+    "nivel": "Básico",
+    "status": "publicado",
+    "aprovacao": {
+      "status": "aprovado",
+      "aprovado_por": "Luiz Jácomo",
+      "data": "2026-08-02"
+    },
+    "origem_migracao": {
+      "lote": "legado-lote2-v1",
+      "id_legado": "DAD-0002",
+      "historico_ref": "data/historico-migracao-legado-lote2-v1.json",
+      "aprovacao_ref": "data/aprovacoes-migracao-legado-lote2-v1.json"
+    },
+    "destaque": false,
+    "tags": [
+      "saúde mental",
+      "educação privada",
+      "pertencimento",
+      "sobrecarga",
+      "cuidado institucional",
+      "juventude"
+    ]
+  },
+  {
+    "versao_contrato": "1.0",
+    "modelo_publico": "card_dados_v1",
     "id": "DAD-0004",
     "codigo_publicacao": "R000-C04",
     "codigo_migracao": "MIG-L01-DAD-0004",
@@ -55,6 +113,64 @@
       "prevenção",
       "cuidado",
       "medicalização"
+    ]
+  },
+  {
+    "versao_contrato": "1.0",
+    "modelo_publico": "card_dados_v1",
+    "id": "DAD-0006",
+    "codigo_publicacao": "R000-C06",
+    "codigo_migracao": "MIG-L02-DAD-0006",
+    "evi_id": "EVI-iels-leitura-primeira-infancia-brasil-2025",
+    "tema_ids": [
+      "educacao",
+      "cultura"
+    ],
+    "editoria": "Notícias, dados e informações",
+    "categoria": "Juventude, educação e escola",
+    "subtema": "Primeira infância, leitura e desigualdade de oportunidades",
+    "titulo": "Pesquisa mostra que apenas 14% dos responsáveis leem para as crianças ao menos três vezes por semana",
+    "subtitulo": "Na média internacional do estudo, a proporção foi de 54%",
+    "tipo": "Pesquisa internacional",
+    "resumo": "No recorte brasileiro do IELS 2025, 14% dos responsáveis afirmaram ler livros para as crianças entre três e sete vezes por semana; na média internacional, foram 54%. A amostra brasileira representa Ceará, Pará e São Paulo, não todo o país. O indicador ajuda a discutir oportunidades de aprendizagem sem responsabilizar isoladamente as famílias.",
+    "dado": "No IELS 2025, 14% dos responsáveis do recorte brasileiro relataram ler livros para as crianças entre três e sete vezes por semana, diante de 54% na média internacional do estudo.",
+    "contextualizacao": "No Brasil, o IELS acompanhou 2.598 crianças de cinco anos matriculadas na pré-escola, distribuídas em 210 escolas de Ceará, Pará e São Paulo, com coleta em 2025. A amostra é representativa para cada um desses três estados, e não para o Brasil inteiro. A frequência de leitura foi informada pelos responsáveis e não estabelece, sozinha, relação de causa e efeito com os resultados de aprendizagem.",
+    "interpretacao_sociosofia": "A leitura em casa depende de tempo, acesso a livros, escolaridade, condições de trabalho, repertórios e redes de apoio. Por isso, a diferença não deve ser usada para culpar famílias. Ela ajuda a mostrar que oportunidades culturais e educacionais são distribuídas de forma desigual antes mesmo do ensino fundamental e podem ser ampliadas por bibliotecas, escolas e políticas de primeira infância.",
+    "questao": "Como ampliar experiências de leitura na primeira infância sem transformar desigualdades sociais em culpa das famílias?",
+    "conexoes": "Primeira infância, leitura, socialização, desigualdade educacional, oportunidades culturais, família e políticas públicas.",
+    "conceitos": [
+      "Primeira infância",
+      "Socialização",
+      "Desigualdade educacional",
+      "Oportunidades culturais"
+    ],
+    "autores": [],
+    "fonte_nome": "OCDE / Fundação Maria Cecilia Souto Vidigal / LaPOpE-UFRJ — IELS 2025, resultados do Brasil",
+    "fonte_url": "https://fundacaomariacecilia.org.br/noticias/ocde-resultados-ineditos-iels-aprendizagem-bem-estar-primeira-infancia/",
+    "ano_data": "Publicação em maio de 2026; coleta em 2025",
+    "confiabilidade": "Alta para os três estados participantes; não é uma estimativa nacional e não permite inferir causalidade isolada.",
+    "fonte_status": "fonte original e metodologia conferidas",
+    "nivel": "Básico",
+    "status": "publicado",
+    "aprovacao": {
+      "status": "aprovado",
+      "aprovado_por": "Luiz Jácomo",
+      "data": "2026-08-02"
+    },
+    "origem_migracao": {
+      "lote": "legado-lote2-v1",
+      "id_legado": "DAD-0006",
+      "historico_ref": "data/historico-migracao-legado-lote2-v1.json",
+      "aprovacao_ref": "data/aprovacoes-migracao-legado-lote2-v1.json"
+    },
+    "destaque": false,
+    "tags": [
+      "primeira infância",
+      "leitura",
+      "educação infantil",
+      "desigualdade",
+      "família",
+      "IELS"
     ]
   },
   {
