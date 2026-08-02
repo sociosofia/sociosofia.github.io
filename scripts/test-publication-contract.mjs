@@ -12,7 +12,7 @@ const themeIds=new Set(themeMap.keys());
 
 const valid=validatePublicationCollection(publications,{themeIds});
 assert(valid.errors.length===0,'Os registros vigentes deveriam passar no contrato.');
-assert(valid.valid.length===4,'A base pública deve conter exatamente os quatro registros vigentes nesta etapa.');
+assert(valid.valid.length===5,'A base pública deve conter exatamente os cinco registros vigentes nesta etapa.');
 assert(publications.every(item=>item.dado!==item.contextualizacao),'Dado e contextualização não podem ser cópias idênticas.');
 
 const genderCard=normalizePublication(publications.find(item=>item.id==='DAD-0009'),themeMap);
