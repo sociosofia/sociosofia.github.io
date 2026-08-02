@@ -17,7 +17,7 @@ assert(culturalIds.has('CUL-0001'),'CUL-0001 deixou a base cultural.');
 const mental=publicacoes.find(item=>item.id==='DAD-0002');assert(mental.contextualizacao.includes('educação básica privada')&&mental.contextualizacao.includes('autorrelatados'),'DAD-0002 perdeu seus limites metodológicos.');
 const iels=publicacoes.find(item=>item.id==='DAD-0006');assert(iels.titulo==='Pesquisa mostra que apenas 14% dos responsáveis leem para as crianças ao menos três vezes por semana','DAD-0006 perdeu o título aprovado.');assert(iels.contextualizacao.includes('não para o Brasil inteiro'),'DAD-0006 perdeu a limitação territorial.');
 const joker=cultural.find(item=>item.id==='CUL-0001');assert(joker.cuidado_pedagogico.includes('Não usar o filme como evidência'),'CUL-0001 perdeu o cuidado pedagógico.');
-assert(legacy.ids.length===21&&publicacoes.length===12&&cultural.length===5,'As contagens globais após o quarto lote estão incorretas.');
+assert(legacy.ids.length===18&&publicacoes.length===12&&cultural.length===8,'As contagens globais após o quinto lote estão incorretas.');
 assert(legacy.ids.length+publicacoes.length+cultural.length===38,'O total público deixou de ser 38.');
-console.log('Segundo lote continua íntegro após o quarto lote.');
+console.log('Segundo lote continua íntegro após o quinto lote.');
 async function read(path){return JSON.parse(await readFile(new URL(path,root),'utf8'));}
