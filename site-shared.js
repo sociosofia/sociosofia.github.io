@@ -13,6 +13,8 @@ const FALLBACK_THEMES=[
   {id:"saude",nome:"Saúde, cuidado e bem-estar",palavras:["saúde","cuidado","sofrimento","ansiedade","depress","mental","doença","medical","bem-estar"]}
 ];
 
+const PUBLIC_STATUSES=new Set(["publicado","publicado_legado"]);
+
 export let TEMAS=FALLBACK_THEMES.map(theme=>({...theme}));
 
 export const norm = v => String(v||"").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"");
@@ -23,6 +25,8 @@ export const uniq = a => [...new Set(a.filter(Boolean))].sort((x,y)=>x.localeCom
 const EMPTY_REGISTRY={conceito:[],tema:[],autor:[]};
 let entityRegistry=EMPTY_REGISTRY;
 let themesLoaded=false;
+let legacyPublicationLoaded=false;
+let legacyPublicationIds=new Set();
 
 function normalizeRegistry(raw={}){
   const out={conceito:[],tema:[],autor:[]};
@@ -55,6 +59,22 @@ export async function loadThemeRegistry(){
   return TEMAS;
 }
 
+export async function loadLegacyPublicationRegistry(){
+  if(legacyPublicationLoaded)return legacyPublicationIds;
+  legacyPublicationLoaded=true;
+  try{
+    const response=await fetch('data/publicacao-legado.json',{cache:'no-store'});
+    if(!response.ok)throw new Error('Não foi possível carregar o registro de publicação do legado');
+    const raw=await response.json();
+    if(raw?.estado_publico!=="publicado_legado")throw new Error('Estado público do legado inválido');
+    legacyPublicationIds=new Set(list(raw?.ids));
+  }catch(error){
+    console.warn(error);
+    legacyPublicationIds=new Set();
+  }
+  return legacyPublicationIds;
+}
+
 export async function loadEntityRegistry(){
   try{
     const r=await fetch("data/entidades.json");
@@ -71,6 +91,12 @@ export function getEntityRegistry(){return entityRegistry;}
 export function entityEntry(tipo,nome){return (entityRegistry[tipo]||[]).find(e=>e.nome===nome);}
 export function isRegisteredEntity(tipo,nome){return Boolean(entityEntry(tipo,nome));}
 
+function publicStatus(i){
+  if(i.status==="publicado")return "publicado";
+  if(legacyPublicationIds.has(i.id))return "publicado_legado";
+  return "";
+}
+
 export function normalizeItem(i){
   const tema_ids=list(i.tema_ids);
   const primaryTheme=TEMAS.find(theme=>theme.id===tema_ids[0]);
@@ -81,6 +107,7 @@ export function normalizeItem(i){
     categoria,
     editoria:i.editoria||categoria,
     bloco:categoria===CULTURA?"cultura":"dados",
+    status_publicacao:publicStatus(i),
     conceitos:list(i.conceitos),
     autores:list(i.autores),
     tags:list(i.tags),
@@ -89,10 +116,10 @@ export function normalizeItem(i){
 }
 
 export async function loadItems(){
-  await loadThemeRegistry();
+  await Promise.all([loadThemeRegistry(),loadLegacyPublicationRegistry()]);
   const r=await fetch("data/repertorios.json");
   if(!r.ok) throw new Error("Não foi possível carregar os repertórios");
-  return (await r.json()).map(normalizeItem).filter(i=>i.status!=="arquivado");
+  return (await r.json()).map(normalizeItem).filter(i=>PUBLIC_STATUSES.has(i.status_publicacao));
 }
 
 export async function loadHighlights(){
