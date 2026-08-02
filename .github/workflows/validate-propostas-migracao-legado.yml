@@ -1,0 +1,44 @@
+name: Validar propostas de migração do legado
+
+on:
+  push:
+    branches:
+      - migracao-editorial-legado-lote1-v1
+    paths:
+      - 'data/propostas-migracao-legado-lote1-v1.json'
+      - 'data/publicacao-legado.json'
+      - 'data/repertorios.json'
+      - 'data/publicacoes.json'
+      - 'data/temas.json'
+      - 'scripts/test-propostas-migracao-legado-lote1.mjs'
+      - '.github/workflows/validate-propostas-migracao-legado.yml'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'data/propostas-migracao-legado-lote1-v1.json'
+      - 'data/publicacao-legado.json'
+      - 'data/repertorios.json'
+      - 'data/publicacoes.json'
+      - 'data/temas.json'
+      - 'scripts/test-propostas-migracao-legado-lote1.mjs'
+      - '.github/workflows/validate-propostas-migracao-legado.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Verificar sintaxe
+        run: |
+          node --check scripts/test-propostas-migracao-legado-lote1.mjs
+          node -e "JSON.parse(require('fs').readFileSync('data/propostas-migracao-legado-lote1-v1.json','utf8'))"
+      - name: Validar trio editorial
+        run: node scripts/test-propostas-migracao-legado-lote1.mjs
