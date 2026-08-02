@@ -1,0 +1,15 @@
+{
+  "versao": "1.0",
+  "lote": "legado-lote4-v1",
+  "status": "aprovado",
+  "aprovado_por": "Luiz Jácomo",
+  "data": "2026-08-02",
+  "comando": "Aprovados e vamos seguir",
+  "autoriza_migracao_tecnica": true,
+  "nao_autoriza_relacoes_automaticas": true,
+  "itens": [
+    {"id": "DAD-0003", "status": "aprovado"},
+    {"id": "CUL-0004", "status": "aprovado"},
+    {"id": "CUL-0005", "status": "aprovado"}
+  ]
+}
