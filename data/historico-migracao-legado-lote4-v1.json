@@ -1,0 +1,143 @@
+{
+  "versao": "1.0",
+  "lote": "legado-lote4-v1",
+  "data_migracao": "2026-08-02",
+  "aprovado_por": "Luiz Jácomo",
+  "itens": [
+    {
+      "id": "DAD-0003",
+      "registro_anterior": {
+        "id": "DAD-0003",
+        "editoria": "Notícias, dados e informações",
+        "categoria": "Notícias, dados e informações",
+        "subtema": "Violência escolar, bullying e sofrimento emocional",
+        "titulo": "Bullying, violência escolar e sofrimento emocional",
+        "subtitulo": "Dados sobre medo, solidão e desesperança entre estudantes da educação básica",
+        "tipo": "Reportagem com pesquisa",
+        "resumo": "Reportagem do Porvir reúne dados de estudos do GEPEM, grupo de pesquisas ligado à Unesp e à Unicamp, para discutir como bullying, exclusão e violência escolar atravessam a saúde emocional de estudantes. A entrada deve ser tratada como fonte secundária, pois organiza e divulga pesquisas acadêmicas, mas é útil para abrir a discussão sobre convivência escolar, medo de ir à escola, solidão e necessidade de escuta institucional.",
+        "dado": "A reportagem cita pesquisa de 2022 com 945.481 estudantes de escolas públicas paulistas, na qual 18% relataram medo frequente de ir à escola, além de outro estudo de 2024 com 3.276 estudantes sobre sentimentos de solidão, desesperança e ideação suicida.",
+        "questao": "Por que a convivência escolar precisa ser tratada como parte central da aprendizagem, e não como assunto secundário?",
+        "conexoes": "Bullying, violência simbólica, socialização, pertencimento, juventudes, saúde mental e cultura escolar.",
+        "conceitos": [
+          "Bullying",
+          "Violência simbólica",
+          "Socialização",
+          "Pertencimento",
+          "Cultura escolar"
+        ],
+        "autores": [
+          "Pierre Bourdieu",
+          "Émile Durkheim",
+          "Paulo Freire",
+          "Michel Foucault"
+        ],
+        "fonte_nome": "Porvir — Violência, exclusão, desesperança e solidão nas escolas",
+        "fonte_url": "https://porvir.org/violencia-exclusao-desesperanca-e-solidao-escolas/",
+        "ano_data": "2026",
+        "confiabilidade": "Média/alta; reportagem jornalística com referência a pesquisas acadêmicas",
+        "fonte_status": "fonte secundária confirmada",
+        "tempo_leitura": "4 min",
+        "nivel": "Intermediário",
+        "status": "aguardando revisão",
+        "destaque": false,
+        "tags": [
+          "bullying",
+          "violência escolar",
+          "saúde mental",
+          "educação",
+          "juventude",
+          "convivência"
+        ]
+      }
+    },
+    {
+      "id": "CUL-0004",
+      "registro_anterior": {
+        "id": "CUL-0004",
+        "editoria": "Séries, filmes, livros e músicas",
+        "categoria": "Séries, filmes, livros e músicas",
+        "tipo": "Filme",
+        "subtema": "Mídia, espetáculo e controle social",
+        "titulo": "O Show de Truman: espetáculo, vigilância e fabricação da realidade",
+        "subtitulo": "Mídia, espetáculo e controle social",
+        "resumo": "Truman vive sem saber que sua vida inteira é transmitida como um programa de televisão. Sua rotina, seus afetos e suas escolhas são controlados por uma estrutura midiática que transforma sua existência em entretenimento.",
+        "resumo_obra": "Truman vive sem saber que sua vida inteira é transmitida como um programa de televisão. Sua rotina, seus afetos e suas escolhas são controlados por uma estrutura midiática que transforma sua existência em entretenimento.",
+        "leitura_sociosofia": "A obra permite pensar a transformação da vida privada em espetáculo. Ao acompanhar Truman, percebemos como a realidade pode ser fabricada por imagens, narrativas e mecanismos de controle quase invisíveis. O filme antecipa discussões atuais sobre exposição, vigilância, reality shows, redes sociais e consumo da intimidade.",
+        "ancoragem_teorica": "Guy Debord, para pensar a sociedade do espetáculo e a mediação da vida pelas imagens.",
+        "conceitos": [
+          "Sociedade do espetáculo",
+          "Vigilância",
+          "Mídia",
+          "Consumo",
+          "Alienação",
+          "Realidade fabricada"
+        ],
+        "autores": [
+          "Guy Debord"
+        ],
+        "fonte_nome": "O Show de Truman, filme de Peter Weir, 1998",
+        "fonte_url": "",
+        "ano_data": "1998",
+        "confiabilidade": "Repertório cultural",
+        "fonte_status": "obra identificada",
+        "tempo_leitura": "3 min",
+        "nivel": "Básico",
+        "status": "rascunho",
+        "destaque": false,
+        "tags": [
+          "mídia",
+          "espetáculo",
+          "Debord",
+          "vigilância",
+          "alienação",
+          "O Show de Truman"
+        ]
+      }
+    },
+    {
+      "id": "CUL-0005",
+      "registro_anterior": {
+        "id": "CUL-0005",
+        "editoria": "Séries, filmes, livros e músicas",
+        "categoria": "Séries, filmes, livros e músicas",
+        "tipo": "Documentário",
+        "subtema": "Racismo, eugenia e autoritarismo",
+        "titulo": "Menino 23: racismo científico, infância e memória histórica",
+        "subtitulo": "Racismo, eugenia e autoritarismo",
+        "resumo": "O documentário investiga a história de meninos negros retirados de um orfanato e submetidos a trabalho forçado em uma fazenda ligada a simpatizantes do nazismo no Brasil. A obra revela conexões entre racismo, eugenia, exploração da infância e apagamentos da memória nacional.",
+        "resumo_obra": "O documentário investiga a história de meninos negros retirados de um orfanato e submetidos a trabalho forçado em uma fazenda ligada a simpatizantes do nazismo no Brasil. A obra revela conexões entre racismo, eugenia, exploração da infância e apagamentos da memória nacional.",
+        "leitura_sociosofia": "Menino 23 permite observar que o racismo científico não foi apenas um conjunto de ideias abstratas, mas uma prática social capaz de organizar corpos, trabalhos, instituições e destinos. A obra ajuda a discutir como projetos de embranquecimento, disciplina e desumanização atravessaram a história brasileira e produziram marcas que ainda exigem memória pública.",
+        "ancoragem_teorica": "Abdias do Nascimento, para pensar o racismo brasileiro como estrutura histórica de exclusão, apagamento e violência contra a população negra.",
+        "conceitos": [
+          "Racismo científico",
+          "Eugenia",
+          "Infância",
+          "Trabalho forçado",
+          "Memória",
+          "Autoritarismo",
+          "Embranquecimento"
+        ],
+        "autores": [
+          "Abdias do Nascimento"
+        ],
+        "fonte_nome": "Menino 23: Infâncias Perdidas no Brasil, documentário de Belisario Franca, 2016",
+        "fonte_url": "",
+        "ano_data": "2016",
+        "confiabilidade": "Repertório cultural",
+        "fonte_status": "obra identificada",
+        "tempo_leitura": "3 min",
+        "nivel": "Básico",
+        "status": "rascunho",
+        "destaque": false,
+        "tags": [
+          "racismo científico",
+          "eugenia",
+          "Abdias do Nascimento",
+          "infância",
+          "memória",
+          "Menino 23"
+        ]
+      }
+    }
+  ]
+}

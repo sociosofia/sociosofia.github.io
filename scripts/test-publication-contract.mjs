@@ -12,7 +12,7 @@ const themeIds=new Set(themeMap.keys());
 
 const valid=validatePublicationCollection(publications,{themeIds});
 assert(valid.errors.length===0,'Os registros vigentes deveriam passar no contrato.');
-assert(valid.valid.length===11,'A base pública deve conter exatamente onze registros de dados após o terceiro lote de migração.');
+assert(valid.valid.length===12,'A base pública deve conter exatamente doze registros de dados após o quarto lote de migração.');
 assert(publications.every(item=>item.dado!==item.contextualizacao),'Dado e contextualização não podem ser cópias idênticas.');
 
 const genderCard=normalizePublication(publications.find(item=>item.id==='DAD-0009'),themeMap);
@@ -39,6 +39,15 @@ for(const id of ['DAD-0001','DAD-0005']){
   assert(migrated.origem_migracao?.lote==='legado-lote3-v1',`${id} não registra sua origem de migração.`);
   assert(Array.isArray(migrated.autores)&&migrated.autores.length===0,`${id} criou relação autoral automática.`);
 }
+
+const school=publications.find(item=>item.id==='DAD-0003');
+assert(school,'DAD-0003 não está na base canônica.');
+assert(school.codigo_publicacao==='R000-C03','DAD-0003 não usa o código reservado de migração.');
+assert(school.origem_migracao?.lote==='legado-lote4-v1','DAD-0003 não registra a origem do quarto lote.');
+assert(school.contextualizacao.includes('945.481 estudantes dos anos finais do ensino fundamental'),'DAD-0003 perdeu o universo pesquisado.');
+assert(school.contextualizacao.includes('três meses anteriores'),'DAD-0003 perdeu a janela temporal.');
+assert(school.contextualizacao.includes('autoriza classificar todas as experiências como bullying'),'DAD-0003 perdeu a ressalva contra classificação automática.');
+assert(Array.isArray(school.autores)&&school.autores.length===0,'DAD-0003 criou relação autoral automática.');
 
 const iels=publications.find(item=>item.id==='DAD-0006');
 assert(iels.titulo==='Pesquisa mostra que apenas 14% dos responsáveis leem para as crianças ao menos três vezes por semana','DAD-0006 perdeu o título aprovado.');
@@ -68,4 +77,4 @@ const serialized=JSON.stringify(publications).toLowerCase();
 assert(!serialized.includes('r001-c02'),'R001-C02 não pode estar na base pública.');
 assert(!serialized.includes('salário digno'),'O card do salário digno não pode estar na base pública.');
 
-console.log('Bloqueios, três lotes de migração e campos canônicos confirmados.');
+console.log('Bloqueios, quatro lotes de migração e campos canônicos confirmados.');
