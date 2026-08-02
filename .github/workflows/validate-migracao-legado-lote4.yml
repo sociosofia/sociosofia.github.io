@@ -1,0 +1,54 @@
+name: Validar quarto lote migrado
+
+on:
+  push:
+    branches:
+      - publicar-migracao-legado-lote4-v1
+      - main
+    paths:
+      - 'data/propostas-migracao-legado-lote4-v1.json'
+      - 'data/aprovacoes-migracao-legado-lote4-v1.json'
+      - 'data/historico-migracao-legado-lote4-v1.json'
+      - 'data/publicacao-legado.json'
+      - 'data/repertorios.json'
+      - 'data/publicacoes.json'
+      - 'data/repertorios-canonicos.json'
+      - 'data/temas.json'
+      - 'publication-contract.mjs'
+      - 'repertory-contract.mjs'
+      - 'scripts/test-migracao-legado-lote4.mjs'
+      - '.github/workflows/validate-migracao-legado-lote4.yml'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'data/propostas-migracao-legado-lote4-v1.json'
+      - 'data/aprovacoes-migracao-legado-lote4-v1.json'
+      - 'data/historico-migracao-legado-lote4-v1.json'
+      - 'data/publicacao-legado.json'
+      - 'data/repertorios.json'
+      - 'data/publicacoes.json'
+      - 'data/repertorios-canonicos.json'
+      - 'data/temas.json'
+      - 'publication-contract.mjs'
+      - 'repertory-contract.mjs'
+      - 'scripts/test-migracao-legado-lote4.mjs'
+      - '.github/workflows/validate-migracao-legado-lote4.yml'
+
+permissions:
+  contents: read
+
+jobs:
+  validar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Verificar sintaxe e JSON
+        run: |
+          node --check scripts/test-migracao-legado-lote4.mjs
+          node -e "JSON.parse(require('fs').readFileSync('data/historico-migracao-legado-lote4-v1.json','utf8'))"
+      - name: Validar migração do quarto lote
+        run: node scripts/test-migracao-legado-lote4.mjs
