@@ -26,13 +26,23 @@ const themeIds=new Set((themes.temas||[]).map(theme=>theme.id));
 const legacyIds=new Set(legacy.ids||[]);
 const repertoryMap=new Map(repertorios.map(item=>[item.id,item]));
 const canonicalIds=new Set([...publicacoes,...culturais].map(item=>item.id));
+const legacyCount=expected.filter(id=>legacyIds.has(id)).length;
+const canonicalCount=expected.filter(id=>canonicalIds.has(id)).length;
+const awaitingMigration=legacyCount===3&&canonicalCount===0;
+const migrationComplete=legacyCount===0&&canonicalCount===3;
+assert(awaitingMigration||migrationComplete,'O segundo lote está em estado parcial ou duplicado entre legado e bases canônicas.');
 
 for(const item of proposals.propostas){
-  assert(item.estado_publico_preservado==='publicado_legado',`${item.id} perdeu a preservação transitória.`);
+  assert(item.estado_publico_preservado==='publicado_legado',`${item.id} perdeu o registro de sua condição transitória de origem.`);
   assert(item.status_editorial_proposto==='aprovado',`${item.id} não está aprovado editorialmente.`);
-  assert(legacyIds.has(item.id),`${item.id} não está no registro publicado_legado.`);
-  assert(repertoryMap.has(item.id),`${item.id} não existe no acervo legado.`);
-  assert(!canonicalIds.has(item.id),`${item.id} já existe em base canônica e seria duplicado.`);
+  assert(repertoryMap.has(item.id),`${item.id} não existe no acervo legado histórico.`);
+  if(awaitingMigration){
+    assert(legacyIds.has(item.id),`${item.id} não está no registro publicado_legado antes da migração.`);
+    assert(!canonicalIds.has(item.id),`${item.id} apareceu em base canônica antes da migração completa.`);
+  }else{
+    assert(!legacyIds.has(item.id),`${item.id} continua no registro publicado_legado após a migração.`);
+    assert(canonicalIds.has(item.id),`${item.id} não chegou à base canônica após a migração.`);
+  }
   assert(Array.isArray(item.tema_ids)&&item.tema_ids.length>0,`${item.id} não possui tema_ids.`);
   for(const themeId of item.tema_ids)assert(themeIds.has(themeId),`${item.id} usa tema inexistente: ${themeId}.`);
   assert(item.fonte_nome&&item.fonte_url?.startsWith('https://')&&item.ano_data,`${item.id} não possui referência completa.`);
@@ -70,7 +80,7 @@ const joker=proposals.propostas.find(item=>item.id==='CUL-0001');
 assert(joker.cuidado_pedagogico.includes('Não usar o filme como evidência'),'CUL-0001 perdeu o cuidado pedagógico central.');
 assert(joker.leitura_sociosofia.includes('nem provam que pessoas em sofrimento mental sejam violentas'),'CUL-0001 voltou a associar sofrimento mental e violência de forma automática.');
 
-console.log('Segundo trio editorial aprovado, validado e mantido fora da publicação canônica.');
+console.log(`Segundo trio editorial aprovado e coerente no estado: ${migrationComplete?'migração concluída':'aguardando migração'}.`);
 
 async function read(path){
   return JSON.parse(await readFile(new URL(path,root),'utf8'));
