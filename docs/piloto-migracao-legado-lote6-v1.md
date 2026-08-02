@@ -1,56 +1,64 @@
 # Sexto lote editorial do acervo legado — v1
 
 **Status:** em revisão  
-**Escopo:** `CUL-0010`, `CUL-0011` e `CUL-0012`  
+**Escopo:** `CUL-0010` a `CUL-0015`  
 **Publicação:** bloqueada até aprovação explícita de Luiz
 
-## 1. Critério do lote
+## 1. Critério do lote ampliado
 
-O sexto lote reúne três obras que tratam de instituições, conflitos e violência em escalas diferentes:
+O sexto lote passa de três para seis repertórios após autorização de Luiz para ampliar os lotes em terreno editorial já estabilizado. A seleção forma dois núcleos:
 
-- guerra, propaganda e fabricação do inimigo;
-- escola, linguagem e autoridade;
-- território, juventude e violência urbana.
+### Violência, guerra e território
 
-As fichas antigas possuíam boas entradas temáticas, mas apresentavam autores como vínculos prontos e precisavam registrar cuidados contra determinismo tecnológico, culpabilização escolar e estigma territorial.
+- `CUL-0010` — *Men Against Fire*: tecnologia, desumanização e fabricação do inimigo;
+- `CUL-0012` — *Cidade de Deus*: território, juventude e escolhas sob desigualdade;
+- `CUL-0013` — *O Senhor das Armas*: lucro, Estados e circulação global da violência.
 
-Nenhuma proposta substitui o texto público nesta etapa.
+### Escola, trabalho e cultura institucional
 
-## 2. CUL-0010 — Men Against Fire
+- `CUL-0011` — *Entre os Muros da Escola*: linguagem, autoridade e reconhecimento;
+- `CUL-0014` — *Vidas Entregues*: autonomia, gerenciamento algorítmico e transferência de riscos;
+- `CUL-0015` — *O Diabo Veste Prada*: trabalho, distinção e transformação de si.
 
-**Título proposto:** Black Mirror — Men Against Fire: tecnologia, desumanização e fabricação do inimigo
+As fichas antigas possuíam entradas temáticas aproveitáveis, mas apresentavam autores como vínculos prontos e não registravam cuidados pedagógicos suficientes. Nenhuma proposta substitui o texto público nesta etapa.
 
-A proposta evita explicar a desumanização somente pelo implante utilizado pelos soldados. A tecnologia opera dentro de uma estrutura formada por propaganda, classificação eugênica, disciplina militar e decisões políticas.
+## 2. Eixos editoriais
 
-Achille Mbembe e Zygmunt Bauman permanecem hipóteses editoriais, sem REL automática.
+### CUL-0010 — Men Against Fire
 
-## 3. CUL-0011 — Entre os Muros da Escola
+A tecnologia não é tratada como causa única da desumanização. Propaganda, classificação eugênica, disciplina militar e decisões políticas constroem previamente o inimigo. Achille Mbembe e Zygmunt Bauman permanecem hipóteses editoriais.
 
-**Título proposto:** Entre os Muros da Escola: linguagem, autoridade e reconhecimento em disputa
+### CUL-0011 — Entre os Muros da Escola
 
-A leitura não transforma professores ou estudantes em culpados isolados. A linguagem aparece como conteúdo, meio de participação e fonte de poder; a autoridade pedagógica é tratada como relação institucional assimétrica que precisa de legitimidade e reconhecimento.
+A proposta não culpa isoladamente estudantes, professores ou famílias. Linguagem, autoridade, assimetria institucional e reconhecimento são analisados no contexto escolar francês, sem transferência automática para o Brasil. Pierre Bourdieu e Paulo Freire permanecem possibilidades de leitura.
 
-Pierre Bourdieu e Paulo Freire permanecem possibilidades de leitura, sem vínculo publicado.
+### CUL-0012 — Cidade de Deus
 
-## 4. CUL-0012 — Cidade de Deus
+A leitura evita associar favela, pobreza, população negra ou juventude à criminalidade. O Estado aparece como presença seletiva e a mediação inclui representação e espetacularização da violência. Milton Santos, Loïc Wacquant e Alba Zaluar permanecem hipóteses.
 
-**Título proposto:** Cidade de Deus: território, juventude e escolhas sob desigualdade
+### CUL-0013 — O Senhor das Armas
 
-A proposta evita associar automaticamente favela, pobreza, população negra ou juventude à criminalidade. O Estado é tratado como presença seletiva, não como simples ausência. A mediação inclui a discussão sobre representação e possível espetacularização da violência.
+O comércio de armas é relacionado a mercados, Estados, fronteiras, guerras e responsabilidades institucionais. O filme não é tratado como documentário nem como prova de que todo comércio de armas seja ilegal. Karl Marx e Achille Mbembe permanecem hipóteses.
 
-Milton Santos, Loïc Wacquant e Alba Zaluar permanecem hipóteses editoriais.
+### CUL-0014 — Vidas Entregues
 
-## 5. Fontes
+O documentário permite discutir gerenciamento algorítmico e transferência de riscos sem apagar a agência dos entregadores nem universalizar um recorte situado. Ricardo Antunes e Ludmila Costhek Abílio permanecem hipóteses editoriais.
 
-As obras e seus créditos básicos foram conferidos em fontes institucionais:
+### CUL-0015 — O Diabo Veste Prada
+
+O conflito não é reduzido a uma chefe má, à vaidade feminina ou à superficialidade da moda. O trabalho aparece como aprendizagem de códigos, hierarquias e formas de apresentação. Pierre Bourdieu e Erving Goffman permanecem hipóteses.
+
+## 3. Fontes verificadas
 
 - Netflix/Tudum, para *Men Against Fire*;
-- Festival de Cannes, para *Entre les murs*;
-- Miramax, para *City of God (Cidade de Deus)*.
+- Festival de Cannes, para *Entre les murs* e *Cidade de Deus*;
+- Danish Film Institute, para *Lord of War*;
+- Arquivo Nacional, para *Vidas Entregues*;
+- 20th Century Studios, para *The Devil Wears Prada*.
 
-## 6. Preservações
+## 4. Preservações
 
-- os três IDs continuam em `publicado_legado`;
+- os seis IDs continuam em `publicado_legado`;
 - `data/publicacoes.json` permanece com doze dados canônicos;
 - `data/repertorios-canonicos.json` permanece com oito repertórios culturais canônicos;
 - o total público continua em 38 conteúdos;
@@ -58,12 +66,15 @@ As obras e seus créditos básicos foram conferidos em fontes institucionais:
 - a Área do Estudante, o app e o Google Drive não são alterados;
 - `R001-C02` e o card de salário digno continuam fora da base pública.
 
-## 7. Decisão esperada
+## 5. Decisão esperada
 
 A revisão pode aprovar ou devolver separadamente:
 
 - `CUL-0010`;
 - `CUL-0011`;
-- `CUL-0012`.
+- `CUL-0012`;
+- `CUL-0013`;
+- `CUL-0014`;
+- `CUL-0015`.
 
 A aprovação editorial não publica automaticamente os cards. A migração pública será feita em branch e PR separados.
