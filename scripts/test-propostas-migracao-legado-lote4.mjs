@@ -20,7 +20,11 @@ assert(migrationFlags.every(Boolean)||migrationFlags.every(flag=>!flag),'O quart
 const migrated=migrationFlags.every(Boolean);
 
 if(migrated){
-  assert(legacy.ids.length===21&&publicacoes.length===12&&cultural.length===5,'As contagens após a migração do quarto lote estão incorretas.');
+  assert(
+    (legacy.ids.length===21&&publicacoes.length===12&&cultural.length===5)||
+    (legacy.ids.length===18&&publicacoes.length===12&&cultural.length===8),
+    'As contagens após a migração do quarto lote ou após lotes culturais posteriores estão incorretas.'
+  );
   for(const id of expected)assert(!legacyIds.has(id),`${id} permaneceu no legado após a migração.`);
 }else{
   assert(legacy.ids.length===24&&publicacoes.length===11&&cultural.length===3,'As contagens anteriores à migração do quarto lote estão incorretas.');

@@ -1,8 +1,8 @@
 {
-  "versao": "1.4",
+  "versao": "1.5",
   "estado_publico": "publicado_legado",
   "descricao": "Registro transitório dos repertórios que já estavam visíveis no site antes da migração canônica. A presença nesta lista preserva a continuidade pública sem converter o status editorial legado em aprovação plena.",
-  "criterio": "Após o quarto lote de migração, permanecem 21 cards CUL no estado transitório. Todos os sete cards DAD originalmente legados já possuem projeção canônica.",
+  "criterio": "Após o quinto lote de migração, permanecem 18 repertórios culturais no estado transitório. Todos os sete cards DAD originalmente legados já possuem projeção canônica.",
   "migrados": [
     {
       "id": "DAD-0004",
@@ -63,13 +63,25 @@
       "id": "CUL-0005",
       "lote": "legado-lote4-v1",
       "destino": "data/repertorios-canonicos.json"
+    },
+    {
+      "id": "CUL-0007",
+      "lote": "legado-lote5-v1",
+      "destino": "data/repertorios-canonicos.json"
+    },
+    {
+      "id": "CUL-0008",
+      "lote": "legado-lote5-v1",
+      "destino": "data/repertorios-canonicos.json"
+    },
+    {
+      "id": "CUL-0009",
+      "lote": "legado-lote5-v1",
+      "destino": "data/repertorios-canonicos.json"
     }
   ],
   "ids": [
     "CUL-0006",
-    "CUL-0007",
-    "CUL-0008",
-    "CUL-0009",
     "CUL-0010",
     "CUL-0011",
     "CUL-0012",
