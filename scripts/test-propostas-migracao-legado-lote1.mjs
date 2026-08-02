@@ -12,8 +12,8 @@ const cultural=await read('data/repertorios-canonicos.json');
 const expected=['DAD-0004','DAD-0007','CUL-0003'];
 const proposed=proposals.propostas.map(item=>item.id);
 const approved=(approvals.itens||[]).map(item=>item.id);
-const migrated=new Set([...
-  publicacoes.filter(item=>item.origem_migracao?.lote==='legado-lote1-v1').map(item=>item.id),
+const migrated=new Set([
+  ...publicacoes.filter(item=>item.origem_migracao?.lote==='legado-lote1-v1').map(item=>item.id),
   ...cultural.filter(item=>item.origem_migracao?.lote==='legado-lote1-v1').map(item=>item.id)
 ]);
 
