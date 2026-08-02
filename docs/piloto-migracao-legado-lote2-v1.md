@@ -92,4 +92,6 @@ O título destaca o achado principal. A abrangência territorial e os limites me
 - `DAD-0006`: aprovado com correção do título para destacar o dado e deslocar a metodologia para a contextualização;
 - `CUL-0001`: aprovado editorialmente.
 
+A aprovação nominal está registrada em `data/aprovacoes-migracao-legado-lote2-v1.json`.
+
 A aprovação editorial não publica automaticamente os textos. A migração pública ocorrerá em PR separado.
