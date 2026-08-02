@@ -10,7 +10,7 @@ const repertorios=await read('data/repertorios.json');
 const publicacoes=await read('data/publicacoes.json');
 const culturais=await read('data/repertorios-canonicos.json');
 
-assert(proposals.status==='em_revisao','O segundo lote editorial deve permanecer em revisão.');
+assert(proposals.status==='em_revisao','O segundo lote editorial deve permanecer em revisão até a migração pública separada.');
 assert(Array.isArray(proposals.propostas)&&proposals.propostas.length===3,'O segundo lote deve conter exatamente três propostas.');
 
 const expected=['DAD-0002','DAD-0006','CUL-0001'];
@@ -25,7 +25,7 @@ const canonicalIds=new Set([...publicacoes,...culturais].map(item=>item.id));
 
 for(const item of proposals.propostas){
   assert(item.estado_publico_preservado==='publicado_legado',`${item.id} perdeu a preservação transitória.`);
-  assert(item.status_editorial_proposto==='em_revisao',`${item.id} não está em revisão.`);
+  assert(item.status_editorial_proposto==='em_revisao',`${item.id} não está em revisão técnica antes da migração.`);
   assert(legacyIds.has(item.id),`${item.id} não está no registro publicado_legado.`);
   assert(repertoryMap.has(item.id),`${item.id} não existe no acervo legado.`);
   assert(!canonicalIds.has(item.id),`${item.id} já existe em base canônica e seria duplicado.`);
@@ -54,6 +54,8 @@ assert(mental.contextualizacao.includes('autorrelatados'),'DAD-0002 não explici
 assert(mental.contextualizacao.includes('não constituem diagnóstico clínico'),'DAD-0002 não separa percepção e diagnóstico.');
 
 const iels=proposals.propostas.find(item=>item.id==='DAD-0006');
+assert(iels.titulo==='Pesquisa mostra que apenas 14% dos responsáveis leem para as crianças ao menos três vezes por semana','DAD-0006 perdeu o título editorial aprovado por Luiz.');
+assert(!iels.titulo.includes('recorte brasileiro'),'DAD-0006 voltou a antecipar a metodologia no título.');
 assert(iels.dado.includes('14%')&&iels.dado.includes('54%'),'DAD-0006 perdeu a comparação central.');
 for(const state of ['Ceará','Pará','São Paulo'])assert(iels.contextualizacao.includes(state),`DAD-0006 não registra ${state}.`);
 assert(iels.contextualizacao.includes('não para o Brasil inteiro'),'DAD-0006 não limita a abrangência territorial.');
@@ -63,7 +65,7 @@ const joker=proposals.propostas.find(item=>item.id==='CUL-0001');
 assert(joker.cuidado_pedagogico.includes('Não usar o filme como evidência'),'CUL-0001 perdeu o cuidado pedagógico central.');
 assert(joker.leitura_sociosofia.includes('nem provam que pessoas em sofrimento mental sejam violentas'),'CUL-0001 voltou a associar sofrimento mental e violência de forma automática.');
 
-console.log('Segundo trio editorial validado e mantido fora da publicação canônica.');
+console.log('Segundo trio editorial validado, com título do DAD-0006 aprovado e publicação ainda bloqueada.');
 
 async function read(path){
   return JSON.parse(await readFile(new URL(path,root),'utf8'));
