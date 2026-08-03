@@ -33,6 +33,15 @@ jobs:
         run: |
           python3 -m http.server 8000 > /tmp/sociosofia-server.log 2>&1 &
           sleep 3
+      - name: Ajustar seleção para cartões visíveis
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          path = Path('audit/study-materials-pilot-v2-audit.mjs')
+          text = path.read_text()
+          text = text.replace("root.locator('label').filter({hasText:text}).first()", "root.locator('label:visible').filter({hasText:text}).first()")
+          path.write_text(text)
+          PY
       - name: Executar auditoria
         run: node audit/study-materials-pilot-v2-audit.mjs
       - name: Publicar relatório e capturas
