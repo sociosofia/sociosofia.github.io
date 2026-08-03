@@ -1,12 +1,13 @@
-# Sexto lote editorial do acervo legado — v1
+# Sexto lote editorial ampliado do acervo legado — v1
 
-**Status:** em revisão  
+**Status:** aprovado editorialmente  
 **Escopo:** `CUL-0010` a `CUL-0015`  
-**Publicação:** bloqueada até aprovação explícita de Luiz
+**Aprovação:** Luiz Jácomo, em 02/08/2026  
+**Publicação:** condicionada à migração técnica separada e às validações
 
 ## 1. Critério do lote ampliado
 
-O sexto lote passa de três para seis repertórios após autorização de Luiz para ampliar os lotes em terreno editorial já estabilizado. A seleção forma dois núcleos:
+O sexto lote passou de três para seis repertórios após autorização de Luiz para ampliar as rodadas em um fluxo editorial já estabilizado. A seleção forma dois núcleos:
 
 ### Violência, guerra e território
 
@@ -20,9 +21,15 @@ O sexto lote passa de três para seis repertórios após autorização de Luiz p
 - `CUL-0014` — *Vidas Entregues*: autonomia, gerenciamento algorítmico e transferência de riscos;
 - `CUL-0015` — *O Diabo Veste Prada*: trabalho, distinção e transformação de si.
 
-As fichas antigas possuíam entradas temáticas aproveitáveis, mas apresentavam autores como vínculos prontos e não registravam cuidados pedagógicos suficientes. Nenhuma proposta substitui o texto público nesta etapa.
+As fichas antigas possuíam entradas temáticas aproveitáveis, mas apresentavam autores como vínculos prontos e não registravam cuidados pedagógicos suficientes.
 
-## 2. Eixos editoriais
+## 2. Decisão editorial
+
+Luiz aprovou integralmente os seis cards. A decisão nominal está registrada em `data/aprovacoes-migracao-legado-lote6-v1.json`.
+
+A aprovação autoriza a preparação da migração técnica em branch separada. Não autoriza publicação direta sem testes, nem criação automática de REL, ficha de autor, conceito ou Elo.
+
+## 3. Eixos editoriais preservados
 
 ### CUL-0010 — Men Against Fire
 
@@ -48,15 +55,18 @@ O documentário permite discutir gerenciamento algorítmico e transferência de 
 
 O conflito não é reduzido a uma chefe má, à vaidade feminina ou à superficialidade da moda. O trabalho aparece como aprendizagem de códigos, hierarquias e formas de apresentação. Pierre Bourdieu e Erving Goffman permanecem hipóteses.
 
-## 3. Fontes verificadas
+## 4. Fontes verificadas
 
-- Netflix/Tudum, para *Men Against Fire*;
-- Festival de Cannes, para *Entre les murs* e *Cidade de Deus*;
+- Netflix/About Netflix, para *Men Against Fire*;
+- Festival de Cannes, para *Entre les murs*;
+- Miramax, para *Cidade de Deus*;
 - Danish Film Institute, para *Lord of War*;
 - Arquivo Nacional, para *Vidas Entregues*;
 - 20th Century Studios, para *The Devil Wears Prada*.
 
-## 4. Preservações
+O registro detalhado está em `docs/fontes-migracao-legado-lote6-v1.md`.
+
+## 5. Preservações antes da migração técnica
 
 - os seis IDs continuam em `publicado_legado`;
 - `data/publicacoes.json` permanece com doze dados canônicos;
@@ -66,15 +76,6 @@ O conflito não é reduzido a uma chefe má, à vaidade feminina ou à superfici
 - a Área do Estudante, o app e o Google Drive não são alterados;
 - `R001-C02` e o card de salário digno continuam fora da base pública.
 
-## 5. Decisão esperada
+## 6. Próxima etapa
 
-A revisão pode aprovar ou devolver separadamente:
-
-- `CUL-0010`;
-- `CUL-0011`;
-- `CUL-0012`;
-- `CUL-0013`;
-- `CUL-0014`;
-- `CUL-0015`.
-
-A aprovação editorial não publica automaticamente os cards. A migração pública será feita em branch e PR separados.
+Criar branch e PR separados para a migração pública atômica dos seis cards, preservando IDs, URLs, histórico e contagem total, com validação contratual e auditoria de navegação antes do merge.
