@@ -24,6 +24,11 @@ const radioCard=(page,name,value)=>page.locator(`label.study-radio-card:has(inpu
 const checkCard=(page,name,value)=>page.locator(`label.study-check-card:has(input[name="${name}"][value="${value}"])`);
 const normalize=(text)=>text.toLocaleLowerCase('pt-BR');
 
+async function returnToForm(page){
+  await page.getByRole('button',{name:'Alterar seleção'}).click();
+  await page.locator('#study-material-form:not([hidden])').waitFor({state:'visible',timeout:10000});
+}
+
 async function testStageSelection(page,deviceId){
   await page.getByRole('button',{name:'Criar material'}).click();
   await radioCard(page,'scope','stage').click();
@@ -45,8 +50,7 @@ async function testStageSelection(page,deviceId){
 }
 
 async function testMovementSelection(page){
-  await page.getByRole('button',{name:'Alterar seleção'}).click();
-  await page.locator('#study-material-form:not([hidden])').waitFor({state:'visible',timeout:10000});
+  await returnToForm(page);
   await radioCard(page,'scope','chapter').click();
   await page.locator('select[name="chapter"]').selectOption('6');
   await radioCard(page,'chapterMode','selected').click();
@@ -68,11 +72,29 @@ async function testMovementSelection(page){
   await page.screenshot({path:`${OUT}/exercicios-movimentos-desktop.png`,fullPage:true});
 }
 
+async function testPreClassSelection(page){
+  await returnToForm(page);
+  await radioCard(page,'scope','chapter').click();
+  await page.locator('select[name="chapter"]').selectOption('5');
+  await radioCard(page,'chapterMode','all').click();
+  await radioCard(page,'materialType','pre_aula').click();
+  await page.getByRole('button',{name:'Gerar material'}).click();
+  await page.locator('#study-material-result:not([hidden])').waitFor({state:'visible',timeout:10000});
+  const text=normalize(await page.locator('#study-material-document').innerText());
+  if(!text.includes('antes da aula')) report.blocking.push('Material de preparação prévia não foi projetado corretamente.');
+  if(!text.includes('capítulo 5')||text.includes('capítulo 6')) report.blocking.push('Material pré-aula não respeitou o capítulo 5 selecionado.');
+  const movementCount=await page.locator('.study-material-movements>li').count();
+  report.checks.preClassMovementCount=movementCount;
+  if(movementCount!==6) report.blocking.push(`Material pré-aula trouxe ${movementCount} movimentos; esperado: 6.`);
+  await page.screenshot({path:`${OUT}/antes-da-aula-capitulo-mobile.png`,fullPage:true});
+}
+
 for(const device of [{id:'desktop',viewport:{width:1366,height:900}},{id:'mobile',viewport:{width:390,height:844}}]){
   const session=await openPage(device.viewport);
   try{
     await testStageSelection(session.page,device.id);
     if(device.id==='desktop') await testMovementSelection(session.page);
+    else await testPreClassSelection(session.page);
     const axe=await new AxeBuilder({page:session.page}).analyze();
     const serious=axe.violations.filter(v=>['critical','serious'].includes(v.impact));
     if(serious.length) report.warnings.push(`${device.id}: ${serious.length} violação(ões) séria(s)/crítica(s): ${serious.map(v=>v.id).join(', ')}.`);
@@ -89,7 +111,7 @@ for(const device of [{id:'desktop',viewport:{width:1366,height:900}},{id:'mobile
 await browser.close();
 report.status=report.blocking.length?'FALHOU':'APROVADO';
 await fs.writeFile(`${OUT}/report.json`,JSON.stringify(report,null,2));
-const md=`# Auditoria — piloto de materiais de estudo\n\n**${report.status}**\n\n- falhas bloqueantes: ${report.blocking.length}\n- alertas: ${report.warnings.length}\n\n## Regras verificadas\n\n- capítulos limitados à etapa escolhida;\n- movimentos limitados a um único capítulo;\n- geração de revisão para prova;\n- geração de lista de exercícios;\n- ausência de linguagem docente e bastidores;\n- desktop e celular;\n- acessibilidade automatizada.\n\n${report.blocking.map(x=>`- ${x}`).join('\n')}\n${report.warnings.map(x=>`- ${x}`).join('\n')}\n`;
+const md=`# Auditoria — piloto de materiais de estudo\n\n**${report.status}**\n\n- falhas bloqueantes: ${report.blocking.length}\n- alertas: ${report.warnings.length}\n\n## Regras verificadas\n\n- capítulos limitados à etapa escolhida;\n- movimentos limitados a um único capítulo;\n- geração de material antes da aula;\n- geração de revisão para prova;\n- geração de lista de exercícios;\n- ausência de linguagem docente e bastidores;\n- desktop e celular;\n- acessibilidade automatizada.\n\n${report.blocking.map(x=>`- ${x}`).join('\n')}\n${report.warnings.map(x=>`- ${x}`).join('\n')}\n`;
 await fs.writeFile(`${OUT}/report.md`,md);
 console.log(md);
 if(report.blocking.length) process.exitCode=1;
