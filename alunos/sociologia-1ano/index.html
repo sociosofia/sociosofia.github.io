@@ -61,6 +61,7 @@
     <div class="loader" aria-hidden="true"></div>
   </main>
   <script src="../accessibility-patch.js"></script>
+  <script src="../visual-patch.js"></script>
   <script>
     (async () => {
       try {
@@ -88,6 +89,7 @@
           .pipeThrough(new DecompressionStream("gzip"));
         let page = await new Response(stream).text();
         page = window.applySociosofiaAccessibilityPatch?.(page) || page;
+        page = window.applySociosofiaStudentIdentity?.(page) || page;
 
         document.open();
         document.write(page);
