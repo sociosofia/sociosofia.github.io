@@ -17,7 +17,7 @@ assert(culturalIds.has('CUL-0002'),'CUL-0002 deixou a base cultural.');
 const youth=publicacoes.find(item=>item.id==='DAD-0001');assert(youth.interpretacao_sociosofia.includes('não pode ser explicado por raça como característica individual'),'DAD-0001 perdeu a mediação racial.');
 const teachers=publicacoes.find(item=>item.id==='DAD-0005');assert(teachers.contextualizacao.includes('voluntária e não aleatória')&&teachers.contextualizacao.includes('pós-estratificação'),'DAD-0005 perdeu os limites amostrais.');
 const getOut=cultural.find(item=>item.id==='CUL-0002');assert(getOut.cuidado_pedagogico.includes('Estados Unidos')&&getOut.cuidado_pedagogico.includes('Brasil'),'CUL-0002 perdeu a distinção entre contextos raciais.');
-assert(legacy.ids.length===18&&publicacoes.length===12&&cultural.length===8,'As contagens globais após o quinto lote estão incorretas.');
+assert(legacy.ids.length===12&&publicacoes.length===12&&cultural.length===14,'As contagens globais após o sexto lote estão incorretas.');
 assert(legacy.ids.length+publicacoes.length+cultural.length===38,'O total público deixou de ser 38.');
-console.log('Terceiro lote continua íntegro após o quinto lote.');
+console.log('Terceiro lote continua íntegro após o sexto lote.');
 async function read(path){return JSON.parse(await readFile(new URL(path,root),'utf8'));}
