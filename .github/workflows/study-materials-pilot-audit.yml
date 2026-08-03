@@ -33,19 +33,6 @@ jobs:
         run: |
           python3 -m http.server 8000 > /tmp/sociosofia-server.log 2>&1 &
           sleep 3
-      - name: Ajustar seleção para cartões visíveis
-        run: |
-          python3 - <<'PY'
-          from pathlib import Path
-          path = Path('audit/study-materials-pilot-v2-audit.mjs')
-          text = path.read_text()
-          text = text.replace("root.locator('label').filter({hasText:text}).first()", "root.locator('label:visible').filter({hasText:text}).first()")
-          text = text.replace("await clickCard(page,'Capítulo');", "await page.locator('input[name=\"scope\"][value=\"chapter\"]').evaluate(input=>input.closest('label').click());")
-          text = text.replace("await clickCard(page,'Movimentos específicos');", "await page.locator('[data-chapter-panel=\"6\"] input[name=\"chapterMode\"][value=\"selected\"]').evaluate(input=>input.closest('label').click());")
-          text = text.replace("await inputs.nth(1).check();", "await inputs.nth(1).evaluate(input=>input.closest('label').click());")
-          text = text.replace("await inputs.nth(3).check();", "await inputs.nth(3).evaluate(input=>input.closest('label').click());")
-          path.write_text(text)
-          PY
       - name: Executar auditoria
         run: node audit/study-materials-pilot-v2-audit.mjs
       - name: Publicar relatório e capturas
