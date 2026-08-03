@@ -1,0 +1,668 @@
+@import url("https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Inter:wght@400;500;600;650;700;750;800&display=swap");
+
+/*
+ * Identidade visual da Área do Estudante.
+ *
+ * Camada exclusivamente apresentacional, carregada depois dos estilos
+ * internos dos percursos. Não altera dados, textos, vínculos, movimentos,
+ * trilhas, rotas, âncoras nem comportamento da navegação.
+ */
+
+:root {
+  --bg: #F7F1E8;
+  --paper: #FFFDF8;
+  --paper-strong: #FFFFFF;
+  --ink: #261F2B;
+  --text: #1F1F1F;
+  --muted: #6F6574;
+  --purple: #5B2E91;
+  --primary: #5B2E91;
+  --terra: #D95D39;
+  --secondary: #D95D39;
+  --teal: #2F6F73;
+  --support: #2F6F73;
+  --yellow: #F2C14E;
+  --marker: #F2C14E;
+  --line: rgba(31, 31, 31, 0.11);
+  --student-shadow: 0 10px 28px rgba(31, 31, 31, 0.065);
+  --student-shadow-raised: 0 14px 34px rgba(31, 31, 31, 0.085);
+  --student-radius-lg: 22px;
+  --student-radius-md: 17px;
+}
+
+html {
+  background: var(--bg);
+}
+
+body {
+  background:
+    radial-gradient(circle at 14% 0%, rgba(242, 193, 78, 0.12), transparent 25rem),
+    var(--bg);
+  color: var(--text);
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  line-height: 1.65;
+}
+
+body::before,
+.site-header::after {
+  display: none;
+}
+
+h1,
+h2,
+h3,
+h4,
+button,
+input,
+select,
+textarea {
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  color: var(--text);
+  line-height: 1.12;
+  letter-spacing: -0.035em;
+}
+
+h1 {
+  font-size: clamp(2.25rem, 5.4vw, 4.35rem);
+}
+
+h2 {
+  font-size: clamp(1.6rem, 3.4vw, 2.45rem);
+}
+
+h3 {
+  font-size: clamp(1.08rem, 2vw, 1.28rem);
+}
+
+.brand strong,
+.brand-name,
+.compare-main h1,
+.hero-main h1,
+.chapter-hero h1,
+.page > h1,
+.page > header h1,
+.footer strong,
+.site-footer strong {
+  font-family: "Fraunces", Georgia, serif;
+  font-weight: 600;
+  letter-spacing: -0.04em;
+}
+
+:focus-visible {
+  outline: 3px solid var(--marker);
+  outline-offset: 3px;
+}
+
+/* Cabeçalho próprio da Área do Estudante */
+.site-header {
+  border-bottom: 1px solid rgba(31, 31, 31, 0.1);
+  background:
+    radial-gradient(circle at 13% 20%, rgba(242, 193, 78, 0.1), transparent 22rem),
+    rgba(247, 241, 232, 0.96);
+  color: var(--text);
+  box-shadow: none;
+  backdrop-filter: blur(14px);
+}
+
+.header-inner {
+  min-height: 74px;
+}
+
+.brand {
+  color: var(--text);
+}
+
+.brand:hover,
+.brand:focus-visible {
+  color: var(--primary);
+}
+
+.brand strong {
+  color: var(--primary);
+  font-size: clamp(1.48rem, 2.8vw, 1.92rem);
+  line-height: 1;
+}
+
+.brand span {
+  color: var(--muted);
+  font-size: 0.69rem;
+  letter-spacing: 0.01em;
+}
+
+.header-actions {
+  gap: 0.45rem;
+}
+
+.header-btn {
+  min-height: 40px;
+  border: 1px solid rgba(91, 46, 145, 0.24);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--primary);
+  padding: 0.58rem 0.85rem;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.header-btn:hover,
+.header-btn:focus-visible {
+  border-color: var(--primary);
+  background: rgba(91, 46, 145, 0.08);
+}
+
+.header-btn.primary {
+  border-color: var(--primary);
+  background: var(--primary);
+  color: var(--paper);
+}
+
+.header-btn.primary:hover,
+.header-btn.primary:focus-visible {
+  background: #4D257B;
+  color: var(--paper);
+}
+
+/* Caminho interno: preserva integralmente a lógica de navegação */
+.pathbar {
+  border-bottom: 1px solid var(--line);
+  background: rgba(255, 253, 248, 0.94);
+  box-shadow: none;
+  backdrop-filter: blur(12px);
+}
+
+.path-inner {
+  min-height: 46px;
+}
+
+.crumb {
+  color: var(--muted);
+  font-weight: 650;
+}
+
+.crumb:hover,
+.crumb:focus-visible {
+  background: rgba(91, 46, 145, 0.07);
+  color: var(--primary);
+}
+
+.crumb.current {
+  background: rgba(91, 46, 145, 0.1);
+  color: var(--primary);
+}
+
+.arrow {
+  color: #A79B91;
+}
+
+/* Hierarquia editorial */
+.page {
+  padding-top: clamp(1.8rem, 4vw, 3rem);
+}
+
+.eyebrow {
+  color: var(--secondary);
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+}
+
+.lead,
+.stage-head p,
+.bridge,
+.chapter-card p,
+.book-box p,
+.search-result span,
+.drawer-section p {
+  color: var(--muted);
+}
+
+/* Superfícies e cards */
+.compare-main,
+.compare-side,
+.hero-main,
+.book-box,
+.chapter-card,
+.movement,
+.review > div,
+.search-result,
+.drawer,
+.school-card,
+.course-card,
+.discipline-card,
+.institution-card,
+.option-card,
+.route-card,
+.year-card {
+  border: 1px solid var(--line);
+  border-radius: var(--student-radius-lg);
+  background: rgba(255, 253, 248, 0.9);
+  color: var(--text);
+  box-shadow: var(--student-shadow);
+}
+
+.compare-main,
+.compare-side,
+.hero-main,
+.book-box {
+  padding: clamp(1.45rem, 4vw, 2.4rem);
+}
+
+.compare-main {
+  border-left: 5px solid var(--primary);
+  background:
+    radial-gradient(circle at 92% 8%, rgba(242, 193, 78, 0.14), transparent 18rem),
+    rgba(255, 253, 248, 0.92);
+}
+
+.compare-side {
+  border-top: 5px solid var(--support);
+}
+
+.compare-side .eyebrow,
+.hero-main .eyebrow,
+.review-next .eyebrow {
+  color: var(--secondary);
+}
+
+.compare-side p,
+.hero-main p,
+.review-next p {
+  color: #514A54;
+}
+
+.stats {
+  gap: 0.65rem;
+}
+
+.stat {
+  border: 1px solid rgba(47, 111, 115, 0.18);
+  border-radius: 14px;
+  background: rgba(47, 111, 115, 0.065);
+  color: var(--text);
+}
+
+.stat strong {
+  color: var(--support);
+  font-family: "Inter", system-ui, sans-serif;
+}
+
+.stat span {
+  color: var(--muted);
+  opacity: 1;
+}
+
+.toolbar input {
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: var(--paper-strong);
+  color: var(--text);
+}
+
+.toolbar input:focus {
+  border-color: rgba(91, 46, 145, 0.45);
+}
+
+.toolbar button {
+  border-radius: 999px;
+  background: var(--support);
+  color: var(--paper);
+}
+
+.toolbar button:hover,
+.toolbar button:focus-visible {
+  background: #245B5E;
+}
+
+.resume {
+  border: 1px solid rgba(91, 46, 145, 0.19);
+  border-radius: var(--student-radius-md);
+  background: rgba(91, 46, 145, 0.055);
+}
+
+.resume button {
+  color: var(--primary);
+}
+
+/* Etapas e capítulos */
+.stage {
+  margin-top: clamp(2.5rem, 6vw, 4rem);
+}
+
+.stage-head {
+  margin-bottom: 1rem;
+}
+
+.chapter-grid {
+  gap: 0.85rem;
+}
+
+.chapter-card {
+  border-radius: var(--student-radius-md);
+  padding: clamp(1.05rem, 2.5vw, 1.35rem);
+  transition: transform 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease;
+}
+
+.chapter-card:hover,
+.chapter-card:focus-visible {
+  border-color: rgba(91, 46, 145, 0.3);
+  box-shadow: var(--student-shadow-raised);
+  transform: translateY(-2px);
+}
+
+.chapter-card .meta {
+  color: var(--support);
+  font-weight: 800;
+}
+
+.chapter-card h3 {
+  margin: 0.42rem 0 0.55rem;
+  font-weight: 720;
+}
+
+.chapter-card .go {
+  color: var(--primary);
+}
+
+.chapter-hero {
+  gap: 0.9rem;
+}
+
+.hero-main {
+  border-left: 5px solid var(--primary);
+}
+
+.hero-main h1,
+.hero-main h2,
+.hero-main h3 {
+  color: var(--text);
+}
+
+.book-box {
+  border-top: 5px solid var(--support);
+}
+
+.page-pill,
+.movement-top .pages {
+  border: 1px solid rgba(242, 193, 78, 0.7);
+  border-radius: 999px;
+  background: rgba(242, 193, 78, 0.28);
+  color: #5B4510;
+  font-weight: 800;
+}
+
+/* Navegação entre movimentos */
+.movement-nav {
+  border: 1px solid var(--line);
+  border-radius: var(--student-radius-md);
+  background: rgba(247, 241, 232, 0.97);
+  box-shadow: 0 8px 24px rgba(31, 31, 31, 0.055);
+  backdrop-filter: blur(12px);
+}
+
+.movement-nav-head {
+  color: var(--muted);
+}
+
+.movement-track {
+  gap: 0.48rem;
+}
+
+.movement-chip {
+  border: 1px solid var(--line);
+  border-radius: 13px;
+  background: var(--paper);
+  color: var(--text);
+}
+
+.movement-chip:hover,
+.movement-chip:focus-visible {
+  border-color: rgba(91, 46, 145, 0.32);
+  background: rgba(91, 46, 145, 0.05);
+}
+
+.movement-chip strong {
+  color: var(--primary);
+}
+
+.movement-chip.active {
+  border-color: var(--primary);
+  background: var(--primary);
+  color: var(--paper);
+}
+
+.movement-chip.active strong {
+  color: var(--marker);
+}
+
+/* Conteúdo dos movimentos */
+.movement {
+  border-radius: var(--student-radius-lg);
+  padding: clamp(1.25rem, 3.5vw, 2rem);
+}
+
+.movement h2,
+.movement h3 {
+  font-weight: 720;
+}
+
+.question {
+  border-left: 4px solid var(--secondary);
+  color: var(--text);
+  font-family: "Inter", system-ui, sans-serif;
+  font-size: clamp(1.02rem, 2vw, 1.16rem);
+  font-weight: 700;
+}
+
+.shift {
+  border-left: 4px solid var(--support);
+  border-radius: 0 13px 13px 0;
+  background: rgba(47, 111, 115, 0.07);
+  color: #334B4D;
+}
+
+.entity-row {
+  border-top-color: var(--line);
+}
+
+.entity-btn {
+  border: 1px solid rgba(91, 46, 145, 0.22);
+  border-radius: 999px;
+  background: rgba(91, 46, 145, 0.055);
+  color: var(--primary);
+}
+
+.entity-btn:hover,
+.entity-btn:focus-visible {
+  border-color: var(--primary);
+  background: var(--primary);
+  color: var(--paper);
+}
+
+.review-main {
+  border-top: 5px solid var(--primary);
+}
+
+.review-next {
+  border-top: 5px solid var(--support);
+  background: rgba(255, 253, 248, 0.9);
+  color: var(--text);
+}
+
+.review-next button {
+  border: 1px solid rgba(47, 111, 115, 0.28);
+  border-radius: 999px;
+  background: rgba(47, 111, 115, 0.07);
+  color: var(--support);
+}
+
+.review-next button:hover,
+.review-next button:focus-visible {
+  border-color: var(--support);
+  background: var(--support);
+  color: var(--paper);
+}
+
+/* Busca */
+.search-results {
+  gap: 0.55rem;
+}
+
+.search-result {
+  border-radius: 13px;
+  box-shadow: none;
+}
+
+.search-result:hover,
+.search-result:focus-visible {
+  border-color: rgba(91, 46, 145, 0.3);
+  background: rgba(91, 46, 145, 0.035);
+}
+
+.search-result strong {
+  color: var(--primary);
+}
+
+/* Fichas laterais: funcionamento preservado */
+.backdrop {
+  background: rgba(28, 20, 31, 0.42);
+  backdrop-filter: blur(2px);
+}
+
+.drawer {
+  border: 0;
+  border-radius: 0;
+  background: var(--paper);
+  box-shadow: -18px 0 52px rgba(31, 31, 31, 0.2);
+}
+
+.drawer-head {
+  border-bottom: 1px solid var(--line);
+  background: rgba(255, 253, 248, 0.96);
+  backdrop-filter: blur(12px);
+}
+
+.drawer-head h2 {
+  font-weight: 720;
+}
+
+.type {
+  border-radius: 999px;
+  background: rgba(91, 46, 145, 0.1);
+  color: var(--primary);
+}
+
+.close {
+  border: 1px solid var(--line);
+  background: var(--paper-strong);
+  color: var(--text);
+}
+
+.close:hover,
+.close:focus-visible {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+.drawer-section {
+  border-top-color: var(--line);
+}
+
+.drawer-section h3 {
+  color: var(--secondary);
+  font-size: 0.7rem;
+  letter-spacing: 0.08em;
+}
+
+.occurrence {
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--paper-strong);
+  color: var(--muted);
+}
+
+/* Rodapé autônomo, alinhado ao sistema geral */
+.footer,
+.site-footer {
+  border-top: 1px solid rgba(31, 31, 31, 0.1);
+  background: #2B1A3A;
+  color: rgba(255, 255, 255, 0.84);
+}
+
+.footer strong,
+.site-footer strong {
+  color: var(--paper);
+}
+
+.footer span,
+.site-footer span,
+.site-footer p {
+  color: rgba(255, 255, 255, 0.68);
+  opacity: 1;
+}
+
+/* Adaptação cuidadosa para telas pequenas, sem alterar o percurso */
+@media (max-width: 700px) {
+  .header-inner {
+    min-height: 66px;
+  }
+
+  .brand strong {
+    font-size: 1.34rem;
+  }
+
+  .brand span {
+    max-width: 160px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .header-btn {
+    min-height: 38px;
+    padding: 0.52rem 0.7rem;
+    font-size: 0.74rem;
+  }
+
+  .compare-main,
+  .compare-side,
+  .hero-main,
+  .book-box,
+  .movement {
+    border-radius: 18px;
+  }
+
+  .chapter-card {
+    border-radius: 16px;
+  }
+}
+
+@media (max-width: 390px) {
+  .brand strong {
+    font-size: 1.2rem;
+  }
+
+  .brand span {
+    max-width: 130px;
+  }
+
+  .header-btn {
+    padding-inline: 0.58rem;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+}
