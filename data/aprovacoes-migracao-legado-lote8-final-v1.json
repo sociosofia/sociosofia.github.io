@@ -1,0 +1,24 @@
+{
+  "versao": "1.0",
+  "lote": "legado-lote8-final-v1",
+  "status": "aprovado",
+  "aprovado_por": "Luiz Jácomo",
+  "data": "2026-08-03",
+  "itens": [
+    {"id": "CUL-0006", "decisao": "aprovado"},
+    {"id": "CUL-0022", "decisao": "aprovado"},
+    {"id": "CUL-0023", "decisao": "aprovado"},
+    {"id": "CUL-0024", "decisao": "aprovado"},
+    {"id": "CUL-0025", "decisao": "aprovado"},
+    {"id": "CUL-0026", "decisao": "aprovado"}
+  ],
+  "efeitos": {
+    "publicacao_imediata": false,
+    "migracao_tecnica_separada": true,
+    "migracao_conjunta_com_lote7_permitida": true,
+    "preservar_historicos_separados": true,
+    "preservar_ids_e_enderecos": true,
+    "criar_relacoes_automaticas": false
+  },
+  "observacao": "A aprovação editorial autoriza uma migração técnica conjunta com o sétimo lote em branch separada, desde que os históricos e as aprovações permaneçam individualizados. Não altera sozinha as bases públicas nem cria relações, autores, conceitos ou Elos."
+}
