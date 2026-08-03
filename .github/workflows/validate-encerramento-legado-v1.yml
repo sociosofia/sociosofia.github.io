@@ -1,0 +1,52 @@
+name: Validar encerramento do legado
+
+on:
+  push:
+    branches:
+      - publicar-encerramento-legado-v1
+    paths:
+      - 'data/publicacao-legado.json'
+      - 'data/repertorios-canonicos.json'
+      - 'data/historico-migracao-legado-lote7-v1.json'
+      - 'data/historico-migracao-legado-lote8-final-v1.json'
+      - 'scripts/test-encerramento-legado-v1.mjs'
+      - 'scripts/test-legado-publico.mjs'
+      - 'scripts/test-repertory-contract.mjs'
+      - '.github/workflows/validate-encerramento-legado-v1.yml'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'data/publicacao-legado.json'
+      - 'data/repertorios-canonicos.json'
+      - 'data/historico-migracao-legado-lote7-v1.json'
+      - 'data/historico-migracao-legado-lote8-final-v1.json'
+      - 'scripts/test-encerramento-legado-v1.mjs'
+      - 'scripts/test-legado-publico.mjs'
+      - 'scripts/test-repertory-contract.mjs'
+      - '.github/workflows/validate-encerramento-legado-v1.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Verificar sintaxe e JSON
+        run: |
+          node --check scripts/test-encerramento-legado-v1.mjs
+          node --check scripts/test-legado-publico.mjs
+          node --check scripts/test-repertory-contract.mjs
+          node -e "JSON.parse(require('fs').readFileSync('data/publicacao-legado.json','utf8'))"
+          node -e "JSON.parse(require('fs').readFileSync('data/repertorios-canonicos.json','utf8'))"
+      - name: Validar encerramento
+        run: |
+          node scripts/test-encerramento-legado-v1.mjs
+          node scripts/test-legado-publico.mjs
+          node scripts/test-repertory-contract.mjs

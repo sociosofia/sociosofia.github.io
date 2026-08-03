@@ -1,8 +1,8 @@
 {
-  "versao": "1.6",
-  "estado_publico": "publicado_legado",
-  "descricao": "Registro transitório dos repertórios que já estavam visíveis no site antes da migração canônica. A presença nesta lista preserva a continuidade pública sem converter o status editorial legado em aprovação plena.",
-  "criterio": "Após o sexto lote de migração, permanecem 12 repertórios culturais no estado transitório. Todos os sete cards DAD originalmente legados já possuem projeção canônica.",
+  "versao": "1.8",
+  "estado_publico": "encerrado",
+  "descricao": "Migração canônica do acervo público legado concluída. O registro é preservado apenas como trilha histórica do processo.",
+  "criterio": "Após os lotes 7 e 8, nenhum conteúdo permanece no estado transitório publicado_legado. Os 12 dados e os 26 repertórios culturais públicos possuem projeções canônicas.",
   "migrados": [
     {
       "id": "DAD-0004",
@@ -108,20 +108,67 @@
       "id": "CUL-0015",
       "lote": "legado-lote6-v1",
       "destino": "data/repertorios-canonicos.json"
+    },
+    {
+      "id": "CUL-0016",
+      "lote": "legado-lote7-v1",
+      "destino": "data/repertorios-canonicos.json"
+    },
+    {
+      "id": "CUL-0017",
+      "lote": "legado-lote7-v1",
+      "destino": "data/repertorios-canonicos.json"
+    },
+    {
+      "id": "CUL-0018",
+      "lote": "legado-lote7-v1",
+      "destino": "data/repertorios-canonicos.json"
+    },
+    {
+      "id": "CUL-0019",
+      "lote": "legado-lote7-v1",
+      "destino": "data/repertorios-canonicos.json"
+    },
+    {
+      "id": "CUL-0020",
+      "lote": "legado-lote7-v1",
+      "destino": "data/repertorios-canonicos.json"
+    },
+    {
+      "id": "CUL-0021",
+      "lote": "legado-lote7-v1",
+      "destino": "data/repertorios-canonicos.json"
+    },
+    {
+      "id": "CUL-0006",
+      "lote": "legado-lote8-final-v1",
+      "destino": "data/repertorios-canonicos.json"
+    },
+    {
+      "id": "CUL-0022",
+      "lote": "legado-lote8-final-v1",
+      "destino": "data/repertorios-canonicos.json"
+    },
+    {
+      "id": "CUL-0023",
+      "lote": "legado-lote8-final-v1",
+      "destino": "data/repertorios-canonicos.json"
+    },
+    {
+      "id": "CUL-0024",
+      "lote": "legado-lote8-final-v1",
+      "destino": "data/repertorios-canonicos.json"
+    },
+    {
+      "id": "CUL-0025",
+      "lote": "legado-lote8-final-v1",
+      "destino": "data/repertorios-canonicos.json"
+    },
+    {
+      "id": "CUL-0026",
+      "lote": "legado-lote8-final-v1",
+      "destino": "data/repertorios-canonicos.json"
     }
   ],
-  "ids": [
-    "CUL-0006",
-    "CUL-0016",
-    "CUL-0017",
-    "CUL-0018",
-    "CUL-0019",
-    "CUL-0020",
-    "CUL-0021",
-    "CUL-0022",
-    "CUL-0023",
-    "CUL-0024",
-    "CUL-0025",
-    "CUL-0026"
-  ]
+  "ids": []
 }

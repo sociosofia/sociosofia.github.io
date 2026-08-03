@@ -1,0 +1,278 @@
+{
+  "versao": "1.0",
+  "lote": "legado-lote7-v1",
+  "data_migracao": "2026-08-03",
+  "aprovado_por": "Luiz Jácomo",
+  "itens": [
+    {
+      "id": "CUL-0016",
+      "registro_anterior": {
+        "id": "CUL-0016",
+        "editoria": "Séries, filmes, livros e músicas",
+        "categoria": "Séries, filmes, livros e músicas",
+        "tipo": "Documentário",
+        "subtema": "Fome, pobreza e desigualdade social",
+        "titulo": "Garapa: fome, pobreza e dignidade social",
+        "subtitulo": "Fome, pobreza e desigualdade social",
+        "resumo": "O documentário acompanha famílias em situação de extrema pobreza, revelando o cotidiano da fome, da insegurança alimentar e da luta pela sobrevivência. A câmera se aproxima de vidas atravessadas por carência material, vulnerabilidade e resistência cotidiana.",
+        "resumo_obra": "O documentário acompanha famílias em situação de extrema pobreza, revelando o cotidiano da fome, da insegurança alimentar e da luta pela sobrevivência. A câmera se aproxima de vidas atravessadas por carência material, vulnerabilidade e resistência cotidiana.",
+        "leitura_sociosofia": "Garapa permite tratar a fome não como falta individual, mas como expressão de desigualdades estruturais. A obra desloca o olhar da estatística abstrata para a experiência concreta da privação, mostrando como pobreza, território, infância e ausência de direitos produzem formas profundas de sofrimento social.",
+        "ancoragem_teorica": "Josué de Castro, para pensar a fome como fenômeno social, político e econômico, não como fatalidade natural.",
+        "conceitos": [
+          "Fome",
+          "Pobreza",
+          "Insegurança alimentar",
+          "Desigualdade",
+          "Dignidade",
+          "Direitos sociais",
+          "Vulnerabilidade"
+        ],
+        "autores": [
+          "Josué de Castro"
+        ],
+        "fonte_nome": "Garapa, documentário de José Padilha, 2009",
+        "fonte_url": "",
+        "ano_data": "2009",
+        "confiabilidade": "Repertório cultural",
+        "fonte_status": "obra identificada",
+        "tempo_leitura": "3 min",
+        "nivel": "Básico",
+        "status": "rascunho",
+        "destaque": false,
+        "tags": [
+          "fome",
+          "pobreza",
+          "Josué de Castro",
+          "desigualdade social",
+          "direitos sociais",
+          "Garapa"
+        ]
+      }
+    },
+    {
+      "id": "CUL-0017",
+      "registro_anterior": {
+        "id": "CUL-0017",
+        "editoria": "Séries, filmes, livros e músicas",
+        "categoria": "Séries, filmes, livros e músicas",
+        "tipo": "Filme",
+        "subtema": "Juventude, família e violência",
+        "titulo": "Precisamos Falar Sobre o Kevin: família, violência e responsabilidade",
+        "subtitulo": "Juventude, família e violência",
+        "resumo": "O filme acompanha a relação tensa entre Eva e seu filho Kevin, reconstruindo lembranças familiares atravessadas por estranhamento, culpa, ressentimento e violência. A narrativa evita explicações simples e coloca em questão os limites entre responsabilidade individual, vínculos familiares e formação subjetiva.",
+        "resumo_obra": "O filme acompanha a relação tensa entre Eva e seu filho Kevin, reconstruindo lembranças familiares atravessadas por estranhamento, culpa, ressentimento e violência. A narrativa evita explicações simples e coloca em questão os limites entre responsabilidade individual, vínculos familiares e formação subjetiva.",
+        "leitura_sociosofia": "A obra permite discutir como a violência juvenil não pode ser reduzida a uma causa única. Ao acompanhar a relação entre mãe e filho, o filme desloca o olhar para o ambiente familiar, para a construção dos afetos, para a dificuldade de reconhecimento e para os silêncios que cercam comportamentos extremos. A força do repertório está em evitar respostas fáceis sobre culpa, natureza ou educação.",
+        "ancoragem_teorica": "Sigmund Freud, para pensar conflito psíquico, ambivalência afetiva e formação da subjetividade.",
+        "conceitos": [
+          "Violência",
+          "Família",
+          "Subjetividade",
+          "Culpa",
+          "Socialização",
+          "Afeto",
+          "Responsabilidade"
+        ],
+        "autores": [
+          "Sigmund Freud"
+        ],
+        "fonte_nome": "Precisamos Falar Sobre o Kevin, filme de Lynne Ramsay, 2011",
+        "fonte_url": "",
+        "ano_data": "2011",
+        "confiabilidade": "Repertório cultural",
+        "fonte_status": "obra identificada",
+        "tempo_leitura": "3 min",
+        "nivel": "Básico",
+        "status": "rascunho",
+        "destaque": false,
+        "tags": [
+          "violência",
+          "família",
+          "Freud",
+          "juventude",
+          "subjetividade",
+          "Precisamos Falar Sobre o Kevin"
+        ]
+      }
+    },
+    {
+      "id": "CUL-0018",
+      "registro_anterior": {
+        "id": "CUL-0018",
+        "editoria": "Séries, filmes, livros e músicas",
+        "categoria": "Séries, filmes, livros e músicas",
+        "tipo": "Filme",
+        "subtema": "Fascismo, infância e ideologia",
+        "titulo": "Jojo Rabbit: infância, fascismo e fabricação do inimigo",
+        "subtitulo": "Fascismo, infância e ideologia",
+        "resumo": "O filme acompanha Jojo, um garoto alemão educado sob a propaganda nazista, que tem Adolf Hitler como amigo imaginário. A narrativa mistura humor, absurdo e drama para mostrar como a ideologia pode atravessar a infância, os afetos e a percepção do outro.",
+        "resumo_obra": "O filme acompanha Jojo, um garoto alemão educado sob a propaganda nazista, que tem Adolf Hitler como amigo imaginário. A narrativa mistura humor, absurdo e drama para mostrar como a ideologia pode atravessar a infância, os afetos e a percepção do outro.",
+        "leitura_sociosofia": "Jojo Rabbit permite pensar como regimes autoritários não dependem apenas da força policial, mas também da formação de imaginários, medos e lealdades. Ao acompanhar uma criança que aprende a odiar antes de compreender o mundo, a obra revela como a desumanização do outro é ensinada, repetida e naturalizada por símbolos, discursos e pertencimentos coletivos.",
+        "ancoragem_teorica": "Hannah Arendt, para pensar banalidade do mal, obediência e participação cotidiana em sistemas de violência.",
+        "conceitos": [
+          "Fascismo",
+          "Ideologia",
+          "Infância",
+          "Desumanização",
+          "Propaganda",
+          "Obediência",
+          "Nacionalismo"
+        ],
+        "autores": [
+          "Hannah Arendt"
+        ],
+        "fonte_nome": "Jojo Rabbit, filme de Taika Waititi, 2019",
+        "fonte_url": "",
+        "ano_data": "2019",
+        "confiabilidade": "Repertório cultural",
+        "fonte_status": "obra identificada",
+        "tempo_leitura": "3 min",
+        "nivel": "Básico",
+        "status": "rascunho",
+        "destaque": false,
+        "tags": [
+          "fascismo",
+          "ideologia",
+          "Hannah Arendt",
+          "infância",
+          "desumanização",
+          "Jojo Rabbit"
+        ]
+      }
+    },
+    {
+      "id": "CUL-0019",
+      "registro_anterior": {
+        "id": "CUL-0019",
+        "editoria": "Séries, filmes, livros e músicas",
+        "categoria": "Séries, filmes, livros e músicas",
+        "tipo": "Filme",
+        "subtema": "Guerra, experiência e desumanização",
+        "titulo": "1917: guerra, corpo e experiência do tempo",
+        "subtitulo": "Guerra, experiência e desumanização",
+        "resumo": "O filme acompanha dois soldados britânicos durante a Primeira Guerra Mundial, encarregados de atravessar território inimigo para entregar uma mensagem urgente. A narrativa cria a sensação de percurso contínuo, aproximando o espectador da exaustão, do medo e da vulnerabilidade física dos personagens.",
+        "resumo_obra": "O filme acompanha dois soldados britânicos durante a Primeira Guerra Mundial, encarregados de atravessar território inimigo para entregar uma mensagem urgente. A narrativa cria a sensação de percurso contínuo, aproximando o espectador da exaustão, do medo e da vulnerabilidade física dos personagens.",
+        "leitura_sociosofia": "1917 permite observar a guerra a partir da experiência corporal, e não apenas da estratégia militar. A lama, a fome, o cansaço, a paisagem destruída e o risco permanente mostram como grandes decisões políticas se inscrevem em corpos individuais. A obra ajuda a pensar a distância entre discursos patrióticos e a realidade concreta da morte administrada em escala.",
+        "ancoragem_teorica": "Walter Benjamin, para pensar guerra, experiência, choque e empobrecimento da narrativa diante da violência moderna.",
+        "conceitos": [
+          "Guerra",
+          "Experiência",
+          "Corpo",
+          "Trauma",
+          "Modernidade",
+          "Obediência",
+          "Violência"
+        ],
+        "autores": [
+          "Walter Benjamin"
+        ],
+        "fonte_nome": "1917, filme de Sam Mendes, 2019",
+        "fonte_url": "",
+        "ano_data": "2019",
+        "confiabilidade": "Repertório cultural",
+        "fonte_status": "obra identificada",
+        "tempo_leitura": "3 min",
+        "nivel": "Básico",
+        "status": "rascunho",
+        "destaque": false,
+        "tags": [
+          "guerra",
+          "Walter Benjamin",
+          "Primeira Guerra",
+          "corpo",
+          "trauma",
+          "1917"
+        ]
+      }
+    },
+    {
+      "id": "CUL-0020",
+      "registro_anterior": {
+        "id": "CUL-0020",
+        "editoria": "Séries, filmes, livros e músicas",
+        "categoria": "Séries, filmes, livros e músicas",
+        "tipo": "Filme",
+        "subtema": "Guerra, juventude e nacionalismo",
+        "titulo": "Nada de Novo no Front: juventude, nacionalismo e desencanto",
+        "subtitulo": "Guerra, juventude e nacionalismo",
+        "resumo": "A obra acompanha jovens soldados alemães enviados à Primeira Guerra Mundial depois de serem mobilizados por discursos patrióticos. O entusiasmo inicial dá lugar à fome, ao medo, à mutilação, à perda de amigos e ao esvaziamento das promessas heroicas da guerra.",
+        "resumo_obra": "A obra acompanha jovens soldados alemães enviados à Primeira Guerra Mundial depois de serem mobilizados por discursos patrióticos. O entusiasmo inicial dá lugar à fome, ao medo, à mutilação, à perda de amigos e ao esvaziamento das promessas heroicas da guerra.",
+        "leitura_sociosofia": "Nada de Novo no Front mostra como a juventude pode ser convocada por narrativas nacionais que romantizam o sacrifício. A obra desmonta a imagem gloriosa da guerra e evidencia o contraste entre propaganda, obediência e destruição da vida concreta. O campo de batalha aparece como lugar em que corpos jovens pagam o preço de decisões políticas tomadas à distância.",
+        "ancoragem_teorica": "Zygmunt Bauman, para pensar modernidade, administração racional da violência e distância moral entre decisão e consequência.",
+        "conceitos": [
+          "Nacionalismo",
+          "Guerra",
+          "Juventude",
+          "Propaganda",
+          "Desumanização",
+          "Obediência",
+          "Violência moderna"
+        ],
+        "autores": [
+          "Zygmunt Bauman"
+        ],
+        "fonte_nome": "Nada de Novo no Front, filme de Edward Berger, 2022",
+        "fonte_url": "",
+        "ano_data": "2022",
+        "confiabilidade": "Repertório cultural",
+        "fonte_status": "obra identificada",
+        "tempo_leitura": "3 min",
+        "nivel": "Básico",
+        "status": "rascunho",
+        "destaque": false,
+        "tags": [
+          "guerra",
+          "nacionalismo",
+          "Bauman",
+          "juventude",
+          "propaganda",
+          "Nada de Novo no Front"
+        ]
+      }
+    },
+    {
+      "id": "CUL-0021",
+      "registro_anterior": {
+        "id": "CUL-0021",
+        "editoria": "Séries, filmes, livros e músicas",
+        "categoria": "Séries, filmes, livros e músicas",
+        "tipo": "Filme",
+        "subtema": "Juventude, saúde mental e socialização",
+        "titulo": "As Vantagens de Ser Invisível: juventude, trauma e pertencimento",
+        "subtitulo": "Juventude, saúde mental e socialização",
+        "resumo": "O filme acompanha Charlie, um adolescente introspectivo que tenta reconstruir vínculos, lidar com memórias dolorosas e encontrar pertencimento durante o ensino médio. A narrativa aborda amizade, trauma, sexualidade, sofrimento psíquico e passagem para a vida adulta.",
+        "resumo_obra": "O filme acompanha Charlie, um adolescente introspectivo que tenta reconstruir vínculos, lidar com memórias dolorosas e encontrar pertencimento durante o ensino médio. A narrativa aborda amizade, trauma, sexualidade, sofrimento psíquico e passagem para a vida adulta.",
+        "leitura_sociosofia": "A obra permite pensar a adolescência como período de formação subjetiva atravessado por vínculos, silêncios e vulnerabilidades. Ao acompanhar Charlie, percebemos como o pertencimento não é detalhe afetivo, mas condição importante para que sujeitos jovens consigam elaborar experiências difíceis. A escola aparece como espaço de dor, mas também de encontro e reconhecimento.",
+        "ancoragem_teorica": "Erik Erikson, para pensar identidade, juventude e conflitos próprios da formação do sujeito.",
+        "conceitos": [
+          "Juventude",
+          "Identidade",
+          "Trauma",
+          "Pertencimento",
+          "Amizade",
+          "Saúde mental",
+          "Socialização"
+        ],
+        "autores": [
+          "Erik Erikson"
+        ],
+        "fonte_nome": "As Vantagens de Ser Invisível, filme de Stephen Chbosky, 2012",
+        "fonte_url": "",
+        "ano_data": "2012",
+        "confiabilidade": "Repertório cultural",
+        "fonte_status": "obra identificada",
+        "tempo_leitura": "3 min",
+        "nivel": "Básico",
+        "status": "rascunho",
+        "destaque": false,
+        "tags": [
+          "juventude",
+          "saúde mental",
+          "Erikson",
+          "pertencimento",
+          "trauma",
+          "As Vantagens de Ser Invisível"
+        ]
+      }
+    }
+  ]
+}
