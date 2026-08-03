@@ -16,7 +16,7 @@ assert(dataIds.has('DAD-0004')&&dataIds.has('DAD-0007'),'Os dados do primeiro lo
 assert(culturalIds.has('CUL-0003'),'CUL-0003 deixou a base cultural.');
 for(const id of ['DAD-0004','DAD-0007']){const item=publicacoes.find(entry=>entry.id===id);assert(item.origem_migracao?.lote==='legado-lote1-v1',`${id} perdeu a origem.`);assert(item.autores.length===0,`${id} criou relação automática.`);}
 const her=cultural.find(item=>item.id==='CUL-0003');assert(her.origem_migracao?.lote==='legado-lote1-v1','CUL-0003 perdeu a origem.');assert(her.autores.length===0,'CUL-0003 criou relação automática.');
-assert(legacy.ids.length===12&&publicacoes.length===12&&cultural.length===14,'As contagens globais após o sexto lote estão incorretas.');
-assert(legacy.ids.length+publicacoes.length+cultural.length===38,'O total público deixou de ser 38.');
-console.log('Primeiro lote continua íntegro após o sexto lote.');
+assert(legacy.ids.length===0&&publicacoes.length===12&&cultural.length===26,'As contagens globais após o encerramento do legado estão incorretas.');
+assert(publicacoes.length+cultural.length===38,'O total público canônico deixou de ser 38.');
+console.log('Primeiro lote continua íntegro após o encerramento do legado.');
 async function read(path){return JSON.parse(await readFile(new URL(path,root),'utf8'));}
