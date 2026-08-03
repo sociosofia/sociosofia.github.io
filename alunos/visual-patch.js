@@ -1,8 +1,11 @@
 (() => {
-  const STYLESHEET_PATH = "/alunos/student-identity-v1.css";
+  const STYLESHEET_PATHS = [
+    "/alunos/student-identity-v1.css",
+    "/alunos/student-identity-v1-refinements.css"
+  ];
 
   window.applySociosofiaStudentIdentity = function applySociosofiaStudentIdentity(page) {
-    if (typeof page !== "string" || page.includes("student-identity-v1.css")) {
+    if (typeof page !== "string" || page.includes("data-sociosofia-student-identity")) {
       return page;
     }
 
@@ -12,9 +15,11 @@
       return page;
     }
 
-    const stylesheetUrl = new URL(STYLESHEET_PATH, window.location.origin).href;
-    const link = `<link rel="stylesheet" href="${stylesheetUrl}" data-sociosofia-student-identity="v1">`;
+    const links = STYLESHEET_PATHS.map((path, index) => {
+      const stylesheetUrl = new URL(path, window.location.origin).href;
+      return `<link rel="stylesheet" href="${stylesheetUrl}" data-sociosofia-student-identity="v1-${index + 1}">`;
+    }).join("");
 
-    return page.replace(closingHead, `${link}</head>`);
+    return page.replace(closingHead, `${links}</head>`);
   };
 })();
