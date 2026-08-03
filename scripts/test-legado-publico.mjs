@@ -1,37 +1,32 @@
 import {readFile} from 'node:fs/promises';
 
 function assert(condition,message){if(!condition)throw new Error(message);}
-
 const root=new URL('../',import.meta.url);
-const legacy=JSON.parse(await readFile(new URL('data/publicacao-legado.json',root),'utf8'));
-const repertorios=JSON.parse(await readFile(new URL('data/repertorios.json',root),'utf8'));
+const [legacy,repertorios,publicacoes,cultural]=await Promise.all([
+  read('data/publicacao-legado.json'),
+  read('data/repertorios.json'),
+  read('data/publicacoes.json'),
+  read('data/repertorios-canonicos.json')
+]);
 
-assert(legacy.estado_publico==='publicado_legado','O registro do legado precisa usar publicado_legado.');
-assert(Array.isArray(legacy.ids),'A lista de IDs do legado não foi encontrada.');
-assert(legacy.ids.length===12,'A fachada pública legada deve preservar 12 itens após o sexto lote.');
-assert(new Set(legacy.ids).size===legacy.ids.length,'Há IDs duplicados no registro do legado.');
-assert(legacy.ids.filter(id=>id.startsWith('DAD-')).length===0,'Nenhum card DAD deve permanecer no legado.');
-assert(legacy.ids.filter(id=>id.startsWith('CUL-')).length===12,'O legado deve preservar 12 cards CUL.');
+assert(legacy.estado_publico==='encerrado','O registro do legado deve marcar o encerramento da migração.');
+assert(Array.isArray(legacy.ids)&&legacy.ids.length===0,'Nenhum ID pode permanecer em publicado_legado.');
+assert(Array.isArray(legacy.migrados)&&legacy.migrados.length===33,'O histórico cumulativo deve registrar 33 conteúdos migrados.');
+const migratedIds=legacy.migrados.map(item=>item.id);
+assert(new Set(migratedIds).size===33,'Há IDs duplicados no histórico de migrados.');
 
 const repertoryMap=new Map(repertorios.map(item=>[item.id,item]));
-for(const id of legacy.ids){
-  const item=repertoryMap.get(id);
-  assert(item,`O ID legado ${id} não existe em data/repertorios.json.`);
-  assert(item.status!=='arquivado',`O ID arquivado ${id} não pode permanecer público.`);
-}
+for(const id of migratedIds)assert(repertoryMap.has(id),`O registro histórico de ${id} não existe em data/repertorios.json.`);
 
-const expectedMigrated=['DAD-0004','DAD-0007','CUL-0003','DAD-0002','DAD-0006','CUL-0001','DAD-0001','DAD-0005','CUL-0002','DAD-0003','CUL-0004','CUL-0005','CUL-0007','CUL-0008','CUL-0009','CUL-0010','CUL-0011','CUL-0012','CUL-0013','CUL-0014','CUL-0015'];
-const migratedIds=(legacy.migrados||[]).map(item=>item.id);
-assert(JSON.stringify(migratedIds)===JSON.stringify(expectedMigrated),'O registro de migrados não corresponde aos seis lotes aprovados.');
-assert(new Set(migratedIds).size===migratedIds.length,'Há IDs duplicados no histórico de migrados.');
+assert(publicacoes.length===12,'A base de dados canônica deve conter 12 registros.');
+assert(cultural.length===26,'A base cultural canônica deve conter 26 registros.');
+const allPublic=[...publicacoes.map(item=>item.id),...cultural.map(item=>item.id)];
+assert(allPublic.length===38&&new Set(allPublic).size===38,'O conjunto público final deve conter 38 IDs únicos.');
+for(const id of migratedIds)assert(allPublic.includes(id),`${id} foi registrado como migrado sem destino canônico.`);
 
-for(const id of migratedIds){
-  assert(repertoryMap.has(id),`O histórico legado de ${id} não foi preservado.`);
-  assert(!legacy.ids.includes(id),`${id} aparece simultaneamente como legado e migrado.`);
-}
+const serialized=JSON.stringify({publicacoes,cultural}).toLowerCase();
+assert(!serialized.includes('r001-c02'),'R001-C02 apareceu na publicação final.');
+assert(!serialized.includes('salário digno'),'O card de salário digno apareceu na publicação final.');
 
-const allowedOutsideLegacy=new Set(migratedIds);
-const unlisted=repertorios.filter(item=>item.status!=='publicado'&&!legacy.ids.includes(item.id)&&!allowedOutsideLegacy.has(item.id));
-assert(unlisted.length===0,'Há itens legados fora do registro transitório ou da lista de migrados: '+unlisted.map(item=>item.id).join(', '));
-
-console.log('Registro público transitório do legado validado após seis lotes.');
+console.log('Migração do legado encerrada: 33 registros históricos e 38 conteúdos canônicos.');
+async function read(path){return JSON.parse(await readFile(new URL(path,root),'utf8'));}
