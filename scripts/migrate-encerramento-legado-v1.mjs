@@ -58,7 +58,7 @@ const nextLegacy={
   estado_publico:'encerrado',
   descricao:'Migração canônica do acervo público legado concluída. O registro é preservado apenas como trilha histórica do processo.',
   criterio:'Após os lotes 7 e 8, nenhum conteúdo permanece no estado transitório publicado_legado. Os 12 dados e os 26 repertórios culturais públicos possuem projeções canônicas.',
-  migrados,
+  migrados:migrated,
   ids:[]
 };
 
