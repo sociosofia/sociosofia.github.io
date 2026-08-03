@@ -1,0 +1,49 @@
+name: Validar navegação e taxonomia
+
+on:
+  push:
+    branches:
+      - agent/estabilizar-navegacao-taxonomia
+    paths:
+      - 'site-shared.js'
+      - 'home-cards.js'
+      - 'data/entidades.json'
+      - 'data/temas.json'
+      - 'data/publicacoes.json'
+      - 'data/repertorios-canonicos.json'
+      - 'scripts/test-navegacao-taxonomia-v1.mjs'
+      - '.github/workflows/validate-navegacao-taxonomia-v1.yml'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'site-shared.js'
+      - 'home-cards.js'
+      - 'data/entidades.json'
+      - 'data/temas.json'
+      - 'data/publicacoes.json'
+      - 'data/repertorios-canonicos.json'
+      - 'scripts/test-navegacao-taxonomia-v1.mjs'
+      - '.github/workflows/validate-navegacao-taxonomia-v1.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Verificar sintaxe dos módulos públicos
+        run: |
+          cp site-shared.js /tmp/site-shared.mjs
+          cp home-cards.js /tmp/home-cards.mjs
+          node --check /tmp/site-shared.mjs
+          node --check /tmp/home-cards.mjs
+          node --check scripts/test-navegacao-taxonomia-v1.mjs
+      - name: Validar navegação, temas e conceitos publicados
+        run: node scripts/test-navegacao-taxonomia-v1.mjs
