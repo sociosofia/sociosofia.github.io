@@ -19,7 +19,11 @@ assert(flags.every(Boolean)||flags.every(flag=>!flag),'O quinto lote ficou parci
 const migrated=flags.every(Boolean);
 
 if(migrated){
-  assert(legacy.ids.length===18&&publicacoes.length===12&&cultural.length===8,'As contagens após a migração do quinto lote estão incorretas.');
+  assert(
+    (legacy.ids.length===18&&publicacoes.length===12&&cultural.length===8)||
+    (legacy.ids.length===12&&publicacoes.length===12&&cultural.length===14),
+    'As contagens após a migração do quinto lote ou após lotes culturais posteriores estão incorretas.'
+  );
   for(const id of expected)assert(!legacyIds.has(id),`${id} permaneceu no legado após a migração.`);
 }else{
   assert(legacy.ids.length===21&&publicacoes.length===12&&cultural.length===5,'As contagens anteriores à migração do quinto lote estão incorretas.');
