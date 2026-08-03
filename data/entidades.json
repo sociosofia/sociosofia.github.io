@@ -1,6 +1,12 @@
 {
   "conceito": [
-    {"nome": "Alienação"},
+    {
+      "nome": "Alienação",
+      "status_publicacao": "publicado",
+      "href": "elo.html?id=ELO-trabalho-plataformas-controle&entrada=conceito",
+      "ids": ["CUL-0014"],
+      "resumo": "Na análise de Marx, alienação é uma forma de separação produzida no trabalho. Quem trabalha pode perder o controle sobre o que produz, sobre como realiza a atividade, sobre o desenvolvimento de suas capacidades e sobre as relações que estabelece com outras pessoas."
+    },
     {"nome": "Alteridade"},
     {"nome": "Angústia"},
     {"nome": "Autoridade"},

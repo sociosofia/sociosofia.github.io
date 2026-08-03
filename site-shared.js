@@ -36,6 +36,15 @@ function normalizeRegistry(raw={}){
   return out;
 }
 
+function canonicalTheme(nome){
+  const target=norm(nome);
+  return TEMAS.find(theme=>[theme.nome,...list(theme.aliases)].some(value=>norm(value)===target));
+}
+
+function isPublicEntityEntry(entry){
+  return Boolean(entry&&entry.status_publicacao==='publicado'&&(entry.resumo||entry.href));
+}
+
 export async function loadThemeRegistry(){
   if(themesLoaded)return TEMAS;
   themesLoaded=true;
@@ -88,7 +97,13 @@ export async function loadEntityRegistry(){
 }
 
 export function getEntityRegistry(){return entityRegistry;}
-export function entityEntry(tipo,nome){return (entityRegistry[tipo]||[]).find(e=>e.nome===nome);}
+export function entityEntry(tipo,nome){
+  if(tipo==='tema'){
+    const theme=canonicalTheme(nome);
+    return theme?{...theme,nome:theme.nome,status_publicacao:'publicado'}:undefined;
+  }
+  return (entityRegistry[tipo]||[]).find(e=>e.nome===nome);
+}
 export function isRegisteredEntity(tipo,nome){return Boolean(entityEntry(tipo,nome));}
 
 function publicStatus(i){
@@ -146,36 +161,36 @@ export function text(i){
 }
 
 export function inTheme(i,t){
-  if(list(i.tema_ids).includes(t.id))return true;
-  const s=text(i);
-  return list(t.palavras).some(p=>s.includes(norm(p)));
+  return list(i.tema_ids).includes(t.id);
 }
 export function themeIds(i){
-  const explicit=list(i.tema_ids).filter(id=>TEMAS.some(theme=>theme.id===id));
-  return explicit.length?explicit:TEMAS.filter(t=>inTheme(i,t)).map(t=>t.id);
+  return list(i.tema_ids).filter(id=>TEMAS.some(theme=>theme.id===id));
 }
 const overlap=(a,b)=>a.filter(x=>b.includes(x)).length;
 
 export function entityMatches(i,tipo,nome){
-  if(tipo==='autor')return i.autores.includes(nome);
-  if(tipo==='conceito')return i.conceitos.includes(nome);
   if(tipo==='tema'){
-    const entry=entityEntry(tipo,nome);
-    if(!entry)return false;
-    if(list(entry.ids).includes(i.id))return true;
-    const terms=list(entry.termos).length?list(entry.termos):[nome];
-    const hay=text(i);
-    return terms.some(term=>hay.includes(norm(term)));
+    const theme=canonicalTheme(nome);
+    return Boolean(theme&&inTheme(i,theme));
   }
-  return false;
+
+  const entry=entityEntry(tipo,nome);
+  if(!isPublicEntityEntry(entry))return false;
+  if(list(entry.ids).includes(i.id))return true;
+
+  const values=tipo==='autor'?i.autores:i.conceitos;
+  const terms=[entry.nome,...list(entry.aliases)].map(norm);
+  return list(values).some(value=>terms.includes(norm(value)));
 }
 
 export function entityNames(items,tipo){
-  return (entityRegistry[tipo]||[]).map(e=>e.nome).filter(nome=>items.some(i=>entityMatches(i,tipo,nome)));
+  if(tipo==='tema')return TEMAS.map(theme=>theme.nome).filter(nome=>items.some(i=>entityMatches(i,tipo,nome)));
+  return (entityRegistry[tipo]||[]).filter(isPublicEntityEntry).map(e=>e.nome).filter(nome=>items.some(i=>entityMatches(i,tipo,nome)));
 }
 
 export function itemEntityNames(i,tipo){
-  return (entityRegistry[tipo]||[]).map(e=>e.nome).filter(nome=>entityMatches(i,tipo,nome));
+  if(tipo==='tema')return TEMAS.map(theme=>theme.nome).filter(nome=>entityMatches(i,tipo,nome));
+  return (entityRegistry[tipo]||[]).filter(isPublicEntityEntry).map(e=>e.nome).filter(nome=>entityMatches(i,tipo,nome));
 }
 
 export function itemKeywords(i,limit=8){
@@ -205,7 +220,10 @@ export function related(items,item,target,limit=6){
   return items.filter(x=>x.id!==item.id&&(!target||x.bloco===target)).map(x=>({x,n:relationScore(item,x)})).filter(o=>o.n>0).sort((a,b)=>b.n-a.n||a.x.titulo.localeCompare(b.x.titulo,"pt-BR")).slice(0,limit).map(o=>o.x);
 }
 
-export function entityUrl(tipo,nome){return `index.html?tipo=${encodeURIComponent(tipo)}&entidade=${encodeURIComponent(nome)}#temas`;}
+export function entityUrl(tipo,nome){
+  const href=entityEntry(tipo,nome)?.href;
+  return href||`index.html?tipo=${encodeURIComponent(tipo)}&entidade=${encodeURIComponent(nome)}#temas`;
+}
 export function relationCard(i){return `<a class="relation-card ${i.bloco==='cultura'?'cultural':''}" href="repertorio.html?id=${encodeURIComponent(i.id)}"><small>${esc(i.tipo||'Repertório')}</small><strong>${esc(i.titulo)}</strong><span>${esc(i.subtitulo||i.subtema||'')}</span></a>`;}
 
 export function entityLinks(i,tipos=['tema','conceito','autor']){
