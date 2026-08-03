@@ -28,9 +28,9 @@ for(const id of expected){
   assert(culturalIds.has(id),`${id} não chegou à base cultural canônica.`);
 }
 
-assert(legacy.ids.length===18&&legacy.ids.every(id=>id.startsWith('CUL-')),'O legado deve conter 18 repertórios culturais após o quinto lote.');
+assert(legacy.ids.length===12&&legacy.ids.every(id=>id.startsWith('CUL-')),'O legado deve conter 12 repertórios culturais após o sexto lote.');
 assert(publicacoes.length===12,'A migração cultural alterou os doze dados canônicos.');
-assert(cultural.length===8,'A base cultural deve conter oito repertórios após o quinto lote.');
+assert(cultural.length===14,'A base cultural deve conter 14 repertórios após o sexto lote.');
 const themeIds=new Set(themeMapFromRegistry(themes).keys());
 const validation=validateRepertoryCollection(cultural,{themeIds});
 assert(validation.errors.length===0,'A base cultural falhou no contrato: '+validation.errors.join(' | '));
@@ -60,5 +60,5 @@ const serialized=JSON.stringify({publicacoes,cultural}).toLowerCase();
 assert(!serialized.includes('r001-c02'),'R001-C02 apareceu durante a migração.');
 assert(!serialized.includes('salário digno'),'O card de salário digno apareceu durante a migração.');
 
-console.log('Quinto lote migrado com histórico, aprovação, contrato e total público preservados.');
+console.log('Quinto lote continua íntegro após a migração do sexto lote.');
 async function read(path){return JSON.parse(await readFile(new URL(path,root),'utf8'));}
