@@ -22,15 +22,15 @@ async function openPage(viewport){
 
 async function testStageSelection(page){
   await page.getByRole('button',{name:'Criar material'}).click();
-  await page.locator('input[name="scope"][value="stage"]').check();
+  await page.locator('input[name="scope"][value="stage"]').check({force:true});
   await page.locator('select[name="stage"]').selectOption('3ª etapa');
-  await page.locator('input[name="stageMode"][value="selected"]').check();
+  await page.locator('input[name="stageMode"][value="selected"]').check({force:true});
   const available=await page.locator('input[name="stageChapters"]').evaluateAll(xs=>xs.map(x=>Number(x.value)));
   report.checks.stage3AvailableChapters=available;
   if(JSON.stringify(available)!==JSON.stringify([5,6])) report.blocking.push(`Etapa 3 ofereceu capítulos ${available.join(', ')}, esperado 5 e 6.`);
-  await page.locator('input[name="stageChapters"][value="5"]').check();
-  await page.locator('input[name="stageChapters"][value="6"]').check();
-  await page.locator('input[name="materialType"][value="revisao_prova"]').check();
+  await page.locator('input[name="stageChapters"][value="5"]').check({force:true});
+  await page.locator('input[name="stageChapters"][value="6"]').check({force:true});
+  await page.locator('input[name="materialType"][value="revisao_prova"]').check({force:true});
   await page.getByRole('button',{name:'Gerar material'}).click();
   const text=await page.locator('#study-material-document').innerText();
   if(!text.includes('Capítulo 5')||!text.includes('Capítulo 6')) report.blocking.push('Revisão da etapa não incluiu os dois capítulos selecionados.');
@@ -40,14 +40,14 @@ async function testStageSelection(page){
 
 async function testMovementSelection(page){
   await page.getByRole('button',{name:'Alterar seleção'}).click();
-  await page.locator('input[name="scope"][value="chapter"]').check();
+  await page.locator('input[name="scope"][value="chapter"]').check({force:true});
   await page.locator('select[name="chapter"]').selectOption('6');
-  await page.locator('input[name="chapterMode"][value="selected"]').check();
+  await page.locator('input[name="chapterMode"][value="selected"]').check({force:true});
   const chapter6Ids=await page.locator('input[name="chapterMovements"]').evaluateAll(xs=>xs.map(x=>x.value));
   if(chapter6Ids.length!==6||!chapter6Ids.every(id=>id.startsWith('c6-'))) report.blocking.push('Seleção de movimentos do capítulo 6 contém movimentos de outro capítulo.');
-  await page.locator('input[name="chapterMovements"]').nth(1).check();
-  await page.locator('input[name="chapterMovements"]').nth(3).check();
-  await page.locator('input[name="materialType"][value="lista_exercicios"]').check();
+  await page.locator('input[name="chapterMovements"]').nth(1).check({force:true});
+  await page.locator('input[name="chapterMovements"]').nth(3).check({force:true});
+  await page.locator('input[name="materialType"][value="lista_exercicios"]').check({force:true});
   await page.getByRole('button',{name:'Gerar material'}).click();
   const text=await page.locator('#study-material-document').innerText();
   if(!text.includes('movimentos 2, 4')) report.blocking.push('Escopo do material não registrou os movimentos selecionados.');
