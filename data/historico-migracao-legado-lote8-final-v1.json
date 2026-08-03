@@ -1,0 +1,279 @@
+{
+  "versao": "1.0",
+  "lote": "legado-lote8-final-v1",
+  "data_migracao": "2026-08-03",
+  "aprovado_por": "Luiz Jácomo",
+  "itens": [
+    {
+      "id": "CUL-0006",
+      "registro_anterior": {
+        "id": "CUL-0006",
+        "editoria": "Séries, filmes, livros e músicas",
+        "categoria": "Séries, filmes, livros e músicas",
+        "tipo": "Filme",
+        "subtema": "Existência, fé e finitude",
+        "titulo": "O Sétimo Selo: morte, fé e angústia diante do silêncio",
+        "subtitulo": "Existência, fé e finitude",
+        "resumo": "Durante a peste medieval, um cavaleiro retorna das Cruzadas e encontra a Morte, com quem joga uma partida de xadrez. A obra acompanha sua busca por sentido diante do sofrimento, da dúvida e da finitude.",
+        "resumo_obra": "Durante a peste medieval, um cavaleiro retorna das Cruzadas e encontra a Morte, com quem joga uma partida de xadrez. A obra acompanha sua busca por sentido diante do sofrimento, da dúvida e da finitude.",
+        "leitura_sociosofia": "O filme não oferece respostas fáceis sobre Deus, a morte ou o sentido da existência. Sua força está justamente em sustentar a dúvida. Ao acompanhar o cavaleiro, somos levados a pensar a condição humana diante do silêncio, da angústia e da necessidade de encontrar significado mesmo quando nenhuma certeza parece suficiente.",
+        "ancoragem_teorica": "Søren Kierkegaard, para pensar angústia, fé e existência como experiência atravessada por dúvida e escolha.",
+        "conceitos": [
+          "Finitude",
+          "Fé",
+          "Angústia",
+          "Existência",
+          "Morte",
+          "Sentido da vida"
+        ],
+        "autores": [
+          "Søren Kierkegaard"
+        ],
+        "fonte_nome": "O Sétimo Selo, filme de Ingmar Bergman, 1957",
+        "fonte_url": "",
+        "ano_data": "1957",
+        "confiabilidade": "Repertório cultural",
+        "fonte_status": "obra identificada",
+        "tempo_leitura": "3 min",
+        "nivel": "Básico",
+        "status": "rascunho",
+        "destaque": false,
+        "tags": [
+          "filosofia",
+          "existência",
+          "Kierkegaard",
+          "morte",
+          "fé",
+          "O Sétimo Selo"
+        ]
+      }
+    },
+    {
+      "id": "CUL-0022",
+      "registro_anterior": {
+        "id": "CUL-0022",
+        "editoria": "Séries, filmes, livros e músicas",
+        "categoria": "Séries, filmes, livros e músicas",
+        "tipo": "Filme",
+        "subtema": "Juventude, gênero e controle moral",
+        "titulo": "As Virgens Suicidas: gênero, controle e sufocamento da juventude",
+        "subtitulo": "Juventude, gênero e controle moral",
+        "resumo": "O filme acompanha as irmãs Lisbon, adolescentes criadas sob forte controle familiar e moral em um subúrbio norte-americano. A narrativa é marcada por desejo, silêncio, vigilância, idealização masculina e incompreensão diante do sofrimento das jovens.",
+        "resumo_obra": "O filme acompanha as irmãs Lisbon, adolescentes criadas sob forte controle familiar e moral em um subúrbio norte-americano. A narrativa é marcada por desejo, silêncio, vigilância, idealização masculina e incompreensão diante do sofrimento das jovens.",
+        "leitura_sociosofia": "As Virgens Suicidas permite pensar como o controle sobre corpos femininos pode ser revestido de proteção, moralidade e cuidado. A obra mostra uma juventude feminina observada, desejada e narrada pelos outros, mas pouco escutada em sua própria experiência. O sofrimento das personagens aparece cercado por expectativas de pureza, disciplina familiar e silenciamento.",
+        "ancoragem_teorica": "Simone de Beauvoir, para pensar a construção social do feminino, a vigilância sobre as mulheres e a limitação de seus projetos de existência.",
+        "conceitos": [
+          "Gênero",
+          "Controle moral",
+          "Juventude",
+          "Silenciamento",
+          "Corpo feminino",
+          "Família",
+          "Subjetividade"
+        ],
+        "autores": [
+          "Simone de Beauvoir"
+        ],
+        "fonte_nome": "As Virgens Suicidas, filme de Sofia Coppola, 1999",
+        "fonte_url": "",
+        "ano_data": "1999",
+        "confiabilidade": "Repertório cultural",
+        "fonte_status": "obra identificada",
+        "tempo_leitura": "3 min",
+        "nivel": "Básico",
+        "status": "rascunho",
+        "destaque": false,
+        "tags": [
+          "gênero",
+          "juventude",
+          "Simone de Beauvoir",
+          "controle",
+          "silenciamento",
+          "As Virgens Suicidas"
+        ]
+      }
+    },
+    {
+      "id": "CUL-0023",
+      "registro_anterior": {
+        "id": "CUL-0023",
+        "editoria": "Séries, filmes, livros e músicas",
+        "categoria": "Séries, filmes, livros e músicas",
+        "tipo": "Filme",
+        "subtema": "Tecnologia, identidade e pós-humanismo",
+        "titulo": "Blade Runner: memória, humanidade e vida artificial",
+        "subtitulo": "Tecnologia, identidade e pós-humanismo",
+        "resumo": "A obra apresenta um futuro marcado por megacorporações, decadência urbana e seres artificiais quase indistinguíveis dos humanos. A narrativa explora memória, identidade, trabalho, obediência e desejo de reconhecimento.",
+        "resumo_obra": "A obra apresenta um futuro marcado por megacorporações, decadência urbana e seres artificiais quase indistinguíveis dos humanos. A narrativa explora memória, identidade, trabalho, obediência e desejo de reconhecimento.",
+        "leitura_sociosofia": "Blade Runner permite discutir o que define a humanidade em um mundo mediado pela técnica. A fronteira entre humano e artificial se torna instável quando seres produzidos para servir demonstram memória, medo, desejo e consciência da própria finitude. A obra também permite observar como exploração e descarte continuam existindo mesmo em sociedades altamente tecnologizadas.",
+        "ancoragem_teorica": "Donna Haraway, para pensar a figura do ciborgue, a mistura entre organismo e máquina e a crítica às fronteiras rígidas entre natureza, cultura e tecnologia.",
+        "conceitos": [
+          "Pós-humanismo",
+          "Memória",
+          "Identidade",
+          "Técnica",
+          "Trabalho",
+          "Corpo artificial",
+          "Reconhecimento"
+        ],
+        "autores": [
+          "Donna Haraway"
+        ],
+        "fonte_nome": "Blade Runner, franquia cinematográfica",
+        "fonte_url": "",
+        "ano_data": "1982 e 2017",
+        "confiabilidade": "Repertório cultural",
+        "fonte_status": "obra identificada",
+        "tempo_leitura": "3 min",
+        "nivel": "Básico",
+        "status": "rascunho",
+        "destaque": false,
+        "tags": [
+          "tecnologia",
+          "pós-humanismo",
+          "Donna Haraway",
+          "memória",
+          "identidade",
+          "Blade Runner"
+        ]
+      }
+    },
+    {
+      "id": "CUL-0024",
+      "registro_anterior": {
+        "id": "CUL-0024",
+        "editoria": "Séries, filmes, livros e músicas",
+        "categoria": "Séries, filmes, livros e músicas",
+        "tipo": "Documentário",
+        "subtema": "Democracia, cultura popular e ditadura",
+        "titulo": "Democracia em Preto e Branco: futebol, cultura popular e participação política",
+        "subtitulo": "Democracia, cultura popular e ditadura",
+        "resumo": "O documentário aborda a Democracia Corinthiana, movimento que marcou o futebol brasileiro nos anos finais da ditadura militar. A obra relaciona esporte, cultura popular, participação coletiva, juventude, música e disputa democrática.",
+        "resumo_obra": "O documentário aborda a Democracia Corinthiana, movimento que marcou o futebol brasileiro nos anos finais da ditadura militar. A obra relaciona esporte, cultura popular, participação coletiva, juventude, música e disputa democrática.",
+        "leitura_sociosofia": "Democracia em Preto e Branco permite pensar a política para além dos espaços institucionais tradicionais. Ao articular futebol, torcida, música e participação, a obra mostra como práticas culturais podem se tornar formas de contestação e imaginação democrática. A democracia aparece não apenas como regime político, mas como experiência coletiva de voz, decisão e pertencimento.",
+        "ancoragem_teorica": "Antonio Gramsci, para pensar cultura, hegemonia e disputa política no cotidiano.",
+        "conceitos": [
+          "Democracia",
+          "Cultura popular",
+          "Participação",
+          "Ditadura",
+          "Hegemonia",
+          "Futebol",
+          "Cidadania"
+        ],
+        "autores": [
+          "Antonio Gramsci"
+        ],
+        "fonte_nome": "Democracia em Preto e Branco, documentário de Pedro Asbeg, 2014",
+        "fonte_url": "",
+        "ano_data": "2014",
+        "confiabilidade": "Repertório cultural",
+        "fonte_status": "obra identificada",
+        "tempo_leitura": "3 min",
+        "nivel": "Básico",
+        "status": "rascunho",
+        "destaque": false,
+        "tags": [
+          "democracia",
+          "futebol",
+          "Gramsci",
+          "cultura popular",
+          "ditadura",
+          "Democracia em Preto e Branco"
+        ]
+      }
+    },
+    {
+      "id": "CUL-0025",
+      "registro_anterior": {
+        "id": "CUL-0025",
+        "editoria": "Séries, filmes, livros e músicas",
+        "categoria": "Séries, filmes, livros e músicas",
+        "tipo": "Série",
+        "subtema": "Juventude, masculinidade e redes digitais",
+        "titulo": "Adolescência: juventude, masculinidade e violência digital",
+        "subtitulo": "Juventude, masculinidade e redes digitais",
+        "resumo": "A série acompanha os desdobramentos de um caso de violência envolvendo um adolescente, sua família, a escola e as instituições que tentam compreender o ocorrido. A narrativa desloca o olhar do ato isolado para o ambiente social, afetivo e digital que atravessa a formação juvenil.",
+        "resumo_obra": "A série acompanha os desdobramentos de um caso de violência envolvendo um adolescente, sua família, a escola e as instituições que tentam compreender o ocorrido. A narrativa desloca o olhar do ato isolado para o ambiente social, afetivo e digital que atravessa a formação juvenil.",
+        "leitura_sociosofia": "Adolescência permite discutir como masculinidade, isolamento, ressentimento e redes digitais podem se combinar na construção subjetiva de jovens. A obra ajuda a observar que a violência não nasce apenas no indivíduo, mas circula por discursos, grupos, imagens, expectativas de gênero e formas de pertencimento. O ambiente escolar e familiar aparece como espaço de cuidado possível, mas também como lugar onde sinais de sofrimento podem passar despercebidos.",
+        "ancoragem_teorica": "bell hooks, para pensar masculinidade, patriarcado, violência emocional e a dificuldade social de educar meninos para o cuidado.",
+        "conceitos": [
+          "Juventude",
+          "Masculinidade",
+          "Misoginia",
+          "Redes digitais",
+          "Violência",
+          "Pertencimento",
+          "Sofrimento psíquico"
+        ],
+        "autores": [
+          "bell hooks"
+        ],
+        "fonte_nome": "Adolescência, série da Netflix, 2025",
+        "fonte_url": "",
+        "ano_data": "2025",
+        "confiabilidade": "Repertório cultural",
+        "fonte_status": "obra identificada",
+        "tempo_leitura": "3 min",
+        "nivel": "Básico",
+        "status": "rascunho",
+        "destaque": false,
+        "tags": [
+          "juventude",
+          "masculinidade",
+          "bell hooks",
+          "redes digitais",
+          "misoginia",
+          "Adolescência"
+        ]
+      }
+    },
+    {
+      "id": "CUL-0026",
+      "registro_anterior": {
+        "id": "CUL-0026",
+        "editoria": "Séries, filmes, livros e músicas",
+        "categoria": "Séries, filmes, livros e músicas",
+        "tipo": "Documentário",
+        "subtema": "Religião, crime e segurança pública",
+        "titulo": "Dançando com o Diabo: polícia, religião e violência nas periferias",
+        "subtitulo": "Religião, crime e segurança pública",
+        "resumo": "O documentário acompanha personagens ligados ao tráfico, à atuação policial e à religião em territórios marcados pela violência urbana. A obra aproxima crime, fé, moralidade, autoridade e sobrevivência cotidiana, mostrando como diferentes formas de poder disputam presença nas periferias.",
+        "resumo_obra": "O documentário acompanha personagens ligados ao tráfico, à atuação policial e à religião em territórios marcados pela violência urbana. A obra aproxima crime, fé, moralidade, autoridade e sobrevivência cotidiana, mostrando como diferentes formas de poder disputam presença nas periferias.",
+        "leitura_sociosofia": "Dançando com o Diabo permite pensar a relação entre religião, polícia e violência sem reduzir as periferias a uma imagem única. A presença religiosa pode aparecer como acolhimento, disciplina, reconstrução moral ou forma de controle. A atuação policial, por sua vez, revela os limites entre proteção, repressão e produção cotidiana do medo. O documentário abre espaço para observar como fé, crime e Estado disputam corpos, territórios e sentidos de salvação.",
+        "ancoragem_teorica": "Max Weber, para pensar religião, autoridade, salvação e formas de legitimação do poder na vida social.",
+        "conceitos": [
+          "Religião",
+          "Autoridade",
+          "Polícia",
+          "Tráfico",
+          "Periferia",
+          "Segurança pública",
+          "Moralidade",
+          "Violência"
+        ],
+        "autores": [
+          "Max Weber"
+        ],
+        "fonte_nome": "Dancing with the Devil, documentário de Jon Blair, 2009",
+        "fonte_url": "",
+        "ano_data": "2009",
+        "confiabilidade": "Repertório cultural",
+        "fonte_status": "obra identificada",
+        "tempo_leitura": "3 min",
+        "nivel": "Básico",
+        "status": "rascunho",
+        "destaque": false,
+        "tags": [
+          "religião",
+          "polícia",
+          "Weber",
+          "periferia",
+          "segurança pública",
+          "violência",
+          "Dançando com o Diabo"
+        ]
+      }
+    }
+  ]
+}
