@@ -1,0 +1,24 @@
+{
+  "versao": "1.0",
+  "lote": "legado-lote6-v1",
+  "status": "aprovado",
+  "aprovado_por": "Luiz Jácomo",
+  "data": "2026-08-02",
+  "comando_editorial": "Aprovo na totalidade, Sofia. Podemos seguir.",
+  "escopo": "Aprovação editorial integral dos seis repertórios culturais do sexto lote ampliado. A decisão autoriza a preparação da migração técnica em branch separada, mas não cria REL, ficha de autor, conceito ou Elo automático.",
+  "itens": [
+    {"id": "CUL-0010", "decisao": "aprovado"},
+    {"id": "CUL-0011", "decisao": "aprovado"},
+    {"id": "CUL-0012", "decisao": "aprovado"},
+    {"id": "CUL-0013", "decisao": "aprovado"},
+    {"id": "CUL-0014", "decisao": "aprovado"},
+    {"id": "CUL-0015", "decisao": "aprovado"}
+  ],
+  "efeitos": {
+    "publicacao_imediata": false,
+    "migracao_tecnica_separada": true,
+    "preservar_ids_e_urls": true,
+    "preservar_historico_legado": true,
+    "criar_relacoes_automaticas": false
+  }
+}
