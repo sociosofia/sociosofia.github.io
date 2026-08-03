@@ -1,0 +1,278 @@
+/*
+ * Refinamentos dos seletores canônicos efetivamente usados pelos percursos.
+ * Mantém a mudança estritamente visual e complementar à identidade v1.
+ */
+
+:root {
+  --student-terra-text: #96391F;
+  --student-teal-text: #245A5D;
+}
+
+/* Entrada institucional da Área do Estudante. */
+.header {
+  border-bottom: 1px solid rgba(31, 31, 31, 0.1);
+  background:
+    radial-gradient(circle at 12% 20%, rgba(242, 193, 78, 0.1), transparent 20rem),
+    rgba(247, 241, 232, 0.96);
+  color: var(--text);
+  box-shadow: none;
+  backdrop-filter: blur(14px);
+}
+
+.header .brand {
+  color: var(--text);
+}
+
+.header .brand:hover,
+.header .brand:focus-visible {
+  color: var(--primary);
+}
+
+.header .brand-mark {
+  background: var(--marker);
+  color: var(--primary);
+  font-family: "Fraunces", Georgia, serif;
+}
+
+.header .home-link {
+  border: 1px solid rgba(91, 46, 145, 0.28);
+  background: transparent;
+  color: var(--primary);
+}
+
+.header .home-link:hover,
+.header .home-link:focus-visible {
+  border-color: var(--primary);
+  background: var(--primary);
+  color: var(--paper);
+}
+
+.hero h1,
+.install-panel strong {
+  font-family: "Fraunces", Georgia, serif;
+  font-weight: 600;
+  letter-spacing: -0.04em;
+}
+
+.choice,
+.stage,
+.chapter-link,
+.install-panel,
+.search-panel,
+.mode,
+.chapter-modes button,
+.progress button {
+  border-color: var(--line);
+  background: rgba(255, 253, 248, 0.9);
+  box-shadow: var(--student-shadow);
+}
+
+.choice:hover,
+.choice:focus-visible,
+.chapter-link:hover,
+.chapter-link:focus-visible {
+  border-color: rgba(91, 46, 145, 0.3);
+  box-shadow: var(--student-shadow-raised);
+}
+
+.stage-head,
+.movement-head {
+  background: rgba(255, 249, 240, 0.68);
+}
+
+.chapter-number {
+  background: var(--primary);
+  color: var(--paper);
+}
+
+.chapter-link .chapter-number {
+  background: var(--student-terra-text);
+}
+
+/* Mapa anual dos quatro percursos. */
+.home-hero {
+  gap: 0.9rem;
+}
+
+.home-hero .hero-main,
+.home-hero .hero-side {
+  border: 1px solid var(--line);
+  border-radius: var(--student-radius-lg);
+  background: rgba(255, 253, 248, 0.92);
+  color: var(--text);
+  box-shadow: var(--student-shadow);
+}
+
+.home-hero .hero-main {
+  border-left: 5px solid var(--primary);
+  background:
+    radial-gradient(circle at 92% 8%, rgba(242, 193, 78, 0.14), transparent 17rem),
+    rgba(255, 253, 248, 0.92);
+}
+
+.home-hero .hero-side {
+  border-top: 5px solid var(--support);
+}
+
+.home-hero .hero-main h1,
+.home-hero .hero-main h2,
+.home-hero .hero-side h1,
+.home-hero .hero-side h2,
+.home-hero .hero-side h3 {
+  color: var(--text);
+}
+
+.home-hero .hero-main h1 {
+  font-family: "Fraunces", Georgia, serif;
+  font-weight: 600;
+}
+
+.home-hero .hero-side .eyebrow,
+.chapter-hero-main .eyebrow,
+.next-card .eyebrow {
+  color: var(--student-terra-text);
+}
+
+.home-hero .hero-side p,
+.chapter-hero-main p,
+.next-card p {
+  color: var(--muted);
+}
+
+.home-hero .hero-side .stat {
+  border: 1px solid rgba(47, 111, 115, 0.18);
+  background: rgba(47, 111, 115, 0.065);
+  color: var(--text);
+}
+
+.home-hero .hero-side .stat strong {
+  color: var(--student-teal-text);
+  font-family: "Inter", system-ui, sans-serif;
+}
+
+.home-hero .hero-side .stat span {
+  color: var(--muted);
+  opacity: 1;
+}
+
+.mode strong,
+.chapter-modes strong,
+.progress strong {
+  color: var(--primary);
+}
+
+/* Abertura de capítulo: mesma linguagem editorial, sem grande parede roxa. */
+.chapter-hero-main,
+.chapter-book {
+  border: 1px solid var(--line);
+  border-radius: var(--student-radius-lg);
+  background: rgba(255, 253, 248, 0.92);
+  color: var(--text);
+  box-shadow: var(--student-shadow);
+}
+
+.chapter-hero-main {
+  border-left: 5px solid var(--primary);
+  background:
+    radial-gradient(circle at 92% 8%, rgba(242, 193, 78, 0.15), transparent 19rem),
+    rgba(255, 253, 248, 0.94);
+}
+
+.chapter-hero-main::after {
+  border-color: rgba(242, 193, 78, 0.22);
+}
+
+.chapter-hero-main h1,
+.chapter-hero-main h2,
+.chapter-hero-main h3 {
+  position: relative;
+  z-index: 1;
+  color: var(--text);
+}
+
+.chapter-hero-main h1 {
+  font-family: "Fraunces", Georgia, serif;
+  font-weight: 600;
+  letter-spacing: -0.04em;
+}
+
+.chapter-hero-main p,
+.chapter-hero-main .eyebrow {
+  position: relative;
+  z-index: 1;
+}
+
+.chapter-book {
+  border-top: 5px solid var(--support);
+}
+
+.chapter-book h2 {
+  font-family: "Inter", system-ui, sans-serif;
+  font-weight: 720;
+  letter-spacing: -0.035em;
+}
+
+/* Movimentos, revisão e ficha contextual. */
+.movement {
+  border-color: var(--line);
+  background: rgba(255, 253, 248, 0.92);
+  box-shadow: var(--student-shadow);
+}
+
+.movement::before {
+  background: var(--primary);
+  color: var(--paper);
+}
+
+.movement-head h3 {
+  font-family: "Inter", system-ui, sans-serif;
+  font-weight: 720;
+}
+
+.next-card {
+  border: 1px solid var(--line);
+  border-top: 5px solid var(--support);
+  background: rgba(255, 253, 248, 0.92);
+  color: var(--text);
+  box-shadow: var(--student-shadow);
+}
+
+.next-card button {
+  border: 1px solid rgba(47, 111, 115, 0.3);
+  background: rgba(47, 111, 115, 0.07);
+  color: var(--student-teal-text);
+}
+
+.next-card button:hover,
+.next-card button:focus-visible {
+  border-color: var(--support);
+  background: var(--support);
+  color: var(--paper);
+}
+
+.type-pill {
+  background: rgba(91, 46, 145, 0.1);
+  color: var(--primary);
+}
+
+/* Contraste AA: a paleta canônica permanece, com tons escuros para texto. */
+.eyebrow,
+.card-action,
+.drawer-section h3 {
+  color: var(--student-terra-text);
+}
+
+.chapter-meta,
+.choice small,
+.chapter-link small {
+  color: var(--student-teal-text);
+}
+
+@media (max-width: 700px) {
+  .home-hero .hero-main,
+  .home-hero .hero-side,
+  .chapter-hero-main,
+  .chapter-book {
+    border-radius: 18px;
+  }
+}
