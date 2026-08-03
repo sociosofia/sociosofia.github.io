@@ -1,0 +1,42 @@
+name: Validar sexto lote migrado
+
+on:
+  push:
+    branches:
+      - publicar-migracao-legado-lote6-v1
+    paths:
+      - 'data/historico-migracao-legado-lote6-v1.json'
+      - 'data/publicacao-legado.json'
+      - 'data/repertorios-canonicos.json'
+      - 'scripts/test-migracao-legado-lote6.mjs'
+      - '.github/workflows/validate-migracao-legado-lote6.yml'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'data/historico-migracao-legado-lote6-v1.json'
+      - 'data/publicacao-legado.json'
+      - 'data/repertorios-canonicos.json'
+      - 'scripts/test-migracao-legado-lote6.mjs'
+      - '.github/workflows/validate-migracao-legado-lote6.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Verificar sintaxe e JSON
+        run: |
+          node --check scripts/test-migracao-legado-lote6.mjs
+          node -e "JSON.parse(require('fs').readFileSync('data/historico-migracao-legado-lote6-v1.json','utf8'))"
+          node -e "JSON.parse(require('fs').readFileSync('data/repertorios-canonicos.json','utf8'))"
+          node -e "JSON.parse(require('fs').readFileSync('data/publicacao-legado.json','utf8'))"
+      - name: Validar migração do sexto lote
+        run: node scripts/test-migracao-legado-lote6.mjs
