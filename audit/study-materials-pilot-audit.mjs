@@ -20,18 +20,22 @@ async function openPage(viewport){
   return {context,page,consoleErrors,pageErrors,failedRequests};
 }
 
+const radioCard=(page,name,value)=>page.locator(`label.study-radio-card:has(input[name="${name}"][value="${value}"])`);
+const checkCard=(page,name,value)=>page.locator(`label.study-check-card:has(input[name="${name}"][value="${value}"])`);
+
 async function testStageSelection(page){
   await page.getByRole('button',{name:'Criar material'}).click();
-  await page.locator('input[name="scope"][value="stage"]').check({force:true});
+  await radioCard(page,'scope','stage').click();
   await page.locator('select[name="stage"]').selectOption('3ª etapa');
-  await page.locator('input[name="stageMode"][value="selected"]').check({force:true});
+  await radioCard(page,'stageMode','selected').click();
   const available=await page.locator('input[name="stageChapters"]').evaluateAll(xs=>xs.map(x=>Number(x.value)));
   report.checks.stage3AvailableChapters=available;
   if(JSON.stringify(available)!==JSON.stringify([5,6])) report.blocking.push(`Etapa 3 ofereceu capítulos ${available.join(', ')}, esperado 5 e 6.`);
-  await page.locator('input[name="stageChapters"][value="5"]').check({force:true});
-  await page.locator('input[name="stageChapters"][value="6"]').check({force:true});
-  await page.locator('input[name="materialType"][value="revisao_prova"]').check({force:true});
+  await checkCard(page,'stageChapters','5').click();
+  await checkCard(page,'stageChapters','6').click();
+  await radioCard(page,'materialType','revisao_prova').click();
   await page.getByRole('button',{name:'Gerar material'}).click();
+  await page.locator('#study-material-result:not([hidden])').waitFor({state:'visible',timeout:10000});
   const text=await page.locator('#study-material-document').innerText();
   if(!text.includes('Capítulo 5')||!text.includes('Capítulo 6')) report.blocking.push('Revisão da etapa não incluiu os dois capítulos selecionados.');
   if(text.includes('Capítulo 4')) report.blocking.push('Revisão da etapa incluiu capítulo de outra etapa.');
@@ -40,15 +44,18 @@ async function testStageSelection(page){
 
 async function testMovementSelection(page){
   await page.getByRole('button',{name:'Alterar seleção'}).click();
-  await page.locator('input[name="scope"][value="chapter"]').check({force:true});
+  await page.locator('#study-material-form:not([hidden])').waitFor({state:'visible',timeout:10000});
+  await radioCard(page,'scope','chapter').click();
   await page.locator('select[name="chapter"]').selectOption('6');
-  await page.locator('input[name="chapterMode"][value="selected"]').check({force:true});
+  await radioCard(page,'chapterMode','selected').click();
   const chapter6Ids=await page.locator('input[name="chapterMovements"]').evaluateAll(xs=>xs.map(x=>x.value));
   if(chapter6Ids.length!==6||!chapter6Ids.every(id=>id.startsWith('c6-'))) report.blocking.push('Seleção de movimentos do capítulo 6 contém movimentos de outro capítulo.');
-  await page.locator('input[name="chapterMovements"]').nth(1).check({force:true});
-  await page.locator('input[name="chapterMovements"]').nth(3).check({force:true});
-  await page.locator('input[name="materialType"][value="lista_exercicios"]').check({force:true});
+  const movementCards=page.locator('label.study-check-card:has(input[name="chapterMovements"])');
+  await movementCards.nth(1).click();
+  await movementCards.nth(3).click();
+  await radioCard(page,'materialType','lista_exercicios').click();
   await page.getByRole('button',{name:'Gerar material'}).click();
+  await page.locator('#study-material-result:not([hidden])').waitFor({state:'visible',timeout:10000});
   const text=await page.locator('#study-material-document').innerText();
   if(!text.includes('movimentos 2, 4')) report.blocking.push('Escopo do material não registrou os movimentos selecionados.');
   const questionCount=await page.locator('.study-exercise-list>li').count();
@@ -67,7 +74,10 @@ for(const device of [{id:'desktop',viewport:{width:1366,height:900}},{id:'mobile
     const serious=axe.violations.filter(v=>['critical','serious'].includes(v.impact));
     if(serious.length) report.warnings.push(`${device.id}: ${serious.length} violação(ões) séria(s)/crítica(s): ${serious.map(v=>v.id).join(', ')}.`);
     await session.page.screenshot({path:`${OUT}/materiais-${device.id}.png`,fullPage:true});
-  }catch(error){report.blocking.push(`${device.id}: ${error}`)}
+  }catch(error){
+    const formError=await session.page.locator('#study-form-error').textContent().catch(()=>null);
+    report.blocking.push(`${device.id}: ${error}${formError?` · mensagem da interface: ${formError}`:''}`);
+  }
   if(session.consoleErrors.length) report.blocking.push(`${device.id}: ${session.consoleErrors.length} erro(s) de console.`);
   if(session.pageErrors.length) report.blocking.push(`${device.id}: ${session.pageErrors.length} erro(s) de página.`);
   if(session.failedRequests.length) report.blocking.push(`${device.id}: ${session.failedRequests.length} recurso(s) local(is) falhou(aram).`);
