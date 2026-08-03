@@ -2,6 +2,10 @@
 
 As fontes abaixo confirmam obra, direção, ano, formato, premissa e créditos básicos. As interpretações, cuidados pedagógicos, perguntas e aproximações teóricas são elaboração editorial do Sociosofia.
 
+## Decisão editorial
+
+Em 03/08/2026, Luiz Jácomo aprovou integralmente `CUL-0006` e `CUL-0022` a `CUL-0026`. A decisão está registrada em `data/aprovacoes-migracao-legado-lote8-final-v1.json`. A aprovação autoriza uma migração técnica conjunta com o sétimo lote, desde que os históricos e as aprovações permaneçam separados; não publica automaticamente os textos.
+
 ## CUL-0006 — O Sétimo Selo
 
 - Ingmar Bergman Foundation — ficha de *The Seventh Seal*, filme de 1957 dirigido por Ingmar Bergman.
