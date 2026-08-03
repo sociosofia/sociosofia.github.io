@@ -6,7 +6,7 @@ on:
     paths:
       - 'alunos/study-materials-*'
       - 'alunos/sociologia-2ano/index.html'
-      - 'audit/study-materials-pilot-audit.mjs'
+      - 'audit/study-materials-pilot-v2-audit.mjs'
       - '.github/workflows/study-materials-pilot-audit.yml'
   workflow_dispatch:
 
@@ -34,11 +34,11 @@ jobs:
           python3 -m http.server 8000 > /tmp/sociosofia-server.log 2>&1 &
           sleep 3
       - name: Executar auditoria
-        run: node audit/study-materials-pilot-audit.mjs
+        run: node audit/study-materials-pilot-v2-audit.mjs
       - name: Publicar relatório e capturas
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: piloto-materiais-estudo
-          path: audit/output-study-materials/
+          name: piloto-materiais-estudo-v2
+          path: audit/output-study-materials-v2/
           retention-days: 14
