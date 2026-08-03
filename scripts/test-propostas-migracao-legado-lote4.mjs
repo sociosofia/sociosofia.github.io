@@ -22,7 +22,8 @@ const migrated=migrationFlags.every(Boolean);
 if(migrated){
   assert(
     (legacy.ids.length===21&&publicacoes.length===12&&cultural.length===5)||
-    (legacy.ids.length===18&&publicacoes.length===12&&cultural.length===8),
+    (legacy.ids.length===18&&publicacoes.length===12&&cultural.length===8)||
+    (legacy.ids.length===12&&publicacoes.length===12&&cultural.length===14),
     'As contagens após a migração do quarto lote ou após lotes culturais posteriores estão incorretas.'
   );
   for(const id of expected)assert(!legacyIds.has(id),`${id} permaneceu no legado após a migração.`);

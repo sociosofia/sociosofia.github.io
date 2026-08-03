@@ -18,13 +18,14 @@ const snapshot=await page.evaluate(async()=>{
 
 const legacy=snapshot.filter(item=>item.status_publicacao==='publicado_legado');
 const current=snapshot.filter(item=>item.status_publicacao==='publicado');
-assert(legacy.length===18,`Esperados 18 itens publicado_legado; encontrados ${legacy.length}.`);
-assert(current.length===20,`Esperadas 20 publicações canônicas; encontradas ${current.length}.`);
+assert(legacy.length===12,`Esperados 12 itens publicado_legado; encontrados ${legacy.length}.`);
+assert(current.length===26,`Esperadas 26 publicações canônicas; encontradas ${current.length}.`);
 assert(snapshot.length===38,`A fachada pública deveria conter 38 itens; encontrou ${snapshot.length}.`);
 assert(new Set(snapshot.map(item=>item.id)).size===38,'A fachada pública contém IDs duplicados.');
 assert(legacy.every(item=>item.id.startsWith('CUL-')),'Nenhum card DAD deveria permanecer no legado.');
 
-for(const id of ['DAD-0004','DAD-0007','CUL-0003','DAD-0002','DAD-0006','CUL-0001','DAD-0001','DAD-0005','CUL-0002','DAD-0003','CUL-0004','CUL-0005','CUL-0007','CUL-0008','CUL-0009']){
+const migratedIds=['DAD-0004','DAD-0007','CUL-0003','DAD-0002','DAD-0006','CUL-0001','DAD-0001','DAD-0005','CUL-0002','DAD-0003','CUL-0004','CUL-0005','CUL-0007','CUL-0008','CUL-0009','CUL-0010','CUL-0011','CUL-0012','CUL-0013','CUL-0014','CUL-0015'];
+for(const id of migratedIds){
   const matches=snapshot.filter(item=>item.id===id);
   assert(matches.length===1,`${id} deveria aparecer exatamente uma vez.`);
   assert(matches[0].status_publicacao==='publicado',`${id} não foi promovido ao estado canônico publicado.`);
@@ -46,10 +47,16 @@ await verifyCulturalCard('CUL-0005',['Menino 23: eugenia, trabalho forçado e ap
 await verifyCulturalCard('CUL-0007',['Black Mirror — San Junípero: corpo, memória e a promessa de continuar vivendo','dimensão amorosa e queer','Não apresentar a transferência de consciência como fato científico','Uma existência digital seria continuação da mesma pessoa']);
 await verifyCulturalCard('CUL-0008',['Black Mirror — The Entire History of You: quando lembrar se torna vigiar','Transformar a experiência em arquivo não elimina a interpretação','controle coercitivo','Rever tudo tornaria uma relação mais verdadeira']);
 await verifyCulturalCard('CUL-0009',['Black Mirror — Fifteen Million Merits: trabalho, consumo e revolta transformada em espetáculo','contestação em produto','alegoria','humilhação','O que acontece com a crítica social']);
+await verifyCulturalCard('CUL-0010',['Black Mirror — Men Against Fire: tecnologia, desumanização e fabricação do inimigo','não o cria sozinha','instituições, ideologias e decisões políticas','O que precisa acontecer para que uma sociedade aceite']);
+await verifyCulturalCard('CUL-0011',['Entre os Muros da Escola: linguagem, autoridade e reconhecimento em disputa','posição institucional assimétrica','sistema educacional francês','Como construir autoridade pedagógica']);
+await verifyCulturalCard('CUL-0012',['Cidade de Deus: território, juventude e escolhas sob desigualdade','O Estado também não está simplesmente ausente','espetacularização da violência','Como explicar a violência sem transformar o território']);
+await verifyCulturalCard('CUL-0013',['O Senhor das Armas: lucro, Estados e circulação global da violência','não funciona apenas à margem dos Estados','responsabilidade institucional','Quem é responsável pela violência produzida por uma arma']);
+await verifyCulturalCard('CUL-0014',['Vidas Entregues: trabalho por aplicativo entre autonomia e transferência de riscos','quem absorve os riscos','Não tratar os entregadores como vítimas sem agência','Existe autonomia quando outra organização define preços']);
+await verifyCulturalCard('CUL-0015',['O Diabo Veste Prada: trabalho, distinção e transformação de si','A aparência funciona como linguagem profissional','vaidade feminina','Até que ponto adaptar-se a uma cultura profissional']);
 
 assert(errors.length===0,`Erros no navegador: ${errors.join(' | ')}`);
 await browser.close();
-console.log('Auditoria dos cinco lotes migrados concluída.');
+console.log('Auditoria dos seis lotes migrados concluída.');
 
 async function verifyDataCard(id,expectedTexts){
   await page.goto(base+`repertorio.html?id=${id}`,{waitUntil:'networkidle'});

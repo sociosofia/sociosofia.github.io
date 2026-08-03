@@ -1,0 +1,276 @@
+{
+  "versao": "1.0",
+  "lote": "legado-lote6-v1",
+  "data_migracao": "2026-08-02",
+  "aprovado_por": "Luiz Jácomo",
+  "itens": [
+    {
+      "id": "CUL-0010",
+      "registro_anterior": {
+        "id": "CUL-0010",
+        "editoria": "Séries, filmes, livros e músicas",
+        "categoria": "Séries, filmes, livros e músicas",
+        "tipo": "Episódio",
+        "subtema": "Guerra, alteridade e produção do inimigo",
+        "titulo": "Black Mirror: Men Against Fire: guerra, tecnologia e desumanização",
+        "subtitulo": "Guerra, alteridade e produção do inimigo",
+        "resumo": "O episódio acompanha soldados que combatem um grupo apresentado como ameaça monstruosa. Aos poucos, a narrativa revela que a percepção dos combatentes é mediada por uma tecnologia capaz de alterar a forma como enxergam o outro.",
+        "resumo_obra": "O episódio acompanha soldados que combatem um grupo apresentado como ameaça monstruosa. Aos poucos, a narrativa revela que a percepção dos combatentes é mediada por uma tecnologia capaz de alterar a forma como enxergam o outro.",
+        "leitura_sociosofia": "A obra ajuda a pensar como a violência depende da construção simbólica do inimigo. Antes de eliminar alguém, uma sociedade precisa muitas vezes desumanizar esse corpo, retirando dele nome, rosto, história e pertencimento. O episódio torna visível a articulação entre tecnologia, obediência, guerra e produção da alteridade.",
+        "ancoragem_teorica": "Achille Mbembe, para pensar necropolítica, desumanização e gestão diferencial das vidas consideradas descartáveis.",
+        "conceitos": [
+          "Desumanização",
+          "Alteridade",
+          "Guerra",
+          "Tecnologia",
+          "Inimigo",
+          "Necropolítica",
+          "Obediência"
+        ],
+        "autores": [
+          "Achille Mbembe"
+        ],
+        "fonte_nome": "Black Mirror, episódio Men Against Fire, 2016",
+        "fonte_url": "",
+        "ano_data": "2016",
+        "confiabilidade": "Repertório cultural",
+        "fonte_status": "obra identificada",
+        "tempo_leitura": "3 min",
+        "nivel": "Básico",
+        "status": "rascunho",
+        "destaque": false,
+        "tags": [
+          "guerra",
+          "desumanização",
+          "Mbembe",
+          "tecnologia",
+          "alteridade",
+          "Black Mirror"
+        ]
+      }
+    },
+    {
+      "id": "CUL-0011",
+      "registro_anterior": {
+        "id": "CUL-0011",
+        "editoria": "Séries, filmes, livros e músicas",
+        "categoria": "Séries, filmes, livros e músicas",
+        "tipo": "Filme",
+        "subtema": "Escola, juventude e socialização",
+        "titulo": "Entre os Muros da Escola: conflito, autoridade e desigualdade escolar",
+        "subtitulo": "Escola, juventude e socialização",
+        "resumo": "O filme acompanha o cotidiano de uma escola marcada por tensões entre professor, estudantes, instituição e expectativas sociais. A sala de aula aparece como espaço de aprendizagem, mas também de conflito, disputa simbólica, linguagem e pertencimento.",
+        "resumo_obra": "O filme acompanha o cotidiano de uma escola marcada por tensões entre professor, estudantes, instituição e expectativas sociais. A sala de aula aparece como espaço de aprendizagem, mas também de conflito, disputa simbólica, linguagem e pertencimento.",
+        "leitura_sociosofia": "A obra permite observar a escola como espaço social complexo, e não como ambiente neutro de transmissão de conteúdos. As relações entre professor e estudantes revelam tensões de classe, cultura, autoridade e reconhecimento. O filme ajuda a pensar como a escola pode acolher, classificar, incluir e excluir ao mesmo tempo.",
+        "ancoragem_teorica": "Pierre Bourdieu, para pensar reprodução social, capital cultural e desigualdades presentes nas práticas escolares.",
+        "conceitos": [
+          "Socialização",
+          "Autoridade",
+          "Capital cultural",
+          "Reprodução social",
+          "Juventude",
+          "Conflito escolar"
+        ],
+        "autores": [
+          "Pierre Bourdieu"
+        ],
+        "fonte_nome": "Entre os Muros da Escola, filme de Laurent Cantet, 2008",
+        "fonte_url": "",
+        "ano_data": "2008",
+        "confiabilidade": "Repertório cultural",
+        "fonte_status": "obra identificada",
+        "tempo_leitura": "3 min",
+        "nivel": "Básico",
+        "status": "rascunho",
+        "destaque": false,
+        "tags": [
+          "escola",
+          "juventude",
+          "Bourdieu",
+          "desigualdade escolar",
+          "autoridade",
+          "Entre os Muros da Escola"
+        ]
+      }
+    },
+    {
+      "id": "CUL-0012",
+      "registro_anterior": {
+        "id": "CUL-0012",
+        "editoria": "Séries, filmes, livros e músicas",
+        "categoria": "Séries, filmes, livros e músicas",
+        "tipo": "Filme",
+        "subtema": "Violência urbana, território e desigualdade",
+        "titulo": "Cidade de Deus: território, juventude e violência estrutural",
+        "subtitulo": "Violência urbana, território e desigualdade",
+        "resumo": "O filme acompanha trajetórias juvenis em uma favela carioca marcada por pobreza, ausência de direitos, circulação de armas e redes de violência. A narrativa mostra como escolhas individuais são atravessadas por condições sociais muito desiguais.",
+        "resumo_obra": "O filme acompanha trajetórias juvenis em uma favela carioca marcada por pobreza, ausência de direitos, circulação de armas e redes de violência. A narrativa mostra como escolhas individuais são atravessadas por condições sociais muito desiguais.",
+        "leitura_sociosofia": "A obra permite discutir a violência urbana como fenômeno social, não apenas como resultado de desvios individuais. Ao acompanhar diferentes personagens, percebemos como território, desigualdade, juventude, racismo, mercado ilegal e ausência seletiva do Estado ajudam a produzir trajetórias vulneráveis e violentas.",
+        "ancoragem_teorica": "Loïc Wacquant, para pensar marginalidade urbana, punição, estigma territorial e criminalização da pobreza.",
+        "conceitos": [
+          "Violência estrutural",
+          "Território",
+          "Juventude",
+          "Desigualdade",
+          "Criminalização",
+          "Estado",
+          "Pobreza"
+        ],
+        "autores": [
+          "Loïc Wacquant"
+        ],
+        "fonte_nome": "Cidade de Deus, filme de Fernando Meirelles e Kátia Lund, 2002",
+        "fonte_url": "",
+        "ano_data": "2002",
+        "confiabilidade": "Repertório cultural",
+        "fonte_status": "obra identificada",
+        "tempo_leitura": "3 min",
+        "nivel": "Básico",
+        "status": "rascunho",
+        "destaque": false,
+        "tags": [
+          "violência urbana",
+          "juventude",
+          "Wacquant",
+          "território",
+          "desigualdade",
+          "Cidade de Deus"
+        ]
+      }
+    },
+    {
+      "id": "CUL-0013",
+      "registro_anterior": {
+        "id": "CUL-0013",
+        "editoria": "Séries, filmes, livros e músicas",
+        "categoria": "Séries, filmes, livros e músicas",
+        "tipo": "Filme",
+        "subtema": "Guerra, capitalismo e comércio global de armas",
+        "titulo": "O Senhor das Armas: mercado, guerra e banalização da violência",
+        "subtitulo": "Guerra, capitalismo e comércio global de armas",
+        "resumo": "O filme acompanha a trajetória de um traficante internacional de armas, mostrando como conflitos armados, interesses econômicos e instabilidades políticas se articulam em escala global. A violência aparece como parte de um circuito de mercado.",
+        "resumo_obra": "O filme acompanha a trajetória de um traficante internacional de armas, mostrando como conflitos armados, interesses econômicos e instabilidades políticas se articulam em escala global. A violência aparece como parte de um circuito de mercado.",
+        "leitura_sociosofia": "A obra ajuda a pensar a guerra como negócio. Ao acompanhar a circulação de armas, percebemos que a violência não depende apenas do ódio entre grupos, mas também de redes econômicas, interesses geopolíticos e formas de lucro que transformam a morte em oportunidade comercial.",
+        "ancoragem_teorica": "Karl Marx, para pensar mercantilização, lucro e transformação de relações humanas em relações mediadas por mercadorias.",
+        "conceitos": [
+          "Capitalismo",
+          "Mercantilização",
+          "Guerra",
+          "Geopolítica",
+          "Violência",
+          "Lucro",
+          "Estado"
+        ],
+        "autores": [
+          "Karl Marx"
+        ],
+        "fonte_nome": "O Senhor das Armas, filme de Andrew Niccol, 2005",
+        "fonte_url": "",
+        "ano_data": "2005",
+        "confiabilidade": "Repertório cultural",
+        "fonte_status": "obra identificada",
+        "tempo_leitura": "3 min",
+        "nivel": "Básico",
+        "status": "rascunho",
+        "destaque": false,
+        "tags": [
+          "guerra",
+          "capitalismo",
+          "Marx",
+          "armas",
+          "violência",
+          "O Senhor das Armas"
+        ]
+      }
+    },
+    {
+      "id": "CUL-0014",
+      "registro_anterior": {
+        "id": "CUL-0014",
+        "editoria": "Séries, filmes, livros e músicas",
+        "categoria": "Séries, filmes, livros e músicas",
+        "tipo": "Documentário",
+        "subtema": "Trabalho por plataforma e desigualdade",
+        "titulo": "Vidas Entregues: uberização, algoritmo e precarização do trabalho",
+        "subtitulo": "Trabalho por plataforma e desigualdade",
+        "resumo": "A obra aborda a rotina de trabalhadores de entrega por aplicativo, destacando jornadas extensas, insegurança, baixa proteção social e dependência de plataformas digitais. O trabalho aparece associado à promessa de autonomia, mas também à transferência de riscos para o próprio trabalhador.",
+        "resumo_obra": "A obra aborda a rotina de trabalhadores de entrega por aplicativo, destacando jornadas extensas, insegurança, baixa proteção social e dependência de plataformas digitais. O trabalho aparece associado à promessa de autonomia, mas também à transferência de riscos para o próprio trabalhador.",
+        "leitura_sociosofia": "O repertório permite discutir como novas tecnologias reorganizam formas antigas de exploração. A figura do entregador por aplicativo revela um trabalho mediado por algoritmos, metas, avaliações e ausência de garantias. A ideia de liberdade individual convive com controle invisível, instabilidade e responsabilização solitária pelo fracasso.",
+        "ancoragem_teorica": "Ricardo Antunes, para pensar uberização, precarização e novas morfologias do trabalho no capitalismo contemporâneo.",
+        "conceitos": [
+          "Uberização",
+          "Precarização",
+          "Algoritmo",
+          "Informalidade",
+          "Exploração",
+          "Trabalho por plataforma"
+        ],
+        "autores": [
+          "Ricardo Antunes"
+        ],
+        "fonte_nome": "Vidas Entregues, documentário",
+        "fonte_url": "",
+        "ano_data": "A confirmar",
+        "confiabilidade": "Repertório cultural",
+        "fonte_status": "obra identificada",
+        "tempo_leitura": "3 min",
+        "nivel": "Básico",
+        "status": "rascunho",
+        "destaque": false,
+        "tags": [
+          "trabalho",
+          "uberização",
+          "Ricardo Antunes",
+          "aplicativos",
+          "precarização",
+          "Vidas Entregues"
+        ]
+      }
+    },
+    {
+      "id": "CUL-0015",
+      "registro_anterior": {
+        "id": "CUL-0015",
+        "editoria": "Séries, filmes, livros e músicas",
+        "categoria": "Séries, filmes, livros e músicas",
+        "tipo": "Filme",
+        "subtema": "Trabalho, identidade e cultura organizacional",
+        "titulo": "O Diabo Veste Prada: trabalho, performance e poder simbólico",
+        "subtitulo": "Trabalho, identidade e cultura organizacional",
+        "resumo": "O filme acompanha a entrada de uma jovem jornalista no universo competitivo de uma revista de moda. Nesse ambiente, exigência, hierarquia, aparência, reconhecimento e adaptação passam a reorganizar sua rotina e sua identidade.",
+        "resumo_obra": "O filme acompanha a entrada de uma jovem jornalista no universo competitivo de uma revista de moda. Nesse ambiente, exigência, hierarquia, aparência, reconhecimento e adaptação passam a reorganizar sua rotina e sua identidade.",
+        "leitura_sociosofia": "A obra permite pensar como o trabalho pode moldar desejos, valores e formas de apresentação de si. A personagem não apenas aprende uma função, ela aprende uma cultura. A busca por reconhecimento profissional aparece ligada a renúncias, disciplina do corpo, adaptação simbólica e aceitação de regras nem sempre explicitadas.",
+        "ancoragem_teorica": "Pierre Bourdieu, para pensar capital simbólico, distinção, habitus e formas de reconhecimento social.",
+        "conceitos": [
+          "Trabalho",
+          "Performance",
+          "Capital simbólico",
+          "Distinção",
+          "Reconhecimento",
+          "Identidade",
+          "Hierarquia"
+        ],
+        "autores": [
+          "Pierre Bourdieu"
+        ],
+        "fonte_nome": "O Diabo Veste Prada, filme de David Frankel, 2006",
+        "fonte_url": "",
+        "ano_data": "2006",
+        "confiabilidade": "Repertório cultural",
+        "fonte_status": "obra identificada",
+        "tempo_leitura": "3 min",
+        "nivel": "Básico",
+        "status": "rascunho",
+        "destaque": false,
+        "tags": [
+          "trabalho",
+          "performance",
+          "Bourdieu",
+          "poder simbólico",
+          "identidade",
+          "O Diabo Veste Prada"
+        ]
+      }
+    }
+  ]
+}
