@@ -22,7 +22,7 @@ async function openPage(viewport){
 
 const clickCard = async (page, text, within='dialog') => {
   const root = within === 'dialog' ? page.locator('dialog[open]') : page.locator(within);
-  await root.locator('label').filter({hasText:text}).first().click();
+  await root.locator('label:visible').filter({hasText:text}).first().click();
 };
 
 async function testStageFlow(page,device){
@@ -55,17 +55,17 @@ async function testStageFlow(page,device){
 
 async function testMovementGap(page){
   await page.getByRole('button',{name:'Alterar seleção'}).click();
-  await clickCard(page,'Capítulo');
+  await page.locator('input[name="scope"][value="chapter"]').evaluate(input=>input.closest('label').click());
   await page.locator('label.study-path-bar').filter({hasText:'Capítulo 6'}).click();
   const openPanels = await page.locator('[data-chapter-panel]:visible').count();
   if(openPanels!==1) report.blocking.push('desktop: o capítulo escolhido não abriu uma única barra de opções.');
-  await clickCard(page,'Movimentos específicos');
+  await page.locator('[data-chapter-panel="6"] input[name="chapterMode"][value="selected"]').evaluate(input=>input.closest('label').click());
   const panel = page.locator('[data-chapter-panel="6"]');
   const inputs = panel.locator('input[name="chapterMovements"]');
   const ids = await inputs.evaluateAll(items=>items.map(item=>item.value));
   if(ids.length!==6||!ids.every(id=>id.startsWith('c6-'))) report.blocking.push('desktop: a barra do capítulo 6 contém movimentos de outro capítulo.');
-  await inputs.nth(1).check();
-  await inputs.nth(3).check();
+  await inputs.nth(1).evaluate(input=>input.closest('label').click());
+  await inputs.nth(3).evaluate(input=>input.closest('label').click());
   const omitted = await page.evaluate(()=>{
     const data=JSON.parse(document.getElementById('site-data').textContent);
     return data.chapters.find(chapter=>chapter.number===6).movements[2];
