@@ -40,6 +40,7 @@ jobs:
           path = Path('audit/study-materials-pilot-v2-audit.mjs')
           text = path.read_text()
           text = text.replace("root.locator('label').filter({hasText:text}).first()", "root.locator('label:visible').filter({hasText:text}).first()")
+          text = text.replace("await clickCard(page,'Capítulo');", "await page.locator('input[name=\"scope\"][value=\"chapter\"]').evaluate(input=>input.closest('label').click());")
           path.write_text(text)
           PY
       - name: Executar auditoria
