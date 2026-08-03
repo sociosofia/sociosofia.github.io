@@ -22,8 +22,9 @@ async function openPage(viewport){
 
 const radioCard=(page,name,value)=>page.locator(`label.study-radio-card:has(input[name="${name}"][value="${value}"])`);
 const checkCard=(page,name,value)=>page.locator(`label.study-check-card:has(input[name="${name}"][value="${value}"])`);
+const normalize=(text)=>text.toLocaleLowerCase('pt-BR');
 
-async function testStageSelection(page){
+async function testStageSelection(page,deviceId){
   await page.getByRole('button',{name:'Criar material'}).click();
   await radioCard(page,'scope','stage').click();
   await page.locator('select[name="stage"]').selectOption('3ª etapa');
@@ -36,10 +37,11 @@ async function testStageSelection(page){
   await radioCard(page,'materialType','revisao_prova').click();
   await page.getByRole('button',{name:'Gerar material'}).click();
   await page.locator('#study-material-result:not([hidden])').waitFor({state:'visible',timeout:10000});
-  const text=await page.locator('#study-material-document').innerText();
-  if(!text.includes('Capítulo 5')||!text.includes('Capítulo 6')) report.blocking.push('Revisão da etapa não incluiu os dois capítulos selecionados.');
-  if(text.includes('Capítulo 4')) report.blocking.push('Revisão da etapa incluiu capítulo de outra etapa.');
-  if(!text.includes('Revisão para a prova')) report.blocking.push('Tipo de material de revisão não foi projetado corretamente.');
+  const text=normalize(await page.locator('#study-material-document').innerText());
+  if(!text.includes('capítulo 5')||!text.includes('capítulo 6')) report.blocking.push('Revisão da etapa não incluiu os dois capítulos selecionados.');
+  if(text.includes('capítulo 4')) report.blocking.push('Revisão da etapa incluiu capítulo de outra etapa.');
+  if(!text.includes('revisão para a prova')) report.blocking.push('Tipo de material de revisão não foi projetado corretamente.');
+  await page.screenshot({path:`${OUT}/revisao-etapa-${deviceId}.png`,fullPage:true});
 }
 
 async function testMovementSelection(page){
@@ -56,24 +58,24 @@ async function testMovementSelection(page){
   await radioCard(page,'materialType','lista_exercicios').click();
   await page.getByRole('button',{name:'Gerar material'}).click();
   await page.locator('#study-material-result:not([hidden])').waitFor({state:'visible',timeout:10000});
-  const text=await page.locator('#study-material-document').innerText();
+  const text=normalize(await page.locator('#study-material-document').innerText());
   if(!text.includes('movimentos 2, 4')) report.blocking.push('Escopo do material não registrou os movimentos selecionados.');
   const questionCount=await page.locator('.study-exercise-list>li').count();
   report.checks.exerciseCount=questionCount;
   if(questionCount<2) report.blocking.push('Lista de exercícios gerou menos de duas questões.');
   const forbidden=/(orientação ao professor|plano de aula|mediação docente|decisão editorial|para seu planejamento|privada_docente)/i;
   if(forbidden.test(text)) report.blocking.push('Material público contém linguagem de bastidor ou orientação docente.');
+  await page.screenshot({path:`${OUT}/exercicios-movimentos-desktop.png`,fullPage:true});
 }
 
 for(const device of [{id:'desktop',viewport:{width:1366,height:900}},{id:'mobile',viewport:{width:390,height:844}}]){
   const session=await openPage(device.viewport);
   try{
-    await testStageSelection(session.page);
+    await testStageSelection(session.page,device.id);
     if(device.id==='desktop') await testMovementSelection(session.page);
     const axe=await new AxeBuilder({page:session.page}).analyze();
     const serious=axe.violations.filter(v=>['critical','serious'].includes(v.impact));
     if(serious.length) report.warnings.push(`${device.id}: ${serious.length} violação(ões) séria(s)/crítica(s): ${serious.map(v=>v.id).join(', ')}.`);
-    await session.page.screenshot({path:`${OUT}/materiais-${device.id}.png`,fullPage:true});
   }catch(error){
     const formError=await session.page.locator('#study-form-error').textContent().catch(()=>null);
     report.blocking.push(`${device.id}: ${error}${formError?` · mensagem da interface: ${formError}`:''}`);
