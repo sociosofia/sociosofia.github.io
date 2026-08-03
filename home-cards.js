@@ -36,7 +36,8 @@ export function entityDetail(items,tipo,nome){
   const rotulo={autor:'Autor ou autora',conceito:'Conceito',tema:'Tema'}[tipo]||'Entrada';
   const entry=entityEntry(tipo,nome);
   const resumo=entry?.resumo||defaultSummary(tipo,nome,rel.length);
-  return `<div class="entity-detail-header"><span class="tag">${rotulo}</span><h3>${esc(nome)}</h3><p class="entity-summary">${esc(resumo)}</p></div>${section('Dados, notícias, artigos e pesquisas relacionados',dados)}${section('Filmes, séries e repertórios culturais relacionados',cultura)}${outros.length?`<section class="relation-section"><h3>Outras conexões</h3><ul class="inline-links">${outros.map(o=>`<li><a href="${entityUrl(o.tipo,o.nome)}">${esc(o.nome)}</a></li>`).join('')}</ul></section>`:''}`;
+  const ficha=entry?.href?`<p class="entity-primary-action"><a class="read-more" href="${esc(entry.href)}">Abrir ficha completa</a></p>`:'';
+  return `<div class="entity-detail-header"><span class="tag">${rotulo}</span><h3>${esc(nome)}</h3><p class="entity-summary">${esc(resumo)}</p>${ficha}</div>${section('Dados, notícias, artigos e pesquisas relacionados',dados)}${section('Filmes, séries e repertórios culturais relacionados',cultura)}${outros.length?`<section class="relation-section"><h3>Outras conexões</h3><ul class="inline-links">${outros.map(o=>`<li><a href="${entityUrl(o.tipo,o.nome)}">${esc(o.nome)}</a></li>`).join('')}</ul></section>`:''}`;
 }
 
 function defaultSummary(tipo,nome,n){
