@@ -1,0 +1,38 @@
+name: Aplicar encerramento do legado
+
+on:
+  push:
+    branches:
+      - publicar-encerramento-legado-v1
+    paths:
+      - 'scripts/migrate-encerramento-legado-v1.mjs'
+      - '.github/workflows/apply-encerramento-legado-v1.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  migrar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: publicar-encerramento-legado-v1
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Gerar encerramento canônico
+        run: node scripts/migrate-encerramento-legado-v1.mjs
+      - name: Verificar contratos básicos
+        run: |
+          node scripts/test-publication-contract.mjs
+          node -e "JSON.parse(require('fs').readFileSync('data/repertorios-canonicos.json','utf8'))"
+          node -e "JSON.parse(require('fs').readFileSync('data/publicacao-legado.json','utf8'))"
+      - name: Registrar dados gerados
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/repertorios-canonicos.json data/publicacao-legado.json data/historico-migracao-legado-lote7-v1.json data/historico-migracao-legado-lote8-final-v1.json
+          git commit -m 'Gerar encerramento canônico do acervo legado'
+          git push
