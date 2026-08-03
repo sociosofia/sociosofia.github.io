@@ -5,9 +5,7 @@
     const dialog = root.querySelector?.('#study-materials-pilot');
     if (!dialog) return;
     dialog.querySelectorAll('strong').forEach((label) => {
-      if (label.textContent.trim() === 'Preparar-se antes da aula') {
-        label.textContent = 'Antes da aula';
-      }
+      if (label.textContent.trim() === 'Preparar-se antes da aula') label.textContent = 'Antes da aula';
     });
   }
 
@@ -30,6 +28,5 @@
     }
   });
 
-  const observer = new MutationObserver(() => alignApprovedLabels());
-  observer.observe(document.documentElement, {childList:true, subtree:true});
+  requestAnimationFrame(() => alignApprovedLabels());
 })();
