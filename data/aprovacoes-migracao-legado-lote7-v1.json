@@ -1,0 +1,23 @@
+{
+  "versao": "1.0",
+  "lote": "legado-lote7-v1",
+  "status": "aprovado",
+  "aprovado_por": "Luiz Jácomo",
+  "data": "2026-08-02",
+  "itens": [
+    {"id": "CUL-0016", "decisao": "aprovado"},
+    {"id": "CUL-0017", "decisao": "aprovado"},
+    {"id": "CUL-0018", "decisao": "aprovado"},
+    {"id": "CUL-0019", "decisao": "aprovado"},
+    {"id": "CUL-0020", "decisao": "aprovado"},
+    {"id": "CUL-0021", "decisao": "aprovado"}
+  ],
+  "efeitos": {
+    "publicacao_imediata": false,
+    "migracao_tecnica_separada": true,
+    "preservar_ids_e_enderecos": true,
+    "preservar_historico": true,
+    "criar_relacoes_automaticas": false
+  },
+  "observacao": "A aprovação editorial autoriza a preparação da migração técnica em branch separada. Não altera sozinha as bases públicas nem cria relações, autores, conceitos ou Elos."
+}
