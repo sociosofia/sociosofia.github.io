@@ -6,24 +6,28 @@ on:
       - migracao-editorial-legado-lote7-v1
     paths:
       - 'data/propostas-migracao-legado-lote7-v1.json'
+      - 'data/aprovacoes-migracao-legado-lote7-v1.json'
       - 'data/publicacao-legado.json'
       - 'data/repertorios.json'
       - 'data/publicacoes.json'
       - 'data/repertorios-canonicos.json'
       - 'data/temas.json'
       - 'scripts/test-propostas-migracao-legado-lote7.mjs'
+      - 'scripts/test-aprovacao-migracao-legado-lote7.mjs'
       - '.github/workflows/validate-propostas-migracao-legado-lote7.yml'
   pull_request:
     branches:
       - main
     paths:
       - 'data/propostas-migracao-legado-lote7-v1.json'
+      - 'data/aprovacoes-migracao-legado-lote7-v1.json'
       - 'data/publicacao-legado.json'
       - 'data/repertorios.json'
       - 'data/publicacoes.json'
       - 'data/repertorios-canonicos.json'
       - 'data/temas.json'
       - 'scripts/test-propostas-migracao-legado-lote7.mjs'
+      - 'scripts/test-aprovacao-migracao-legado-lote7.mjs'
       - '.github/workflows/validate-propostas-migracao-legado-lote7.yml'
   workflow_dispatch:
 
@@ -41,6 +45,10 @@ jobs:
       - name: Verificar sintaxe e JSON
         run: |
           node --check scripts/test-propostas-migracao-legado-lote7.mjs
+          node --check scripts/test-aprovacao-migracao-legado-lote7.mjs
           node -e "JSON.parse(require('fs').readFileSync('data/propostas-migracao-legado-lote7-v1.json','utf8'))"
+          node -e "JSON.parse(require('fs').readFileSync('data/aprovacoes-migracao-legado-lote7-v1.json','utf8'))"
       - name: Validar sétimo lote cultural ampliado
         run: node scripts/test-propostas-migracao-legado-lote7.mjs
+      - name: Validar aprovação nominal
+        run: node scripts/test-aprovacao-migracao-legado-lote7.mjs
