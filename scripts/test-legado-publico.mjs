@@ -8,10 +8,10 @@ const repertorios=JSON.parse(await readFile(new URL('data/repertorios.json',root
 
 assert(legacy.estado_publico==='publicado_legado','O registro do legado precisa usar publicado_legado.');
 assert(Array.isArray(legacy.ids),'A lista de IDs do legado não foi encontrada.');
-assert(legacy.ids.length===18,'A fachada pública legada deve preservar 18 itens após o quinto lote.');
+assert(legacy.ids.length===12,'A fachada pública legada deve preservar 12 itens após o sexto lote.');
 assert(new Set(legacy.ids).size===legacy.ids.length,'Há IDs duplicados no registro do legado.');
-assert(legacy.ids.filter(id=>id.startsWith('DAD-')).length===0,'Nenhum card DAD deve permanecer no legado após o quarto lote.');
-assert(legacy.ids.filter(id=>id.startsWith('CUL-')).length===18,'O legado deve preservar 18 cards CUL.');
+assert(legacy.ids.filter(id=>id.startsWith('DAD-')).length===0,'Nenhum card DAD deve permanecer no legado.');
+assert(legacy.ids.filter(id=>id.startsWith('CUL-')).length===12,'O legado deve preservar 12 cards CUL.');
 
 const repertoryMap=new Map(repertorios.map(item=>[item.id,item]));
 for(const id of legacy.ids){
@@ -20,9 +20,9 @@ for(const id of legacy.ids){
   assert(item.status!=='arquivado',`O ID arquivado ${id} não pode permanecer público.`);
 }
 
-const expectedMigrated=['DAD-0004','DAD-0007','CUL-0003','DAD-0002','DAD-0006','CUL-0001','DAD-0001','DAD-0005','CUL-0002','DAD-0003','CUL-0004','CUL-0005','CUL-0007','CUL-0008','CUL-0009'];
+const expectedMigrated=['DAD-0004','DAD-0007','CUL-0003','DAD-0002','DAD-0006','CUL-0001','DAD-0001','DAD-0005','CUL-0002','DAD-0003','CUL-0004','CUL-0005','CUL-0007','CUL-0008','CUL-0009','CUL-0010','CUL-0011','CUL-0012','CUL-0013','CUL-0014','CUL-0015'];
 const migratedIds=(legacy.migrados||[]).map(item=>item.id);
-assert(JSON.stringify(migratedIds)===JSON.stringify(expectedMigrated),'O registro de migrados não corresponde aos cinco lotes aprovados.');
+assert(JSON.stringify(migratedIds)===JSON.stringify(expectedMigrated),'O registro de migrados não corresponde aos seis lotes aprovados.');
 assert(new Set(migratedIds).size===migratedIds.length,'Há IDs duplicados no histórico de migrados.');
 
 for(const id of migratedIds){
@@ -34,4 +34,4 @@ const allowedOutsideLegacy=new Set(migratedIds);
 const unlisted=repertorios.filter(item=>item.status!=='publicado'&&!legacy.ids.includes(item.id)&&!allowedOutsideLegacy.has(item.id));
 assert(unlisted.length===0,'Há itens legados fora do registro transitório ou da lista de migrados: '+unlisted.map(item=>item.id).join(', '));
 
-console.log('Registro público transitório do legado validado após cinco lotes.');
+console.log('Registro público transitório do legado validado após seis lotes.');
