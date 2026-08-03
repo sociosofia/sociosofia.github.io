@@ -1,6 +1,18 @@
 (() => {
   'use strict';
 
+  function alignApprovedLabels(root = document) {
+    const dialog = root.querySelector?.('#study-materials-pilot');
+    if (!dialog) return;
+    dialog.querySelectorAll('strong').forEach((label) => {
+      if (label.textContent.trim() === 'Preparar-se antes da aula') {
+        label.textContent = 'Antes da aula';
+      }
+    });
+  }
+
+  document.addEventListener('DOMContentLoaded', () => alignApprovedLabels(), {once:true});
+
   document.addEventListener('change', (event) => {
     const dialog = event.target.closest?.('#study-materials-pilot');
     if (!dialog) return;
@@ -17,4 +29,7 @@
       if (panel) panel.hidden = false;
     }
   });
+
+  const observer = new MutationObserver(() => alignApprovedLabels());
+  observer.observe(document.documentElement, {childList:true, subtree:true});
 })();
