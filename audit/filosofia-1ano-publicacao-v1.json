@@ -1,0 +1,49 @@
+{
+  "id": "AUD-FILO1-ANUAL-V1",
+  "componente": "Filosofia",
+  "ano": "1º ano",
+  "instituicao": "SESI Rio Claro",
+  "status": "aprovado_para_publicacao",
+  "aprovacao": {
+    "responsavel": "Luiz Jácomo",
+    "data": "2026-08-05",
+    "escopo": "fechamento anual e publicação na Área do Estudante"
+  },
+  "estrutura": {
+    "etapas": 3,
+    "capitulos": 10,
+    "movimentos": 56,
+    "trilhas_opcionais": 1,
+    "paginas_livro_estudante": "12–177"
+  },
+  "decisoes_preservadas": [
+    "Inter em toda a interface",
+    "roxo e Fraunces proibidos na Área do Estudante",
+    "leitura contínua por etapas, capítulos e movimentos",
+    "ficha completa na ocorrência principal e retomada contextual nas demais",
+    "fontes curriculares, filosóficas e acadêmicas visíveis",
+    "paginação pública usa somente as páginas do livro do estudante",
+    "nenhuma ficha, REL ou repertório pendente é ativado automaticamente",
+    "SOC-0007, SOC-0008 e candidatos culturais permanecem fora da publicação",
+    "trilha opcional única no Capítulo 1",
+    "Banco Sociosofia não é alterado por esta publicação"
+  ],
+  "arquivos_publicos": [
+    "alunos/filosofia-1ano/index.html",
+    "alunos/filosofia-1ano/page-01.b64",
+    "alunos/filosofia-1ano/page-02.b64",
+    "alunos/filosofia-1ano/page-03.b64",
+    "alunos/filosofia-1ano/page-04.b64",
+    "alunos/filosofia-1ano/page-05.b64",
+    "alunos/filosofia-1ano/page-06.b64",
+    "alunos/filosofia-1ano/page-07.b64",
+    "alunos/filosofia-1ano/page-08.b64"
+  ],
+  "integridade": {
+    "sha256_html_anual": "55ba30a03cbb9164ba1453e84956f108e67b0569ab4ad380333296273961680f",
+    "ids_duplicados": 0,
+    "links_internos_ausentes": 0,
+    "roxo_ou_fraunces": 0,
+    "bastidores_editoriais_publicos": 0
+  }
+}
