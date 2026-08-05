@@ -1,14 +1,6 @@
 name: Validar Filosofia 1º ano transversal v2
 
 on:
-  push:
-    branches:
-      - agent/reconstruir-filosofia-1ano-transversal-v2
-    paths:
-      - 'alunos/filosofia-1ano/**'
-      - 'docs/filosofia-1ano/movimento-2-*.md'
-      - 'scripts/test-filosofia-1ano-transversal-v2.mjs'
-      - '.github/workflows/validate-filosofia-1ano-transversal-v2.yml'
   workflow_dispatch:
 
 permissions:
