@@ -6,6 +6,7 @@ on:
       - agent/reconstruir-filosofia-1ano-transversal-v2
     paths:
       - 'alunos/filosofia-1ano/**'
+      - 'docs/filosofia-1ano/movimento-2-*.md'
       - 'scripts/test-filosofia-1ano-transversal-v2.mjs'
       - '.github/workflows/validate-filosofia-1ano-transversal-v2.yml'
   workflow_dispatch:
@@ -20,6 +21,6 @@ jobs:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '24'
       - name: Executar validação editorial e estrutural
         run: node scripts/test-filosofia-1ano-transversal-v2.mjs
