@@ -1,0 +1,54 @@
+name: Exportar referências da Área do Estudante v3
+
+on:
+  push:
+    branches:
+      - agent/reconstruir-filosofia-1ano-por-etapas-v3
+    paths:
+      - '.github/workflows/export-referencias-area-estudante-v3.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  exportar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Reconstruir referências
+        run: |
+          mkdir -p tmp/referencias
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          import zlib from 'node:zlib';
+
+          const jobs = [
+            {
+              out: 'tmp/referencias/area-estudante-atual.html',
+              files: ['alunos/area-v2-01.b64','alunos/area-v2-02.b64','alunos/area-v2-03.b64']
+            },
+            {
+              out: 'tmp/referencias/filosofia-2ano-atual.html',
+              files: ['alunos/filosofia-2ano/page-01.b64','alunos/filosofia-2ano/page-rest-01.b64','alunos/filosofia-2ano/page-rest-02.b64','alunos/filosofia-2ano/page-rest-03.b64','alunos/filosofia-2ano/page-rest-04.b64','alunos/filosofia-2ano/page-rest-05.b64','alunos/filosofia-2ano/page-rest-06.b64','alunos/filosofia-2ano/page-rest-07.b64']
+            }
+          ];
+
+          for (const job of jobs) {
+            const encoded = job.files.map(file => fs.readFileSync(file,'utf8').replace(/\s+/g,'')).join('');
+            const html = zlib.gunzipSync(Buffer.from(encoded,'base64')).toString('utf8');
+            fs.writeFileSync(job.out, html);
+          }
+          fs.copyFileSync('alunos/student-identity-v1.css','tmp/referencias/student-identity-v1.css');
+          fs.copyFileSync('alunos/student-identity-v1-refinements.css','tmp/referencias/student-identity-v1-refinements.css');
+          fs.copyFileSync('alunos/visual-patch.js','tmp/referencias/visual-patch.js');
+          NODE
+      - name: Publicar referências
+        uses: actions/upload-artifact@v4
+        with:
+          name: referencias-area-estudante-v3
+          path: tmp/referencias
+          retention-days: 7
