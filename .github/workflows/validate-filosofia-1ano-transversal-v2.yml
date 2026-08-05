@@ -1,0 +1,25 @@
+name: Validar Filosofia 1º ano transversal v2
+
+on:
+  push:
+    branches:
+      - agent/reconstruir-filosofia-1ano-transversal-v2
+    paths:
+      - 'alunos/filosofia-1ano/**'
+      - 'scripts/test-filosofia-1ano-transversal-v2.mjs'
+      - '.github/workflows/validate-filosofia-1ano-transversal-v2.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Executar validação editorial e estrutural
+        run: node scripts/test-filosofia-1ano-transversal-v2.mjs
