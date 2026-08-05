@@ -1,0 +1,42 @@
+name: Exportar fonte atual de Filosofia do 1º ano
+
+on:
+  push:
+    branches:
+      - agent/reconstruir-filosofia-1ano-transversal-v2
+    paths:
+      - '.github/workflows/export-filosofia-1ano-source-v2.yml'
+      - 'alunos/filosofia-1ano/page-*.b64'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  exportar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+      - name: Descomprimir a fonte anual
+        run: |
+          mkdir -p tmp/filosofia-1ano-source
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          import zlib from 'node:zlib';
+          const base = 'alunos/filosofia-1ano';
+          const files = Array.from({length: 8}, (_, i) => `${base}/page-${String(i + 1).padStart(2, '0')}.b64`);
+          const encoded = files.map(file => fs.readFileSync(file, 'utf8').trim()).join('');
+          const html = zlib.gunzipSync(Buffer.from(encoded, 'base64')).toString('utf8');
+          fs.writeFileSync('tmp/filosofia-1ano-source/filosofia-1ano-atual.html', html);
+          fs.copyFileSync('alunos/filosofia-1ano/index.html', 'tmp/filosofia-1ano-source/carregador-atual.html');
+          NODE
+      - name: Publicar artefato diagnóstico
+        uses: actions/upload-artifact@v4
+        with:
+          name: filosofia-1ano-source-v2
+          path: tmp/filosofia-1ano-source
+          if-no-files-found: error
+          retention-days: 7
