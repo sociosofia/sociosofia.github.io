@@ -1,4 +1,32 @@
 <!doctype html>
 <html lang="pt-BR">
-<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Área do Estudante do Sociosofia."><title>Área do Estudante | Sociosofia</title><style>body{margin:0;min-height:100vh;display:grid;place-items:center;background:#F7F1E8;color:#1F1F1F;font-family:Inter,system-ui,sans-serif;text-align:center}main{padding:32px}h1{color:#5B2E91;font-family:Georgia,serif}.loader{width:50px;height:50px;margin:24px auto;border:6px solid rgba(91,46,145,.15);border-top-color:#D95D39;border-radius:50%;animation:spin .8s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}</style></head>
-<body><main id="status" aria-live="polite"><h1>Sociosofia Alunos</h1><p>Carregando a Área do Estudante…</p><div class="loader" aria-hidden="true"></div></main><script src="visual-patch.js"></script><script>(async()=>{try{if(!("DecompressionStream" in window))throw new Error("Sem suporte à descompressão");const files=["area-v2-01.b64","area-v2-02.b64","area-v2-03.b64"];const parts=await Promise.all(files.map(async f=>{const r=await fetch(f,{cache:"force-cache"});if(!r.ok)throw new Error(`Falha ao carregar ${f}`);return(await r.text()).trim()}));const raw=atob(parts.join(""));const bytes=Uint8Array.from(raw,c=>c.charCodeAt(0));let page=await new Response(new Blob([bytes]).stream().pipeThrough(new DecompressionStream("gzip"))).text();page=window.applySociosofiaStudentIdentity?.(page)||page;document.open();document.write(page);document.close()}catch(e){console.error(e);document.getElementById("status").innerHTML='<h1>Não foi possível abrir a Área do Estudante.</h1><p>Atualize a página e tente novamente.</p>'}})();</script></body></html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#F7F1E8">
+<meta name="description" content="Sociosofia EDU — percursos de Sociologia e Filosofia para estudantes.">
+<title>Sociosofia EDU</title>
+<style>
+:root{--paper:#F7F1E8;--ink:#292724;--muted:#706961;--terra:#9A6653;--line:#D9CFC3;--card:#FFFDF9}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;padding:24px;background:var(--paper);color:var(--ink);font-family:Inter,system-ui,sans-serif;text-align:center}
+main{width:min(620px,100%);padding:32px;border:1px solid var(--line);border-radius:12px;background:var(--card)}h1{margin:0 0 10px}p{color:var(--muted)}
+.loader{width:48px;height:48px;margin:22px auto 0;border:5px solid rgba(77,109,110,.15);border-top-color:var(--terra);border-radius:50%;animation:spin .8s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}@media(prefers-reduced-motion:reduce){.loader{animation:none}}
+</style>
+</head>
+<body>
+<main id="status" aria-live="polite"><h1>Sociosofia EDU</h1><p>Carregando a Área do Estudante…</p><div class="loader" aria-hidden="true"></div></main>
+<script>
+(async()=>{
+ try{
+  if(!("DecompressionStream" in window))throw new Error("Este navegador não oferece suporte à descompressão da página.");
+  const files=["edu-v5-3.b64"];
+  const parts=await Promise.all(files.map(async file=>{const r=await fetch(file,{cache:"force-cache"});if(!r.ok)throw new Error(`Falha ao carregar ${file}`);return(await r.text()).trim()}));
+  const raw=atob(parts.join(""));const bytes=Uint8Array.from(raw,c=>c.charCodeAt(0));
+  const stream=new Blob([bytes]).stream().pipeThrough(new DecompressionStream("gzip"));
+  const page=await new Response(stream).text();document.open();document.write(page);document.close();
+ }catch(error){console.error(error);document.getElementById("status").innerHTML='<h1>Não foi possível abrir.</h1><p>Atualize a página e tente novamente.</p>'}
+})();
+</script>
+</body>
+</html>
