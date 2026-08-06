@@ -1,0 +1,21 @@
+const fs=require('fs'),assert=require('assert'),zlib=require('zlib'),crypto=require('crypto');
+function load(dir,files){const b64=files.map(f=>fs.readFileSync(dir+'/'+f,'utf8').trim()).join('');return zlib.gunzipSync(Buffer.from(b64,'base64')).toString('utf8')}
+const rootFiles=['area-v5-3-01.b64', 'area-v5-3-02.b64', 'area-v5-3-03.b64', 'area-v5-3-04.b64', 'area-v5-3-05.b64', 'area-v5-3-06.b64', 'area-v5-3-07.b64', 'area-v5-3-08.b64', 'area-v5-3-09.b64'],courseFiles=['v5-3-01.b64', 'v5-3-02.b64', 'v5-3-03.b64', 'v5-3-04.b64', 'v5-3-05.b64', 'v5-3-06.b64', 'v5-3-07.b64', 'v5-3-08.b64'];
+const root=load('alunos',rootFiles),course=load('alunos/filosofia-1ano',courseFiles);
+assert.strictEqual(crypto.createHash('sha256').update(root).digest('hex'),'21e4cf5fda0075d90568eab8ed3201c10b30a97aafe55ad613dfd94cd3a2f9f9');
+assert.strictEqual(crypto.createHash('sha256').update(course).digest('hex'),'48012234b4811e1691cffefc165f245acb29edcea497d0fdc45f8daa805434c9');
+assert(root.includes("const PHILOSOPHY_PATH='filosofia-1ano/'"));
+assert(root.includes("O gerador deste percurso ainda está em atualização."));
+assert(root.includes("d.stages.map((st,i)=>"));
+assert(root.includes("path:d.path||PHILOSOPHY_PATH"));
+assert(course.includes("sociosofia-history-push"));
+assert(course.includes("sociosofia-history-back"));
+assert(course.includes("applySociosofiaHistory"));
+assert(course.includes("#material="));
+const raw=course.match(/const COURSE=(.*?);\nconst frame=/s);assert(raw,'COURSE ausente');
+const decoded=JSON.parse(raw[1].replace(/<\\\/script>/g,'</script>'));
+const m=decoded.match(/<script id="course-data" type="application\/json">(.*?)<\/script>/s);assert(m,'course-data ausente');
+const data=JSON.parse(m[1]);
+assert.strictEqual(data.chapters.length,10);assert.strictEqual(data.chapters.reduce((n,c)=>n+c.movements.length,0),56);
+assert.strictEqual(crypto.createHash('sha256').update(m[1]).digest('hex'),'14e79cd639c252fb3488419a967e9ec2b97ccbb8fe3c9f4f75d764745d2b1378');
+console.log(JSON.stringify({chapters:10,movements:56,rootFiles:rootFiles.length,courseFiles:courseFiles.length}));
