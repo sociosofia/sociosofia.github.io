@@ -1,38 +1,14 @@
-name: Validar Filosofia do 1º ano
+name: Validação legada — Filosofia do 1º ano anual
 
 on:
-  push:
-    branches:
-      - agent/publicar-filosofia-1ano-anual-v1
-    paths:
-      - 'alunos/filosofia-1ano/**'
-      - 'audit/filosofia-1ano-publicacao-v1.json'
-      - 'docs/fechamento-filosofia-1ano-v1.md'
-      - 'scripts/test-filosofia-1ano-anual-v1.mjs'
-      - '.github/workflows/validate-filosofia-1ano-anual-v1.yml'
-  pull_request:
-    branches:
-      - main
-    paths:
-      - 'alunos/filosofia-1ano/**'
-      - 'audit/filosofia-1ano-publicacao-v1.json'
-      - 'docs/fechamento-filosofia-1ano-v1.md'
-      - 'scripts/test-filosofia-1ano-anual-v1.mjs'
-      - '.github/workflows/validate-filosofia-1ano-anual-v1.yml'
   workflow_dispatch:
 
 permissions:
   contents: read
 
 jobs:
-  validar:
+  legado:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-      - name: Verificar sintaxe do teste
-        run: node --check scripts/test-filosofia-1ano-anual-v1.mjs
-      - name: Validar percurso anual
-        run: node scripts/test-filosofia-1ano-anual-v1.mjs
+      - name: Informar substituição do modelo anual
+        run: echo "A validação anual foi desativada. O percurso vigente é validado por etapas, capítulos e movimentos no workflow v5.3."
