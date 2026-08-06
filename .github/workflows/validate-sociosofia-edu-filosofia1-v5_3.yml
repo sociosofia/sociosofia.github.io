@@ -1,0 +1,20 @@
+name: Validar Sociosofia EDU — Filosofia 1º ano v5.3
+on:
+  pull_request:
+    paths:
+      - 'alunos/index.html'
+      - 'alunos/filosofia-1ano/index.html'
+      - 'alunos/area-v5-3-*.b64'
+      - 'alunos/filosofia-1ano/v5-3-*.b64'
+      - 'scripts/validate-sociosofia-edu-filosofia1-v5_3.js'
+      - '.github/workflows/validate-sociosofia-edu-filosofia1-v5_3.yml'
+  workflow_dispatch:
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node scripts/validate-sociosofia-edu-filosofia1-v5_3.js
