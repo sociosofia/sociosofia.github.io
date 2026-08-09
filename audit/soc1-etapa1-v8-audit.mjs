@@ -64,8 +64,10 @@ for(const device of devices){
     const full=page.locator('#c1-m1 .v8-full-trigger').first();
     await full.click();
     await page.waitForSelector('#drawer.open',{timeout:10000});
-    const drawer=await page.locator('#drawer').innerText();
-    if(!drawer.includes('Em poucas palavras')||drawer.length<250) fail(result,'Ficha canônica integral não abriu a partir da apresentação completa.');
+    const fullDrawerTitle=(await page.locator('#drawer-title').textContent()||'').trim();
+    const fullDrawerSections=await page.locator('#drawer-body .drawer-section').count();
+    result.checks.fullDrawer={title:fullDrawerTitle,sections:fullDrawerSections};
+    if(fullDrawerTitle!=='Estranhamento sociológico'||fullDrawerSections<5) fail(result,'Ficha canônica integral não abriu a partir da apresentação completa.');
     await page.keyboard.press('Escape');
 
     await page.evaluate(()=>openChapter(3));
@@ -87,7 +89,10 @@ for(const device of devices){
     const contextual=c4m3.locator('.v8-contextual-use').first();
     await contextual.click();
     await page.waitForSelector('#drawer.open');
-    if(!(await page.locator('#drawer').innerText()).includes('Em poucas palavras')) fail(result,'Retomada contextual não recuperou a ficha canônica.');
+    const contextualDrawerTitle=(await page.locator('#drawer-title').textContent()||'').trim();
+    const contextualDrawerSections=await page.locator('#drawer-body .drawer-section').count();
+    result.checks.contextualDrawer={title:contextualDrawerTitle,sections:contextualDrawerSections};
+    if(!['Karl Marx','Max Weber','Pierre Bourdieu'].includes(contextualDrawerTitle)||contextualDrawerSections<5) fail(result,'Retomada contextual não recuperou a ficha canônica.');
     await page.keyboard.press('Escape');
 
     const c4m5=page.locator('#c4-m5');
