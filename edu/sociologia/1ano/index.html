@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#F7F1E8">
+<meta name="robots" content="noindex,nofollow,noarchive">
+<title>Sociosofia EDU · Sociologia · 1º ano</title>
+<style>
+html,body{margin:0;min-height:100%;background:#F7F1E8;color:#292724;font-family:Inter,system-ui,sans-serif}
+body{visibility:hidden}.boot-error{visibility:visible;max-width:700px;margin:15vh auto;padding:24px;font:16px/1.5 system-ui;background:#fff;border:1px solid #ddd;border-radius:12px}
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main-content">Pular para o conteúdo</a>
+<header class="app-header">
+  <div class="wrap header-inner">
+    <a class="brand" href="#inicio" aria-label="Início do Sociosofia EDU">
+      <span class="brand-name">Sociosofia <span class="edu-tag">EDU</span></span>
+      <svg class="mini-elo" viewBox="0 0 36 32" aria-hidden="true"><path d="M18 5 L6 26 L30 26 Z" fill="none" stroke="#A99B88" stroke-width="1.4"/><circle cx="18" cy="5" r="4.6" fill="#2F6F73"/><circle cx="6" cy="26" r="4.6" fill="#5B2E91"/><circle cx="30" cy="26" r="4.6" fill="#D95D39"/></svg>
+    </a>
+    <nav class="utility-nav" aria-label="Ações principais">
+      <button class="utility-button primary" id="material-button" type="button" title="Gerar material"><span class="long">Gerar material</span></button>
+      <button class="utility-button icon-only" id="search-button" type="button" aria-label="Buscar">⌕</button>
+    </nav>
+  </div>
+  <div class="breadcrumb-wrap" id="breadcrumb-wrap" hidden><nav class="breadcrumb" id="breadcrumb" aria-label="Localização no percurso"></nav></div>
+</header>
+<section class="search-panel" id="search-panel"><div class="wrap search-inner"><div class="search-row"><input id="search-input" type="search" placeholder="Buscar no Sociosofia EDU"><button id="search-run" type="button">Buscar</button></div><div class="search-results" id="search-results"></div></div></section>
+<main class="main" id="main-content" tabindex="-1"><div id="app"></div></main>
+<footer class="site-footer"><div class="wrap">Sociosofia EDU · Sociologia · 1º ano.</div></footer>
+<dialog class="material-dialog" id="material-dialog"><div class="material-panel"><div class="material-head"><h2>Gerar revisão</h2><button class="dialog-close" id="material-close" type="button" aria-label="Fechar">×</button></div><div class="material-body"><p class="material-context">Selecione os capítulos da 1ª etapa.</p><div class="scope-list" id="scope-list"></div><div class="material-actions"><button id="material-cancel" type="button">Cancelar</button><button class="primary" id="material-generate" type="button">Gerar revisão</button></div></div></div></dialog>
+<div class="overlay" id="entity-overlay" aria-hidden="true"><div class="overlay-backdrop" id="entity-backdrop"></div><aside class="sheet" role="dialog" aria-modal="true" aria-labelledby="entity-sheet-title"><div class="sheet-header"><button class="sheet-back" id="entity-return" type="button">← <span>Voltar ao movimento</span></button><button class="sheet-close" id="entity-close" type="button" aria-label="Fechar">×</button></div><div class="sheet-scroll" id="entity-sheet"></div></aside></div>
+<script>
+(async()=>{
+  try{
+    const parts=Array.from({length:8},(_,i)=>`bundle-${String(i+1).padStart(2,'0')}.part`);
+    const b64=(await Promise.all(parts.map(async path=>{const r=await fetch(path,{cache:'no-store'});if(!r.ok)throw new Error(`${path}: ${r.status}`);return (await r.text()).trim()}))).join('');
+    const bytes=Uint8Array.from(atob(b64),c=>c.charCodeAt(0));
+    const stream=new Blob([bytes]).stream().pipeThrough(new DecompressionStream('gzip'));
+    const B=JSON.parse(await new Response(stream).text());
+    if(B.version!=='v8-final-aprovada'||B.visual!=='v0.5-aprovado')throw new Error('Contrato canônico inesperado');
+    const style=document.createElement('style');style.dataset.sociosofiaVisual='v0.5-aprovado';style.textContent=B.css;document.head.append(style);
+    window.__SOCIOSOFIA_EDU_BUNDLE__=B;
+    document.body.style.visibility='visible';
+    const script=document.createElement('script');script.dataset.sociosofiaContent='v8-final-aprovada';script.textContent=B.app;document.body.append(script);
+  }catch(error){
+    console.error(error);document.body.innerHTML=`<div class="boot-error"><strong>Não foi possível carregar o Sociosofia EDU.</strong><br>${String(error.message||error)}</div>`;document.body.style.visibility='visible';
+  }
+})();
+</script>
+</body>
+</html>
