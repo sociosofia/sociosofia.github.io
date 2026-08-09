@@ -1,0 +1,43 @@
+name: Validar Sociologia 1º ano · Etapa 1 v8
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'alunos/sociologia-1ano/**'
+      - 'audit/soc1-etapa1-v8-audit.mjs'
+      - '.github/workflows/validate-soc1-etapa1-v8.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Baixar repositório
+        uses: actions/checkout@v4
+      - name: Configurar Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+      - name: Instalar navegador de teste
+        run: |
+          npm init -y
+          npm install playwright
+          npx playwright install --with-deps chromium
+      - name: Iniciar servidor local
+        run: |
+          python3 -m http.server 8000 > /tmp/sociosofia-v8-server.log 2>&1 &
+          sleep 3
+      - name: Validar transposição v8
+        run: node audit/soc1-etapa1-v8-audit.mjs
+      - name: Publicar relatório e capturas
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: validacao-soc1-etapa1-v8
+          path: audit/output-soc1-v8/
+          retention-days: 14
