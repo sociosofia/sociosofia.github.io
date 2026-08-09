@@ -1,5 +1,5 @@
 (() => {
-  const runtimeParts = ["v8-runtime-01.part","v8-runtime-02.part","v8-runtime-03.part","v8-runtime-04.part","v8-runtime-05.part"];
+  const runtimeParts = ["v8-runtime-01.part","v8-runtime-02a.part","v8-runtime-02b.part","v8-runtime-02c.part","v8-runtime-02d.part","v8-runtime-03.part","v8-runtime-04.part","v8-runtime-05.part"];
   const patchParts = ["v8-patch-01.part","v8-patch-02.part"];
 
   async function readParts(files) {
