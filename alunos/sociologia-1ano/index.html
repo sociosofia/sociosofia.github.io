@@ -62,6 +62,7 @@
   </main>
   <script src="../accessibility-patch.js"></script>
   <script src="../visual-patch.js"></script>
+  <script src="etapa1-v8-apply.js"></script>
   <script src="etapa1-v8-loader.js"></script>
   <script>
     (async () => {
@@ -92,7 +93,7 @@
         page = window.applySociosofiaAccessibilityPatch?.(page) || page;
         page = window.applySociosofiaStudentIdentity?.(page) || page;
         await window.sociosofiaV8Ready;
-        page = (await window.applySociosofiaSoc1Etapa1V8?.(page)) || page;
+        page = window.applySociosofiaSoc1Etapa1V8?.(page) || page;
 
         document.open();
         document.write(page);
