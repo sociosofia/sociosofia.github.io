@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#b5121b" />
+  <title>Sociosofia · Painel agregado de resultados</title>
+  <style>
+    :root{--red:#b5121b;--red-dark:#851018;--ink:#171717;--muted:#666;--line:#e8e8e8;--paper:#fff;--wash:#f7f7f7;--soft:#f4ecec;--shadow:0 12px 32px rgba(0,0,0,.07);--radius:20px}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#f3f3f3;color:var(--ink);font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.45}
+    button{font:inherit}.shell{max-width:1240px;margin:0 auto;padding:24px}.hero{position:relative;overflow:hidden;background:linear-gradient(135deg,#a80f18 0%,#c71b24 70%,#8c0d15 100%);color:#fff;border-radius:28px;padding:34px 34px 30px;box-shadow:var(--shadow)}
+    .hero:after{content:"";position:absolute;right:-80px;top:-100px;width:330px;height:330px;border:54px solid rgba(255,255,255,.08);border-radius:50%}.eyebrow{font-size:.78rem;text-transform:uppercase;letter-spacing:.13em;font-weight:800;opacity:.82}.hero h1{font-size:clamp(2rem,4vw,3.6rem);line-height:.98;max-width:850px;margin:.45rem 0 1rem;letter-spacing:-.045em}.hero p{margin:0;max-width:850px;font-size:1rem;opacity:.92}.hero-meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}.pill{border:1px solid rgba(255,255,255,.32);background:rgba(255,255,255,.1);padding:7px 11px;border-radius:999px;font-size:.8rem;font-weight:700}
+    .privacy{margin:14px 0 0;background:#fff;border:1px solid #ececec;border-radius:16px;padding:12px 15px;color:#444;font-size:.88rem}.privacy strong{color:var(--red-dark)}
+    .filters{position:sticky;top:0;z-index:10;margin:18px 0;background:rgba(243,243,243,.92);backdrop-filter:blur(10px);padding:10px 0;display:flex;gap:8px;overflow:auto}.filter{white-space:nowrap;border:1px solid #ddd;background:#fff;color:#333;padding:9px 14px;border-radius:999px;font-weight:750;cursor:pointer}.filter.active{background:var(--ink);color:#fff;border-color:var(--ink)}
+    .grid{display:grid;gap:14px}.kpis{grid-template-columns:repeat(5,minmax(0,1fr));margin:16px 0}.card{background:var(--paper);border:1px solid #ececec;border-radius:var(--radius);box-shadow:0 8px 24px rgba(0,0,0,.035)}.kpi{padding:18px}.kpi .label{font-size:.76rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:800}.kpi .value{font-size:2rem;font-weight:900;letter-spacing:-.04em;margin:4px 0}.kpi .sub{font-size:.82rem;color:var(--muted)}
+    .section{margin:28px 0}.section-head{display:flex;justify-content:space-between;align-items:end;gap:18px;margin-bottom:12px}.section h2{font-size:1.45rem;margin:0;letter-spacing:-.025em}.section-head p{max-width:650px;margin:0;color:var(--muted);font-size:.9rem}.class-grid{grid-template-columns:repeat(4,minmax(0,1fr))}.class-card{padding:18px}.class-top{display:flex;justify-content:space-between;gap:8px;align-items:center}.class-name{font-size:1.3rem;font-weight:900}.grade-tag{font-size:.72rem;background:#f1f1f1;border-radius:999px;padding:5px 8px;color:#555;font-weight:800}.class-card .big{font-size:2.5rem;letter-spacing:-.055em;font-weight:950;margin:13px 0 0}.class-card .big small{font-size:1rem;color:#777;font-weight:700}.class-stats{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:14px}.mini{background:#f8f8f8;border-radius:12px;padding:10px}.mini b{display:block;font-size:1rem}.mini span{font-size:.74rem;color:#777}.track{height:8px;background:#ececec;border-radius:999px;overflow:hidden;margin-top:15px}.track>i{display:block;height:100%;background:var(--red);border-radius:inherit}.bestlow{font-size:.78rem;color:#666;margin-top:12px}.bestlow b{color:#222}
+    .dist-card{padding:18px}.dist-row{display:grid;grid-template-columns:72px repeat(9,minmax(24px,1fr));gap:7px;align-items:end;margin:15px 0}.dist-name{font-weight:900;align-self:center}.score-col{text-align:center}.score-bar-wrap{height:112px;display:flex;align-items:end;justify-content:center;background:linear-gradient(to top,#fafafa,#fff);border-radius:10px;overflow:hidden}.score-bar{width:72%;min-height:2px;background:var(--red);border-radius:7px 7px 0 0;position:relative}.score-count{font-size:.72rem;font-weight:850;color:#555;margin-bottom:4px}.score-label{font-size:.7rem;color:#777;margin-top:5px}.dist-legend{font-size:.8rem;color:#777;border-top:1px solid #eee;padding-top:12px;margin-top:10px}
+    .question-zone{display:grid;grid-template-columns:1fr 1fr;gap:14px}.question-panel{padding:18px}.q-head{display:flex;align-items:baseline;justify-content:space-between;gap:10px;margin-bottom:12px}.q-head h3{margin:0;font-size:1.1rem}.q-head span{font-size:.8rem;color:#777}.q-list{display:grid;gap:9px}.q-item{display:grid;grid-template-columns:46px 1fr 68px;gap:10px;align-items:center;padding:10px;border:1px solid #eee;border-radius:13px}.q-num{font-weight:950;color:var(--red-dark)}.q-desc{font-size:.84rem}.q-desc small{display:block;color:#777;margin-top:2px}.q-pct{text-align:right;font-weight:900}.q-meter{grid-column:2/4;height:5px;background:#eee;border-radius:999px;overflow:hidden;margin-top:-3px}.q-meter i{display:block;height:100%;background:#333;border-radius:inherit}.q-item.low .q-meter i{background:var(--red)}.q-item.low{background:#fffafa}.q-item.high .q-meter i{background:#555}
+    .reading{padding:19px;border-left:5px solid var(--red)}.reading h3{margin:0 0 9px}.reading p{margin:.45rem 0;color:#444}.reading strong{color:#111}.note{padding:19px;background:#171717;color:#fff}.note h3{margin:0 0 8px}.note p{margin:.45rem 0;color:#ddd}.note b{color:#fff}.method{padding:18px}.method summary{cursor:pointer;font-weight:900}.method p,.method li{color:#555;font-size:.88rem}.method ul{padding-left:20px}.footer{text-align:center;color:#777;font-size:.78rem;padding:10px 0 28px}.print-btn{border:1px solid rgba(255,255,255,.38);background:#fff;color:var(--red-dark);font-weight:900;padding:9px 13px;border-radius:12px;cursor:pointer;margin-left:auto;position:relative;z-index:2}
+    .hidden{display:none!important}
+    @media(max-width:980px){.kpis{grid-template-columns:repeat(2,1fr)}.class-grid{grid-template-columns:repeat(2,1fr)}.question-zone{grid-template-columns:1fr}.hero{padding:28px}.print-btn{display:none}}
+    @media(max-width:620px){.shell{padding:12px}.hero{border-radius:20px;padding:24px 20px}.kpis,.class-grid{grid-template-columns:1fr}.kpis{gap:9px}.kpi{padding:14px}.dist-card{overflow:auto}.dist-row{min-width:650px}.section-head{display:block}.section-head p{margin-top:5px}.q-item{grid-template-columns:38px 1fr 58px}.filters{margin:10px 0}.privacy{font-size:.8rem}}
+    @media print{body{background:#fff}.shell{max-width:none;padding:0}.filters,.print-btn{display:none}.hero{box-shadow:none;border-radius:0;-webkit-print-color-adjust:exact;print-color-adjust:exact}.card{box-shadow:none;break-inside:avoid}.section{break-inside:avoid}.privacy{border-color:#ddd}}
+  </style>
+</head>
+<body>
+  <main class="shell">
+    <section class="hero">
+      <div class="eyebrow">Sociosofia · SESI Rio Claro · Avalia interdisciplinar</div>
+      <h1>Painel agregado de resultados</h1>
+      <p>Leitura descritiva da aplicação de Filosofia e Sociologia articulada a operações de Linguagens. A visão da coordenação trabalha apenas com dados agregados e não expõe identificação nominal de estudantes.</p>
+      <div class="hero-meta">
+        <span class="pill">Aplicação: agosto de 2026</span><span class="pill">128 situações reconciliadas</span><span class="pill">120 resultados válidos</span><span class="pill">8 ausências</span>
+        <button class="print-btn" onclick="window.print()">Imprimir / salvar em PDF</button>
+      </div>
+    </section>
+    <div class="privacy"><strong>Nota de leitura:</strong> os instrumentos do 1º e do 2º ano são diferentes. As taxas podem ser comparadas entre turmas do mesmo ano, mas não devem ser interpretadas como uma escala única de proficiência entre séries.</div>
+
+    <nav class="filters" aria-label="Filtro de turma">
+      <button class="filter active" data-filter="all">Visão geral</button>
+      <button class="filter" data-filter="1A">1º A</button><button class="filter" data-filter="1B">1º B</button>
+      <button class="filter" data-filter="2A">2º A</button><button class="filter" data-filter="2B">2º B</button>
+    </nav>
+
+    <section class="grid kpis" id="kpis"></section>
+
+    <section class="section">
+      <div class="section-head"><div><div class="eyebrow" style="color:#8a8a8a">Panorama por turma</div><h2>Participação e desempenho</h2></div><p>Média e distribuição consideram apenas estudantes com resultado válido; ausências permanecem registradas na reconciliação da aplicação.</p></div>
+      <div class="grid class-grid" id="classCards"></div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><div><div class="eyebrow" style="color:#8a8a8a">Distribuição</div><h2>Quantidade de acertos por estudante</h2></div><p>A concentração no extremo superior é visível, sobretudo no 2º ano. O gráfico descreve o lote; não converte automaticamente acertos em menção.</p></div>
+      <div class="card dist-card" id="distribution"></div>
+    </section>
+
+    <section class="section">
+      <div class="section-head"><div><div class="eyebrow" style="color:#8a8a8a">Questão a questão</div><h2>Taxa de acerto e operação avaliada</h2></div><p>Os descritores abaixo são diagnósticos internos do instrumento. O contexto temático de Filosofia e Sociologia não é tratado, isoladamente, como evidência automática de domínio disciplinar.</p></div>
+      <div class="question-zone" id="questions"></div>
+    </section>
+
+    <section class="section grid" style="grid-template-columns:1.15fr .85fr">
+      <article class="card reading">
+        <h3>Leitura descritiva do lote</h3>
+        <p><strong>Desempenho global alto:</strong> 90 dos 120 estudantes com resultado (75,0%) fizeram 7 ou 8 acertos; 65 (54,2%) alcançaram 8/8.</p>
+        <p><strong>1º ano:</strong> as menores taxas agregadas aparecem em síntese de múltiplas fontes (Q8, 75,0%), contextualização histórica (Q5, 78,1%) e inferência a partir de dado percentual (Q2, 79,7%).</p>
+        <p><strong>2º ano:</strong> as menores taxas agregadas aparecem em relação verbal–não verbal com contextualização histórica (Q6, 80,4%) e reconhecimento de relação lógico-discursiva (Q1, 83,9%).</p>
+      </article>
+      <article class="card note">
+        <h3>Sobre o efeito-teto</h3>
+        <p>O alto número de resultados máximos indica que o instrumento funcionou bem para verificar domínio básico das operações previstas, mas oferece <b>menos diferenciação no topo da distribuição</b>.</p>
+        <p>Essa informação descreve o comportamento desta aplicação e pode orientar a calibragem de futuras versões, sem alterar os resultados já obtidos.</p>
+      </article>
+    </section>
+
+    <details class="card method section">
+      <summary>Metodologia e critérios de leitura</summary>
+      <ul>
+        <li>Universo: 128 aplicações previstas, integralmente reconciliadas.</li>
+        <li>Resultados válidos: 120; ausências: 8. Ausentes não entram em médias nem em taxas de acerto.</li>
+        <li>Cada instrumento contém 8 questões objetivas; a nota exibida corresponde ao número de acertos.</li>
+        <li>O 1º ano realizou o modelo INT-1; o 2º ano realizou o modelo INT-2. Comparações diretas de média entre séries são apenas descritivas, não equivalentes a uma mesma escala de proficiência.</li>
+        <li>As respostas objetivas constituem evidências para leitura pedagógica. Elas não atribuem automaticamente as menções “Atende”, “Atende parcialmente” ou “Não atende”.</li>
+        <li>Esta página não contém nomes, tokens de correção, URLs individuais nem respostas nominais.</li>
+      </ul>
+    </details>
+    <footer class="footer">Dados consolidados em 18/08/2026 · Painel agregado · Sociosofia</footer>
+  </main>
+<script>
+const DATA={
+  classes:{
+    '1A':{label:'1º A',grade:1,expected:32,n:32,absent:0,avg:6.90625,perfect:19,dist:[0,0,0,2,2,2,4,3,19],items:[87.5,84.375,87.5,96.875,84.375,90.625,90.625,68.75]},
+    '1B':{label:'1º B',grade:1,expected:32,n:32,absent:0,avg:6.78125,perfect:11,dist:[0,0,0,0,1,6,3,11,11],items:[87.5,75,93.75,90.625,71.875,100,78.125,81.25]},
+    '2A':{label:'2º A',grade:2,expected:32,n:29,absent:3,avg:7.3793103448,perfect:19,dist:[0,0,0,0,1,1,3,5,19],items:[89.6551724,89.6551724,93.1034483,100,93.1034483,79.3103448,96.5517241,96.5517241]},
+    '2B':{label:'2º B',grade:2,expected:32,n:27,absent:5,avg:7.2962962963,perfect:16,dist:[0,0,0,0,0,3,2,6,16],items:[77.7777778,96.2962963,96.2962963,100,92.5925926,81.4814815,96.2962963,88.8888889]}
+  },
+  descriptors:{
+    1:[
+      ['Finalidade comunicativa','Identificar a finalidade comunicativa de um texto de circulação pública.'],
+      ['Leitura de dados e inferência','Inferir o sentido de uma relação percentual apresentada em um texto informativo.'],
+      ['Comparação entre fontes','Comparar informações provenientes de fontes de naturezas distintas.'],
+      ['Interpretação de prática social','Interpretar o sentido simbólico de uma prática descrita no texto.'],
+      ['Contextualização histórica','Relacionar informações textuais a um contexto histórico mais amplo.'],
+      ['Aplicação de regra institucional','Localizar uma regra apresentada no texto e aplicá-la a um caso concreto.'],
+      ['Avaliação argumentativa e ética','Avaliar se uma justificativa é suficiente diante das informações apresentadas.'],
+      ['Síntese temática','Produzir uma síntese interpretativa a partir de múltiplas fontes.']
+    ],
+    2:[
+      ['Relação lógico-discursiva','Reconhecer uma relação de contraste marcada por articulador no texto.'],
+      ['Comparação de dados e inferência','Avaliar uma inferência construída a partir da comparação entre dados.'],
+      ['Política pública e desigualdade','Inferir limites de uma regra formal a partir das condições descritas no texto.'],
+      ['Tema e finalidade em texto público','Interpretar a finalidade de um instrumento de transparência em texto da vida pública.'],
+      ['Intertextualidade e diálogo entre fontes','Relacionar informações de fontes diferentes para construir uma leitura integrada.'],
+      ['Relação verbal–não verbal e contexto','Relacionar linguagem verbal, imagem e contexto histórico.'],
+      ['Síntese temática','Sintetizar avanços e permanências a partir do conjunto de fontes.'],
+      ['Síntese temática e valores sociais','Construir uma síntese sobre direitos formais e condições concretas de participação.']
+    ]
+  }
+};
+const AGG={all:{label:'Geral',expected:128,n:120,absent:8,avg:7.075,perfect:65,high:90},g1:{label:'1º ano',expected:64,n:64,absent:0,avg:6.84375,perfect:30,high:44},g2:{label:'2º ano',expected:64,n:56,absent:8,avg:7.3392857143,perfect:35,high:46}};
+const gradeItems={1:[87.5,79.6875,90.625,93.75,78.125,95.3125,84.375,75],2:[83.9285714,92.8571429,94.6428571,100,92.8571429,80.3571429,96.4285714,92.8571429]};
+let current='all';
+const fmt=n=>n.toLocaleString('pt-BR',{minimumFractionDigits:1,maximumFractionDigits:1});
+const pct=n=>fmt(n)+'%';
+function selection(){return current==='all'?Object.values(DATA.classes):[DATA.classes[current]]}
+function kpis(){
+  let s;if(current==='all')s=AGG.all;else{const c=DATA.classes[current];s={expected:c.expected,n:c.n,absent:c.absent,avg:c.avg,perfect:c.perfect,high:c.dist[7]+c.dist[8]}}
+  const vals=[['Situações reconciliadas',s.expected,'base fechada'],['Resultados válidos',s.n,`${fmt(s.n/s.expected*100)}% do previsto`],['Ausências',s.absent,'fora das médias'],['Média de acertos',fmt(s.avg)+' / 8',pct(s.avg/8*100)],['7 ou 8 acertos',s.high,pct(s.high/s.n*100)+' dos respondentes']];
+  document.querySelector('#kpis').innerHTML=vals.map(v=>`<article class="card kpi"><div class="label">${v[0]}</div><div class="value">${v[1]}</div><div class="sub">${v[2]}</div></article>`).join('');
+}
+function classCards(){
+  const list=selection();document.querySelector('#classCards').innerHTML=list.map(c=>{const hi=Math.max(...c.items),lo=Math.min(...c.items),hiQ=c.items.indexOf(hi)+1,loQ=c.items.indexOf(lo)+1;return `<article class="card class-card"><div class="class-top"><div class="class-name">${c.label}</div><span class="grade-tag">INT-${c.grade}</span></div><div class="big">${fmt(c.avg)} <small>/ 8</small></div><div class="track"><i style="width:${c.avg/8*100}%"></i></div><div class="class-stats"><div class="mini"><b>${c.n}/${c.expected}</b><span>resultados válidos</span></div><div class="mini"><b>${c.perfect}</b><span>resultados 8/8</span></div><div class="mini"><b>${c.absent}</b><span>ausências</span></div><div class="mini"><b>${fmt(c.perfect/c.n*100)}%</b><span>8/8 entre presentes</span></div></div><div class="bestlow"><b>Maior taxa:</b> Q${hiQ} · ${pct(hi)} &nbsp; <b>Menor:</b> Q${loQ} · ${pct(lo)}</div></article>`}).join('');
+}
+function distribution(){
+  const list=selection(),max=Math.max(...list.flatMap(c=>c.dist));
+  document.querySelector('#distribution').innerHTML=list.map(c=>`<div class="dist-row"><div class="dist-name">${c.label}</div>${c.dist.map((n,i)=>`<div class="score-col"><div class="score-count">${n||''}</div><div class="score-bar-wrap"><div class="score-bar" style="height:${n?Math.max(4,n/max*100):1}%"></div></div><div class="score-label">${i}/8</div></div>`).join('')}</div>`).join('')+`<div class="dist-legend">Altura relativa ao maior grupo exibido. Os números acima de cada barra são contagens de estudantes.</div>`;
+}
+function panel(title,grade,vals,sub){return `<article class="card question-panel"><div class="q-head"><h3>${title}</h3><span>${sub}</span></div><div class="q-list">${vals.map((v,i)=>{const d=DATA.descriptors[grade][i];const cls=v<80?'low':v>=90?'high':'';return `<div class="q-item ${cls}"><div class="q-num">Q${i+1}</div><div class="q-desc">${d[0]}<small>${d[1]}</small></div><div class="q-pct">${pct(v)}</div><div class="q-meter"><i style="width:${v}%"></i></div></div>`}).join('')}</div></article>`}
+function questions(){let html='';if(current==='all'){html=panel('1º ano',1,gradeItems[1],'64 respondentes')+panel('2º ano',2,gradeItems[2],'56 respondentes')}else{const c=DATA.classes[current];html=panel(c.label,c.grade,c.items,`${c.n} respondentes`)}document.querySelector('#questions').innerHTML=html}
+function render(){kpis();classCards();distribution();questions()}
+document.querySelectorAll('.filter').forEach(b=>b.addEventListener('click',()=>{current=b.dataset.filter;document.querySelectorAll('.filter').forEach(x=>x.classList.toggle('active',x===b));render()}));
+render();
+</script>
+</body>
+</html>
