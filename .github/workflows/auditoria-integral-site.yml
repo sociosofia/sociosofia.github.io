@@ -1,0 +1,59 @@
+name: Auditoria integral do site
+
+on:
+  push:
+    branches:
+      - auditoria-integral-site-v1
+    paths:
+      - 'audit/site-map-audit.mjs'
+      - 'audit/run-site-map-audit.mjs'
+      - '.github/workflows/auditoria-integral-site.yml'
+  pull_request:
+    branches:
+      - main
+    paths:
+      - 'audit/site-map-audit.mjs'
+      - 'audit/run-site-map-audit.mjs'
+      - '.github/workflows/auditoria-integral-site.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  mapear:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+
+    steps:
+      - name: Baixar o repositório
+        uses: actions/checkout@v4
+
+      - name: Preparar Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Instalar navegador de auditoria
+        run: |
+          npm init -y >/dev/null 2>&1
+          npm install playwright@1.54.2
+          npx playwright install --with-deps chromium
+
+      - name: Iniciar servidor local
+        run: |
+          python3 -m http.server 8000 > /tmp/sociosofia-http.log 2>&1 &
+          echo $! > /tmp/sociosofia-http.pid
+          sleep 3
+
+      - name: Mapear páginas, links e botões
+        run: node audit/run-site-map-audit.mjs
+
+      - name: Publicar relatório
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: auditoria-integral-site-v1
+          path: audit/output/site-map/
+          if-no-files-found: warn
+          retention-days: 14
