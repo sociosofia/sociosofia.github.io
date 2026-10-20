@@ -1,0 +1,616 @@
+<!doctype html><html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="color-scheme" content="light"><title>Mapa de Ideias | Sociosofia</title><style>
+:root{--navy:#102b44;--teal:#006d76;--paper:#f5f7f8;--ink:#162a39;--mute:#617484;--line:#dce4e8;--soft:#e8f1f3;--white:#fff;--warn:#b4511b}*{box-sizing:border-box}body{font-family:system-ui,-apple-system,Segoe UI,sans-serif;background:var(--paper);color:var(--ink);margin:0;line-height:1.5}header{background:linear-gradient(110deg,#09263e,#10596b);color:#fff;padding:22px 20px}header>div,main{max-width:1040px;margin:auto}header .eyebrow{font-size:11px;letter-spacing:2px;text-transform:uppercase;font-weight:700;color:#aee5e8}h1{font-size:clamp(25px,4vw,36px);letter-spacing:-.8px;margin:3px 0}h2{font-size:22px;margin:5px 0 12px}h3{font-size:16px;margin:0 0 8px}p{margin:8px 0}main{padding:24px 18px 70px}.card{background:var(--white);border:1px solid var(--line);padding:22px;border-radius:16px;box-shadow:0 3px 18px #172d3f08;margin-bottom:18px}.muted{color:var(--mute)}.tiny{font-size:12px;color:var(--mute)}.toprow,.toolbar,.row{display:flex;gap:12px;align-items:center;flex-wrap:wrap}.toprow{justify-content:space-between}.button{border:0;background:var(--teal);color:white;font:inherit;font-weight:700;padding:12px 18px;border-radius:10px;cursor:pointer}.button:focus-visible,.pill:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid #e7a944;outline-offset:2px}.button.secondary{background:#e9eef2;color:var(--navy)}.button.outline{background:transparent;border:1px solid #97adb6;color:var(--navy)}.button:disabled{opacity:.4;cursor:not-allowed}.meter{height:8px;background:#e5eef1;overflow:hidden;border-radius:12px;margin:14px 0}.meter>div{height:100%;width:0;background:#167989;transition:width .25s}.choices{display:grid;grid-template-columns:repeat(7,minmax(0,1fr));gap:6px;margin:16px 0}.choices.two{grid-template-columns:repeat(2,minmax(0,1fr))}.choices.ten{grid-template-columns:repeat(10,minmax(0,1fr))}.choice{cursor:pointer;display:block}.choice input{position:absolute;opacity:0;pointer-events:none}.choice span{display:grid;place-items:center;min-height:54px;border:1.5px solid var(--line);border-radius:11px;background:#fafcfc;font-weight:700;transition:.1s}.choice input:checked+span{background:var(--teal);color:#fff;border-color:var(--teal)}.choice input:focus-visible+span{outline:3px solid #e7a944}.scalehelp{display:flex;justify-content:space-between;gap:12px;font-size:13px;color:var(--mute)}.checkrow{display:flex;gap:10px;align-items:flex-start;padding:12px;background:#f3f6f7;border-radius:10px}.checkrow label{cursor:pointer}.tag{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.07em;color:#116171}.badge{font-size:12px;padding:5px 9px;border-radius:30px;background:#e1edf0;color:#295467}.hidden{display:none!important}.error{color:#9b3b20;font-weight:700}.success{color:#0a6e5e;font-weight:700}.grid2{display:grid;grid-template-columns:1fr 1fr;gap:18px}.grid4{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.mini{padding:13px;background:#f1f6f7;border-radius:12px}.mini b{font-size:20px}.chartWrap svg{width:100%;height:auto;max-height:560px}.mapTools{display:flex;gap:9px;align-items:center;flex-wrap:wrap;margin:12px 0}.mapTools button[aria-pressed="true"]{background:var(--navy);color:#fff}.mapLegend{font-size:12px;color:var(--mute);margin:8px 0 16px}.mapMark{display:inline-block;border-radius:50%;height:10px;width:10px;background:#0b7e8a;margin-right:5px}.topicBars{margin:12px 0}.topicHead{font-weight:700;margin:6px 0}.topicText{color:var(--mute);font-size:13px}.topicBanner{display:block;background:#f1f6f7;border-radius:9px;padding:11px;margin-top:10px}.topicBarRow{display:grid;grid-template-columns:minmax(160px,1fr) minmax(120px,2fr) 92px;gap:9px;align-items:center;margin:10px 0;font-size:13px}@media(max-width:500px){.topicBarRow{grid-template-columns:1fr;gap:4px;margin:14px 0}}.listitems{display:grid;gap:8px}.baritem{display:grid;grid-template-columns:minmax(155px,1fr) 2fr 58px;gap:11px;align-items:center;font-size:13px}.bar{height:13px;background:#e4eaef;border-radius:8px;overflow:hidden}.bar div{height:100%;background:#187887}.group{border-bottom:1px solid var(--line);padding:12px 0}.group:last-child{border:0}input[type=text],input[type=password],select{font:inherit;padding:11px;border:1px solid #a8b9c1;border-radius:10px;min-width:180px;max-width:100%}details{margin-top:10px;border-top:1px solid var(--line);padding-top:10px}summary{cursor:pointer;font-weight:650}.notice{border-left:4px solid #00717a;background:#e9f2f3;padding:13px;border-radius:6px}.adminlist{display:grid;gap:8px}.adminline{border:1px solid var(--line);padding:12px;border-radius:12px}.apiStatus{font-size:12px;border-radius:6px;padding:5px 8px;background:#dce9ec}.footnote{font-size:12px;color:#657a88;border-top:1px solid #dce4e8;padding-top:16px;margin-top:26px}a{color:#086772}button,select,input{touch-action:manipulation}@media(max-width:700px){.grid2,.grid4{grid-template-columns:1fr}.card{padding:17px}.choices{gap:4px}.choice span{min-height:48px}.baritem{grid-template-columns:1fr 1.5fr 40px;font-size:12px}.choices.ten .choice span{font-size:12px;min-height:43px}}@media print{header,.noprint{display:none!important}body{background:white}main{max-width:100%;padding:0}.card{box-shadow:none;break-inside:avoid;border:0}}
+</style></head><body><header><div><div class="eyebrow">SOCIOSOFIA · LABORATÓRIO DE SOCIOLOGIA POLÍTICA</div><h1>Mapa de Ideias</h1><p style="color:#d1e8ed">Como opiniões sobre a sociedade se distribuem?</p></div></header><main>
+<section id="intro" class="card"><div class="toprow"><div><span class="tag">Experiência didática · 24 questões</span><h2>Uma pesquisa sobre opiniões políticas</h2></div><span class="badge">Anônima</span></div><p>Você responderá a perguntas sobre economia, costumes, democracia, segurança e outros temas. O mapa final organiza algumas respostas em dois eixos. <strong>O resultado não determina sua identidade política.</strong></p><p>Não pedimos nome, matrícula, e-mail nem identificação pessoal. Você pode pular perguntas ou deixar de participar. As questões foram selecionadas de pesquisas existentes e parte dos enunciados e das escalas foi adaptada para esta atividade.</p><div class="notice"><strong>Seus resultados individuais permanecem neste aparelho.</strong> O professor terá acesso apenas a contagens coletivas, se o envio anônimo estiver habilitado. Você decide se deseja salvar ou compartilhar seu PDF.</div><div id="sessionPanel" style="margin-top:17px"><label for="sessionSelect"><b>Turma / sessão</b></label><div class="row"><select id="sessionSelect"><option value="">Carregando sessões...</option></select><span id="serverStatus" class="apiStatus">Prévia local</span></div></div><label class="checkrow" style="margin:17px 0"><input id="consent" type="checkbox"><span>Desejo participar desta atividade de forma voluntária. Entendi que posso pular perguntas.</span></label><button class="button" id="start" disabled>Começar questionário →</button><div class="row" style="margin-top:10px"><button class="button secondary" id="adminOpen" type="button">Painel do professor</button><button class="button outline" id="methodOpen" type="button">Como funciona a pontuação?</button></div></section>
+<section id="survey" class="hidden"><div class="card"><div class="toprow"><span id="category" class="tag"></span><span id="progressText" class="muted"></span></div><div class="meter"><div id="progressFill"></div></div><h2 id="questionTitle"></h2><p id="questionText" style="font-size:17px"></p><div id="choices" class="choices"></div><div id="scalelabels" class="scalehelp"></div><button id="skip" class="button outline">Prefiro não responder a esta questão</button><p class="tiny" id="source"></p><div class="toprow" style="margin-top:20px"><button id="back" class="button secondary">← Voltar</button><button id="next" class="button">Próxima →</button></div></div></section>
+<section id="results" class="hidden"><div class="card"><div class="toprow"><div><span class="tag">Seu resultado pessoal</span><h2>Seu mapa de opiniões</h2></div><span class="badge" id="resultTag"></span></div><p>O mapa abaixo representa somente sua posição nos temas selecionados. Ele não indica uma identidade política verdadeira, nem a sua posição em todos os assuntos.</p><div id="personalChart" class="chartWrap"></div><div id="scoretext"></div><div class="row noprint" style="margin-top:16px"><button class="button" id="savePdf"><span>Salvar meu PDF</span></button><button class="button secondary" id="sharePdf">Compartilhar PDF</button></div><p id="pdfMessage" class="tiny"></p></div><div class="card"><h3>Suas opiniões, tema a tema</h3><div id="myAnswers" class="listitems"></div><details><summary>Como interpretar o resultado?</summary><p>As 7 questões econômicas e as 5 socioculturais foram convertidas para o intervalo de −1 a +1. Cada eixo é a média das respostas válidas. Valores próximos de 0 podem expressar moderação ou posições contraditórias que se compensam. As outras questões são analisadas separadamente.</p><p class="tiny">Instrumento didático experimental; itens baseados em pesquisas publicadas, em grande parte adaptados. Não é escala psicométrica validada. Não confundir diferenças descritivas com significância estatística.</p></details></div><div class="row noprint"><button id="restart" class="button outline">Nova prévia (sem reutilizar dados enviados)</button><button id="goAdmin" class="button secondary">Painel da turma</button></div></section>
+<section id="admin" class="hidden"><div class="card"><div class="toprow"><div><span class="tag">Somente professor</span><h2>Painel de resultados agregados</h2></div><button class="button secondary" id="adminExit">Sair do painel</button></div><div id="adminLogin"><p>Acesso por chave configurada como <code>ADMIN_KEY</code> no Cloudflare. Não é armazenada no navegador.</p><div class="row"><input id="adminKey" type="password" autocomplete="off" placeholder="Chave do professor"><button class="button" id="loginBtn">Entrar</button></div></div><div id="adminContent" class="hidden"><div class="row" style="margin-bottom:14px"><input type="text" id="newSessionName" placeholder="Ex.: 2º A — 20/10"><input type="text" id="newSessionCode" placeholder="Código da turma (ex.: socio2a)"><button id="createSession" class="button">Criar sessão (fechada)</button></div><div id="sessionsList" class="adminlist"></div><div id="dashboard" class="hidden"><hr style="border:0;border-top:1px solid #ddd;margin:20px 0"><div class="toprow"><h3 id="dashTitle">Resultados da turma</h3><button id="downloadCsv" class="button outline">Baixar dados agregados (CSV)</button></div><div id="dashStats" class="grid4"></div><h3 style="margin-top:20px">Mapa coletivo da turma</h3>
+<div class="mapTools" role="group" aria-label="Visualização do mapa"><button class="button secondary" id="viewDots" aria-pressed="true" type="button">● Pontos</button><button class="button secondary" id="viewHeat" aria-pressed="false" type="button">◉ Densidade</button></div>
+<div id="aggregateChart" class="chartWrap"></div>
+<p id="mapPrivacy" class="mapLegend"></p>
+<h3 style="margin-top:24px">Opiniões da sala, questão a questão</h3><p class="muted tiny">Escolha uma questão para ver proporções, quantidades e respostas intermediárias. As alternativas não respondidas não entram no percentual.</p>
+<label for="topicSelect"><strong>Pergunta selecionada</strong></label><select id="topicSelect" style="width:100%;max-width:750px;margin:8px 0"><option>Escolha uma pergunta</option></select>
+<div id="topicDetail" class="mini" style="margin:10px 0 18px"></div>
+<details><summary>Consultar detalhamento das 24 questões</summary><div id="aggregateBars"></div></details></div></div><p id="adminError" class="error"></p></div></section>
+<section id="method" class="hidden card"><div class="toprow"><h2>Protocolo metodológico</h2><button id="methodClose" class="button secondary">Fechar</button></div><p><strong>Dois índices exploratórios.</strong> Eixo horizontal: maior ênfase em redistribuição/Estado (−1) a maior ênfase em mercado (+1). Eixo vertical: posições mais conservadoras (−1) a mais progressistas (+1) nos cinco temas selecionados.</p><p>Em questões com concordância de 1 a 7, cada resposta é transformada por <code>(resposta − 4)/3</code>, invertendo o sinal quando indicado. Calculamos a média das sete questões econômicas e das cinco socioculturais. Só mostramos um ponto se houver pelo menos cinco respostas econômicas e quatro socioculturais válidas.</p><p>As demais questões e a autodeclaração não interferem no quadrante. Cada pergunta contém referência de origem, mas vários enunciados e escalas foram adaptados e não são diretamente comparáveis aos percentuais das pesquisas originais.</p><p>A aplicação voluntária em uma turma <strong>não constitui amostra probabilística da população brasileira</strong>. Referências nacionais são exibidas somente quando documentadas e com ressalvas de comparabilidade.</p><p>Sem nomes, e-mails ou respostas individuais armazenadas no servidor: o banco recebe apenas incrementos de contagens por alternativa e por célula agregada do mapa. O resultado pessoal pode ser guardado no PDF pelo próprio estudante.</p></section>
+<footer class="footnote">Sociosofia · Projeto didático experimental · v1.0 de demonstração. Fontes do questionário: LAPOP/Barômetro das Américas (2017, 2019, 2023), Datafolha (2026), Ipsos (2024), DataSenado. Não associado institucionalmente a esses pesquisadores. <a href="https://www.vanderbilt.edu/lapop/" target="_blank" rel="noopener">LAPOP</a> · <a href="https://www1.folha.uol.com.br/mercado/2026/03/datafolha-apoio-ao-fim-da-escala-6x1-cresce-e-chega-a-71-dos-brasileiros.shtml" target="_blank" rel="noopener">Datafolha</a></footer>
+</main><script>
+'use strict';
+// Injetado na compilação: configure o endereço do Worker quando estiver publicado.
+const API_URL = 'https://sociosofia-mapa-ideias-api.luizvjj.workers.dev'; // Ex.: 'https://mapa-sociosofia-api.SEUSUBDOMINIO.workers.dev'
+const DATA={
+  "version": "1.0-preview",
+  "description": "Itens selecionados de pesquisas reais; a maior parte dos enunciados e escalas foi adaptada para uso didático. O quadrante e a pontuação não foram validados psicometricamente.",
+  "questions": [
+    {
+      "id": "e1",
+      "cat": "economic",
+      "title": "Regulação econômica",
+      "statement": "O governo deve regular mais as atividades das empresas, mesmo que isso limite algumas decisões do mercado.",
+      "src": "Datafolha, matriz ideológica 2026 (item adaptado)",
+      "pol": -1,
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "national": null,
+      "allowSkip": true
+    },
+    {
+      "id": "e2",
+      "cat": "economic",
+      "title": "Impostos e serviços",
+      "statement": "É preferível financiar bons serviços públicos com impostos do que reduzir impostos e ampliar serviços pagos diretamente.",
+      "src": "Datafolha, matriz ideológica 2026 (item adaptado)",
+      "pol": -1,
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "national": null,
+      "allowSkip": true
+    },
+    {
+      "id": "e3",
+      "cat": "economic",
+      "title": "Direitos trabalhistas",
+      "statement": "Leis trabalhistas devem garantir proteções mais amplas aos empregados, mesmo que aumentem os custos das empresas.",
+      "src": "Datafolha, matriz ideológica 2026 (item adaptado)",
+      "pol": -1,
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "national": null,
+      "allowSkip": true
+    },
+    {
+      "id": "e4",
+      "cat": "economic",
+      "title": "Investimento e crescimento",
+      "statement": "O Estado deve liderar investimentos em setores estratégicos para promover o crescimento econômico.",
+      "src": "Datafolha, matriz ideológica 2026 (item adaptado)",
+      "pol": -1,
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "national": null,
+      "allowSkip": true
+    },
+    {
+      "id": "e5",
+      "cat": "economic",
+      "title": "Desigualdade de renda",
+      "statement": "O Estado brasileiro deve implementar políticas firmes para reduzir a desigualdade de renda entre ricos e pobres.",
+      "src": "LAPOP 2019 · ROS4",
+      "pol": -1,
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "national": null,
+      "allowSkip": true
+    },
+    {
+      "id": "e6",
+      "cat": "economic",
+      "title": "Tributação dos mais ricos",
+      "statement": "É correto que pessoas ricas paguem muito em impostos, mesmo que recebam relativamente pouco em serviços do Estado.",
+      "src": "LAPOP 2019 · REDIST2A",
+      "pol": -1,
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "national": null,
+      "allowSkip": true
+    },
+    {
+      "id": "e7",
+      "cat": "economic",
+      "title": "Privatização",
+      "statement": "O governo brasileiro deveria privatizar a Petrobras.",
+      "src": "LAPOP 2019 · BRAPRIV1A",
+      "pol": 1,
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "national": null,
+      "allowSkip": true
+    },
+    {
+      "id": "s1",
+      "cat": "cultural",
+      "title": "Mulheres na política",
+      "statement": "De modo geral, homens são líderes políticos melhores que mulheres.",
+      "src": "LAPOP 2017 · VB50 (formato adaptado)",
+      "pol": -1,
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "national": null,
+      "allowSkip": true
+    },
+    {
+      "id": "s2",
+      "cat": "cultural",
+      "title": "Casamento civil",
+      "statement": "Pessoas do mesmo sexo devem ter o direito de se casar no civil.",
+      "src": "LAPOP 2017 · D6 (formato adaptado)",
+      "pol": 1,
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "national": null,
+      "allowSkip": true
+    },
+    {
+      "id": "s3",
+      "cat": "cultural",
+      "title": "Família e trabalho",
+      "statement": "Quando uma mãe trabalha fora de casa, a vida familiar é prejudicada.",
+      "src": "LAPOP 2023 · VB58 (formato adaptado)",
+      "pol": -1,
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "national": null,
+      "allowSkip": true
+    },
+    {
+      "id": "s4",
+      "cat": "cultural",
+      "title": "Proteção de pessoas trans",
+      "statement": "Leis devem proteger pessoas trans contra discriminação no trabalho, na moradia e em estabelecimentos comerciais.",
+      "src": "Ipsos, LGBT+ Pride Report 2024 (formato adaptado)",
+      "pol": 1,
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "national": null,
+      "allowSkip": true
+    },
+    {
+      "id": "s5",
+      "cat": "cultural",
+      "title": "Interrupção voluntária da gravidez",
+      "statement": "A pessoa gestante deve poder decidir pela interrupção voluntária da gravidez nos limites estabelecidos por lei.",
+      "src": "Tema de pesquisas DataSenado; formulação didática (não literal)",
+      "pol": 1,
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "national": null,
+      "allowSkip": true
+    },
+    {
+      "id": "t1",
+      "cat": "other",
+      "title": "Posse de armas",
+      "statement": "Pessoas adultas que cumpram os requisitos legais devem ter direito a possuir arma de fogo em casa.",
+      "src": "Datafolha 2026 (formato adaptado)",
+      "pol": null,
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "national": null,
+      "allowSkip": true
+    },
+    {
+      "id": "t2",
+      "cat": "other",
+      "title": "Maioridade penal",
+      "statement": "A idade de responsabilização penal como adulto deveria cair de 18 para 16 anos.",
+      "src": "Datafolha 2026 (formato adaptado)",
+      "pol": null,
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "national": null,
+      "allowSkip": true
+    },
+    {
+      "id": "t3",
+      "cat": "other",
+      "title": "Pena de morte",
+      "statement": "O Brasil deveria adotar a pena de morte para alguns crimes graves.",
+      "src": "Datafolha 2026 (formato adaptado)",
+      "pol": null,
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "national": null,
+      "allowSkip": true
+    },
+    {
+      "id": "t4",
+      "cat": "other",
+      "title": "Imigração e assistência",
+      "statement": "Pessoas imigrantes em situação de pobreza devem ter acesso a políticas públicas de assistência social.",
+      "src": "Datafolha 2026; LAPOP 2023 · IMMIG1XB (adaptação)",
+      "pol": null,
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "national": null,
+      "allowSkip": true
+    },
+    {
+      "id": "t5",
+      "cat": "other",
+      "title": "Causas da pobreza",
+      "statement": "A falta de oportunidades sociais influencia mais a pobreza do que a falta de esforço individual.",
+      "src": "Datafolha 2026 (formato adaptado)",
+      "pol": null,
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "national": null,
+      "allowSkip": true
+    },
+    {
+      "id": "t6",
+      "cat": "other",
+      "title": "Explicações da criminalidade",
+      "statement": "Condições sociais, como desigualdade e falta de oportunidades, têm grande importância para explicar a criminalidade.",
+      "src": "Datafolha 2026 (formato adaptado)",
+      "pol": null,
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "national": null,
+      "allowSkip": true
+    },
+    {
+      "id": "t7",
+      "cat": "other",
+      "title": "Democracia",
+      "statement": "Apesar de seus problemas, a democracia é melhor do que qualquer outra forma de governo.",
+      "src": "LAPOP 2019 · ING4",
+      "pol": null,
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "national": null,
+      "allowSkip": true
+    },
+    {
+      "id": "t8",
+      "cat": "other",
+      "title": "Manifestações políticas",
+      "statement": "Pessoas contrárias ao governo devem ter direito a realizar manifestações pacíficas.",
+      "src": "LAPOP 2017 · D2 (formato adaptado)",
+      "pol": null,
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "national": null,
+      "allowSkip": true
+    },
+    {
+      "id": "t9",
+      "cat": "other",
+      "title": "Congresso e crise",
+      "statement": "Em uma crise muito grave, o presidente deveria poder fechar o Congresso Nacional.",
+      "src": "LAPOP 2017 · JC15A (formato adaptado)",
+      "pol": null,
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "national": null,
+      "allowSkip": true
+    },
+    {
+      "id": "t10",
+      "cat": "other",
+      "title": "Ambiente e desenvolvimento",
+      "statement": "Em conflitos entre crescimento econômico e proteção do meio ambiente, a proteção ambiental deve ter prioridade.",
+      "src": "LAPOP 2017 · ENV1C1 (formato adaptado)",
+      "pol": null,
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7"
+      ],
+      "national": null,
+      "allowSkip": true
+    },
+    {
+      "id": "t11",
+      "cat": "other",
+      "title": "Dias de trabalho",
+      "statement": "O número máximo de dias que uma pessoa pode trabalhar por semana no Brasil deveria ser reduzido.",
+      "src": "Datafolha, março de 2026",
+      "pol": null,
+      "options": [
+        "Não",
+        "Sim"
+      ],
+      "national": {
+        "label": "Favoráveis à redução dos dias máximos de trabalho",
+        "pct": 71,
+        "year": "2026",
+        "source": "Datafolha, março 2026",
+        "url": "https://www1.folha.uol.com.br/mercado/2026/03/datafolha-apoio-ao-fim-da-escala-6x1-cresce-e-chega-a-71-dos-brasileiros.shtml"
+      },
+      "allowSkip": true
+    },
+    {
+      "id": "self",
+      "cat": "self",
+      "title": "Autodeclaração",
+      "statement": "Independentemente de suas respostas anteriores, onde você se colocaria entre esquerda (1) e direita (10)?",
+      "src": "LAPOP 2019 · L1",
+      "pol": null,
+      "options": [
+        "1",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6",
+        "7",
+        "8",
+        "9",
+        "10"
+      ],
+      "national": null,
+      "allowSkip": true
+    }
+  ]
+};
+const Q=DATA.questions;
+const $=id=>document.getElementById(id);
+const $show=(id)=>{for(const k of ['intro','survey','results','admin','method']) $(k).classList.toggle('hidden',k!==id);window.scrollTo({top:0,behavior:'instant'});};
+const htmlEscape=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+let index=0, answers={}, currentSession='', remoteEnabled=false, done=false, resultData=null, adminSecret='', adminSessions=[], dashboardData=null;
+const labelCategory={economic:'Economia e trabalho',cultural:'Costumes, gênero e direitos',other:'Outros temas políticos',self:'Autodeclaração'};
+$('consent').addEventListener('change',e=>$('start').disabled=!e.target.checked);
+$('start').onclick=()=>{index=0;answers={};done=false;$show('survey');renderQuestion();};
+$('methodOpen').onclick=()=>$show('method');$('methodClose').onclick=()=>$show('intro');
+$('adminOpen').onclick=()=>$show('admin');$('goAdmin').onclick=()=>$show('admin');$('adminExit').onclick=()=>{$('adminKey').value='';adminSecret='';$('adminContent').classList.add('hidden');$('adminLogin').classList.remove('hidden');$show('intro');};
+$('back').onclick=()=>{if(index===0){$show('intro');return;}index--;renderQuestion()};
+$('next').onclick=()=>{if(index<Q.length-1){index++;renderQuestion()}else finish()};
+$('skip').onclick=()=>{answers[Q[index].id]=null;step();};
+function step(){if(index<Q.length-1){index++;renderQuestion()}else finish()}
+function renderQuestion(){const q=Q[index];$('category').textContent=labelCategory[q.cat];$('progressText').textContent=`${index+1} de ${Q.length}`;$('progressFill').style.width=`${100*(index+1)/Q.length}%`;$('questionTitle').textContent=q.title;$('questionText').textContent=q.statement;$('source').textContent=`Origem: ${q.src}. Atenção: a formulação e/ou a escala podem ter sido adaptadas.`;$('back').textContent=index===0?'← Início':'← Voltar';$('next').textContent=index===Q.length-1?'Ver meu resultado →':'Próxima →';const choices=$('choices');choices.innerHTML='';choices.className='choices'+(q.options.length===2?' two':q.options.length===10?' ten':'');const v=answers[q.id];q.options.forEach((option,i)=>{let e=document.createElement('label');e.className='choice';e.innerHTML=`<input name="q" type="radio" value="${i}" ${v===i?'checked':''}><span>${htmlEscape(option)}</span>`;e.querySelector('input').addEventListener('change',()=>answers[q.id]=i);choices.append(e)});$('scalelabels').innerHTML=q.cat==='self'?'<span>Esquerda</span><span>Direita</span>':q.options.length===2?'<span>Não</span><span>Sim</span>':'<span>Discordo totalmente</span><span>Concordo totalmente</span>';}
+function compute(answers){function axis(cat,min){const items=Q.filter(q=>q.cat===cat), vals=items.flatMap(q=>{let a=answers[q.id];return Number.isInteger(a)?[(a-3)/3*q.pol]:[]});return {count:vals.length,value:vals.length>=min?vals.reduce((a,b)=>a+b,0)/vals.length:null}}const econ=axis('economic',5),cult=axis('cultural',4);return {econ,cult,valid:econ.value!==null&&cult.value!==null};}
+function reading(result){if(!result.valid)return'Não há respostas suficientes para calcular o quadrante. Seu PDF ainda pode apresentar as opiniões respondidas.';const {econ,cult}=result;let e=econ.value<-.18?'maior ênfase na redistribuição e atuação do Estado':econ.value>.18?'maior ênfase em soluções de mercado':'posições econômicas intermediárias ou variadas';let c=cult.value<-.18?'posições relativamente mais conservadoras nos temas selecionados':cult.value>.18?'posições relativamente mais progressistas nos temas selecionados':'posições socioculturais intermediárias ou variadas';return`Suas respostas indicaram ${e} e ${c}. Essa classificação depende somente das perguntas e do método desta atividade.`;}
+function mapSvg(point,distribution){const w=620,h=416,left=80,top=35,dim=300;const x=v=>left+(v+1)*dim/2,y=v=>top+(1-v)*dim/2;let circles='';if(distribution){distribution.forEach(o=>{const n=Number(o.count)||0;if(n)circles+=`<circle cx="${x(-.8+o.bx*.4)}" cy="${y(-.8+o.by*.4)}" r="${Math.min(29,8+Math.sqrt(n)*5)}" fill="#197e89" opacity=".6"><title>${n} resposta(s) nesta célula</title></circle>`});}if(point&&point.valid){circles+=`<circle cx="${x(point.econ.value)}" cy="${y(point.cult.value)}" r="9" fill="#e18639" stroke="white" stroke-width="3"/>`;}return `<svg viewBox="0 0 ${w} ${h}" role="img" aria-label="Quadrante com dois eixos, econômico e sociocultural"><rect x="${left}" y="${top}" width="${dim}" height="${dim}" fill="#f5fafb" stroke="#b1c6d0"/><line x1="${x(0)}" x2="${x(0)}" y1="${top}" y2="${top+dim}" stroke="#7599a5" stroke-dasharray="5 6"/><line x1="${left}" x2="${left+dim}" y1="${y(0)}" y2="${y(0)}" stroke="#7599a5" stroke-dasharray="5 6"/>${circles}<g font-family="system-ui" fill="#203b4b" font-size="15"><text x="230" y="20" text-anchor="middle">Mais progressista</text><text x="230" y="363" text-anchor="middle">Mais conservador</text><text x="55" y="384" text-anchor="middle">Redistributivo</text><text x="385" y="384" text-anchor="middle">Pró-mercado</text><text x="412" y="115" font-size="12">Cada ponto resume</text><text x="412" y="132" font-size="12">as respostas dadas</text><text x="412" y="149" font-size="12">ao instrumento.</text><text x="412" y="185" font-size="12">O centro (0,0)</text><text x="412" y="202" font-size="12">é referência</text><text x="412" y="219" font-size="12">matemática.</text></g></svg>`}
+async function finish(){resultData=compute(answers);$('personalChart').innerHTML=mapSvg(resultData);$('resultTag').textContent=resultData.valid?'Quadrante calculado':'Respostas insuficientes';$('scoretext').innerHTML=`<p>${htmlEscape(reading(resultData))}</p><div class="grid2"><div class="mini"><b>${resultData.econ.value===null?'—':resultData.econ.value.toFixed(2)}</b><br>Índice econômico · ${resultData.econ.count}/7 válidas</div><div class="mini"><b>${resultData.cult.value===null?'—':resultData.cult.value.toFixed(2)}</b><br>Índice sociocultural · ${resultData.cult.count}/5 válidas</div></div>`;$('myAnswers').innerHTML=Q.map(q=>{const a=answers[q.id],v=Number.isInteger(a)?q.options[a]:'Sem resposta';return `<div class="group"><b>${htmlEscape(q.title)}</b><div class="tiny">${htmlEscape(v)}</div></div>`}).join('');$show('results');if(!done&&API_URL&&currentSession&&remoteEnabled&&!localStorage.getItem('socio_submitted_'+currentSession)){try{const res=await api('/submit',{method:'POST',body:JSON.stringify({session:currentSession,answers})});if(res.ok){done=true;localStorage.setItem('socio_submitted_'+currentSession,'1');$('pdfMessage').textContent='Participação anônima incluída nas contagens da turma. O PDF não foi enviado ao professor.'}else $('pdfMessage').textContent='Seu resultado pessoal foi calculado; o envio coletivo não foi concluído.'}catch(e){$('pdfMessage').textContent='Sem conexão com o servidor. Seu resultado pessoal continua disponível neste aparelho.'}}else {$('pdfMessage').textContent='Prévia local: nenhuma resposta foi enviada ao servidor.'}}
+$('restart').onclick=()=>{answers={};$show('intro');};
+function wrapText(ctx,txt,x,y,maxWidth,lh){const words=txt.split(/\s+/);let line='';for(const word of words){const trial=(line?line+' ':'')+word;if(ctx.measureText(trial).width>maxWidth&&line){ctx.fillText(line,x,y);line=word;y+=lh}else line=trial}if(line){ctx.fillText(line,x,y);y+=lh}return y}
+function produceCanvas(){const canv=document.createElement('canvas');canv.width=1100;canv.height=1510;const c=canv.getContext('2d');c.fillStyle='#fff';c.fillRect(0,0,1100,1510);c.fillStyle='#12314a';c.fillRect(0,0,1100,135);c.fillStyle='#fff';c.font='bold 44px sans-serif';c.fillText('Mapa de Ideias',70,73);c.font='22px sans-serif';c.fillText('SOCIOSOFIA · RESULTADO PESSOAL',70,110);c.fillStyle='#143248';c.font='bold 26px sans-serif';c.fillText('Sua posição nas questões selecionadas',70,195);c.font='19px sans-serif';let yy=wrapText(c,reading(resultData),70,234,955,29);const L=145,T=yy+48,S=590;c.fillStyle='#f2f8f9';c.fillRect(L,T,S,S);c.strokeStyle='#b9cdd5';c.strokeRect(L,T,S,S);c.setLineDash([7,8]);c.strokeStyle='#7d9eaa';c.beginPath();c.moveTo(L+S/2,T);c.lineTo(L+S/2,T+S);c.moveTo(L,T+S/2);c.lineTo(L+S,T+S/2);c.stroke();c.setLineDash([]);if(resultData.valid){c.fillStyle='#087889';c.beginPath();c.arc(Math.max(L+18,Math.min(L+S-18,L+(resultData.econ.value+1)*S/2)),Math.max(T+18,Math.min(T+S-18,T+(1-resultData.cult.value)*S/2)),16,0,Math.PI*2);c.fill();}c.fillStyle='#203b4b';c.font='19px sans-serif';c.fillText('Mais progressista',L+205,T-14);c.fillText('Mais conservador',L+197,T+S+30);c.fillText('Redistribuição',L-10,T+S+64);c.fillText('Pró-mercado',L+S-105,T+S+64);let summaryY=T+S+140;c.font='bold 22px sans-serif';c.fillText(`Economia: ${resultData.econ.value===null?'não calculado':resultData.econ.value.toFixed(2)}  |  Costumes: ${resultData.cult.value===null?'não calculado':resultData.cult.value.toFixed(2)}`,70,summaryY);c.font='19px sans-serif';c.fillText('Perguntas respondidas: '+Object.values(answers).filter(Number.isInteger).length+' de 24',70,summaryY+45);c.font='18px sans-serif';c.fillStyle='#516576';let foot=summaryY+110;foot=wrapText(c,'Uso pessoal. O PDF foi gerado no aparelho, não foi transmitido ao professor e não contém identificação. A posição é uma síntese didática, não diagnóstico de identidade política.',70,foot,950,27);foot+=19;wrapText(c,'Itens de LAPOP, Datafolha, Ipsos e DataSenado, com adaptações. Metodologia experimental do Sociosofia. Sem validação psicométrica.',70,foot,950,27);return canv}
+// PDF auto-contido: uma imagem JPEG A4 encapsulada num PDF de uma página.
+function answersCanvas(){const c=document.createElement('canvas');c.width=1100;c.height=1510;let ctx=c.getContext('2d');ctx.fillStyle='#fff';ctx.fillRect(0,0,c.width,c.height);ctx.fillStyle='#12314a';ctx.fillRect(0,0,1100,128);ctx.fillStyle='#fff';ctx.font='bold 39px sans-serif';ctx.fillText('Minhas respostas',66,77);ctx.fillStyle='#1c3649';ctx.font='21px sans-serif';ctx.fillText('Registro pessoal das 24 questões',66,185);for(let i=0;i<Q.length;i++){const q=Q[i],col=Math.floor(i/12),row=i%12,x=65+col*510,y=252+row*94;ctx.fillStyle='#145568';ctx.font='bold 19px sans-serif';ctx.fillText(`${i+1}. ${q.title}`,x,y);ctx.fillStyle='#455b6d';ctx.font='19px sans-serif';const option=answers[q.id];const label=Number.isInteger(option)?(q.options.length===7?`${option+1} / 7 — ${option<3?'Discordância':option===3?'Intermediário':'Concordância'}`:q.options[option]):'Prefiro não responder';wrapText(ctx,label,x,y+30,440,22);ctx.strokeStyle='#e5ecef';ctx.beginPath();ctx.moveTo(x,y+48);ctx.lineTo(x+445,y+48);ctx.stroke()}ctx.fillStyle='#647789';ctx.font='18px sans-serif';wrapText(ctx,'O formulário contém enunciados e escalas adaptados de pesquisas publicadas. Este documento foi criado no próprio aparelho; envie somente se desejar.',66,1455,970,25);return c}
+async function pdfBlob(){
+  const canvases=[produceCanvas(),answersCanvas()];
+  const jpegs=[];for(const canvas of canvases){const jpeg=await new Promise((resolve,reject)=>canvas.toBlob(b=>b?resolve(b):reject(new Error('Falha ao gerar imagem')),'image/jpeg',.87));jpegs.push(new Uint8Array(await jpeg.arrayBuffer()));}
+  const enc=new TextEncoder(),chunks=[],offsets=[0];let pos=0;const push=data=>{const bytes=typeof data==='string'?enc.encode(data):data;chunks.push(bytes);pos+=bytes.length};
+  const obj=(n,body)=>{offsets[n]=pos;push(`${n} 0 obj\n${body}\nendobj\n`)};
+  push('%PDF-1.4\n');obj(1,'<< /Type /Catalog /Pages 2 0 R >>');obj(2,'<< /Type /Pages /Kids [3 0 R 6 0 R] /Count 2 >>');
+  for(let i=0;i<2;i++){const pageId=i===0?3:6,contentId=i===0?4:7,imageId=i===0?5:8;
+    obj(pageId,`<< /Type /Page /Parent 2 0 R /MediaBox [0 0 595.28 841.89] /Resources << /XObject << /Im1 ${imageId} 0 R >> >> /Contents ${contentId} 0 R >>`);
+    const stream='q 595.28 0 0 841.89 0 0 cm /Im1 Do Q';obj(contentId,`<< /Length ${stream.length} >>\nstream\n${stream}\nendstream`);
+    offsets[imageId]=pos;push(`${imageId} 0 obj\n<< /Type /XObject /Subtype /Image /Width 1100 /Height 1510 /ColorSpace /DeviceRGB /BitsPerComponent 8 /Filter /DCTDecode /Length ${jpegs[i].length} >>\nstream\n`);push(jpegs[i]);push('\nendstream\nendobj\n');
+  }
+  const start=pos;push('xref\n0 9\n0000000000 65535 f \n');for(let i=1;i<=8;i++)push(String(offsets[i]).padStart(10,'0')+' 00000 n \n');push(`trailer\n<< /Root 1 0 R /Size 9 >>\nstartxref\n${start}\n%%EOF`);return new Blob(chunks,{type:'application/pdf'});
+}
+async function exportPdf(share){try{const blob=await pdfBlob();const name='sociosofia-mapa-de-ideias.pdf';const file=new File([blob],name,{type:'application/pdf'});if(share&&navigator.canShare&&navigator.canShare({files:[file]})){await navigator.share({files:[file],title:'Meu Mapa de Ideias — Sociosofia'});return;}const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=name;document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),3000);$('pdfMessage').textContent=share?'Este aparelho não oferece compartilhamento direto de PDF. O arquivo foi salvo para que você possa enviá-lo.':'PDF salvo neste aparelho.'}catch(e){$('pdfMessage').textContent='Não foi possível criar o PDF: '+e.message}}
+$('savePdf').onclick=()=>exportPdf(false);$('sharePdf').onclick=()=>exportPdf(true);
+async function api(path,opts={}){if(!API_URL)throw new Error('Configure o endereço do Worker em API_URL.');let h={'Content-Type':'application/json'};if(adminSecret)h['X-Admin-Key']=adminSecret;const response=await fetch(API_URL+path,{...opts,headers:{...h,...(opts.headers||{})},cache:'no-store'});let data=await response.json().catch(()=>({error:'Resposta inválida do servidor'}));if(!response.ok)throw new Error(data.error||'Falha no servidor');return data;}
+async function refreshSessions(){if(!API_URL){$('sessionSelect').innerHTML='<option value="">Prévia local — sem envio coletivo</option>';return}$('serverStatus').textContent='Consultando API';try{const data=await api('/sessions');const open=data.sessions.filter(s=>s.is_open);$('sessionSelect').innerHTML='<option value="">Somente prévia local</option>'+open.map(s=>`<option value="${htmlEscape(s.code)}">${htmlEscape(s.label)}</option>`).join('');$('serverStatus').textContent='API conectada';$('sessionSelect').onchange=()=>{currentSession=$('sessionSelect').value;remoteEnabled=!!currentSession;if(currentSession&&localStorage.getItem('socio_submitted_'+currentSession))$('serverStatus').textContent='Já participou neste aparelho';else $('serverStatus').textContent=currentSession?'Envio anônimo habilitado':'Prévia local';};}catch(e){$('serverStatus').textContent='Sem conexão (prévia local)';$('sessionSelect').innerHTML='<option value="">Prévia local — servidor indisponível</option>';}}
+refreshSessions();
+$('loginBtn').onclick=async()=>{adminSecret=$('adminKey').value.trim();if(!adminSecret)return;await loadAdmin()};
+async function loadAdmin(){try{const data=await api('/admin/sessions');adminSessions=data.sessions;$('adminLogin').classList.add('hidden');$('adminContent').classList.remove('hidden');$('adminError').textContent='';$('sessionsList').innerHTML=adminSessions.map(s=>`<div class="adminline"><div class="toprow"><div><b>${htmlEscape(s.label)}</b><div class="tiny">Código: ${htmlEscape(s.code)} · ${s.submissions} envios · ${s.is_open?'Aberta':'Fechada'}</div></div><div class="row"><button class="button outline toggle" data-code="${htmlEscape(s.code)}" data-open="${s.is_open?'0':'1'}">${s.is_open?'Fechar':'Abrir'} recebimento</button><button class="button secondary view" data-code="${htmlEscape(s.code)}">Ver resultados</button></div></div></div>`).join('');document.querySelectorAll('.toggle').forEach(b=>b.onclick=async()=>{await api('/admin/session/'+encodeURIComponent(b.dataset.code),{method:'PATCH',body:JSON.stringify({is_open:b.dataset.open==='1'})});await loadAdmin();});document.querySelectorAll('.view').forEach(b=>b.onclick=()=>loadDashboard(b.dataset.code));}catch(e){adminSecret='';$('adminError').textContent=e.message;$('adminLogin').classList.remove('hidden');$('adminContent').classList.add('hidden')}}
+$('createSession').onclick=async()=>{try{await api('/admin/session',{method:'POST',body:JSON.stringify({label:$('newSessionName').value.trim(),code:$('newSessionCode').value.trim().toLowerCase()})});$('newSessionName').value='';$('newSessionCode').value='';await loadAdmin()}catch(e){$('adminError').textContent=e.message}};
+
+// Pontos são desenhados a partir de CONTAGENS em faixas de um histograma 9×9.
+// Cada marca representa uma participação, mas sua coordenada exata NÃO é armazenada.
+let mapMode='dots';
+const percent=n=>(100*n).toFixed(1).replace('.',',')+'%';
+const scoreFmt=n=>Number.isFinite(n)?(n>=0?'+':'')+n.toFixed(2).replace('.',','):'—';
+function quadrantSVG(d,mode){
+  const bins=d.bin_count||9, left=66,top=43,S=364, n=d.valid_points||0;
+  const X=v=>left+(v+1)*S/2,Y=v=>top+(1-v)*S/2;
+  const center=(b)=>-1+2*(b+.5)/bins;
+  const mx=d.moments?.n?d.moments.sum_x/d.moments.n:0,my=d.moments?.n?d.moments.sum_y/d.moments.n:0;
+  let cells='';
+  const grid=(d.cells||[]).filter(c=>c.count>0), max=Math.max(1,...grid.map(c=>c.count));
+  if(mode==='density'){
+    const blur=grid.map(c=>{const px=X(center(c.bx)),py=Y(center(c.by));const r=13+22*Math.sqrt(c.count/max);return `<circle cx="${px}" cy="${py}" r="${r}" fill="#087f8b" opacity="${.15+.48*Math.sqrt(c.count/max)}"/>`}).join('');
+    cells=`<g filter="url(#cloudBlur)">${blur}</g>`;
+  }else{
+    // Espalhamento determinístico (não aleatório a cada exibição), contido na faixa de origem.
+    for(const c of grid){
+      const px=X(center(c.bx)),py=Y(center(c.by)),a=S/bins;
+      for(let i=0;i<c.count;i++){
+        const angle=i*2.399963229728653+(c.bx*13+c.by*19)*.73;
+        const r=Math.min(a*.39,5.3*Math.sqrt(i));
+        const ux=px+Math.cos(angle)*r,uy=py+Math.sin(angle)*r;
+        cells+=`<circle cx="${ux.toFixed(2)}" cy="${uy.toFixed(2)}" r="4.6" fill="#087f8b" fill-opacity=".52" stroke="#fff" stroke-opacity=".52" stroke-width=".7"/>`;
+      }
+    }
+  }
+  const avg=n?`<path d="M ${X(mx)} ${Y(my)-11} l 11 11 -11 11 -11 -11 Z" fill="#173b50" stroke="#fff" stroke-width="2"/><text x="${X(mx)+13}" y="${Y(my)-13}" font-size="12" font-weight="700" fill="#173b50">Média</text>`:'';
+  return `<svg viewBox="0 0 595 476" role="img" aria-label="Distribuição coletiva ${mode==='dots'?'com um ponto por participação':'em manchas de densidade'}, a partir de faixas agregadas"><defs><clipPath id="socioClip"><rect x="${left}" y="${top}" width="${S}" height="${S}"/></clipPath><filter id="cloudBlur" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="15"/></filter></defs><rect x="${left}" y="${top}" width="${S}" height="${S}" fill="#f2f8f9" stroke="#b7ccd4"/><rect x="${left}" y="${top}" width="${S/2}" height="${S/2}" fill="#087f8b" opacity=".027"/><rect x="${left+S/2}" y="${top+S/2}" width="${S/2}" height="${S/2}" fill="#087f8b" opacity=".027"/><g clip-path="url(#socioClip)">${cells}</g><line x1="${X(0)}" x2="${X(0)}" y1="${top}" y2="${top+S}" stroke="#7797a1" stroke-dasharray="5 6"/><line x1="${left}" x2="${left+S}" y1="${Y(0)}" y2="${Y(0)}" stroke="#7797a1" stroke-dasharray="5 6"/>${avg}<g fill="#274658" font-size="13" font-family="system-ui"><text x="${left+S/2}" y="24" text-anchor="middle">Mais progressista</text><text x="${left+S/2}" y="430" text-anchor="middle">Mais conservador</text><text x="${left}" y="450" text-anchor="start">Redistribuição</text><text x="${left+S}" y="450" text-anchor="end">Pró-mercado</text><text x="450" y="96" font-size="12">● Participações</text><text x="450" y="117" font-size="12">◆ Média da sala</text><text x="450" y="154" font-size="11">Eixos de −1 a +1.</text><text x="450" y="172" font-size="11">Posição visual</text><text x="450" y="190" font-size="11">por faixa agregada.</text></g></svg>`;
+}
+function showMap(d){
+  const n=d.valid_points||0,allowDots=n>=20;
+  if(!allowDots)mapMode='density';
+  $('viewDots').disabled=!allowDots;
+  $('viewDots').setAttribute('aria-pressed',String(mapMode==='dots'));
+  $('viewHeat').setAttribute('aria-pressed',String(mapMode==='density'));
+  const covered=(d.cells||[]).reduce((s,c)=>s+c.count,0);
+  if(n<5){$('aggregateChart').innerHTML='<p class="muted">Ainda não há resultados suficientes para um mapa coletivo.</p>';}
+  else $('aggregateChart').innerHTML=quadrantSVG(d,mapMode);
+  $('mapPrivacy').textContent=allowDots
+    ?`● Cada bolinha representa uma participação dentro de uma faixa do mapa; o deslocamento é apenas visual. ◆ O losango indica a média calculada. ${covered} posições válidas. Sem nomes, coordenadas exatas ou detalhes individuais.`
+    :`Com menos de 20 posições válidas, o modo de bolinhas fica indisponível por privacidade. O mapa mostra somente uma visão agregada; ninguém é identificado.`;
+}
+function groupedOptions(q,rows){
+  let counts=q.options.map((_,i)=>rows.filter(r=>r.option_index===i).reduce((sum,r)=>sum+r.count,0));
+  if(counts.length===7)return [{name:'Discordância (1 a 3)',n:counts.slice(0,3).reduce((a,b)=>a+b,0)},{name:'Intermediário (4)',n:counts[3]},{name:'Concordância (5 a 7)',n:counts.slice(4).reduce((a,b)=>a+b,0)}];
+  if(counts.length===10)return [{name:'Esquerda (1 a 3)',n:counts.slice(0,3).reduce((a,b)=>a+b,0)},{name:'Centro da escala (4 a 7)',n:counts.slice(3,7).reduce((a,b)=>a+b,0)},{name:'Direita (8 a 10)',n:counts.slice(7).reduce((a,b)=>a+b,0)}];
+  return counts.map((n,i)=>({name:q.options[i],n}));
+}
+function topicBars(q,d){
+  const rows=d.options.filter(r=>r.question_id===q.id), groups=groupedOptions(q,rows),total=groups.reduce((a,b)=>a+b.n,0);
+  const missing=Math.max(0,d.session.submissions-total);
+  const bars=groups.map((g,i)=>`<div class="topicBarRow"><span>${htmlEscape(g.name)}</span><div class="bar" style="height:16px"><div style="width:${total?g.n/total*100:0}%;background:${['#227c8c','#91a3ad','#c7855d'][i%3]}"></div></div><b style="text-align:right">${g.n} · ${total?percent(g.n/total):'—'}</b></div>`).join('');
+  return `<p class="topicHead">${htmlEscape(q.title)}</p><p class="topicText">${htmlEscape(q.statement)}</p><p class="tiny">${htmlEscape(q.src)} · ${total} respostas válidas${missing?', '+missing+' sem resposta':''}</p><div class="topicBars">${bars}</div>${q.national?'<p class="tiny">Comparação nacional disponível apenas mediante verificação de formulação e alternativas idênticas.</p>':''}`;
+}
+function renderTopic(){
+  if(!dashboardData)return;
+  const q=Q.find(q=>q.id===$('topicSelect').value)||Q[0];
+  $('topicDetail').innerHTML=topicBars(q,dashboardData);
+}
+function renderDashboardData(d){
+  dashboardData=d;mapMode='dots';
+  $('dashboard').classList.remove('hidden');
+  $('dashTitle').textContent=d.session.label;
+  const n=d.moments?.n||0;
+  const mx=n?d.moments.sum_x/n:null,my=n?d.moments.sum_y/n:null;
+  $('dashStats').innerHTML=`<div class="mini"><b>${d.session.submissions}</b><br>participações</div><div class="mini"><b>${d.valid_points}</b><br>mapas válidos</div><div class="mini"><b>${scoreFmt(mx)}</b><br>média econômica</div><div class="mini"><b>${scoreFmt(my)}</b><br>média sociocultural</div>`;
+  showMap(d);
+  $('topicSelect').innerHTML=Q.map(q=>`<option value="${htmlEscape(q.id)}">${htmlEscape(q.title)}</option>`).join('');
+  $('topicSelect').value='t2';renderTopic();
+  $('aggregateBars').innerHTML=Q.map(q=>`<details class="group"><summary>${htmlEscape(q.title)}</summary>${topicBars(q,d)}</details>`).join('');
+}
+$('viewDots').onclick=()=>{mapMode='dots';if(dashboardData)showMap(dashboardData)};
+$('viewHeat').onclick=()=>{mapMode='density';if(dashboardData)showMap(dashboardData)};
+$('topicSelect').onchange=renderTopic;
+async function loadDashboard(code){
+  try{
+    const d=await api('/admin/results/'+encodeURIComponent(code));
+    renderDashboardData(d);
+    $('dashboard').scrollIntoView({behavior:'smooth'});
+  }catch(e){$('adminError').textContent=e.message}
+}
+$('downloadCsv').onclick=()=>{if(!dashboardData)return;const rows=[['questao','alternativa','contagem'],...dashboardData.options.map(r=>[r.question_id,r.option_index,r.count])];const esc=t=>'"'+String(t).replaceAll('"','""')+'"';const csv='\ufeff'+rows.map(r=>r.map(esc).join(';')).join('\r\n');let a=document.createElement('a'),u=URL.createObjectURL(new Blob([csv],{type:'text/csv;charset=utf-8'}));a.href=u;a.download='sociosofia-resultados-agregados.csv';a.click();setTimeout(()=>URL.revokeObjectURL(u),3000)};
+</script></body></html>
