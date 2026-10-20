@@ -1,0 +1,5 @@
+-- Sociosofia Mapa de Ideias — banco isolado e sem fichas individuais
+CREATE TABLE IF NOT EXISTS sessions (code TEXT PRIMARY KEY,label TEXT NOT NULL,is_open INTEGER NOT NULL DEFAULT 0 CHECK(is_open IN (0,1)),submissions INTEGER NOT NULL DEFAULT 0,created_at TEXT NOT NULL DEFAULT CURRENT_TIMESTAMP);
+CREATE TABLE IF NOT EXISTS option_counts (session_code TEXT NOT NULL REFERENCES sessions(code),question_id TEXT NOT NULL,option_index INTEGER NOT NULL,count INTEGER NOT NULL DEFAULT 0,PRIMARY KEY(session_code,question_id,option_index));
+CREATE TABLE IF NOT EXISTS quadrant_cells (session_code TEXT NOT NULL REFERENCES sessions(code),bucket_x INTEGER NOT NULL CHECK(bucket_x BETWEEN 0 AND 8),bucket_y INTEGER NOT NULL CHECK(bucket_y BETWEEN 0 AND 8),count INTEGER NOT NULL DEFAULT 0,PRIMARY KEY(session_code,bucket_x,bucket_y));
+CREATE TABLE IF NOT EXISTS quadrant_moments (session_code TEXT PRIMARY KEY REFERENCES sessions(code),n INTEGER NOT NULL DEFAULT 0,sum_x REAL NOT NULL DEFAULT 0,sum_y REAL NOT NULL DEFAULT 0,sum_x2 REAL NOT NULL DEFAULT 0,sum_y2 REAL NOT NULL DEFAULT 0);
