@@ -1,4 +1,4 @@
-# Sociosofia — Mapa de Ideias v2.0
+# Sociosofia — Mapa de Ideias v2.1
 
 Aplicativo para trabalho didático com opiniões políticas, sem identificação nominal, em sessões separadas por turma.
 
@@ -28,5 +28,12 @@ Aplicativo para trabalho didático com opiniões políticas, sem identificação
 - As questões e escalas de pesquisa foram adaptadas; o indicador é didático, não uma escala psicométrica validada.
 - Comparações nacionais requerem questões e populações compatíveis.
 
-## Status
-Front-end e Worker publicados em 20/10/2026. Banco criado e migração inicial aplicada. Sessões começam fechadas. Teste de saúde do Worker realizado; falta piloto ponta a ponta com sessão de teste e revisão final dos itens antes da coleta real.
+## Status em 20/10/2026 — preparar aplicação de 22/10
+
+- Front-end v2.1 publicado no GitHub Pages, com bloqueio de envio vazio pelo navegador, fallback de armazenamento local e controles de limpeza/exclusão condicionados à versão da API.
+- Código do Worker v2.1 no GitHub, com rejeição de formulários sem respostas temáticas e rotas autenticadas de limpeza/exclusão. **Deploy no Cloudflare ainda pendente.**
+- Não confundir publicação do código no GitHub com implantação efetiva na Cloudflare. Confirmar retorno `{"ok":true,"version":"2.1.0"}` em `/health` antes de usar limpar/excluir.
+- Teste local de navegador com respostas vazias e preenchidas aprovado; cenários extremos do quadrante validados. Não foi realizado piloto ponta a ponta na produção.
+- Antes da aula, fechar a sessão de teste anterior, testar uma turma fictícia e substituir a chave `ADMIN_KEY` inicial.
+- Depois de atualizar o Worker, verificar pelo menos: envio vazio rejeitado, envio preenchido contabilizado, fechamento da turma, limpeza de resultados e exclusão de sessão.
+
