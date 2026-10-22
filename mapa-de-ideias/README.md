@@ -1,4 +1,4 @@
-# Sociosofia — Mapa de Ideias v2.1
+# Sociosofia — Mapa de Ideias · Questionário v2 / API v2.2
 
 Aplicativo para trabalho didático com opiniões políticas, sem identificação nominal, em sessões separadas por turma.
 
@@ -28,12 +28,13 @@ Aplicativo para trabalho didático com opiniões políticas, sem identificação
 - As questões e escalas de pesquisa foram adaptadas; o indicador é didático, não uma escala psicométrica validada.
 - Comparações nacionais requerem questões e populações compatíveis.
 
-## Status em 20/10/2026 — preparar aplicação de 22/10
-
-- Front-end v2.1 publicado no GitHub Pages, com bloqueio de envio vazio pelo navegador, fallback de armazenamento local e controles de limpeza/exclusão condicionados à versão da API.
-- Código do Worker v2.1 no GitHub, com rejeição de formulários sem respostas temáticas e rotas autenticadas de limpeza/exclusão. **Deploy no Cloudflare ainda pendente.**
-- Não confundir publicação do código no GitHub com implantação efetiva na Cloudflare. Confirmar retorno `{"ok":true,"version":"2.1.0"}` em `/health` antes de usar limpar/excluir.
-- Teste local de navegador com respostas vazias e preenchidas aprovado; cenários extremos do quadrante validados. Não foi realizado piloto ponta a ponta na produção.
-- Antes da aula, fechar a sessão de teste anterior, testar uma turma fictícia e substituir a chave `ADMIN_KEY` inicial.
-- Depois de atualizar o Worker, verificar pelo menos: envio vazio rejeitado, envio preenchido contabilizado, fechamento da turma, limpeza de resultados e exclusão de sessão.
-
+## Situação em 22/10/2026
+- Questionário revisado: `/mapa-de-ideias/` — instrumento v2 equilibrado.
+- Questionário original arquivado: `/mapa-de-ideias/legado/` — instrumento v1.
+- API v2.2 implantada no Worker existente, mantendo o D1 `DB` e segredo `ADMIN_KEY`.
+- `instrument_version` distingue as sessões antigas (valor padrão 1) das novas (valor 2). Envio entre versões incompatíveis é rejeitado pelo Worker.
+- Novas sessões criadas na interface v2 nascem `instrument_version = 2` e fechadas. Não continuar o recolhimento de uma sessão v1 com questionário v2.
+- As 23 participações da sessão `sesi123` foram preservadas como versão 1.
+- A escala continua de 1 a 7, com 4 = nem concordo nem discordo; o aluno pode não responder a perguntas sensíveis.
+- Mudanças de redação: E2 e E4 inverteram direção para mercado; E6, S5 e T11 foram especificadas. A pontuação foi ajustada no frontend e no Worker para v2.
+- Para testar: criar sessão v2 de teste; enviar respostas; conferir contagens e médias; fechar e limpar. O teste da sintaxe do JavaScript foi realizado; não há confirmação de teste completo de submissão ponta a ponta na produção.
